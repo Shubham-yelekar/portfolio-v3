@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { generalSans, libreSerif } from "../../public/fonts/index";
 import "./globals.css";
+import Navbar from "./components/Navbar";
 
 export const metadata: Metadata = {
   title: "Portfolio v3",
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body
         className={`${generalSans.variable} ${libreSerif.variable} antialiased`}
       >
+        <Navbar />
         {children}
       </body>
     </html>
