@@ -25,24 +25,22 @@ export default function Home() {
           </h1>
         </div>
         <div className="flex flex-col gap-4">
-          <p className="text-paragraph max-w-lg text-sm md:text-base">
+          <p className="text-paragraph text-sm md:text-base">
             Specializing in creating user-friendly and visually compelling
             interfaces.
           </p>
-          <p className="text-paragraph max-w-lg text-sm md:text-base">
+          <p className="text-paragraph text-sm md:text-base">
             My work centers on delivering a seamless user experience, and I
             currently build professional applications at Artificial Reality. I
             love using React.js, Next.js, and Figma to bridge the gap between
             design and code.
           </p>
-          <p className="text-paragraph max-w-lg text-sm md:text-base">
+          <p className="text-paragraph text-sm md:text-base">
             I'm currently exploring the possibilities of Three.js and expanding
             my front-end expertise to build immersive and engaging experiences
             for the modern web.
           </p>
-          <p className="text-paragraph font-libre max-w-lg text-sm md:text-base">
-            ...
-          </p>
+          <p className="text-paragraph font-libre text-sm md:text-base">...</p>
         </div>
       </Container>
     </div>
