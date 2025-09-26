@@ -12,7 +12,6 @@ import { useControls, folder } from "leva";
 import vertexShader from "../../../public/Shaders/WavingFlag/flagVertex.glsl";
 import fragmentShader from "../../../public/Shaders/WavingFlag/flagFragment.glsl";
 
-
 const WavingFlagMaterial = shaderMaterial(
   {
     //Uniforms
@@ -30,7 +29,6 @@ extend({ WavingFlagMaterial });
 
 // Define the specific props (uniforms) for your material
 
-
 declare global {
   namespace TSX {
     interface IntrinsixElements {
@@ -46,19 +44,15 @@ function Scene() {
   // Load tectures
   const flagTexture = useTexture("/pictures/flag-india-2.jpg");
 
-
- 
-
   // Update the uniforms in animation
 
   useFrame((state, delta) => {
     if (materialRef.current) {
       materialRef.current.uTime += delta * 2;
       // Update uniforms from Leva controls
-        materialRef.current.uElevation = 0.3;
+      materialRef.current.uElevation = 0.3;
       materialRef.current.uFrequency.x = 16;
       materialRef.current.uFrequency.y = 8;
-   
     }
   });
 
@@ -71,11 +65,11 @@ function Scene() {
         position={[-4.5, 0.2, 8.0]}
         intensity={1.5}
       />
-    
+
       <mesh
         castShadow
         rotation={[-0.25, -0.18, 0.15]}
-        position={[-0.03, 0.0, 0.2]}
+        position={[-0.03, 0.02, 0.2]}
       >
         <planeGeometry args={[1.8, 1, 64, 64]} />
         <wavingFlagMaterial
@@ -91,18 +85,17 @@ function Scene() {
 
 const WavingFlag = () => {
   return (
-    <div className="absolute fade-mask -top-24 left-1/2 -z-1 h-110 w-200 -translate-x-1/2 bg-blue-400">
+    <div className="fade-mask absolute -top-20 left-1/2 -z-1 h-96 w-[900px] -translate-x-1/2 bg-blue-400">
       <Canvas
         shadows
-        camera={{ position: [-0.2, -0.2, 0.8], fov: 70 }}
+        camera={{ position: [-0.2, -0.3, 0.8], fov: 60 }}
         gl={{
           antialias: true,
           outputColorSpace: THREE.SRGBColorSpace,
           toneMapping: THREE.ACESFilmicToneMapping,
           toneMappingExposure: 1.1,
         }}
-        style={{ background: "#e5e5e5", height: "52vh" }}
-        
+        style={{ background: "#e5e5e5", height: "60vh" }}
       >
         <OrbitControls enableDamping />
         <Scene />
