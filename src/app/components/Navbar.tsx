@@ -3,19 +3,44 @@ import React, { useState } from "react";
 import Container from "./Container";
 import Link from "next/link";
 import Image from "next/image";
-import { hover, motion } from "motion/react";
+import {
+  easeInOut,
+  hover,
+  motion,
+  useMotionValueEvent,
+  useScroll,
+} from "motion/react";
 const Navbar = () => {
   const [hovered, setHovered] = useState<number | null>(null);
+  const { scrollY } = useScroll();
   const navLinks = [
     { title: "Home", url: "/" },
     { title: "Work", url: "/work" },
     { title: "Lab", url: "/lab" },
     { title: "Journal", url: "/journal" },
   ];
+  const [scrolled, setScrolled] = useState<boolean>(false);
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest > 20) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  });
 
   return (
-    <Container className="absolute top-4 left-1/2 z-10 -translate-x-1/2 rounded-full bg-white">
-      <nav className="flex items-center justify-between p-2">
+    <Container>
+      <motion.nav
+        animate={{
+          boxShadow: scrolled ? "var(--card-shadow-2)" : "none",
+          width: scrolled ? "50%" : "56%",
+        }}
+        transition={{
+          duration: 0.3,
+          ease: easeInOut,
+        }}
+        className="fixed top-2 left-1/2 z-100 flex -translate-x-1/2 items-center justify-between rounded-full bg-white p-2"
+      >
         <Image
           src="/pictures/cat.jpg"
           width={100}
@@ -35,14 +60,16 @@ const Navbar = () => {
               {hovered === idx && (
                 <motion.span
                   layoutId="hovered-span"
-                  className="absolute inset-0 -z-1 flex h-full w-full items-center justify-center rounded-full bg-neutral-100"
+                  className="absolute inset-0 -z-1 flex h-full w-full items-center justify-center rounded-full bg-neutral-200"
                 ></motion.span>
               )}
-              {links.title}
+              <span className="font-semibold text-neutral-600">
+                {links.title}
+              </span>
             </Link>
           ))}
         </div>
-      </nav>
+      </motion.nav>
     </Container>
   );
 };

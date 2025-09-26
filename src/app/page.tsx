@@ -1,5 +1,6 @@
 import Container from "./components/Container";
 import WavingFlag from "./components/WavingFlag";
+import BlankDiv from "./components/BlankDiv";
 
 export default function Home() {
   return (
@@ -42,6 +43,7 @@ export default function Home() {
           </p>
           <p className="text-paragraph font-libre text-sm md:text-base">...</p>
         </div>
+        <BlankDiv />
       </Container>
     </div>
   );
