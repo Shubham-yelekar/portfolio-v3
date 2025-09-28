@@ -14,7 +14,7 @@ const Navbar = () => {
   const [hovered, setHovered] = useState<number | null>(null);
   const { scrollY } = useScroll();
   const navLinks = [
-    { title: "Work", url: "/work" },
+    { title: "Projects", url: "/projects" },
     { title: "Notes", url: "/notes" },
     { title: "Lab", url: "/lab" },
   ];

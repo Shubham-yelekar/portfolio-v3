@@ -3,8 +3,8 @@ import { getPostBySlug } from "@/lib/mdx";
 import { MDXRemote } from "next-mdx-remote/rsc";
 
 // Import your custom components
-import { Callout } from "@/app/components/mdx/Callout";
-import Container from "@/app/components/Container";
+import { Callout } from "@/components/mdx/Callout";
+import Container from "@/components/ui/Container";
 
 // This object maps your component names to the actual components.
 const components = {

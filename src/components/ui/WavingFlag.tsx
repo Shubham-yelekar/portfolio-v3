@@ -6,7 +6,6 @@ import { useRef, useMemo } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, extend } from "@react-three/fiber";
 import { OrbitControls, shaderMaterial, useTexture } from "@react-three/drei";
-import { useControls, folder } from "leva";
 
 /// Shaders
 import vertexShader from "../../../public/Shaders/WavingFlag/flagVertex.glsl";

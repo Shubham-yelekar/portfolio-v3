@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getAllPostsMeta } from "@/lib/mdx";
-import Container from "../components/Container";
+import Container from "@/components/ui/Container";
 
 export default async function NotesPage() {
   const posts = getAllPostsMeta();
