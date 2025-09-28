@@ -27,7 +27,7 @@ type Uniforms = {
 const DEFAULT_UNIFORMS: Uniforms = {
   uTime: 0,
   uElevation: 0.3,
-  uFrequency: new THREE.Vector2(16 / 8),
+  uFrequency: new THREE.Vector2(16, 8),
   uTexture: new THREE.Texture(),
   uLightDirection: new THREE.Vector3(-2.8, 0.17, 8.0),
 };
@@ -97,7 +97,7 @@ function Scene() {
 const WavingFlag: FC = () => {
   const shaderRef = useRef<THREE.ShaderMaterial & Uniforms>(null!);
   return (
-    <div className="fade-mask absolute -top-14 left-1/2 -z-1 h-96 w-[900px] -translate-x-1/2 bg-blue-400">
+    <div className="fade-mask absolute -top-14 left-1/2 -z-1 h-[50vh] w-full -translate-x-1/2 bg-blue-400 md:h-96 md:w-[900px]">
       <Canvas
         shadows
         camera={{ position: [-0.2, -0.3, 0.8], fov: 60 }}

@@ -7,7 +7,9 @@ interface containerTypes {
 
 const Container = ({ children, className }: containerTypes) => {
   return (
-    <div className={cn("mx-auto h-auto w-full max-w-xl", className)}>
+    <div
+      className={cn("mx-auto h-auto w-full max-w-2xl p-2 md:p-4", className)}
+    >
       {children}
     </div>
   );

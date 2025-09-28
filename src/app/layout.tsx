@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-neutral-200">
+    <html lang="en" className="relative bg-neutral-200">
       <body
         className={`${generalSans.variable} ${libreSerif.variable} antialiased`}
       >
