@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import cn from "@/app/lib/cn";
 
 const buttonVariants = cva(
-  "inline-flex cursor-pointer items-center justify-center rounded-full gap-2 text-sm font-medium",
+  "relative flex cursor-pointer items-center justify-center rounded-full transition-all  gap-2 text-sm font-medium hover:opacity-90 duration-300 hover:shadow-[--card-shadow-2] ease-in-out group",
   {
     variants: {
       variant: {

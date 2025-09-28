@@ -3,7 +3,10 @@ import WavingFlag from "./components/WavingFlag";
 import BlankDiv from "./components/BlankDiv";
 import Button from "./components/Button";
 
-import { BsTwitterX } from "react-icons/bs";
+import { BsTwitterX, BsGithub, BsLinkedin } from "react-icons/bs";
+
+import Link from "next/link";
+import Breaker from "./components/Breaker";
 
 export default function Home() {
   return (
@@ -28,11 +31,28 @@ export default function Home() {
           </h1>
         </div>
         <div>
-          <div>
-            <Button variant={"primary"}>
-              <BsTwitterX />
-              <span className="w-full">Twitter </span>
-            </Button>
+          <div className="flex gap-3">
+            <Link href={"https://x.com/shubu_y"} target="_blank">
+              <Button variant={"primary"}>
+                <BsTwitterX />
+                <span className="w-full">Twitter/X</span>
+              </Button>
+            </Link>
+            <Link href={"https://github.com/Shubham-yelekar"} target="_blank">
+              <Button variant={"primary"}>
+                <BsGithub />
+                <span className="w-full">Github</span>
+              </Button>
+            </Link>
+            <Link
+              href={"https://www.linkedin.com/in/shubhamyelekar/"}
+              target="_blank"
+            >
+              <Button variant={"primary"}>
+                <BsLinkedin />
+                <span className="w-full">Linkedin</span>
+              </Button>
+            </Link>
           </div>
         </div>
         <div className="flex flex-col gap-4">
@@ -53,6 +73,7 @@ export default function Home() {
           </p>
           <p className="text-paragraph font-libre text-sm md:text-base">...</p>
         </div>
+        {/* <Breaker /> */}
         <BlankDiv />
       </Container>
     </div>
