@@ -85,7 +85,7 @@ function Scene() {
 
 const WavingFlag = () => {
   return (
-    <div className="fade-mask absolute -top-20 left-1/2 -z-1 h-96 w-[900px] -translate-x-1/2 bg-blue-400">
+    <div className="fade-mask absolute -top-14 left-1/2 -z-1 h-96 w-[900px] -translate-x-1/2 bg-blue-400">
       <Canvas
         shadows
         camera={{ position: [-0.2, -0.3, 0.8], fov: 60 }}

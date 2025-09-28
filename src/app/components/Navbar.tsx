@@ -14,10 +14,9 @@ const Navbar = () => {
   const [hovered, setHovered] = useState<number | null>(null);
   const { scrollY } = useScroll();
   const navLinks = [
-    { title: "Home", url: "/" },
     { title: "Work", url: "/work" },
+    { title: "Notes", url: "/notes" },
     { title: "Lab", url: "/lab" },
-    { title: "Journal", url: "/journal" },
   ];
   const [scrolled, setScrolled] = useState<boolean>(false);
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -41,13 +40,15 @@ const Navbar = () => {
         }}
         className="fixed top-2 left-1/2 z-100 flex -translate-x-1/2 items-center justify-between rounded-full bg-white p-2"
       >
-        <Image
-          src="/pictures/cat.jpg"
-          width={100}
-          height={100}
-          className="w-10 rounded-full"
-          alt="me"
-        />
+        <Link href={"/"}>
+          <Image
+            src="/pictures/cat.jpg"
+            width={100}
+            height={100}
+            className="w-10 rounded-full"
+            alt="me"
+          />
+        </Link>
         <div className="flex items-center">
           {navLinks.map((links, idx) => (
             <Link

@@ -18,7 +18,7 @@ export default function RootLayout({
       <body
         className={`${generalSans.variable} ${libreSerif.variable} antialiased`}
       >
-        {/* <Navbar /> */}
+        <Navbar />
         {children}
       </body>
     </html>
