@@ -97,7 +97,7 @@ function Scene() {
 const WavingFlag: FC = () => {
   const shaderRef = useRef<THREE.ShaderMaterial & Uniforms>(null!);
   return (
-    <div className="fade-mask absolute -top-14 left-1/2 -z-1 h-[50vh] w-full -translate-x-1/2 bg-blue-400 md:h-96 md:w-[900px]">
+    <div className="fade-mask absolute -top-14 left-1/2 z-1 h-[50vh] w-full -translate-x-1/2 bg-blue-400 md:h-96 md:w-[900px]">
       <Canvas
         shadows
         camera={{ position: [-0.2, -0.3, 0.8], fov: 60 }}
