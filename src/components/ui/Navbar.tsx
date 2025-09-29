@@ -11,8 +11,11 @@ import {
   useScroll,
 } from "motion/react";
 import { useTransitionRouter } from "next-view-transitions";
+import { ThemeProvider, useTheme } from "next-themes";
+
 const Navbar = () => {
   const router = useTransitionRouter();
+  const { theme, setTheme } = useTheme();
   const [hovered, setHovered] = useState<number | null>(null);
   const { scrollY } = useScroll();
   const navLinks = [
@@ -33,7 +36,7 @@ const Navbar = () => {
     <motion.nav
       animate={{
         boxShadow: scrolled ? "var(--card-shadow-2)" : "none",
-        width: scrolled ? "220px" : "300px",
+        width: scrolled ? "w-6xl" : "w-4xl",
       }}
       transition={{
         duration: 0.3,
@@ -52,7 +55,7 @@ const Navbar = () => {
           src="/pictures/cat.jpg"
           width={60}
           height={60}
-          className="w-8 rounded-full"
+          className="trasition-all w-8 rounded-full ring-4 ring-transparent ease-in-out hover:ring-neutral-200"
           alt="me"
         />
       </Link>
@@ -72,7 +75,7 @@ const Navbar = () => {
             {hovered === idx && (
               <motion.span
                 layoutId="hovered-span"
-                className="absolute inset-0 -z-1 flex h-full w-full items-center justify-center rounded-full bg-neutral-200"
+                className="absolute inset-0 -z-1 flex h-full w-full items-center justify-center rounded-full bg-neutral-50"
               ></motion.span>
             )}
             <span className="font-semibold text-neutral-600">
@@ -81,6 +84,18 @@ const Navbar = () => {
           </Link>
         ))}
       </div>
+      <button
+        className="rounded-2xl bg-white p-2 leading-3"
+        onClick={() => setTheme("dark")}
+      >
+        dark
+      </button>
+      <button
+        className="rounded-2xl bg-white p-2 leading-3"
+        onClick={() => setTheme("light")}
+      >
+        light
+      </button>
     </motion.nav>
   );
 };

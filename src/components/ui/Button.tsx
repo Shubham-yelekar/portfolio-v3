@@ -10,7 +10,7 @@ const buttonVariants = cva(
         primary:
           "bg-gradient-to-t from-neutral-800 to-neutral-600 text-white shadow-xs",
         secondary:
-          "bg-gradient-to-t from-[#8122b0] to-[#dc98fd]  text-primary-foreground shadow-xs hover:bg-primary/90",
+          "bg-gradient-to-t from-neutal-300 to-neutral-100  text-primary-foreground shadow-xs hover:bg-primary/90",
         tertiary:
           "bg-transparent hover:bg-slate-100 underline-offset-4 hover:underline",
       },
@@ -45,9 +45,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = "Button";
 
-// `<button className="relative cursor-pointer rounded-[16px] bg-black bg-gradient-to-t from-[#8122b0] to-[#dc98fd] p-[2px] opacity-90 transition-opacity hover:opacity-100 active:scale-95">
-//   <span className="flex h-full w-full items-center gap-2 rounded-[14px] bg-[#B931FC] bg-gradient-to-t from-[#a62ce2] to-[#c045fc] px-3 py-1 text-sm text-white">
-//     {icon} {name}
-//   </span>
-// </button>;`
 export default Button;

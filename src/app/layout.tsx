@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { generalSans, libreSerif } from "../../public/fonts/index";
 import "./globals.css";
 import Navbar from "@/components/ui/Navbar";
-import { ViewTransitions } from "next-view-transitions";
+import ThemeSwitchProvider from "@/app/providers/Providers";
+import Providers from "@/app/providers/Providers";
 
 export const metadata: Metadata = {
   title: "Portfolio v3",
@@ -15,15 +16,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ViewTransitions>
-      <html lang="en" className="relative">
-        <body
-          className={`${generalSans.variable} ${libreSerif.variable} min-h-screen antialiased`}
-        >
+    <html lang="en" className="relative" suppressHydrationWarning>
+      <body
+        className={`${generalSans.variable} ${libreSerif.variable} bg-background min-h-screen antialiased`}
+      >
+        <ThemeSwitchProvider>
           <Navbar />
           {children}
-        </body>
-      </html>
-    </ViewTransitions>
+        </ThemeSwitchProvider>
+      </body>
+    </html>
   );
 }
