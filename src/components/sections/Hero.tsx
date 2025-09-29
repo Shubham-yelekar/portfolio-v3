@@ -9,6 +9,7 @@ import Link from "next/link";
 const Hero = () => {
   return (
     <Container className="mt-[30vh] flex flex-col gap-6 md:mt-[24vh] md:gap-9">
+      <WavingFlag />
       <div>
         <div className="card-shadow w-14 overflow-clip rounded-2xl border-4 border-white md:w-20 md:rounded-3xl">
           <img className="w-fit" src="/pictures/cat.jpg" alt="me" />

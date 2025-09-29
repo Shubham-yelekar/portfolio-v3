@@ -10,7 +10,9 @@ import {
   useMotionValueEvent,
   useScroll,
 } from "motion/react";
+import { useTransitionRouter } from "next-view-transitions";
 const Navbar = () => {
+  const router = useTransitionRouter();
   const [hovered, setHovered] = useState<number | null>(null);
   const { scrollY } = useScroll();
   const navLinks = [
@@ -39,7 +41,13 @@ const Navbar = () => {
       }}
       className="fixed top-4 left-1/2 z-100 flex -translate-x-1/2 items-center justify-between rounded-full border-1 border-white/40 bg-white/40 p-2 backdrop-blur-sm"
     >
-      <Link href={"/"}>
+      <Link
+        href={"/"}
+        onClick={(e) => {
+          e.preventDefault();
+          router.push("/", { onTransitionReady: pageAnimation });
+        }}
+      >
         <Image
           src="/pictures/cat.jpg"
           width={60}
@@ -56,6 +64,10 @@ const Navbar = () => {
             className="relative flex items-center justify-center px-2 py-1 text-sm"
             onMouseEnter={() => setHovered(idx)}
             onMouseLeave={() => setHovered(null)}
+            onClick={(e) => {
+              e.preventDefault();
+              router.push(links.url, { onTransitionReady: pageAnimation });
+            }}
           >
             {hovered === idx && (
               <motion.span
@@ -70,6 +82,46 @@ const Navbar = () => {
         ))}
       </div>
     </motion.nav>
+  );
+};
+
+const pageAnimation = () => {
+  document.documentElement.animate(
+    [
+      {
+        opacity: 1,
+        scale: 1,
+        transform: "translateY(0)",
+      },
+      {
+        opacity: 0.5,
+        scale: 0.9,
+        transform: "translateY(-100px)",
+      },
+    ],
+    {
+      duration: 1000,
+      easing: "cubic-bezier(0.76, 0, 0.24, 1)",
+      fill: "forwards",
+      pseudoElement: "::view-transition-old(root)",
+    },
+  );
+
+  document.documentElement.animate(
+    [
+      {
+        transform: "translateY(100%)",
+      },
+      {
+        transform: "translateY(0)",
+      },
+    ],
+    {
+      duration: 1000,
+      easing: "cubic-bezier(0.76, 0, 0.24, 1)",
+      fill: "forwards",
+      pseudoElement: "::view-transition-new(root)",
+    },
   );
 };
 

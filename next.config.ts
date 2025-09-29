@@ -20,6 +20,10 @@ const nextConfig: NextConfig = {
       },
     },
   },
+
+  experimental: {
+    viewTransition: true,
+  },
 };
 
 const withMDX = createMDX({
