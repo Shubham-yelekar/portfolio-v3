@@ -4,7 +4,9 @@ import createMDX from "@next/mdx";
 const nextConfig: NextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   transpilePackages: ["three"],
-
+  images: {
+    remotePatterns: [new URL("https://ucarecdn.com/**")],
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.(glsl|vert|frag|vs|fs)$/,

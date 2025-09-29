@@ -1,5 +1,5 @@
 // app/blog/[slug]/page.tsx
-import { getPostBySlug } from "@/lib/mdx";
+import { getContentBySlug } from "@/lib/mdx";
 import { MDXRemote } from "next-mdx-remote/rsc";
 
 // Import your custom components
@@ -20,7 +20,7 @@ interface PageProps {
 
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = params;
-  const { meta, content } = getPostBySlug(slug);
+  const { meta, content } = getContentBySlug(slug, "notes");
   try {
     return (
       <Container className="mt-[14vh] px-4">

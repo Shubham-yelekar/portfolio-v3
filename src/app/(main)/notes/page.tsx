@@ -1,15 +1,15 @@
 import Link from "next/link";
-import { getAllPostsMeta } from "@/lib/mdx";
+import { getAllContentMeta } from "@/lib/mdx";
 import Container from "@/components/ui/Container";
 import PageWrapper from "@/components/ui/PageWrapper";
 
 export default async function NotesPage() {
-  const posts = getAllPostsMeta();
+  const posts = getAllContentMeta("notes");
 
   return (
     <PageWrapper>
       <Container className="mt-[14vh] px-4">
-        <h1 className="mb-8 text-4xl font-bold">Writings</h1>
+        <h2 className="mb-8 text-3xl font-bold">Writings</h2>
         <div className="flex flex-col gap-4">
           {posts.map((post) => (
             // This would be your <ArticleCard /> component
