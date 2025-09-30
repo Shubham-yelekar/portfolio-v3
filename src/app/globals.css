@@ -7,7 +7,7 @@
 @theme inline {
   --font-libre: var(--font-libre-caslon-con);
   --font-mono: "JetBrains Mono", monospace;
-  --background: var(--color-neutral-50);
+  --background: var(--color-neutral-200);
   --foreground: var(--color-neutral-950);
   --accent: var(--color-orange-500);
 

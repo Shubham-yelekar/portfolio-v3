@@ -75,10 +75,10 @@ const Navbar = () => {
             {hovered === idx && (
               <motion.span
                 layoutId="hovered-span"
-                className="absolute inset-0 -z-1 flex h-full w-full items-center justify-center rounded-full bg-neutral-50"
+                className="absolute inset-0 -z-1 flex h-full w-full items-center justify-center rounded-full bg-neutral-50 dark:bg-neutral-400"
               ></motion.span>
             )}
-            <span className="font-semibold text-neutral-600">
+            <span className="font-semibold text-neutral-600 text-shadow-md dark:text-neutral-100">
               {links.title}
             </span>
           </Link>

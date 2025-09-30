@@ -24,7 +24,7 @@ const Projects = () => {
               <h4 className="bold text-lg md:text-2xl">
                 Toyota Land Cruiser 300
               </h4>
-              <h4 className="text-md text-neutral-800! md:text-lg">
+              <h4 className="text-md text-neutral-800! md:text-lg dark:text-neutral-500!">
                 Product Page Redesign
               </h4>
             </div>

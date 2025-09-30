@@ -34,13 +34,19 @@ const Hero = () => {
       <div>
         <div className="flex gap-3">
           <Link href={"https://x.com/shubu_y"} target="_blank">
-            <Button variant={"primary"}>
+            <Button
+              className="border border-zinc-200 bg-gradient-to-t from-zinc-700 to-zinc-950 dark:border-zinc-700 dark:from-zinc-700 dark:to-zinc-800"
+              variant={"primary"}
+            >
               <BsTwitterX />
               <span className="w-full">Twitter/X</span>
             </Button>
           </Link>
           <Link href={"https://github.com/Shubham-yelekar"} target="_blank">
-            <Button variant={"primary"}>
+            <Button
+              variant={"primary"}
+              className="border border-indigo-200 bg-gradient-to-t from-indigo-400 to-indigo-800 dark:border-indigo-800 dark:from-indigo-700 dark:to-indigo-800"
+            >
               <BsGithub />
               <span className="w-full">Github</span>
             </Button>
@@ -49,7 +55,10 @@ const Hero = () => {
             href={"https://www.linkedin.com/in/shubhamyelekar/"}
             target="_blank"
           >
-            <Button variant={"primary"}>
+            <Button
+              variant={"primary"}
+              className="border border-purple-200 bg-gradient-to-t from-purple-400 to-purple-600 dark:border-purple-700 dark:from-purple-700 dark:to-purple-800"
+            >
               <BsLinkedin />
               <span className="w-full">Linkedin</span>
             </Button>
