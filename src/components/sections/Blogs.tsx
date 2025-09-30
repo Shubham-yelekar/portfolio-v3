@@ -13,7 +13,7 @@ const Blogs = () => {
         <div className="flex cursor-pointer gap-4 rounded-2xl p-2 transition-all duration-300 ease-in-out hover:bg-neutral-100 hover:p-2 dark:border-neutral-800 dark:bg-neutral-900 hover:dark:border-neutral-700">
           <div className="w-36 flex-1 overflow-clip rounded-xl">
             <Image
-              src={"/pictures/thumb.jpg"}
+              src={"/pictures/blog.jpg"}
               width={900}
               height={600}
               alt="thumb"
@@ -36,7 +36,7 @@ const Blogs = () => {
         <div className="hover:bg-border-50 flex cursor-pointer rounded-2xl border-neutral-200 bg-neutral-50 p-2 dark:bg-neutral-900">
           <div className="w-36 flex-1 overflow-clip rounded-xl">
             <Image
-              src={"/pictures/thumb.jpg"}
+              src={"/pictures/blog.jpg"}
               width={900}
               height={600}
               alt="thumb"

@@ -13,28 +13,33 @@ const LabComponents = () => {
         <div className="relative">
           <div className="aspect-7/6 overflow-clip rounded-2xl">
             <Image
-              src={"/pictures/thumb.jpg"}
+              src={"/pictures/comp-1.jpg"}
               width={900}
               height={600}
               alt="thumb"
               className="h-full object-cover"
             />
           </div>
-          <div className="absolute bottom-2 left-2 rounded-xl bg-neutral-900/20">
+          <div className="absolute bottom-2 left-2 rounded-xl bg-neutral-900/20 backdrop-blur-lg">
             <h4 className="px-2 py-1 text-sm text-neutral-100! md:px-3 md:py-1 md:text-lg">
               Component
             </h4>
           </div>
         </div>
-        <div className="">
+        <div className="relative">
           <div className="aspect-7/6 overflow-clip rounded-2xl">
             <Image
-              src={"/pictures/thumb.jpg"}
+              src={"/pictures/comp-2.jpg"}
               width={900}
               height={600}
               alt="thumb"
               className="h-full object-cover"
             />
+          </div>
+          <div className="absolute bottom-2 left-2 rounded-lg border border-neutral-200/10 bg-neutral-900/20 backdrop-blur-sm">
+            <h4 className="px-2 py-1 text-sm text-neutral-100! md:px-3 md:py-1 md:text-lg">
+              Component
+            </h4>
           </div>
         </div>
       </div>

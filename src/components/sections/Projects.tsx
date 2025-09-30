@@ -11,12 +11,13 @@ const Projects = () => {
       </h2>
       <div className="flex flex-col gap-24">
         <div className="">
-          <div className="mb-4 overflow-clip rounded-2xl">
+          <div className="mb-4 aspect-5/3 overflow-clip rounded-2xl">
             <Image
-              src={"/pictures/thumb.jpg"}
+              src={"/pictures/project.jpg"}
               width={900}
               height={600}
               alt="thumb"
+              className="h-full object-cover"
             />
           </div>
           <div className="flex-start flex flex-col gap-2 px-2 md:flex-row md:px-4">
