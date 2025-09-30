@@ -10,7 +10,7 @@ const Projects = () => {
         Selected Projects
       </h2>
       <div className="flex flex-col gap-24">
-        <div className="">
+        <div className="relative">
           <div className="mb-4 aspect-5/3 overflow-clip rounded-2xl">
             <Image
               src={"/pictures/project.jpg"}
