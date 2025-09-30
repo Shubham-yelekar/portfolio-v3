@@ -107,7 +107,7 @@ const WavingFlag: FC = () => {
           toneMapping: THREE.ACESFilmicToneMapping,
           toneMappingExposure: 1.1,
         }}
-        style={{ background: "#e5e5e5", height: "60vh" }}
+        style={{ background: "#e5e5e5", height: "50vh" }}
       >
         {/* <OrbitControls enableDamping /> */}
         <Scene />

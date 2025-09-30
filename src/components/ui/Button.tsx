@@ -10,7 +10,7 @@ const buttonVariants = cva(
         primary:
           "bg-gradient-to-t from-neutral-800 to-neutral-600 text-white shadow-xs",
         secondary:
-          "bg-gradient-to-t from-neutal-300 to-neutral-100  text-primary-foreground shadow-xs hover:bg-primary/90",
+          "bg-gradient-to-t from-neutal-800 to-neutral-200 border border-neutral-200 text-primary-foreground shadow-xs hover:bg-primary/90",
         tertiary:
           "bg-transparent hover:bg-slate-100 underline-offset-4 hover:underline",
       },
