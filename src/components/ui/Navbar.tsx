@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import Container from "./Container";
 import Link from "next/link";
 import Image from "next/image";
+import { FaSun } from "react-icons/fa6";
+import { FaMoon } from "react-icons/fa";
+import cn from "@/app/lib/cn";
 import {
   easeInOut,
   hover,
@@ -31,6 +34,15 @@ const Navbar = () => {
       setScrolled(false);
     }
   });
+
+  const toggeltheme = () => {
+    if (theme == "dark") {
+      setTheme("light");
+    } else {
+      setTheme("dark");
+    }
+    console.log(theme);
+  };
 
   return (
     <motion.nav
@@ -78,13 +90,41 @@ const Navbar = () => {
                 className="absolute inset-0 -z-1 flex h-full w-full items-center justify-center rounded-full bg-neutral-50 dark:bg-neutral-400"
               ></motion.span>
             )}
-            <span className="font-semibold text-neutral-600 text-shadow-md dark:text-neutral-100">
+            <span className="font-semibold text-neutral-800 text-shadow-md dark:text-neutral-100">
               {links.title}
             </span>
           </Link>
         ))}
       </div>
       <button
+        onClick={() => toggeltheme()}
+        className="relative h-8 w-8 cursor-pointer overflow-clip rounded-2xl bg-neutral-50"
+      >
+        <motion.div
+          className="pointer-events-none absolute left-1/2 flex -translate-x-1/2 flex-col gap-3"
+          animate={{
+            y: theme === "light" ? -10 : -40,
+          }}
+          transition={{ stiffness: 200, damping: 20 }}
+        >
+          <motion.div
+            animate={{ rotate: theme === "light" ? 0 : -90 }}
+            transition={{ duration: 0.5 }}
+          >
+            <FaSun size={18} className="text-neutral-800" />
+          </motion.div>
+
+          {/* Moon Icon: Rotates in when theme becomes dark */}
+          <motion.div
+            animate={{ rotate: theme === "light" ? 90 : 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {" "}
+            <FaMoon size={18} className="text-neutral-800" />
+          </motion.div>
+        </motion.div>
+      </button>
+      {/* <button
         className="rounded-2xl bg-white p-2 leading-3"
         onClick={() => setTheme("dark")}
       >
@@ -95,7 +135,7 @@ const Navbar = () => {
         onClick={() => setTheme("light")}
       >
         light
-      </button>
+      </button> */}
     </motion.nav>
   );
 };

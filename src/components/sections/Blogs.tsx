@@ -10,7 +10,7 @@ const Blogs = () => {
         Notes
       </h2>
       <div className="mx-2 grid grid-cols-1 gap-2 md:mx-0 md:gap-4">
-        <div className="flex cursor-pointer rounded-2xl border border-neutral-300 bg-neutral-50 p-2 dark:border-neutral-800 dark:bg-neutral-900 hover:dark:border-neutral-700">
+        <div className="flex cursor-pointer gap-4 rounded-2xl p-2 transition-all duration-300 ease-in-out hover:bg-neutral-100 hover:p-2 dark:border-neutral-800 dark:bg-neutral-900 hover:dark:border-neutral-700">
           <div className="w-36 flex-1 overflow-clip rounded-xl">
             <Image
               src={"/pictures/thumb.jpg"}
@@ -22,7 +22,7 @@ const Blogs = () => {
           </div>
           <div className="flex flex-2 flex-col justify-between gap-4 rounded-xl px-2 py-2 md:px-3 md:py-2">
             <div>
-              <h4 className="text-sm text-neutral-800! md:text-lg dark:text-neutral-200!">
+              <h4 className="mb-1 text-sm text-neutral-800! md:text-lg dark:text-neutral-200!">
                 Manu Arora reviewed My Portfolio Website
               </h4>
               <p className="md:text-md text-sm">
