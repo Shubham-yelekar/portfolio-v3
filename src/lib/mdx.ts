@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-type ContentType = "notes" | "projects";
+type ContentType = "notes" | "projects" | "lab";
 
 const contentDirectory = path.join(process.cwd(), "src", "content");
 
@@ -44,4 +44,12 @@ export function getContentBySlug(slug: string, contentType: string) {
     meta: data,
     content,
   };
+}
+
+export function getAllSlugs(type: ContentType) {
+  const dir = path.join(process.cwd(), "src/content", type);
+  return fs.readdirSync(dir).filter((name) => {
+    const stat = fs.statSync(path.join(dir, name));
+    return stat.isDirectory();
+  });
 }

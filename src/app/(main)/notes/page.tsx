@@ -5,6 +5,7 @@ import PageWrapper from "@/components/ui/PageWrapper";
 
 export default async function NotesPage() {
   const posts = getAllContentMeta("notes");
+  console.log(posts);
 
   return (
     <PageWrapper>

@@ -3,7 +3,7 @@ import createMDX from "@next/mdx";
 
 const nextConfig: NextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
-  transpilePackages: ["three"],
+  transpilePackages: ["three", "next-mdx-remote"],
   images: {
     remotePatterns: [new URL("https://ucarecdn.com/**")],
   },

@@ -8,49 +8,35 @@ import Button from "@/components/ui/Button";
 
 const page = () => {
   const projects = getAllContentMeta("projects");
+  console.log(projects);
   return (
     <PageWrapper>
       <Container className="mt-[14vh] px-4">
-        <h2 className="text-center text-3xl font-bold">Works & Projects</h2>
+        <h2 className="font-libre! text-center text-3xl font-bold">
+          Works & Projects
+        </h2>
 
-        <div className="mt-12 flex flex-col justify-center gap-32">
+        <div className="mt-12 grid grid-cols-2 justify-center gap-4">
           {projects.map((project) => (
-            <div key={project.slug} className="relative flex flex-col">
-              <div className="">
+            <Link
+              href={`/projects/${project.slug}`}
+              key={project.slug}
+              className="cursor hover relative flex flex-col rounded-2xl border border-neutral-200 bg-neutral-50 p-2 transition-all ease-in-out hover:border-neutral-300 hover:shadow-[var(--card-shadow-2)] dark:border-neutral-800 dark:bg-neutral-900"
+            >
+              <div className="overflow-clip rounded-xl shadow-[var(--card-shadow-2)] hover:shadow-[var(--card-shadow]">
                 <Image
                   src={project.thumbImage}
                   width={400}
                   height={200}
-                  className="w-full rounded-xl object-cover shadow-[var(--card-shadow-2)] hover:shadow-[var(--card-shadow]"
+                  className="w-full object-cover"
                   alt={`${project.slug}-image`}
                 />
               </div>
-              <div className="flex justify-between rounded-xl p-6">
-                <div className="flex flex-col gap-2">
-                  <h3 className="font-libre text-2xl">{project.title}</h3>
-                  <p className="">{project.summary}</p>
-                </div>
-                <div>
-                  <Link href={project.slug}>
-                    <Button variant={"secondary"}>Button</Button>
-                  </Link>
-                </div>
+              <div className="flex flex-col justify-between rounded-xl px-2 py-3">
+                <h4 className="font-libre text-xl">{project.title}</h4>
+                <p className="">{project.summary}</p>
               </div>
-            </div>
-            // <Link
-            //   key={project.slug}
-            //   href={`/projects/${project.slug}`}
-            //   className="flex flex-col gap-8 bg-amber-200"
-            // >
-            //   <h2 className="text-2xl font-semibold">{project.title}</h2>
-            //   <p className="mt-1 text-gray-600 dark:text-gray-400">
-            //     {project.summary}
-            //   </p>
-
-            //   <div>
-
-            //   </div>
-            // </Link>
+            </Link>
           ))}
         </div>
       </Container>
