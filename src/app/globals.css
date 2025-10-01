@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -27,6 +28,13 @@
     0 16px 16px 0 rgba(0, 0, 0, 0.07);
 
   /* //buttons */
+
+  --text-heading-1: linear-gradient(
+    to top,
+    var(--color-neutral-400),
+    var(--color-neutral-900),
+    var(--color-neutral-800)
+  );
 }
 
 .dark {
@@ -37,6 +45,13 @@
   --color-subheading: var(--color-neutral-400);
   --color-paragraph: var(--color-neutral-400);
   --color-heading: var(--color-neutral-200);
+
+  --text-heading-1: linear-gradient(
+    to top,
+    var(--color-neutral-50),
+    var(--color-neutral-400),
+    var(--color-neutral-300)
+  );
 }
 
 * {
@@ -54,12 +69,20 @@ body {
 h1 {
   font-family: var(--font-generalSans);
   font-weight: 500;
-  line-height: 1.1;
-  color: var(--color-heading);
+  line-height: 1.2;
+  /* color: var(--color-heading); */
+  background-image: var(--text-heading-1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 h2 {
   font-family: inherit;
-  color: var(--color-heading);
+  color: transparent;
+  /* color: var(--color-heading); */
+  background-image: var(--text-heading-1);
+  background-clip: text;
+  -webkit-background-clip: text;
 }
 
 h3 {

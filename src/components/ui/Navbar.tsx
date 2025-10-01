@@ -48,13 +48,12 @@ const Navbar = () => {
     <motion.nav
       animate={{
         boxShadow: scrolled ? "var(--card-shadow-2)" : "none",
-        width: scrolled ? "w-6xl" : "w-4xl",
       }}
       transition={{
         duration: 0.3,
         ease: easeInOut,
       }}
-      className="fixed top-4 left-1/2 z-100 flex -translate-x-1/2 items-center justify-between rounded-full border-1 border-white/40 bg-white/40 p-2 backdrop-blur-sm"
+      className="fixed top-4 left-1/2 z-100 flex w-full -translate-x-1/2 items-center justify-between gap-3 rounded-full border-1 border-white/40 bg-white/40 p-2 backdrop-blur-sm md:w-md dark:border-neutral-700 dark:bg-neutral-900/40"
     >
       <Link
         href={"/"}
@@ -98,7 +97,7 @@ const Navbar = () => {
       </div>
       <button
         onClick={() => toggeltheme()}
-        className="relative h-8 w-8 cursor-pointer overflow-clip rounded-2xl bg-neutral-50"
+        className="relative h-8 w-8 cursor-pointer overflow-clip rounded-2xl bg-neutral-50 dark:bg-neutral-200"
       >
         <motion.div
           className="pointer-events-none absolute left-1/2 flex -translate-x-1/2 flex-col gap-3"

@@ -76,8 +76,8 @@ function Scene() {
 
       <mesh
         castShadow
-        rotation={[-0.25, -0.18, 0.15]}
-        position={[-0.03, 0.02, 0.2]}
+        rotation={[-0.1, -0.18, 0.15]}
+        position={[0.05, 0.05, 0.2]}
       >
         <planeGeometry args={[1.8, 1, 64, 64]} />
         // @ts-ignore

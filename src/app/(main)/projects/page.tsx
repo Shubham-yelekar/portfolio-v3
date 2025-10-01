@@ -11,12 +11,12 @@ const page = () => {
   console.log(projects);
   return (
     <PageWrapper>
-      <Container className="mt-[14vh] px-4">
+      <Container className="mt-[14vh]">
         <h2 className="font-libre! text-center text-3xl font-bold">
           Works & Projects
         </h2>
 
-        <div className="mt-12 grid grid-cols-2 justify-center gap-4">
+        <div className="mt-12 grid grid-cols-1 justify-center gap-4 p-2 md:grid-cols-2 md:p-4">
           {projects.map((project) => (
             <Link
               href={`/projects/${project.slug}`}
@@ -32,9 +32,9 @@ const page = () => {
                   alt={`${project.slug}-image`}
                 />
               </div>
-              <div className="flex flex-col justify-between rounded-xl px-2 py-3">
-                <h4 className="font-libre text-xl">{project.title}</h4>
-                <p className="">{project.summary}</p>
+              <div className="flex flex-col justify-between gap-2 rounded-xl px-2 py-3">
+                <h4 className="font-libre! text-xl">{project.title}</h4>
+                <p className="text-sm">{project.summary}</p>
               </div>
             </Link>
           ))}

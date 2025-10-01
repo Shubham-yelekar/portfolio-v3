@@ -16,7 +16,7 @@ const Hero = () => {
         </div>
       </div>
       <div>
-        <h1 className="text-heading font-sans text-4xl tracking-tight md:text-5xl">
+        <h1 className="font-sans text-4xl tracking-tight md:text-5xl">
           Hi, I’m
           <span className=""> Shubham</span>,
         </h1>
@@ -27,7 +27,9 @@ const Hero = () => {
           </span>
         </h1>
         <h1 className="font-sans text-4xl tracking-tight md:text-5xl">
-          <span className="font-libre text-accent italic">& Designer,</span>{" "}
+          <span className="font-libre text-[var(--accent)] italic">
+            & Designer,
+          </span>{" "}
           based in Mumbai.
         </h1>
       </div>

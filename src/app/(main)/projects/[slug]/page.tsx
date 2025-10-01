@@ -1,6 +1,6 @@
 import React from "react";
 import { getContentBySlug, getAllSlugs } from "@/lib/mdx";
-import { MDXRemote, compileMDX } from "next-mdx-remote/rsc";
+import { MDXRemote } from "next-mdx-remote/rsc";
 
 // Import your custom components
 import { Callout } from "@/components/mdx/Callout";
