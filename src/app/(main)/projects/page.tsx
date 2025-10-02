@@ -8,7 +8,7 @@ import Button from "@/components/ui/Button";
 
 const page = () => {
   const projects = getAllContentMeta("projects");
-  console.log(projects);
+
   return (
     <PageWrapper>
       <Container className="mt-[14vh]">
@@ -21,14 +21,14 @@ const page = () => {
             <Link
               href={`/projects/${project.slug}`}
               key={project.slug}
-              className="cursor hover relative flex flex-col rounded-2xl border border-neutral-200 bg-neutral-50 p-2 transition-all ease-in-out hover:border-neutral-300 hover:shadow-[var(--card-shadow-2)] dark:border-neutral-800 dark:bg-neutral-900"
+              className="cursor hover group relative flex flex-col rounded-2xl p-2 transition-all duration-500 ease-in-out hover:bg-neutral-50 dark:hover:bg-neutral-900"
             >
               <div className="overflow-clip rounded-xl shadow-[var(--card-shadow-2)] hover:shadow-[var(--card-shadow]">
                 <Image
                   src={project.thumbImage}
                   width={400}
                   height={200}
-                  className="w-full object-cover"
+                  className="w-full scale-110 object-cover transition-all duration-500 ease-in-out group-hover:scale-105"
                   alt={`${project.slug}-image`}
                 />
               </div>

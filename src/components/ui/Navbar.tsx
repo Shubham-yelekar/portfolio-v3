@@ -86,10 +86,10 @@ const Navbar = () => {
             {hovered === idx && (
               <motion.span
                 layoutId="hovered-span"
-                className="absolute inset-0 -z-1 flex h-full w-full items-center justify-center rounded-full bg-neutral-50 dark:bg-neutral-400"
+                className="absolute inset-0 -z-1 flex h-full w-full items-center justify-center rounded-full bg-neutral-50 dark:bg-neutral-700"
               ></motion.span>
             )}
-            <span className="font-semibold text-neutral-800 text-shadow-md dark:text-neutral-100">
+            <span className="font-medium text-neutral-800 text-shadow-2xs dark:text-neutral-100">
               {links.title}
             </span>
           </Link>
@@ -97,7 +97,7 @@ const Navbar = () => {
       </div>
       <button
         onClick={() => toggeltheme()}
-        className="relative h-8 w-8 cursor-pointer overflow-clip rounded-2xl bg-neutral-50 dark:bg-neutral-200"
+        className="relative h-8 w-8 cursor-pointer overflow-clip rounded-2xl bg-neutral-50 dark:bg-neutral-700"
       >
         <motion.div
           className="pointer-events-none absolute left-1/2 flex -translate-x-1/2 flex-col gap-3"
@@ -119,7 +119,7 @@ const Navbar = () => {
             transition={{ duration: 0.5 }}
           >
             {" "}
-            <FaMoon size={18} className="text-neutral-800" />
+            <FaMoon size={18} className="text-neutral-200" />
           </motion.div>
         </motion.div>
       </button>

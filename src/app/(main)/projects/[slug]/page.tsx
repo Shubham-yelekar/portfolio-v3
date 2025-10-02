@@ -1,16 +1,13 @@
 import React from "react";
 import { getContentBySlug, getAllSlugs } from "@/lib/mdx";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import { mdxComponents } from "@/components/mdx/MdxComponents";
 
 // Import your custom components
-import { Callout } from "@/components/mdx/Callout";
+
 import Container from "@/components/ui/Container";
 
 // This object maps your component names to the actual components.
-const components = {
-  Callout,
-  // You can add any other custom components here
-};
 
 interface PageProps {
   params: {
@@ -44,7 +41,7 @@ export default async function ProjectPage({ params }: PageProps) {
           </div>
 
           {/* Article Content */}
-          <MDXRemote source={content} components={components} />
+          <MDXRemote source={content} components={mdxComponents} />
         </article>
       </Container>
     );

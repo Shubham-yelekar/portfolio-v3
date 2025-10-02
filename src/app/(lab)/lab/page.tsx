@@ -12,23 +12,21 @@ const page = () => {
   return (
     <PageWrapper>
       <Container className="mt-[14vh] px-4">
-        <h2 className="font-libre! text-center text-3xl font-bold">
-          Works & Projects
-        </h2>
+        <h2 className="font-libre! text-center text-3xl font-bold">Lab</h2>
 
         <div className="mt-12 grid grid-cols-2 justify-center gap-4">
           {lab.map((item) => (
             <Link
               href={`/lab/${item.slug}`}
               key={item.slug}
-              className="cursor hover relative flex flex-col rounded-2xl border border-neutral-200 bg-neutral-50 p-2 transition-all ease-in-out hover:border-neutral-300 hover:shadow-[var(--card-shadow-2)] dark:border-neutral-800 dark:bg-neutral-900"
+              className="cursor hover group relative flex flex-col rounded-2xl p-2 transition-all duration-500 ease-in-out hover:bg-neutral-50 dark:hover:bg-neutral-900"
             >
               <div className="overflow-clip rounded-xl shadow-[var(--card-shadow-2)] hover:shadow-[var(--card-shadow]">
                 <Image
                   src={item.thumbImage}
                   width={400}
                   height={200}
-                  className="w-full object-cover"
+                  className="w-full scale-110 object-cover transition-all duration-500 ease-in-out group-hover:scale-105"
                   alt={`${item.slug}-image`}
                 />
               </div>
