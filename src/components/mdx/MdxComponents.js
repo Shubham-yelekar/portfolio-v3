@@ -1,3 +1,4 @@
+import { YouTubeEmbed, FramedImage } from "@/components/mdx/embeded";
 // components/MdxComponents.js
 
 // A styled h1 component
@@ -81,6 +82,16 @@ export const Pre = ({ children }) => (
   </pre>
 );
 
+// export const ImageMDX = (props) => {
+//   return (
+//     <img
+//       {...props}
+//       style={{ cursor: "zoom-in" }}
+//       className="opacity-50"
+//     />
+//   );
+// };
+
 // ...add more components for ul, ol, li, blockquote, etc.
 // Add to mdxComponents:
 export const mdxComponents = {
@@ -98,5 +109,7 @@ export const mdxComponents = {
   li: LI,
   code: Code,
   pre: Pre,
+
+  FramedImage,
   // etc.
 };

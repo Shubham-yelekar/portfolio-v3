@@ -23,7 +23,7 @@ const page = () => {
               key={project.slug}
               className="cursor hover group relative flex flex-col rounded-2xl p-2 transition-all duration-500 ease-in-out hover:bg-neutral-50 dark:hover:bg-neutral-900"
             >
-              <div className="overflow-clip rounded-xl shadow-[var(--card-shadow-2)] hover:shadow-[var(--card-shadow]">
+              <div className="flex-2 overflow-clip rounded-xl shadow-[var(--card-shadow-2)] hover:shadow-[var(--card-shadow]">
                 <Image
                   src={project.thumbImage}
                   width={400}
@@ -32,7 +32,7 @@ const page = () => {
                   alt={`${project.slug}-image`}
                 />
               </div>
-              <div className="flex flex-col justify-between gap-2 rounded-xl px-2 py-3">
+              <div className="flex flex-1 flex-col justify-between gap-2 rounded-xl px-2 py-3">
                 <h4 className="font-libre! text-xl">{project.title}</h4>
                 <p className="text-sm">{project.summary}</p>
               </div>
