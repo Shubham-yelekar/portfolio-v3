@@ -6,28 +6,36 @@ import Button from "@/components/ui/Button";
 import { BsTwitterX, BsGithub, BsLinkedin } from "react-icons/bs";
 
 import Link from "next/link";
+import TerminalIcon from "../icons/TerminalIcon";
+import FigmaSvg from "../icons/FigmaSvg";
+import MumbaiSvg from "../icons/MumbaiSvg";
 const Hero = () => {
   return (
-    <Container className="mt-[30vh] flex flex-col gap-6 px-4 md:mt-[24vh] md:gap-9">
+    <Container className="mt-[30vh] flex flex-col gap-6 px-4 md:mt-[28vh] md:gap-9">
       <WavingFlag />
-      <div>
+      {/* <div>
         <div className="card-shadow w-14 overflow-clip rounded-2xl border-4 border-white md:w-20 md:rounded-3xl">
           <img className="w-fit" src="/pictures/cat.jpg" alt="me" />
         </div>
-      </div>
+      </div> */}
       <div>
-        <h1 className="text-4xl tracking-tight md:text-5xl">
-          Hi, I’m
-          <span className="italic dark:text-neutral-200"> Shubham</span>,
-        </h1>
-        <h1 className="ext-4xl tracking-tight md:text-5xl">
-          A Front-end{" "}
-          <span className="italic dark:text-neutral-200">Developer</span>
-        </h1>
-        <h1 className="text-4xl tracking-tight md:text-5xl">
-          <span className="italic dark:text-neutral-200">& Designer,</span>{" "}
-          based in Mumbai.
-        </h1>
+        <div className="flex flex-col md:flex-row md:gap-4">
+          <h1 className="text-4xl md:text-6xl">Shubham Yelekar,</h1>
+        </div>
+
+        <div className="flex flex-row gap-3 md:gap-3">
+          <h1 className="text-4xl md:text-6xl">A Front-end</h1>
+          <TerminalIcon className="h-fit w-10 rounded-xl shadow-[var(--card-shadow)] md:w-16" />
+          <h1 className="text-4xl md:text-6xl">Developer</h1>
+        </div>
+        <div className="flex flex-row gap-2 md:gap-3">
+          <FigmaSvg className="h-fit w-10 rounded-xl shadow-[var(--card-shadow)] md:w-16" />
+          <h1 className="text-4xl md:text-6xl">& Designer,</h1>
+        </div>
+        <div className="flex flex-col gap-2 md:flex-row md:gap-3">
+          <h1 className="text-4xl md:text-6xl">from in Mumbai</h1>
+          <MumbaiSvg className="h-fit w-10 rounded-xl shadow-[var(--card-shadow)] md:w-16" />
+        </div>
       </div>
       <div>
         <div className="flex gap-3">

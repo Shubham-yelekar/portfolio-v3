@@ -68,21 +68,26 @@ body {
 
 h1 {
   font-family: var(--font-libre-caslon-con);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.2;
-  /* color: var(--color-heading); */
-  background-image: var(--text-heading-1);
+  letter-spacing: -2.5;
+  color: var(--color-heading);
+  /* background-image: var(--text-heading-1);
   background-clip: text;
   -webkit-background-clip: text;
-  color: transparent;
+  color: transparent; */
 }
 h2 {
   font-family: inherit;
+
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.5;
+  color: var(--color-heading);
+  /* background-image: var(--text-heading-1);
   color: transparent;
-  /* color: var(--color-heading); */
-  background-image: var(--text-heading-1);
   background-clip: text;
-  -webkit-background-clip: text;
+  -webkit-background-clip: text; */
 }
 
 h3 {
