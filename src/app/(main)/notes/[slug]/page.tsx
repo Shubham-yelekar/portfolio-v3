@@ -20,7 +20,7 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const slug = getAllSlugs("projects");
+  const slug = getAllSlugs("notes");
   return slug.map((slug) => ({ slug }));
 }
 
