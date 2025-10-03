@@ -1,4 +1,9 @@
-import { YouTubeEmbed, FramedImage } from "@/components/mdx/embeded";
+import {
+  YouTubeEmbed,
+  ImageWrapper,
+  ImageModal,
+  CodeBlock,
+} from "@/components/mdx/embeded";
 // components/MdxComponents.js
 
 // A styled h1 component
@@ -70,28 +75,6 @@ export const OL = ({ children }) => (
 
 export const LI = ({ children }) => <li className="my-2">{children}</li>;
 
-export const Code = ({ children }) => (
-  <code className="rounded bg-neutral-200 px-2 py-1 font-mono text-sm dark:bg-neutral-800">
-    {children}
-  </code>
-);
-
-export const Pre = ({ children }) => (
-  <pre className="my-4 overflow-x-auto rounded bg-neutral-100 p-4 dark:bg-neutral-900">
-    {children}
-  </pre>
-);
-
-// export const ImageMDX = (props) => {
-//   return (
-//     <img
-//       {...props}
-//       style={{ cursor: "zoom-in" }}
-//       className="opacity-50"
-//     />
-//   );
-// };
-
 // ...add more components for ul, ol, li, blockquote, etc.
 // Add to mdxComponents:
 export const mdxComponents = {
@@ -107,9 +90,9 @@ export const mdxComponents = {
   ul: UL,
   ol: OL,
   li: LI,
-  code: Code,
-  pre: Pre,
-
-  FramedImage,
+  CodeBlock,
+  YouTubeEmbed,
+  ImageWrapper,
+  ImageModal,
   // etc.
 };

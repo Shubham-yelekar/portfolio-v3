@@ -2,7 +2,7 @@ import React from "react";
 import { getContentBySlug, getAllSlugs } from "@/lib/mdx";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { mdxComponents } from "@/components/mdx/MdxComponents";
-import { YouTubeEmbed, FramedImage } from "@/components/mdx/embeded";
+
 // Import your custom components
 
 import Container from "@/components/ui/Container";
@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 }
 
 export default async function ProjectPage({ params }: PageProps) {
-  const { slug } = params;
+  const { slug } = await params;
   const { meta, content } = getContentBySlug(slug, "projects");
   try {
     return (
