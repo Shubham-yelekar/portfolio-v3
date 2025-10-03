@@ -31,15 +31,15 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   try {
     return (
-      <Container className="mt-[24vh] px-4">
+      <Container className="mt-[18vh] px-4 md:mt-[24vh]">
         <article className="prose prose-lg dark:prose-invert mx-auto">
           {/* Article Header */}
 
-          <div className="mb-12">
-            <h1 className="font-libre! px-4 text-4xl font-bold">
+          <div className="mb-12 border-b-2 border-neutral-300 dark:border-neutral-700">
+            <h1 className="font-libre! text-4xl font-bold md:px-4">
               {meta.title}
             </h1>
-            <p className="mt-4 px-4 font-mono text-sm text-gray-500">
+            <p className="mt-4 font-mono text-sm text-gray-500 md:px-4">
               Published on{" "}
               {new Date(meta.date).toLocaleDateString("en-US", {
                 year: "numeric",

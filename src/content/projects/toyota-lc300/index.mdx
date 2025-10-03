@@ -15,19 +15,15 @@ And here is how I show off an interactive component I built:
 
 Here is a basic JavaScript code block:
 
-```
-<ImageModal
-  src="/images/aurora.jpg"
-  alt="The northern lights over a snowy landscape"
-  layoutId="aurora-image"
-  className="h-64 w-full object-cover"
-/>
-```
-
-```demo.js
-let a = 1;
-
-console.log(a);
+```javascript {1, 5-7}
+function useCounter() {
+  const [count, setCount] = useState(0);
+  const increment = () => setCount((c) => c + 1);
+  const increment = () => setCount((c) => c + 1);
+  const increment = () => setCount((c) => c + 1);
+  const increment = () => setCount((c) => c + 1);
+  return { count, increment }; // Comment
+}
 ```
 
 <ImageModal

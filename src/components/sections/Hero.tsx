@@ -18,14 +18,15 @@ const Hero = () => {
       <div>
         <h1 className="text-4xl tracking-tight md:text-5xl">
           Hi, I’m
-          <span className=""> Shubham</span>,
+          <span className="italic dark:text-neutral-200"> Shubham</span>,
         </h1>
         <h1 className="ext-4xl tracking-tight md:text-5xl">
-          A Front-end <span className="font-sans font-normal">Developer</span>
+          A Front-end{" "}
+          <span className="italic dark:text-neutral-200">Developer</span>
         </h1>
         <h1 className="text-4xl tracking-tight md:text-5xl">
-          <span className="text-[var(--accent)] italic">& Designer,</span> based
-          in Mumbai.
+          <span className="italic dark:text-neutral-200">& Designer,</span>{" "}
+          based in Mumbai.
         </h1>
       </div>
       <div>

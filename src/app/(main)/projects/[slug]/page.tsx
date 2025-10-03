@@ -26,7 +26,7 @@ export default async function ProjectPage({ params }: PageProps) {
   try {
     return (
       <Container className="mt-[14vh] px-4">
-        <article className="prose prose-lg dark:prose-invert mx-auto">
+        <article className="mx-auto">
           {/* Article Header */}
           <div className="mb-12">
             <h1 className="font-libre! px-4 text-4xl font-bold">

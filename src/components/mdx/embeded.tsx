@@ -1,9 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import Image from "next/image";
-import { getImageProps } from "next/image";
-
+import { Highlight, themes } from "prism-react-renderer";
+import { LuCopy, LuCheck } from "react-icons/lu"; // Using Lucide icons
+import { useTheme } from "next-themes";
 export function YouTubeEmbed({
   videoId,
   title,
@@ -12,7 +12,7 @@ export function YouTubeEmbed({
   title: string;
 }) {
   return (
-    <div className="relative">
+    <div className="relative my-12">
       <iframe
         className="aspect-video w-full rounded-xl shadow-[var(--card-shadow-2)]"
         src={`https://www.youtube.com/embed/${videoId}`}
@@ -29,7 +29,7 @@ export function YouTubeEmbed({
 
 export function ImageWrapper({ ...props }: React.ComponentProps<"img">) {
   return (
-    <figure className="relative rounded-xl shadow-[var(--card-shadow-2)] [&_img]:rounded-xl">
+    <figure className="relative my-12 rounded-xl shadow-[var(--card-shadow-2)] [&_img]:rounded-xl">
       <img {...props} className="w-full" />
     </figure>
   );
@@ -43,7 +43,7 @@ export function ImageModal({ src, alt, ...props }: ImageModalProps) {
   const [isModalOpen, setModalOpen] = useState(false);
 
   return (
-    <div className="">
+    <div className="my-12">
       <figure className="relative rounded-xl shadow-[var(--card-shadow-2)] [&_img]:rounded-xl">
         <motion.img
           src={src}
@@ -90,26 +90,84 @@ export function ImageModal({ src, alt, ...props }: ImageModalProps) {
   );
 }
 
-// Define the props the component will accept
 interface CodeBlockProps {
-  children: React.ReactNode;
-  title?: string; // An optional title for the code block
+  code: string;
+  language: string;
+  title?: string;
 }
 
-export const CodeBlock = ({ children, title }: CodeBlockProps) => {
+export const CodeBlock = ({ code, language, title }: CodeBlockProps) => {
+  const [isCopied, setIsCopied] = useState(false);
+  const { theme } = useTheme();
+  const handleCopy = () => {
+    navigator.clipboard.writeText(code.trim()).then(() => {
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 2000); // Reset after 2 seconds
+    });
+  };
   return (
     // A styled container for the code block
-    <div className="my-6 overflow-hidden rounded-lg border border-zinc-700 bg-zinc-300 text-[14px] shadow-md">
-      {title && (
-        <div className="border-b border-zinc-700 bg-zinc-800 px-4 py-2 text-sm text-zinc-300">
-          {title}
-        </div>
-      )}
-      <pre className="overflow-x-auto rounded bg-zinc-100 px-0 py-0 dark:bg-zinc-900">
-        <code className="font-mono text-sm text-neutral-600 dark:text-neutral-200">
-          {children}
-        </code>
-      </pre>
+    <div className="my-12 overflow-clip rounded-xl bg-neutral-50 p-1 dark:bg-neutral-900">
+      <div className="flex justify-between">
+        <span className="p-2 font-mono text-xs md:text-sm">
+          {title || language}
+        </span>
+        <button
+          onClick={handleCopy}
+          className="mb-2 cursor-pointer rounded-lg p-2 dark:bg-neutral-800 dark:hover:bg-neutral-700"
+        >
+          {isCopied ? (
+            <>
+              <LuCheck size={16} />
+            </>
+          ) : (
+            <>
+              <LuCopy size={16} />
+            </>
+          )}
+        </button>
+      </div>
+      <Highlight
+        theme={themes.palenight} // You can change the theme here
+        code={code.trim()}
+        language={language}
+      >
+        {({ className, style, tokens, getLineProps, getTokenProps }) => (
+          <pre
+            className={`m-0! overflow-x-scroll p-4 text-sm [&::-webkit-scrollbar]:w-[2px]! [&::-webkit-scrollbar-thumb]:bg-neutral-600 [&::-webkit-scrollbar-track]:bg-none ${className}`}
+            style={style}
+          >
+            {tokens.map((line, i) => {
+              const lineProps = getLineProps({ line, key: i });
+              const { key: reactKey, ...rest } = lineProps;
+              delete lineProps.style;
+              return (
+                <div key={reactKey} {...rest}>
+                  {line.map((token, key) => {
+                    const tokenProps = getTokenProps({ token, key });
+                    const { key: reactKey, ...rest } = tokenProps;
+                    return <span key={reactKey} {...rest} />;
+                  })}
+                </div>
+              );
+            })}
+          </pre>
+        )}
+      </Highlight>
     </div>
   );
 };
+
+export const MdxPre = ({ children }: any) => {
+  // MDX passes the code string and language via props on the nested <code> element
+  const codeString = children.props.children;
+  const language = children.props.className?.replace("language-", "") || "";
+
+  return <CodeBlock code={codeString} language={language} />;
+};
+
+export const Blockquote = ({ children }: any) => (
+  <blockquote className="font-libre! my-4 border-l-4 border-orange-400! bg-neutral-50 py-2 pl-2 text-4xl text-neutral-800! italic dark:border-neutral-500 dark:bg-neutral-900 dark:text-neutral-300">
+    {children}
+  </blockquote>
+);
