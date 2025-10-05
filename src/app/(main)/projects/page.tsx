@@ -12,9 +12,7 @@ const page = () => {
   return (
     <PageWrapper>
       <Container className="mt-[14vh]">
-        <h2 className="font-libre! text-center text-3xl font-bold">
-          Works & Projects
-        </h2>
+        <h2 className="font-libre! text-center text-3xl">Works & Projects</h2>
 
         <div className="mt-12 grid grid-cols-1 justify-center gap-4 p-2 md:grid-cols-2 md:p-4">
           {projects.map((project) => (
@@ -23,7 +21,7 @@ const page = () => {
               key={project.slug}
               className="cursor hover group relative flex flex-col rounded-2xl p-2 transition-all duration-500 ease-in-out hover:bg-neutral-50 dark:hover:bg-neutral-900"
             >
-              <div className="flex-2 overflow-clip rounded-xl shadow-[var(--card-shadow-2)] hover:shadow-[var(--card-shadow]">
+              <div className="h-50 overflow-clip rounded-xl shadow-[var(--card-shadow-2)] hover:shadow-[var(--card-shadow]">
                 <Image
                   src={project.thumbImage}
                   width={400}
@@ -32,7 +30,7 @@ const page = () => {
                   alt={`${project.slug}-image`}
                 />
               </div>
-              <div className="flex flex-1 flex-col justify-between gap-2 rounded-xl px-2 py-3">
+              <div className="flex flex-col justify-between gap-2 rounded-xl px-2 py-3">
                 <h4 className="font-libre! text-xl">{project.title}</h4>
                 <p className="text-sm">{project.summary}</p>
               </div>

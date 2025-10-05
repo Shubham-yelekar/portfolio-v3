@@ -70,7 +70,7 @@ h1 {
   font-family: var(--font-libre-caslon-con);
   font-weight: 400;
   line-height: 1.2;
-  letter-spacing: -2.5;
+  letter-spacing: -2;
   color: var(--color-heading);
   /* background-image: var(--text-heading-1);
   background-clip: text;

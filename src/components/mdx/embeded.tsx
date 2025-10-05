@@ -35,26 +35,16 @@ export function ImageWrapper({ ...props }: React.ComponentProps<"img">) {
   );
 }
 
-type ImageModalProps = React.ComponentProps<"img"> & {
-  layoutId: string;
-};
-
-export function ImageModal({ src, alt, ...props }: ImageModalProps) {
+export function ImageModal({ src, alt, ...props }: any) {
   const [isModalOpen, setModalOpen] = useState(false);
 
   return (
     <div className="my-12">
       <figure className="relative rounded-xl shadow-[var(--card-shadow-2)] [&_img]:rounded-xl">
-        <motion.img
-          src={src}
-          alt={alt}
-          {...props}
-          className="w-full"
-          layoutId={alt}
-        />
+        <motion.img src={src} alt={alt} {...props} className="w-full" />
         <button
           onClick={() => setModalOpen(true)}
-          className="absolute right-2 bottom-2 cursor-pointer rounded-2xl bg-neutral-200 px-2 py-1 text-xs font-medium"
+          className="absolute right-2 bottom-2 cursor-pointer rounded-2xl bg-neutral-200 px-2 py-1 text-xs font-medium dark:bg-neutral-800"
         >
           View
         </button>
@@ -66,19 +56,17 @@ export function ImageModal({ src, alt, ...props }: ImageModalProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed top-0 left-0 z-50 flex h-screen w-full items-center justify-center bg-neutral-900/60"
+            className="fixed top-0 left-0 z-50 flex h-screen w-full items-center justify-center bg-neutral-900/60 backdrop-blur-xl"
           >
             <motion.img
               onClick={(e) => e.stopPropagation()}
               src={src}
               alt={alt}
               className="block max-h-[90vh] max-w-[90vw] object-contain"
-              // This ID must match the thumbnail's layoutId
-              // layoutId={alt}
               {...props}
             />
             <button
-              className="absolute top-6 right-8 z-10 rounded-full bg-neutral-200 px-3 py-1 text-sm font-bold shadow"
+              className="absolute top-6 right-8 z-10 rounded-full bg-neutral-200 px-3 py-1 text-sm font-bold shadow dark:bg-neutral-800"
               onClick={() => setModalOpen(false)}
             >
               ×
@@ -139,14 +127,15 @@ export const CodeBlock = ({ code, language, title }: CodeBlockProps) => {
           >
             {tokens.map((line, i) => {
               const lineProps = getLineProps({ line, key: i });
-              const { key: reactKey, ...rest } = lineProps;
+
               delete lineProps.style;
               return (
-                <div key={reactKey} {...rest}>
+                <div {...lineProps}>
                   {line.map((token, key) => {
                     const tokenProps = getTokenProps({ token, key });
-                    const { key: reactKey, ...rest } = tokenProps;
-                    return <span key={reactKey} {...rest} />;
+                    delete tokenProps.style;
+
+                    return <span {...tokenProps} />;
                   })}
                 </div>
               );
@@ -160,7 +149,7 @@ export const CodeBlock = ({ code, language, title }: CodeBlockProps) => {
 
 export const MdxPre = ({ children }: any) => {
   // MDX passes the code string and language via props on the nested <code> element
-  const codeString = children.props.children;
+  const codeString = children.props?.children;
   const language = children.props.className?.replace("language-", "") || "";
 
   return <CodeBlock code={codeString} language={language} />;

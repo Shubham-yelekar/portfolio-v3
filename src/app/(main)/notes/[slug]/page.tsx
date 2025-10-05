@@ -35,7 +35,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         <article className="prose prose-lg dark:prose-invert mx-auto">
           {/* Article Header */}
 
-          <div className="mb-12 border-b-2 border-neutral-300 dark:border-neutral-700">
+          <div className="mb-12 rounded-lg bg-neutral-100 px-2 py-4 dark:bg-neutral-900">
             <h1 className="font-libre! text-4xl font-bold md:px-4">
               {meta.title}
             </h1>

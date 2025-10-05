@@ -7,6 +7,7 @@ const MumbaiSvg = ({ className, props }: any) => (
     width={200}
     height={200}
     className={className}
+    alt="mumbai"
     {...props}
   />
 );
