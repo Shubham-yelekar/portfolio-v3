@@ -8,6 +8,7 @@ import WavingFlag from "@/components/ui/WavingFlag";
 import Breaker from "@/components/ui/Breaker";
 import LabComponents from "@/components/sections/LabComponents";
 import Blogs from "@/components/sections/Blogs";
+import About from "@/components/sections/About";
 
 export default function Home() {
   return (
@@ -20,6 +21,8 @@ export default function Home() {
       <LabComponents />
       <Breaker />
       <Blogs />
+      <Breaker />
+      <About />
     </PageWrapper>
   );
 }
