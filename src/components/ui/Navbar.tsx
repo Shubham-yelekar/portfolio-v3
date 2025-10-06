@@ -53,7 +53,7 @@ const Navbar = () => {
         duration: 0.3,
         ease: easeInOut,
       }}
-      className="fixed top-4 left-1/2 z-100 flex w-full -translate-x-1/2 items-center justify-between gap-3 rounded-full border-1 border-white/40 bg-white/40 p-2 backdrop-blur-sm md:w-md dark:border-neutral-700 dark:bg-neutral-900/40"
+      className="fixed top-4 left-1/2 z-100 flex w-full -translate-x-1/2 items-center justify-between gap-3 rounded-full border-1 border-white/40 bg-white/40 p-2 backdrop-blur-sm md:w-md dark:border-neutral-600/40 dark:bg-neutral-900/40"
     >
       <Link
         href={"/"}
@@ -97,7 +97,7 @@ const Navbar = () => {
       </div>
       <button
         onClick={() => toggeltheme()}
-        className="relative h-8 w-8 cursor-pointer overflow-clip rounded-2xl bg-neutral-50 dark:bg-neutral-700"
+        className="relative h-8 w-8 cursor-pointer overflow-clip rounded-2xl bg-neutral-50 dark:bg-neutral-800"
       >
         <motion.div
           className="pointer-events-none absolute left-1/2 flex -translate-x-1/2 flex-col gap-3"
@@ -113,7 +113,6 @@ const Navbar = () => {
             <FaSun size={18} className="text-neutral-800" />
           </motion.div>
 
-          {/* Moon Icon: Rotates in when theme becomes dark */}
           <motion.div
             animate={{ rotate: theme === "light" ? 90 : 0 }}
             transition={{ duration: 0.5 }}
@@ -123,18 +122,6 @@ const Navbar = () => {
           </motion.div>
         </motion.div>
       </button>
-      {/* <button
-        className="rounded-2xl bg-white p-2 leading-3"
-        onClick={() => setTheme("dark")}
-      >
-        dark
-      </button>
-      <button
-        className="rounded-2xl bg-white p-2 leading-3"
-        onClick={() => setTheme("light")}
-      >
-        light
-      </button> */}
     </motion.nav>
   );
 };
