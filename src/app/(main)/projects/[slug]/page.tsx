@@ -51,7 +51,7 @@ export default async function ProjectPage({ params }: PageProps) {
             <div className="flex gap-4 md:px-4">
               {meta.tags.map((tag: string) => (
                 <div
-                  className="rounded-2xl bg-neutral-50 px-2 py-1 font-mono text-sm font-semibold text-neutral-700 dark:bg-neutral-800"
+                  className="rounded-2xl bg-neutral-50 px-4 py-1 font-mono text-sm font-semibold text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300"
                   key={tag}
                 >
                   {tag}

@@ -14,7 +14,7 @@ const Projects = () => {
       <h2 className="text-paragraph! font-libre! px-2 text-center text-2xl md:px-4">
         Selected Projects
       </h2>
-      <div className="flex flex-col gap-24">
+      <div className="flex flex-col gap-24 px-2">
         <div className="relative flex flex-col gap-4 md:gap-6">
           <div className="aspect-5/3 overflow-clip rounded-2xl">
             <Image
@@ -27,10 +27,10 @@ const Projects = () => {
           </div>
           <div className="flex-start flex flex-col gap-2 px-2 md:flex-row md:px-4">
             <div className="flex-1">
-              <h4 className="bold font-libre! text-lg md:text-2xl">
+              <h4 className="bold font-libre! text- md:text-2xl">
                 Toyota Land Cruiser 300
               </h4>
-              <h4 className="text-md text-neutral-800! md:text-lg dark:text-neutral-500!">
+              <h4 className="text-sm text-neutral-800! md:text-lg dark:text-neutral-500!">
                 Product Page Redesign
               </h4>
             </div>
@@ -48,7 +48,7 @@ const Projects = () => {
                   });
                 }}
               >
-                <Button className="mt-4 w-fit" variant={"secondary"}>
+                <Button className="w-fit" variant={"secondary"}>
                   Read more
                 </Button>
               </Link>
@@ -88,7 +88,7 @@ const Projects = () => {
                   });
                 }}
               >
-                <Button className="mt-4 w-fit" variant={"secondary"}>
+                <Button className="w-fit" variant={"secondary"}>
                   Read more
                 </Button>
               </Link>

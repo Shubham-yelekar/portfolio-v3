@@ -53,7 +53,7 @@ const Navbar = () => {
         duration: 0.3,
         ease: easeInOut,
       }}
-      className="fixed top-4 left-1/2 z-100 flex w-full -translate-x-1/2 items-center justify-between gap-3 rounded-full border-1 border-white/40 bg-white/40 p-2 backdrop-blur-sm md:w-md dark:border-neutral-600/40 dark:bg-neutral-900/40"
+      className="fixed top-2 left-1/2 z-100 flex w-full -translate-x-1/2 items-center justify-between gap-3 rounded-full bg-white/70 p-2 backdrop-blur-sm md:w-md dark:bg-neutral-900/70"
     >
       <Link
         href={"/"}
@@ -89,7 +89,7 @@ const Navbar = () => {
                 className="absolute inset-0 -z-1 flex h-full w-full items-center justify-center rounded-full bg-neutral-50 dark:bg-neutral-700"
               ></motion.span>
             )}
-            <span className="font-medium text-neutral-800 text-shadow-2xs dark:text-neutral-100">
+            <span className="font-medium text-neutral-900 dark:text-neutral-100 dark:text-shadow-2xs">
               {links.title}
             </span>
           </Link>

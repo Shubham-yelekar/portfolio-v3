@@ -3,7 +3,7 @@ import Container from "../ui/Container";
 import Image from "next/image";
 import Link from "next/link";
 import { BsTwitterX, BsGithub, BsLinkedin } from "react-icons/bs";
-import { IoMail } from "react-icons/io5";
+import { IoMail, IoLocation, IoBriefcase } from "react-icons/io5";
 import { PiReadCvLogoFill } from "react-icons/pi";
 import { FaReact } from "react-icons/fa6";
 import Button from "../ui/Button";
@@ -96,60 +96,99 @@ const webDev = [
 
 const About = () => {
   return (
-    <Container className="flex flex-col gap-8">
+    <Container className="flex flex-col gap-16 px-4 md:px-4">
       {/* <h2 className="text-paragraph! font-libre! px-2 text-center text-2xl italic md:px-4">
         Notes
       </h2> */}
-      <div className="flex gap-3">
+
+      <div className="flex flex-col gap-8">
+        <div className="flex flex-col items-start gap-4 md:flex-row md:items-center">
+          <div className="flex max-w-24 flex-1 items-center justify-center overflow-clip rounded-2xl border-4 border-neutral-50 bg-neutral-50 shadow-[var(--card-shadow)] md:max-w-32 dark:bg-neutral-900">
+            <Image
+              src={"/pictures/cat.jpg"}
+              width={300}
+              height={300}
+              alt="cat"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <h3 className="font-libre! text-2xl font-light tracking-tight md:text-3xl">
+              Shubham Yelekar
+            </h3>
+            <div className="flex items-center gap-2">
+              <div className="rounded-xl bg-neutral-50 p-2 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-50">
+                <IoLocation />
+              </div>
+              <p>Mumbai</p>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="rounded-xl bg-neutral-50 p-2 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-50">
+                <IoBriefcase />
+              </div>
+              <p>
+                Currently working at{" "}
+                <Link
+                  href={"https://www.artificialreality.in/"}
+                  target="_blank"
+                  className="text-neutral-900 underline dark:text-neutral-50"
+                >
+                  Artificial Reality
+                </Link>
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="flex flex-2 flex-col gap-3">
-          <p>
+          {/* <p>
             Hey, I’m{" "}
             <span className="text-neutral-900 dark:text-neutral-100">
               Shubham Yelekar,
             </span>
-          </p>
+          </p> */}
           <p>
-            <span className="text-neutral-900 dark:text-neutral-100">
-              Front-end engineer
-            </span>{" "}
-            who enjoys designing and coding. I focus on creating easy-to-use and
-            visually pleasing interfaces.
+            I specializing in building user-friendly and visually compelling web
+            experiences. With two years of professional experience, my work is
+            centered on bridging the gap between design and code.
           </p>
 
           <p>
-            I like using tools like React.js, Next.js, and Figma to bring ideas
-            to life.
+            I translate high-fidelity designs from Figma into performant,
+            component-based applications using React and Next.js. I'm currently
+            expanding my skill set into creative technologies like Three.js and
+            GLSL to build more immersive and engaging interfaces for the modern
+            web. I thrive on delivering clean code, intuitive UI, and a seamless
+            user experience from start to finish.
           </p>
         </div>
-        <div className="relative flex flex-1 items-center justify-center overflow-clip rounded-2xl bg-neutral-50 dark:bg-neutral-900">
-          <Image src={"/pictures/cat.jpg"} width={300} height={300} alt="cat" />
-          <div className="absolute bottom-2 flex gap-2">
-            <Link href={"/"} target="_blank">
-              <Button
-                variant={"primary"}
-                className="border border-zinc-200 bg-gradient-to-t from-zinc-700 to-zinc-950 dark:border-zinc-700 dark:from-zinc-700 dark:to-zinc-800"
-              >
-                <IoMail size={20} />
-                <span className="w-full">Email</span>
-              </Button>
-            </Link>
-            <Link href={"/"} target="_blank">
-              <Button
-                variant={"primary"}
-                className="border border-purple-200 bg-gradient-to-t from-purple-400 to-purple-600 dark:border-purple-700 dark:from-purple-700 dark:to-purple-800"
-              >
-                <PiReadCvLogoFill size={20} />
-                <span className="w-full">Resume</span>
-              </Button>
-            </Link>
-          </div>
+        <div className="flex gap-2">
+          <Link href={"/"} target="_blank">
+            <Button
+              variant={"primary"}
+              className="border border-zinc-200 bg-gradient-to-t from-zinc-700 to-zinc-950 dark:border-zinc-700 dark:from-zinc-700 dark:to-zinc-800"
+            >
+              <IoMail size={20} />
+              <span className="w-full">Email</span>
+            </Button>
+          </Link>
+          <Link href={"/"} target="_blank">
+            <Button
+              variant={"primary"}
+              className="border border-purple-200 bg-gradient-to-t from-purple-400 to-purple-600 dark:border-purple-700 dark:from-purple-700 dark:to-purple-800"
+            >
+              <PiReadCvLogoFill size={20} />
+              <span className="w-full">Resume</span>
+            </Button>
+          </Link>
         </div>
       </div>
 
       <div className="">
-        <h6 className="font-libre! text-paragraph! text-xl">Tool set</h6>
+        <h6 className="font-libre! text-paragraph! text-xl">
+          Developer Tool Set
+        </h6>
         <div className="">
-          <div className="mt-8 grid grid-cols-3 gap-4">
+          <div className="mt-4 grid grid-cols-2 gap-4 md:grid-cols-3">
             {webDev.map((box, index) => (
               <div
                 key={index}
@@ -166,7 +205,10 @@ const About = () => {
             ))}
           </div>
         </div>
-        <div className="mt-8 grid grid-cols-3 gap-4">
+        <h6 className="font-libre! text-paragraph! mt-8 text-xl">
+          Design Tool Set
+        </h6>
+        <div className="mt-4 grid grid-cols-2 gap-4 md:grid-cols-3">
           {design.map((box, index) => (
             <div
               key={index}

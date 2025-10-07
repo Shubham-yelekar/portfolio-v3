@@ -19,20 +19,21 @@ const page = () => {
             <Link
               href={`/lab/${item.slug}`}
               key={item.slug}
-              className="cursor hover group relative flex flex-col rounded-2xl p-2 transition-all duration-500 ease-in-out hover:bg-neutral-50 dark:hover:bg-neutral-900"
+              className="relative"
             >
-              <div className="overflow-clip rounded-xl shadow-[var(--card-shadow-2)] hover:shadow-[var(--card-shadow]">
+              <div className="aspect-7/6 overflow-clip rounded-2xl">
                 <Image
                   src={item.thumbImage}
-                  width={400}
-                  height={200}
-                  className="w-full scale-110 object-cover transition-all duration-500 ease-in-out group-hover:scale-105"
+                  width={900}
+                  height={600}
+                  className="h-full object-cover"
                   alt={`${item.slug}-image`}
                 />
               </div>
-              <div className="flex flex-col justify-between rounded-xl px-2 py-3">
-                <h4 className="font-libre text-xl">{item.title}</h4>
-                <p className="">{item.summary}</p>
+              <div className="absolute bottom-2 left-2 rounded-lg border border-neutral-200/10 bg-neutral-900/20 backdrop-blur-sm">
+                <h4 className="px-2 py-1 text-sm text-neutral-100! md:px-3 md:py-1 md:text-lg">
+                  Component
+                </h4>
               </div>
             </Link>
           ))}
