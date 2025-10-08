@@ -4,6 +4,7 @@ import {
   ImageModal,
   MdxPre,
   Blockquote,
+  ImageCarousal,
 } from "@/components/mdx/embeded";
 // components/MdxComponents.js
 
@@ -99,5 +100,6 @@ export const mdxComponents = {
   ImageWrapper,
   ImageModal,
   hr: Break,
+  ImageCarousal,
   // etc.
 };

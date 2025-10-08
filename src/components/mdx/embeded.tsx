@@ -1,9 +1,11 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Highlight, themes } from "prism-react-renderer";
 import { LuCopy, LuCheck } from "react-icons/lu"; // Using Lucide icons
 import { useTheme } from "next-themes";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+
 export function YouTubeEmbed({
   videoId,
   title,
@@ -150,7 +152,7 @@ export const CodeBlock = ({ code, language, title }: CodeBlockProps) => {
 export const MdxPre = ({ children }: any) => {
   // MDX passes the code string and language via props on the nested <code> element
   const codeString = children.props?.children;
-  const language = children.props.className?.replace("language-", "") || "";
+  const language = children.props?.className?.replace("language-", "") || "";
 
   return <CodeBlock code={codeString} language={language} />;
 };
@@ -160,3 +162,51 @@ export const Blockquote = ({ children }: any) => (
     {children}
   </blockquote>
 );
+
+interface Image {
+  src: string;
+  alt: string;
+}
+interface ImageProps {
+  images: Image[];
+}
+
+export const ImageCarousal = ({ images }: ImageProps) => {
+  const [current, setCurrent] = useState(0);
+
+  const length = images.length;
+
+  const handleClicks = (dir: string) => {
+    if (dir === "left" && current > 0) {
+      setCurrent((prev) => prev - 1);
+    } else if (dir === "right" && current < length - 1) {
+      setCurrent((prev) => prev + 1);
+    }
+  };
+  return (
+    <div className="relative aspect-9/6 w-full overflow-hidden rounded-xl">
+      <div className="absolute bottom-4 z-2 flex w-full">
+        <button
+          onClick={() => handleClicks("left")}
+          className="rounded-2xl bg-neutral-50 p-2"
+        >
+          <IoIosArrowBack />
+        </button>
+        <button
+          onClick={() => handleClicks("right")}
+          className="rounded-2xl bg-neutral-50 p-2"
+        >
+          <IoIosArrowForward />
+        </button>
+      </div>
+      {images.map((image, i) => (
+        <div
+          className={`absolute inset-0 h-full transition-opacity duration-1000 ease-in-out ${i === current ? "opacity-100" : "opacity-0"}`}
+          key={image.alt}
+        >
+          {i === current && <ImageWrapper src={image.src} alt={image.alt} />}
+        </div>
+      ))}
+    </div>
+  );
+};
