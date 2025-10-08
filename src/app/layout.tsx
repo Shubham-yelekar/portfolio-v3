@@ -25,6 +25,15 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+
+          {/* Radial Gradient Background from Top */}
+          <div
+            className="absolute inset-x-0 bottom-0 -z-2 h-[80vh] opacity-40 blur-3xl"
+            style={{
+              background:
+                "radial-gradient(100% 100%  at 50% 10%, var(--background) 50%, var(--color-blue-500)  75% , var(--color-orange-500)  100%",
+            }}
+          />
         </ThemeSwitchProvider>
       </body>
     </html>
