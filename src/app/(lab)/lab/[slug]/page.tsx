@@ -31,16 +31,18 @@ export default async function ProjectPage({ params }: PageProps) {
       <Container className="mt-[14vh] px-4">
         <article className="prose prose-md dark:prose-invert mx-auto">
           {/* Article Header */}
-          <div className="mb-8 text-center">
-            <h1 className="text-4xl font-bold">{meta.title}</h1>
-            <label className="mt-2 font-mono text-gray-500">
+          <div className="mb-12 rounded-lg bg-neutral-100 px-2 py-4 dark:bg-neutral-900">
+            <h1 className="font-libre! text-4xl font-bold md:px-4">
+              {meta.title}
+            </h1>
+            <p className="mt-4 font-mono text-sm text-gray-500 md:px-4">
               Published on{" "}
               {new Date(meta.date).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",
                 day: "numeric",
               })}
-            </label>
+            </p>
           </div>
 
           {/* Article Content */}

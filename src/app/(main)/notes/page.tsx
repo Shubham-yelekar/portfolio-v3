@@ -6,7 +6,6 @@ import Image from "next/image";
 
 export default async function NotesPage() {
   const posts = getAllContentMeta("notes");
-  console.log(posts);
 
   return (
     <PageWrapper>
@@ -19,14 +18,14 @@ export default async function NotesPage() {
             <Link
               key={post.slug}
               href={`/notes/${post.slug}`}
-              className="flex cursor-pointer gap-4 rounded-2xl p-2 transition-all duration-300 ease-in-out hover:bg-neutral-100 hover:p-2 dark:border-neutral-800 dark:bg-neutral-900 hover:dark:border-neutral-700"
+              className="flex cursor-pointer gap-4 rounded-2xl p-2 transition-all duration-300 ease-in-out hover:bg-neutral-100 hover:p-2 dark:bg-neutral-950 dark:hover:bg-neutral-900"
             >
               <div className="w-36 flex-1 overflow-clip rounded-xl">
                 <Image
-                  src={"/pictures/blog.jpg"}
+                  src={post.thumbImage}
                   width={900}
                   height={600}
-                  alt="thumb"
+                  alt={`${post.title}-cover-alt`}
                   className="h-full object-cover"
                 />
               </div>

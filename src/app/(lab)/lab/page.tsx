@@ -8,7 +8,6 @@ import Button from "@/components/ui/Button";
 
 const page = () => {
   const lab = getAllContentMeta("lab");
-  console.log(lab);
   return (
     <PageWrapper>
       <Container className="mt-[14vh] px-4">
@@ -22,13 +21,28 @@ const page = () => {
               className="relative"
             >
               <div className="aspect-7/6 overflow-clip rounded-2xl">
-                <Image
-                  src={item.thumbImage}
-                  width={900}
-                  height={600}
-                  className="h-full object-cover"
-                  alt={`${item.slug}-image`}
-                />
+                {item.thumbVideo === "" ? (
+                  <Image
+                    src={item.thumbImage}
+                    width={900}
+                    height={600}
+                    className="h-full object-cover"
+                    alt={`${item.slug}-image`}
+                  />
+                ) : (
+                  <video
+                    width="900"
+                    height="600"
+                    autoPlay
+                    muted
+                    playsInline
+                    loop
+                    preload="none"
+                    className="h-full object-cover"
+                  >
+                    <source src={item.thumbVideo} type="video/mp4" />
+                  </video>
+                )}
               </div>
               <div className="absolute bottom-2 left-2 rounded-lg border border-neutral-200/10 bg-neutral-900/20 backdrop-blur-sm">
                 <h4 className="px-2 py-1 text-sm text-neutral-100! md:px-3 md:py-1 md:text-lg">

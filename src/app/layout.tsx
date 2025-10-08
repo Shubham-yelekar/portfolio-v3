@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="relative" suppressHydrationWarning>
       <body
-        className={`${generalSans.variable} ${libreSerif.variable} bg-background flex min-h-screen flex-col justify-between antialiased`}
+        className={`${generalSans.variable} ${libreSerif.variable} bg-background relative flex min-h-screen flex-col justify-between antialiased`}
       >
         <ThemeSwitchProvider>
           <Navbar />

@@ -3,5 +3,5 @@ export default function LabLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <main>{children}</main>;
+  return <main className="min-h-screen">{children}</main>;
 }

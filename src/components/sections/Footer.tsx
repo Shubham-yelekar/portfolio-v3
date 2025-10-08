@@ -7,8 +7,8 @@ import { FaReact } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="mt-12 flex h-24 items-center justify-center border-t border-neutral-300 bg-neutral-300 dark:border-neutral-900 dark:bg-neutral-950">
-      <div className="flex gap-4">
+    <footer className="mt-12 flex min-h-[25vh] items-center justify-center overflow-hidden">
+      <div className="z-1 flex gap-4">
         <Link href={"https://x.com/shubu_y"} target="_blank">
           <BsTwitterX size={16} />
         </Link>
