@@ -4,7 +4,9 @@ import { motion, AnimatePresence } from "motion/react";
 import { Highlight, themes } from "prism-react-renderer";
 import { LuCopy, LuCheck } from "react-icons/lu"; // Using Lucide icons
 import { useTheme } from "next-themes";
+import Image from "next/image";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import cn from "@/app/lib/cn";
 
 export function YouTubeEmbed({
   videoId,
@@ -172,39 +174,80 @@ interface ImageProps {
 }
 
 export const ImageCarousal = ({ images }: ImageProps) => {
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent] = useState<number>(0);
 
   const length = images.length;
 
-  const handleClicks = (dir: string) => {
-    if (dir === "left" && current > 0) {
-      setCurrent((prev) => prev - 1);
-    } else if (dir === "right" && current < length - 1) {
-      setCurrent((prev) => prev + 1);
-    }
+  // No images? Don't render anything.
+  if (!Array.isArray(images) || images.length <= 0) {
+    return null;
+  }
+
+  const nextSlide = () => {
+    // Loops to the first image if at the end
+    setCurrent(current === length - 1 ? current : current + 1);
   };
+
+  const prevSlide = () => {
+    // Loops to the last image if at the beginning
+    setCurrent(current === 0 ? current : current - 1);
+  };
+
+  const goTo = (index: number) => {
+    setCurrent(index);
+  };
+
   return (
-    <div className="relative aspect-9/6 w-full overflow-hidden rounded-xl">
-      <div className="absolute bottom-4 z-2 flex w-full">
+    <div className="relative aspect-7/5 w-full overflow-hidden rounded-xl border border-neutral-300 dark:border-neutral-900">
+      <div className="absolute bottom-2 left-1/2 z-5 flex w-fit -translate-x-1/2 items-center justify-center gap-4 rounded-full bg-neutral-900/70 p-1 backdrop-blur-sm">
         <button
-          onClick={() => handleClicks("left")}
-          className="rounded-2xl bg-neutral-50 p-2"
+          onClick={prevSlide}
+          aria-label="Previous Image"
+          className={cn(
+            "cursor-pointer rounded-full p-1 hover:bg-neutral-700",
+            current === 0 ? "opacity-20" : "opacity-100",
+          )}
         >
-          <IoIosArrowBack />
+          <IoIosArrowBack size={16} className="text-white" />
         </button>
+        <div className="flex gap-4">
+          {images.map((_, i) => (
+            <button
+              onClick={() => goTo(i)}
+              key={i}
+              className={cn(
+                "h-2 w-2 cursor-pointer rounded-full",
+                current === i ? "h-2 w-2 bg-neutral-50" : "bg-neutral-50/50",
+              )}
+            ></button>
+          ))}
+        </div>
         <button
-          onClick={() => handleClicks("right")}
-          className="rounded-2xl bg-neutral-50 p-2"
+          onClick={nextSlide}
+          aria-label="Next Image"
+          className={cn(
+            "cursor-pointer rounded-full p-1 hover:bg-neutral-700",
+            current === length - 1 ? "opacity-20" : "opacity-100",
+          )}
         >
-          <IoIosArrowForward />
+          <IoIosArrowForward size={16} />
         </button>
       </div>
       {images.map((image, i) => (
         <div
-          className={`absolute inset-0 h-full transition-opacity duration-1000 ease-in-out ${i === current ? "opacity-100" : "opacity-0"}`}
-          key={image.alt}
+          className={`absolute h-full w-full transition-opacity duration-1000 ease-in-out ${i === current ? "opacity-100" : "opacity-0"}`}
+          key={`${image.alt}`}
         >
-          {i === current && <ImageWrapper src={image.src} alt={image.alt} />}
+          {i === current && (
+            <Image
+              src={image.src}
+              className="m-0! h-full object-cover"
+              alt={image.alt}
+              width={700}
+              height={500}
+              priority={i === 0}
+            />
+          )}
         </div>
       ))}
     </div>
