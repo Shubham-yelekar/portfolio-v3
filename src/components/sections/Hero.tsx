@@ -20,25 +20,30 @@ const Hero = () => {
       </div> */}
       <div>
         <div className="flex flex-col md:flex-row md:gap-4">
-          <h1 className="text-4xl md:text-6xl">Shubham Yelekar,</h1>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl">Shubham Yelekar,</h1>
         </div>
 
-        <div className="flex flex-row gap-3 md:gap-3">
-          <h1 className="text-4xl md:text-6xl">A Front-end</h1>
-          <TerminalIcon className="h-fit w-10 rounded-sm shadow-[var(--card-shadow)] md:w-16 md:rounded-xl" />
-          <h1 className="text-4xl md:text-6xl">Developer</h1>
+        <div className="flex flex-col gap-0 sm:flex-row sm:gap-3">
+          <div className="flex flex-row items-center gap-3 md:gap-3">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl">A Front-end</h1>
+            <TerminalIcon className="h-fit w-10 rounded-sm shadow-[var(--card-shadow)] md:w-16 md:rounded-xl" />
+          </div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl">Developer</h1>
         </div>
-        <div className="flex flex-row gap-2 md:gap-3">
+        <div className="flex flex-row items-center gap-2 md:gap-3">
           <FigmaSvg className="h-fit w-10 rounded-sm shadow-[var(--card-shadow)] md:w-16 md:rounded-xl" />
-          <h1 className="text-4xl md:text-6xl">& Designer,</h1>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl">& Designer,</h1>
         </div>
-        <div className="flex flex-col gap-2 md:flex-row md:gap-3">
-          <h1 className="text-4xl md:text-6xl">from in Mumbai</h1>
-          <MumbaiSvg className="h-fit w-10 rounded-sm shadow-[var(--card-shadow)] md:w-16 md:rounded-xl" />
+        <div className="flex flex-col gap-0 sm:flex-row sm:gap-3">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl">from in </h1>
+          <div className="flex flex-row items-center gap-3">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl">Mumbai </h1>
+            <MumbaiSvg className="h-fit w-10 rounded-sm shadow-[var(--card-shadow)] md:w-16 md:rounded-xl" />
+          </div>
         </div>
       </div>
       <div>
-        <div className="flex gap-3">
+        <div className="flex gap-2">
           <Link href={"https://x.com/shubu_y"} target="_blank">
             <Button
               className="border border-zinc-200 bg-gradient-to-t from-zinc-700 to-zinc-950 dark:border-zinc-700 dark:from-zinc-700 dark:to-zinc-800"

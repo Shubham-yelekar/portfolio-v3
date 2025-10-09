@@ -13,12 +13,10 @@ import {
   useMotionValueEvent,
   useScroll,
 } from "motion/react";
-import { useTransitionRouter } from "next-view-transitions";
+
 import { ThemeProvider, useTheme } from "next-themes";
-import { pageAnimation } from "@/app/lib/pageAnimation";
 
 const Navbar = () => {
-  const router = useTransitionRouter();
   const { theme, setTheme } = useTheme();
   const [hovered, setHovered] = useState<number | null>(null);
   const { scrollY } = useScroll();
@@ -56,13 +54,7 @@ const Navbar = () => {
       }}
       className="fixed top-2 left-1/2 z-100 flex w-full -translate-x-1/2 items-center justify-between gap-3 rounded-full bg-white/70 p-2 backdrop-blur-sm md:w-md dark:bg-neutral-900/70"
     >
-      <Link
-        href={"/"}
-        onClick={(e) => {
-          e.preventDefault();
-          router.push("/", { onTransitionReady: pageAnimation });
-        }}
-      >
+      <Link href={"/"}>
         <Image
           src="/pictures/cat.jpg"
           width={60}
@@ -79,10 +71,6 @@ const Navbar = () => {
             className="relative flex items-center justify-center px-2 py-1 text-sm"
             onMouseEnter={() => setHovered(idx)}
             onMouseLeave={() => setHovered(null)}
-            onClick={(e) => {
-              e.preventDefault();
-              router.push(links.url, { onTransitionReady: pageAnimation });
-            }}
           >
             {hovered === idx && (
               <motion.span

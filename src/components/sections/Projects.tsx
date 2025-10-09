@@ -4,11 +4,8 @@ import Container from "../ui/Container";
 import Image from "next/image";
 import Button from "../ui/Button";
 import Link from "next/link";
-import { useTransitionRouter } from "next-view-transitions";
-import { pageAnimation } from "@/app/lib/pageAnimation";
 
 const Projects = () => {
-  const router = useTransitionRouter();
   return (
     <Container className="flex flex-col gap-6 md:gap-12">
       <h2 className="font-libre! px-2 text-center text-2xl md:px-4">
@@ -27,27 +24,19 @@ const Projects = () => {
           </div>
           <div className="flex-start flex flex-col gap-2 px-2 md:flex-row md:px-4">
             <div className="flex-1">
-              <h4 className="bold font-libre! text- md:text-2xl">
+              <h3 className="bold font-libre! mb-2 text-xl md:text-2xl">
                 Toyota Land Cruiser 300
-              </h4>
-              <h4 className="text-sm text-neutral-800! md:text-lg dark:text-neutral-500!">
+              </h3>
+              <h5 className="text-sm text-neutral-800! md:text-lg dark:text-neutral-500!">
                 Product Page Redesign
-              </h4>
+              </h5>
             </div>
             <div className="flex flex-1 flex-col gap-4">
               <p className="text-paragraph text-sm md:text-base">
                 I led the redesign and development for the Toyota Land Cruiser
                 300 product page at <strong>Artificial Reality.</strong>
               </p>
-              <Link
-                href="/projects/toyota-lc300"
-                onClick={(e) => {
-                  e.preventDefault();
-                  router.push("/projects/toyota-lc300", {
-                    onTransitionReady: pageAnimation,
-                  });
-                }}
-              >
+              <Link href="/projects/toyota-lc300">
                 <Button className="w-fit" variant={"secondary"}>
                   Read more
                 </Button>
@@ -67,27 +56,19 @@ const Projects = () => {
           </div>
           <div className="flex-start flex flex-col gap-2 px-2 md:flex-row md:px-4">
             <div className="flex-1">
-              <h4 className="bold font-libre! text-lg md:text-2xl">
+              <h4 className="bold font-libre! text-xl md:text-2xl">
                 Toyota Taisor Landing page
               </h4>
-              <h4 className="text-md text-neutral-800! md:text-lg dark:text-neutral-500!">
+              <h5 className="text-md text-neutral-800! md:text-lg dark:text-neutral-500!">
                 Product Page Redesign
-              </h4>
+              </h5>
             </div>
             <div className="flex flex-1 flex-col gap-4">
               <p className="text-paragraph text-sm md:text-base">
                 Experimented with various designs and interactions using GSAP
                 and clip masks<strong>Artificial Reality.</strong>
               </p>
-              <Link
-                href="/projects/toyota-taisor"
-                onClick={(e) => {
-                  e.preventDefault();
-                  router.push("/projects/toyota-taisor", {
-                    onTransitionReady: pageAnimation,
-                  });
-                }}
-              >
+              <Link href="/projects/toyota-taisor">
                 <Button className="w-fit" variant={"secondary"}>
                   Read more
                 </Button>
@@ -97,15 +78,7 @@ const Projects = () => {
         </div>
       </div>
 
-      <Link
-        href="/projects"
-        onClick={(e) => {
-          e.preventDefault();
-          router.push("/projects", {
-            onTransitionReady: pageAnimation,
-          });
-        }}
-      >
+      <Link href="/projects">
         <Button className="mx-auto mt-4 w-40" variant={"tertiary"}>
           All Projects
         </Button>
