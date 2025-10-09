@@ -11,7 +11,7 @@ const Projects = () => {
   const router = useTransitionRouter();
   return (
     <Container className="flex flex-col gap-6 md:gap-12">
-      <h2 className="text-paragraph! font-libre! px-2 text-center text-2xl md:px-4">
+      <h2 className="font-libre! px-2 text-center text-2xl md:px-4">
         Selected Projects
       </h2>
       <div className="flex flex-col gap-24 px-2">

@@ -133,15 +133,18 @@ export const CodeBlock = ({ code, language, title }: CodeBlockProps) => {
           >
             {tokens.map((line, i) => {
               const lineProps = getLineProps({ line, key: i });
-
+              const lineKey = String(i); // force to string — safe for React key
+              delete (lineProps as any).key;
               delete lineProps.style;
               return (
-                <div {...lineProps}>
+                <div key={lineKey} {...lineProps}>
                   {line.map((token, key) => {
                     const tokenProps = getTokenProps({ token, key });
+                    const tokenKey = `${i}-${key}`; // unique per token
+                    delete (tokenProps as any).key;
                     delete tokenProps.style;
 
-                    return <span {...tokenProps} />;
+                    return <span key={tokenKey} {...tokenProps} />;
                   })}
                 </div>
               );
@@ -198,7 +201,6 @@ export const ImageCarousal = ({ images }: ImageProps) => {
   const goTo = (index: number) => {
     setCurrent(index);
   };
-
   return (
     <div className="relative aspect-7/5 w-full overflow-hidden rounded-xl border border-neutral-300 dark:border-neutral-900">
       <div className="absolute bottom-2 left-1/2 z-5 flex w-fit -translate-x-1/2 items-center justify-center gap-4 rounded-full bg-neutral-900/70 p-1 backdrop-blur-sm">
@@ -346,5 +348,24 @@ export const ImageCompare = ({ topImage, bottomImage }: ImageCompareProps) => {
         />
       </div>
     </div>
+  );
+};
+
+interface VideoProps {
+  src: string;
+}
+
+export const VideoWrapper = ({ src }: VideoProps) => {
+  return (
+    <video
+      width={700}
+      height={600}
+      className="rounded-xl border border-neutral-300 dark:border-neutral-900"
+      controls
+      playsInline
+      preload="true"
+    >
+      <source src={src} type="video/mp4" />
+    </video>
   );
 };

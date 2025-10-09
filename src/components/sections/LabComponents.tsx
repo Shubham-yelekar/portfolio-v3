@@ -7,7 +7,7 @@ import Link from "next/link";
 const LabComponents = () => {
   return (
     <Container className="flex flex-col gap-6 md:gap-9">
-      <h2 className="text-paragraph! font-libre! px-2 text-center text-2xl md:px-4">
+      <h2 className="font-libre! px-2 text-center text-2xl md:px-4">
         Laboratory
       </h2>
       <div className="mx-2 grid grid-cols-2 gap-2 md:mx-0 md:gap-4">

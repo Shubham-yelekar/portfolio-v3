@@ -10,9 +10,7 @@ const Blogs = () => {
 
   return (
     <Container className="flex flex-col gap-6 md:gap-9">
-      <h2 className="text-paragraph! font-libre! px-2 text-center text-2xl md:px-4">
-        Notes
-      </h2>
+      <h2 className="font-libre! px-2 text-center text-2xl md:px-4">Notes</h2>
       <div className="flex flex-col gap-2 md:gap-4">
         {posts.map((post) => (
           // This would be your <ArticleCard /> component

@@ -6,6 +6,7 @@ import {
   Blockquote,
   ImageCarousal,
   ImageCompare,
+  VideoWrapper,
 } from "@/components/mdx/embeded";
 // components/MdxComponents.js
 
@@ -103,5 +104,6 @@ export const mdxComponents = {
   hr: Break,
   ImageCarousal,
   ImageCompare,
+  VideoWrapper,
   // etc.
 };
