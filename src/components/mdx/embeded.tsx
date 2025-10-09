@@ -1,11 +1,13 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Highlight, themes } from "prism-react-renderer";
 import { LuCopy, LuCheck } from "react-icons/lu"; // Using Lucide icons
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { PiDotsSixVerticalBold } from "react-icons/pi";
+
 import cn from "@/app/lib/cn";
 
 export function YouTubeEmbed({
@@ -121,7 +123,7 @@ export const CodeBlock = ({ code, language, title }: CodeBlockProps) => {
       </div>
       <Highlight
         theme={themes.palenight} // You can change the theme here
-        code={code.trim()}
+        code={code?.trim()}
         language={language}
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
@@ -210,14 +212,14 @@ export const ImageCarousal = ({ images }: ImageProps) => {
         >
           <IoIosArrowBack size={16} className="text-white" />
         </button>
-        <div className="flex gap-4">
+        <div className="flex items-center gap-4">
           {images.map((_, i) => (
             <button
               onClick={() => goTo(i)}
               key={i}
               className={cn(
-                "h-2 w-2 cursor-pointer rounded-full",
-                current === i ? "h-2 w-2 bg-neutral-50" : "bg-neutral-50/50",
+                "h-2 w-2 cursor-pointer rounded-full transition-all ease-in-out",
+                current === i ? "scale-150 bg-neutral-50" : "bg-neutral-50/40",
               )}
             ></button>
           ))}
@@ -235,21 +237,114 @@ export const ImageCarousal = ({ images }: ImageProps) => {
       </div>
       {images.map((image, i) => (
         <div
-          className={`absolute h-full w-full transition-opacity duration-1000 ease-in-out ${i === current ? "opacity-100" : "opacity-0"}`}
+          className={`absolute h-full w-full transition-opacity duration-500 ease-in-out ${i === current ? "opacity-100" : "opacity-0"}`}
           key={`${image.alt}`}
         >
-          {i === current && (
-            <Image
-              src={image.src}
-              className="m-0! h-full object-cover"
-              alt={image.alt}
-              width={700}
-              height={500}
-              priority={i === 0}
-            />
-          )}
+          <Image
+            src={image.src}
+            className="m-0! h-full object-cover"
+            alt={image.alt}
+            width={700}
+            height={500}
+            priority={i === 0}
+          />
         </div>
       ))}
+    </div>
+  );
+};
+
+interface ImageCompareProps {
+  topImage: Image;
+  bottomImage: Image;
+}
+
+export const ImageCompare = ({ topImage, bottomImage }: ImageCompareProps) => {
+  const [position, setPosition] = useState(5);
+  const sliderBox = useRef<HTMLDivElement>(null);
+
+  const handleMove = useCallback((clientX: number) => {
+    if (!sliderBox.current) return;
+    const rect = sliderBox.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+    const percent = (x / rect.width) * 100;
+    setPosition(percent);
+    console.log(position);
+  }, []);
+
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => handleMove(e.clientX),
+    [handleMove],
+  );
+
+  const handleTouchMove = useCallback(
+    (e: TouchEvent) => handleMove(e.touches[0].clientX),
+    [handleMove],
+  );
+  const handleTouchEnd = useCallback(() => {
+    window.removeEventListener("touchmove", handleTouchMove);
+    window.removeEventListener("touchend", handleTouchEnd);
+  }, [handleTouchMove]);
+
+  const handleMouseUp = useCallback(() => {
+    window.removeEventListener("mousemove", handleMouseMove);
+    window.removeEventListener("mouseup", handleMouseUp);
+  }, [handleMouseMove]);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseup", handleMouseUp);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    window.addEventListener("touchmove", handleTouchMove);
+    window.addEventListener("touchend", handleTouchEnd);
+  };
+
+  return (
+    <div
+      ref={sliderBox}
+      className="relative my-12 aspect-7/5 w-full overflow-hidden rounded-xl border border-neutral-300 dark:border-neutral-900"
+    >
+      <motion.div
+        className="absolute left-12 z-4 h-full w-1 bg-neutral-100/50"
+        style={{ left: `calc(${position}% - 1.5px)` }}
+        transition={{ type: "spring", stiffness: 100, damping: 15 }}
+      >
+        <div
+          onMouseDown={handleMouseDown}
+          onTouchStart={handleTouchStart}
+          className="absolute top-1/2 -left-4 z-50 -translate-y-1/2 cursor-grab rounded-full bg-neutral-100 p-2 focus:cursor-grabbing"
+        >
+          <PiDotsSixVerticalBold className="text-neutral-900" />
+        </div>
+      </motion.div>
+      <div
+        className="absolute z-2 h-full w-full"
+        style={{
+          clipPath: `inset(0 ${100 - position}% 0 0)`,
+        }}
+      >
+        <Image
+          draggable="false"
+          className="pointer-events-none m-0! object-cover select-none"
+          src={topImage.src}
+          alt={topImage.alt}
+          width={700}
+          height={500}
+        />
+      </div>
+      <div className="absolute h-full w-full">
+        <Image
+          draggable="false"
+          className="pointer-events-none m-0! object-cover select-none"
+          src={bottomImage.src}
+          alt={bottomImage.alt}
+          width={700}
+          height={500}
+        />
+      </div>
     </div>
   );
 };
