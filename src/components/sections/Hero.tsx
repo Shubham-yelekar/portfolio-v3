@@ -11,7 +11,7 @@ import FigmaSvg from "../icons/FigmaSvg";
 import MumbaiSvg from "../icons/MumbaiSvg";
 const Hero = () => {
   return (
-    <Container className="mt-[30vh] flex flex-col gap-6 px-4 md:mt-[28vh] md:gap-9">
+    <Container className="mt-[30dvh] flex flex-col gap-6 px-4 md:mt-[28dvh] md:gap-9">
       <WavingFlag />
       {/* <div>
         <div className="card-shadow w-14 overflow-clip rounded-2xl border-4 border-white md:w-20 md:rounded-3xl">

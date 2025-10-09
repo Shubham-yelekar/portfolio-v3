@@ -28,7 +28,7 @@ export default async function ProjectPage({ params }: PageProps) {
 
   try {
     return (
-      <Container className="mt-[14vh] px-4 md:mt-[24vh]">
+      <Container className="mt-[14dvh] px-4 md:mt-[24dvh]">
         {/* <Image
           src={meta.thumbImage}
           alt={meta.title}

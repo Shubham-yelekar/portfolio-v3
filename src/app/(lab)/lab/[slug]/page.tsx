@@ -28,7 +28,7 @@ export default async function ProjectPage({ params }: PageProps) {
   const { meta, content } = getContentBySlug(slug, "lab");
   try {
     return (
-      <Container className="mt-[14vh] px-4">
+      <Container className="mt-[14dvh] px-4">
         <article className="prose prose-md dark:prose-invert mx-auto">
           {/* Article Header */}
           <div className="mb-12 rounded-lg bg-neutral-100 px-2 py-4 dark:bg-neutral-900">

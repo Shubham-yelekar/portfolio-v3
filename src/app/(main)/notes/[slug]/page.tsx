@@ -31,7 +31,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   try {
     return (
-      <Container className="mt-[18vh] px-4 md:mt-[24vh]">
+      <Container className="mt-[18dvh] px-4 md:mt-[24dvh]">
         <article className="prose prose-lg dark:prose-invert mx-auto">
           {/* Article Header */}
 

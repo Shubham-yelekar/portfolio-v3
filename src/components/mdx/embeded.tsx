@@ -68,7 +68,7 @@ export function ImageModal({ src, alt, ...props }: any) {
               onClick={(e) => e.stopPropagation()}
               src={src}
               alt={alt}
-              className="block max-h-[90vh] max-w-[90vw] object-contain"
+              className="block max-h-[90dvh] max-w-[90vw] object-contain"
               {...props}
             />
             <button

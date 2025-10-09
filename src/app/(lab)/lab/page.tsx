@@ -10,7 +10,7 @@ const page = () => {
   const lab = getAllContentMeta("lab");
   return (
     <PageWrapper>
-      <Container className="mt-[14vh] px-4">
+      <Container className="mt-[14dvh] px-4">
         <h2 className="font-libre! text-center text-3xl font-bold">Lab</h2>
 
         <div className="mt-12 grid grid-cols-2 justify-center gap-4">

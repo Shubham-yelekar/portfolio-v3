@@ -9,7 +9,7 @@ export default async function NotesPage() {
 
   return (
     <PageWrapper>
-      <Container className="mt-[14vh]">
+      <Container className="mt-[14dvh]">
         <h2 className="font-libre! text-center text-3xl">Notes</h2>
         <div className="mt-12 flex flex-col gap-4">
           {posts.map((post) => (
