@@ -377,6 +377,23 @@ export const VideoWrapper = ({ src }: VideoProps) => {
 };
 
 export const MobileVideoWrapper = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+  const playPause = () => {
+    if (!playing) {
+      videoRef.current?.play();
+      setPlaying(true);
+    } else {
+      videoRef.current?.pause();
+      setPlaying(true);
+    }
+  };
+
+  const restart = () => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+    }
+  };
   return (
     <div className="flex h-fit w-full justify-center p-4">
       <div className="bg-background relative w-3/4 rounded-[48px] sm:w-3/5">
@@ -388,26 +405,32 @@ export const MobileVideoWrapper = () => {
             <IoBatteryFullOutline size={24} />
           </div>
         </div>
-        <div className="absolute bottom-6 z-8 flex w-full justify-between px-12 pt-2">
-          <button>
+        <div className="absolute bottom-4 z-8 flex w-full justify-between px-6">
+          <button
+            onClick={() => playPause()}
+            className="rounded-full border border-neutral-400 bg-neutral-300 p-4 dark:border-neutral-800 dark:bg-neutral-900"
+          >
             <FaPlay />
           </button>
-          <div className="rounded-full border border-neutral-300 bg-neutral-300/50 px-8 py-2 backdrop-blur-2xl">
+          <div className="flex items-center rounded-full border border-neutral-400 bg-neutral-300 px-8 py-2 text-neutral-400 backdrop-blur-2xl dark:border-neutral-800 dark:bg-neutral-900">
             webitename.com
           </div>
-          <button>
+          <button
+            onClick={() => restart()}
+            className="rounded-full border border-neutral-400 bg-neutral-300 p-4 dark:border-neutral-800 dark:bg-neutral-900"
+          >
             <FaArrowRotateRight />
           </button>
         </div>
         <Iphone17 className="absolute z-8 w-full" />
         <div className="absolute top-14 z-1 h-[84%] w-full p-2">
           <video
+            ref={videoRef}
             width="100%"
             height="auto"
             className="h-full w-full object-cover"
             playsInline
-            controls
-            preload="true"
+            preload="false"
           >
             <source src="/pictures/mobile-video.mp4" type="video/mp4" />
           </video>
