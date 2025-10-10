@@ -7,8 +7,14 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { PiDotsSixVerticalBold } from "react-icons/pi";
+import { TbAntennaBars5 } from "react-icons/tb";
+import { IoBatteryFullOutline } from "react-icons/io5";
+import { FaWifi } from "react-icons/fa";
+import { GrPowerReset } from "react-icons/gr";
+import { FaPlay, FaArrowRotateRight, FaPause } from "react-icons/fa6";
 
 import cn from "@/app/lib/cn";
+import Iphone17 from "../icons/Iphone17";
 
 export function YouTubeEmbed({
   videoId,
@@ -262,7 +268,7 @@ interface ImageCompareProps {
 }
 
 export const ImageCompare = ({ topImage, bottomImage }: ImageCompareProps) => {
-  const [position, setPosition] = useState(5);
+  const [position, setPosition] = useState(25);
   const sliderBox = useRef<HTMLDivElement>(null);
 
   const handleMove = useCallback((clientX: number) => {
@@ -307,7 +313,7 @@ export const ImageCompare = ({ topImage, bottomImage }: ImageCompareProps) => {
   return (
     <div
       ref={sliderBox}
-      className="relative my-12 aspect-7/5 w-full overflow-hidden rounded-xl border border-neutral-300 dark:border-neutral-900"
+      className="relative mt-8 mb-12 aspect-7/5 w-full overflow-hidden rounded-xl border border-neutral-300 dark:border-neutral-900"
     >
       <motion.div
         className="absolute left-12 z-4 h-full w-1 bg-neutral-100/50"
@@ -367,5 +373,46 @@ export const VideoWrapper = ({ src }: VideoProps) => {
     >
       <source src={src} type="video/mp4" />
     </video>
+  );
+};
+
+export const MobileVideoWrapper = () => {
+  return (
+    <div className="flex h-fit w-full justify-center p-4">
+      <div className="bg-background relative w-3/4 rounded-[48px] sm:w-3/5">
+        <div className="absolute top-6 z-8 flex w-full justify-between px-12 pt-2">
+          <span className="font-normal">9:14</span>
+          <div className="flex items-center gap-1">
+            <TbAntennaBars5 size={24} />
+            <FaWifi size={18} />
+            <IoBatteryFullOutline size={24} />
+          </div>
+        </div>
+        <div className="absolute bottom-6 z-8 flex w-full justify-between px-12 pt-2">
+          <button>
+            <FaPlay />
+          </button>
+          <div className="rounded-full border border-neutral-300 bg-neutral-300/50 px-8 py-2 backdrop-blur-2xl">
+            webitename.com
+          </div>
+          <button>
+            <FaArrowRotateRight />
+          </button>
+        </div>
+        <Iphone17 className="absolute z-8 w-full" />
+        <div className="absolute top-14 z-1 h-[84%] w-full p-2">
+          <video
+            width="100%"
+            height="auto"
+            className="h-full w-full object-cover"
+            playsInline
+            controls
+            preload="true"
+          >
+            <source src="/pictures/mobile-video.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
   );
 };

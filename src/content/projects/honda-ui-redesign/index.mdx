@@ -1,0 +1,82 @@
+---
+title: "Honda India 3d Configurator Website Redesign"
+date: "2025-09-28"
+summary: "Honda India 3d Configurator Website Redesign"
+category: "Deep Dive"
+thumbImage: "/pictures/honda-ui-new.jpg"
+tags: ["Experience"]
+---
+
+# Summary
+
+Artificial Reality had built a platform using **Unreal Engine** and **Pixel Streaming** to deliver a photorealistic, real-time 3D car model directly to a user's web browser. The level of detail, from the paint's reflection to the dynamic light simulation, is better than any visualizer in India Market.
+
+The frontend was built with Angular and Bootstrap, communicating with the Unreal Engine instance via WebRTC. While technologically impressive, the user interface (UI) needed a fresh perspective.
+
+---
+
+# Strategy
+
+We also researched competing configurators and found that most relied on a strict, linear user flow. However, we wanted to avoid this rigid "checklist" approach, as we felt it would detract from the immersive quality of the visualizer.
+
+Our design philosophy was to maintain a free-flowing and exploratory experience. This meant empowering the user to interact with any part of the car, in any order they wished, fostering a genuine sense of discovery and personal connection with the vehicle.
+
+1. **Simplifing User Interface -** The existing interface had many options, but they weren't presented in the most intuitive way.
+
+2. **Mobile Responsive -** The experience needed to be seamless and enjoyable on a smartphone, not just a scaled-down version of the desktop site.
+3. **User Engagement -** We wanted to transform the experience from a passive viewing to an active, exciting exploration of the car.
+
+---
+
+## 1. Simplifing User Interface
+
+My first goal was to declutter the interface by creating a clear hierarchy between major and minor interactions.
+
+Through observation, I noticed a distinct user pattern: people almost always changed the **Car Variant** and **Color** before exploring smaller features.
+
+Based on this insight, I redesigned the layout to give these high-frequency actions prominence, making them immediately visible when the visualizer loads.
+
+<ImageCompare
+  topImage={{
+    src: "/pictures/honda-ui-new.jpg",
+    alt: "Old UI ",
+  }}
+  bottomImage={{
+    src: "/pictures/honda-ui-old.jpg",
+    alt: "New UI",
+  }}
+/>
+
+Furthermore, changing the variant directly impacts the price.
+
+To make this relationship intuitive, the Variant selector and the price summary were redesigned to be closely associated.
+
+Now, when a user selects a different model, the price updates instantly right beside it, providing clear, immediate feedbac
+
+<ImageWrapper src="/pictures/variant-pricing.jpg" alt="variant and pricing" />
+
+The old color button was getting lost with other icons.
+
+I gave it a unique design and moved all the other options like 'open doors' and 'turn on lights'—into one simple dropdown menu.
+
+<ImageCompare
+  topImage={{
+    src: "/pictures/colors-new.jpg",
+    alt: "Old UI ",
+  }}
+  bottomImage={{
+    src: "/pictures/colors-old.jpg",
+    alt: "New UI",
+  }}
+/>
+
+<ImageWrapper src="/pictures/colors-ui.jpg" alt="colors ui" />
+<ImageWrapper src="/pictures/scene-ui.jpg" alt="scene ui" />
+<ImageWrapper src="/pictures/camera-ui.jpg" alt="camera ui" />
+<ImageWrapper src="/pictures/ui-icons.jpg" alt="icons ui" />
+
+## 2. Mobile Responsive
+
+My first goal was to declutter the interface by creating a clear hierarchy between major and minor interactions.
+
+<MobileVideoWrapper />

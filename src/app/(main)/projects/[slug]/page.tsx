@@ -36,7 +36,7 @@ export default async function ProjectPage({ params }: PageProps) {
           height={1000}
           className="fade-mask absolute -top-50 left-0 z-[-1] w-full opacity-30"
         /> */}
-        <article className="mx-auto">
+        <article className="">
           {/* Article Header */}
           <div className="mb-12 flex flex-col gap-4 border-b-2 border-neutral-300 pb-12 dark:border-neutral-800">
             <h1 className="font-libre! text-4xl md:px-4">{meta.title}</h1>
