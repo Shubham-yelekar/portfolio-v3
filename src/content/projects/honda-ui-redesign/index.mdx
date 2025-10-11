@@ -70,13 +70,31 @@ I gave it a unique design and moved all the other options like 'open doors' and 
   }}
 />
 
-<ImageWrapper src="/pictures/colors-ui.jpg" alt="colors ui" />
-<ImageWrapper src="/pictures/scene-ui.jpg" alt="scene ui" />
-<ImageWrapper src="/pictures/camera-ui.jpg" alt="camera ui" />
-<ImageWrapper src="/pictures/ui-icons.jpg" alt="icons ui" />
+<ImageCarousal
+  images={[
+    {
+      src: "/pictures/colors-ui.jpg",
+      alt: "colors ui",
+    },
+    {
+      src: "/pictures/scene-ui.jpg",
+      alt: "scene ui",
+    },
+    {
+      src: "/pictures/camera-ui.jpg",
+      alt: "camera ui",
+    },
+    {
+      src: "/pictures/ui-icons.jpg",
+      alt: "icons ui",
+    },
+  ]}
+/>
+
+---
 
 ## 2. Mobile Responsive
 
 My first goal was to declutter the interface by creating a clear hierarchy between major and minor interactions.
 
-<MobileVideoWrapper />
+{/* <MobileVideoWrapper /> */}
