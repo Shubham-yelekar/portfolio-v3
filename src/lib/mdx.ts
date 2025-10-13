@@ -20,6 +20,7 @@ export function getAllContentMeta(contentType: ContentType) {
     const { data } = matter(fileContents);
     return {
       ...(data as {
+        status: string;
         title: string;
         date: string;
         summary: string;

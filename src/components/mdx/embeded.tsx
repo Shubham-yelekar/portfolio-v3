@@ -208,7 +208,7 @@ export const ImageCarousal = ({ images }: ImageProps) => {
     setCurrent(index);
   };
   return (
-    <div className="relative aspect-7/5 w-full overflow-hidden rounded-xl border border-neutral-300 dark:border-neutral-900">
+    <div className="relative mb-12 aspect-7/5 w-full overflow-hidden rounded-xl border border-neutral-300 dark:border-neutral-900">
       <div className="absolute bottom-2 left-1/2 z-5 flex w-fit -translate-x-1/2 items-center justify-center gap-4 rounded-full bg-neutral-900/70 p-1 backdrop-blur-sm">
         <button
           onClick={prevSlide}
@@ -240,7 +240,7 @@ export const ImageCarousal = ({ images }: ImageProps) => {
             current === length - 1 ? "opacity-20" : "opacity-100",
           )}
         >
-          <IoIosArrowForward size={16} />
+          <IoIosArrowForward size={16} className="text-white" />
         </button>
       </div>
       {images.map((image, i) => (

@@ -1,0 +1,61 @@
+---
+title: "Image Components"
+date: "2025-09-28"
+summary: "Image wrapper, Image zoom, Carousel & Image Compare"
+category: "Deep Dive"
+thumbImage: "https://ucarecdn.com/1e9a7cd2-2a86-49eb-ba79-1163135ecd06/-/preview/920x600/"
+thumbVideo: ""
+tags: ["React", "Animation"]
+---
+
+# Image Wrapper
+
+## Image Wrapper
+
+### Image Wrapper
+
+<ImageWrapper src="/pictures/cat-4.jpg" alt="cover-image" />
+
+### Image Zoom
+
+<ImageModal src="/pictures/cat-4.jpg" alt="cat-image" />
+
+### Image carousel
+
+<ImageCarousal
+  images={[
+    {
+      src: "/pictures/cat-1.jpg",
+      alt: "A beautiful ",
+    },
+    {
+      src: "/pictures/cat-3.jpg",
+      alt: "sunset over the mountains.",
+    },
+    {
+      src: "/pictures/cat-4.jpg",
+      alt: "A beautiful mountains.",
+    },
+    {
+      src: "/pictures/cat-5.jpg",
+      alt: " the mountains.",
+    },
+    {
+      src: "/pictures/cat-6.jpg",
+      alt: " the mountains 23232.",
+    },
+  ]}
+/>
+
+### Image compare
+
+<ImageCompare
+  topImage={{
+    src: "/pictures/cat-1.jpg",
+    alt: "Old UI ",
+  }}
+  bottomImage={{
+    src: "/pictures/cat-2.jpg",
+    alt: "New UI",
+  }}
+/>

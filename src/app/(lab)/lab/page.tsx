@@ -46,7 +46,7 @@ const page = () => {
               </div>
               <div className="absolute bottom-2 left-2 rounded-lg border border-neutral-200/10 bg-neutral-900/20 backdrop-blur-sm">
                 <h4 className="px-2 py-1 text-sm text-neutral-100! md:px-3 md:py-1 md:text-lg">
-                  Component
+                  {item.title}
                 </h4>
               </div>
             </Link>

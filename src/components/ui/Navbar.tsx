@@ -52,14 +52,14 @@ const Navbar = () => {
         duration: 0.3,
         ease: easeInOut,
       }}
-      className="fixed top-2 left-1/2 z-100 flex w-full -translate-x-1/2 items-center justify-between gap-3 rounded-full bg-white/70 p-2 backdrop-blur-sm md:w-md dark:bg-neutral-900/70"
+      className="fixed top-2 left-1/2 z-100 flex w-fit -translate-x-1/2 items-center justify-between gap-3 rounded-full bg-white/50 p-2 backdrop-blur-sm dark:bg-neutral-900/50"
     >
       <Link href={"/"}>
         <Image
           src="/pictures/cat.jpg"
-          width={60}
-          height={60}
-          className="trasition-all w-8 rounded-full ring-4 ring-transparent ease-in-out hover:ring-neutral-200"
+          width={36}
+          height={36}
+          className="trasition-all min-w-8 rounded-full ring-4 ring-transparent ease-in-out hover:ring-neutral-200"
           alt="me"
         />
       </Link>

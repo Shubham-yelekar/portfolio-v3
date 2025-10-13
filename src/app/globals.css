@@ -71,6 +71,7 @@ h1 {
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: -2;
+  font-style: normal;
   color: var(--color-heading);
   /* background-image: var(--text-heading-1);
   background-clip: text;
@@ -79,7 +80,7 @@ h1 {
 }
 h2 {
   font-family: inherit;
-
+  font-style: normal;
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: -0.5;
@@ -93,21 +94,25 @@ h2 {
 h3 {
   font-family: inherit;
   color: var(--color-heading);
+  font-style: normal;
 }
 
 h4 {
   font-family: inherit;
   color: var(--color-heading);
+  font-style: normal;
 }
 
 h5 {
   font-family: inherit;
   color: var(--color-heading);
+  font-style: normal;
 }
 
 h6 {
   font-family: inherit;
   color: var(--color-heading);
+  font-style: normal;
 }
 
 p {

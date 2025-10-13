@@ -8,6 +8,7 @@ import Button from "@/components/ui/Button";
 
 const page = () => {
   const projects = getAllContentMeta("projects");
+  const liveProjects = projects.filter((item) => item.status === "live");
 
   return (
     <PageWrapper>
@@ -15,7 +16,7 @@ const page = () => {
         <h2 className="font-libre! text-center text-3xl">Works & Projects</h2>
 
         <div className="mt-12 grid grid-cols-1 justify-center gap-4 p-2 md:grid-cols-2 md:p-4">
-          {projects.map((project) => (
+          {liveProjects.map((project) => (
             <Link
               href={`/projects/${project.slug}`}
               key={project.slug}

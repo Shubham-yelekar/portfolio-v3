@@ -24,7 +24,7 @@ export async function generateStaticParams() {
 }
 
 export default async function ProjectPage({ params }: PageProps) {
-  const { slug } = params;
+  const { slug } = await params;
   const { meta, content } = getContentBySlug(slug, "lab");
   try {
     return (
@@ -32,9 +32,7 @@ export default async function ProjectPage({ params }: PageProps) {
         <article className="prose prose-md dark:prose-invert mx-auto">
           {/* Article Header */}
           <div className="mb-12 rounded-lg bg-neutral-100 px-2 py-4 dark:bg-neutral-900">
-            <h1 className="font-libre! text-4xl font-bold md:px-4">
-              {meta.title}
-            </h1>
+            <h1 className="font-libre! text-4xl md:px-4">{meta.title}</h1>
             <p className="mt-4 font-mono text-sm text-gray-500 md:px-4">
               Published on{" "}
               {new Date(meta.date).toLocaleDateString("en-US", {
