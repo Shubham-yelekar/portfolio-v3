@@ -25,23 +25,23 @@ export const H2 = ({ children }) => (
 );
 
 export const H3 = ({ children }) => (
-  <h3 className="font-libre! mt-4! mb-2! text-xl text-neutral-800! md:px-4! dark:text-neutral-200!">
+  <h3 className="font-libre! mt-4! mb-2! text-xl font-normal! text-neutral-800! md:px-4! dark:text-neutral-200!">
     {children}
   </h3>
 );
 
 export const H4 = ({ children }) => (
-  <h4 className="font-libre! my-4! text-lg text-neutral-800! md:px-4! dark:text-neutral-200!">
+  <h4 className="font-libre! my-4! text-lg font-normal! text-neutral-800! md:px-4! dark:text-neutral-200!">
     {children}
   </h4>
 );
 export const H5 = ({ children }) => (
-  <h5 className="font-libre! my-3! text-base text-neutral-800! md:px-4! dark:text-neutral-200!">
+  <h5 className="font-libre! my-3! text-base font-normal! text-neutral-800! md:px-4! dark:text-neutral-200!">
     {children}
   </h5>
 );
 export const H6 = ({ children }) => (
-  <h6 className="font-libre! my-2! text-sm text-neutral-800! md:px-4! dark:text-neutral-200!">
+  <h6 className="font-libre! my-2! text-sm font-normal! text-neutral-800! md:px-4! dark:text-neutral-200!">
     {children}
   </h6>
 );
