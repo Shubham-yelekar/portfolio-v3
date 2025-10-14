@@ -26,6 +26,7 @@ export function getAllContentMeta(contentType: ContentType) {
         summary: string;
         thumbImage: string;
         thumbVideo: string;
+        tags: string;
       }),
       slug: contentSlug,
     };

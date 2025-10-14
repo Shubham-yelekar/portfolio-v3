@@ -9,6 +9,7 @@ import Button from "@/components/ui/Button";
 const page = () => {
   const projects = getAllContentMeta("projects");
   const liveProjects = projects.filter((item) => item.status === "live");
+  console.log(liveProjects);
 
   return (
     <PageWrapper>
