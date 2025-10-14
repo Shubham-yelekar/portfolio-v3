@@ -18,11 +18,11 @@ const Blogs = () => {
           <Link
             key={post.slug}
             href={`/notes/${post.slug}`}
-            className="flex cursor-pointer gap-2 rounded-2xl p-2 transition-all duration-300 ease-in-out hover:bg-neutral-100 hover:p-2 md:gap-4 dark:bg-neutral-950 hover:dark:bg-neutral-900"
+            className="flex cursor-pointer gap-1 rounded-2xl p-2 transition-all duration-300 ease-in-out hover:bg-neutral-100 hover:p-2 md:gap-4 dark:bg-neutral-950 hover:dark:bg-neutral-900"
           >
-            <div className="w-36 flex-1 overflow-clip rounded-xl">
+            <div className="aspect-7/5 w-36 flex-1 overflow-clip rounded-xl">
               <Image
-                src={"/pictures/blog.jpg"}
+                src={post.thumbImage}
                 width={900}
                 height={600}
                 alt="thumb"

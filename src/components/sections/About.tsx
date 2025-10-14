@@ -97,6 +97,22 @@ const webDev = [
 const About = () => {
   return (
     <Container className="flex flex-col gap-16 px-4 md:px-4">
+      {/* after:absolute after:left-0 after:-z-10 after:h-full after:w-full after:bg-neutral-800 after:content-[''] md:px-4" */}
+      <div className="absolute -z-2">
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `
+        linear-gradient(to right, rgba(229,231,235,0.8) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(229,231,235,0.8) 1px, transparent 1px),
+        radial-gradient(circle 500px at 20% 80%, rgba(139,92,246,0.3), transparent),
+        radial-gradient(circle 500px at 80% 20%, rgba(59,130,246,0.3), transparent)
+      `,
+            backgroundSize: "48px 48px, 48px 48px, 100% 100%, 100% 100%",
+          }}
+        />
+        {/* Your Content/Components */}
+      </div>
       {/* <h2 className="text-paragraph! font-libre! px-2 text-center text-2xl italic md:px-4">
         Notes
       </h2> */}
@@ -182,12 +198,66 @@ const About = () => {
           </Link>
         </div>
       </div>
+      <div>
+        <h6 className="font-libre! text-2xl">Experience</h6>
+        <div className="mt-8">
+          <div className="">
+            <div className="flex justify-between gap-2">
+              <div className="flex">
+                <h3 className="text-xl">Frontend Developer</h3>
+              </div>
+              <Link href="/notes/artificial-reality">
+                <Button>Read More</Button>
+              </Link>
+            </div>
+            <h3 className="font-libre! text-paragraph! text-lg">
+              @ Artificial Reality - May 2023 to Present
+            </h3>
+            <div className="group relative mt-4 h-auto w-full transition-all duration-500 ease-in-out sm:h-36">
+              <div className="absolute top-0 left-0 z-30 aspect-7/5 w-36 overflow-hidden rounded-xl border-2 border-white shadow-2xl transition-all duration-500 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:rotate-0 dark:border-neutral-500">
+                <Image
+                  src={"/pictures/cat-3.jpg"}
+                  width={180}
+                  height={180}
+                  alt="cat"
+                  className="object-cover"
+                />
+              </div>
+              <div className="absolute top-2 left-4 z-20 aspect-7/5 w-36 rotate-[4deg] overflow-hidden rounded-xl border-2 border-white shadow-2xl transition-all duration-500 group-hover:top-0 group-hover:left-[150px] group-hover:rotate-0 dark:border-neutral-500">
+                <Image
+                  src={"/pictures/cat-4.jpg"}
+                  width={180}
+                  height={180}
+                  alt="cat"
+                  className="object-cover"
+                />
+              </div>
+              <div className="absolute top-3 left-10 z-10 aspect-7/5 w-36 rotate-[6deg] overflow-hidden rounded-xl border-2 border-white shadow-2xl transition-all duration-500 group-hover:top-0 group-hover:left-[300px] group-hover:rotate-0 dark:border-neutral-500">
+                <Image
+                  src={"/pictures/cat-5.jpg"}
+                  width={180}
+                  height={180}
+                  alt="cat"
+                  className="object-cover"
+                />
+              </div>
+              <div className="absolute top-3 left-10 z-5 aspect-7/5 w-36 rotate-[6deg] overflow-hidden rounded-xl border-2 border-white shadow-2xl transition-all duration-500 group-hover:top-0 group-hover:left-[450px] group-hover:rotate-0 dark:border-neutral-500">
+                <Image
+                  src={"/pictures/cat-6.jpg"}
+                  width={180}
+                  height={180}
+                  alt="cat"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <div className="">
-        <h6 className="font-libre! text-paragraph! text-xl">
-          Developer Tool Set
-        </h6>
-        <div className="">
+      <div>
+        <h6 className="font-libre! text-2xl">Developer Tool Set</h6>
+        <div>
           <div className="mt-4 grid grid-cols-2 gap-4 md:grid-cols-3">
             {webDev.map((box, index) => (
               <div
@@ -205,8 +275,8 @@ const About = () => {
             ))}
           </div>
         </div>
-        <h6 className="font-libre! text-paragraph! mt-8 text-xl">
-          Design Tool Set
+        <h6 className="font-libre! text-paragraph! mt-8 text-2xl">
+          Designer Tool Set
         </h6>
         <div className="mt-4 grid grid-cols-2 gap-4 md:grid-cols-3">
           {design.map((box, index) => (

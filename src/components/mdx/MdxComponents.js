@@ -74,7 +74,9 @@ export const OL = ({ children }) => (
 );
 
 export const LI = ({ children }) => (
-  <li className="text-sm marker:text-neutral-500 md:text-base">{children}</li>
+  <li className="text-sm text-neutral-600 marker:text-neutral-500 md:text-base dark:dark:text-neutral-400">
+    {children}
+  </li>
 );
 
 export const Break = () => (
