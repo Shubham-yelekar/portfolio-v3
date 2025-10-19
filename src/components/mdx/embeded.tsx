@@ -12,7 +12,9 @@ import { IoBatteryFullOutline } from "react-icons/io5";
 import { FaWifi } from "react-icons/fa";
 import { GrPowerReset } from "react-icons/gr";
 import { FaPlay, FaArrowRotateRight, FaPause } from "react-icons/fa6";
+import { HiMiniMagnifyingGlassCircle } from "react-icons/hi2";
 
+import { TextCursor } from "../ui/TextCursor";
 import cn from "@/app/lib/cn";
 import Iphone17 from "../icons/Iphone17";
 
@@ -50,17 +52,23 @@ export function ImageWrapper({ ...props }: React.ComponentProps<"img">) {
 export function ImageModal({ src, alt, ...props }: any) {
   const [isModalOpen, setModalOpen] = useState(false);
 
+  const zoomIcon = <HiMiniMagnifyingGlassCircle size={16} />;
   return (
-    <div className="my-12">
-      <figure className="relative rounded-xl shadow-[var(--card-shadow-2)] [&_img]:rounded-xl">
-        <motion.img src={src} alt={alt} {...props} className="w-full" />
-        <button
-          onClick={() => setModalOpen(true)}
-          className="absolute right-2 bottom-2 cursor-pointer rounded-2xl bg-neutral-200 px-2 py-1 text-xs font-medium dark:bg-neutral-800"
-        >
-          View
-        </button>
-      </figure>
+    <>
+      <TextCursor content={"zoom"}>
+        <div className="my-12" onClick={() => setModalOpen(true)}>
+          <figure className="relative rounded-xl shadow-[var(--card-shadow-2)] [&_img]:rounded-xl">
+            <motion.img src={src} alt={alt} {...props} className="w-full" />
+            <button
+              onClick={() => setModalOpen(true)}
+              className="absolute right-2 bottom-2 cursor-pointer rounded-2xl bg-neutral-200 px-2 py-1 text-xs font-medium dark:bg-neutral-800"
+            >
+              View
+            </button>
+          </figure>
+        </div>
+      </TextCursor>
+
       <AnimatePresence>
         {isModalOpen ? (
           <motion.div
@@ -86,7 +94,7 @@ export function ImageModal({ src, alt, ...props }: any) {
           </motion.div>
         ) : null}
       </AnimatePresence>
-    </div>
+    </>
   );
 }
 

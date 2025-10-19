@@ -29,7 +29,7 @@ export default async function ProjectPage({ params }: PageProps) {
   try {
     return (
       <Container className="mt-[14dvh] px-4">
-        <article className="prose prose-md dark:prose-invert mx-auto">
+        <article className="mx-auto">
           {/* Article Header */}
           <div className="mb-12 rounded-lg bg-neutral-100 px-2 py-4 dark:bg-neutral-900">
             <h1 className="font-libre! text-4xl md:px-4">{meta.title}</h1>

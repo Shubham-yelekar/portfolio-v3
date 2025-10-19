@@ -10,6 +10,8 @@ import {
   MobileVideoWrapper,
 } from "@/components/mdx/embeded";
 // components/MdxComponents.js
+// Lab Componenets
+import TextCursor from "../ui/TextCursor";
 
 // A styled h1 component
 export const H1 = ({ children }) => (
@@ -108,4 +110,6 @@ export const mdxComponents = {
   ImageCompare,
   VideoWrapper,
   // etc.
+
+  TextCursor,
 };

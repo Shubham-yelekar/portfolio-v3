@@ -33,7 +33,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   try {
     return (
       <Container className="mt-[10dvh] px-2 md:px-4">
-        <article className="prose prose-lg dark:prose-invert mx-auto">
+        <article className="mx-auto">
           {/* Article Header */}
 
           <div className="mb-12 rounded-xl bg-neutral-100 px-1 py-1 dark:bg-neutral-900">
