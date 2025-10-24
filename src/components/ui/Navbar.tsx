@@ -59,7 +59,7 @@ const Navbar = () => {
           src="/pictures/cat.jpg"
           width={36}
           height={36}
-          className="trasition-all min-w-8 rounded-full ring-4 ring-transparent ease-in-out hover:ring-neutral-200"
+          className="min-w-8 rounded-full ring-2 ring-transparent transition-all ease-in-out hover:ring-neutral-200"
           alt="me"
         />
       </Link>

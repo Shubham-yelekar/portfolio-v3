@@ -26,17 +26,17 @@ const Hero = () => {
         <div className="flex flex-col gap-0 sm:flex-row sm:gap-3">
           <div className="flex flex-row items-center gap-2 md:gap-3">
             <h1 className="text-4xl sm:text-5xl md:text-6xl">A Front-end</h1>
-            <TerminalIcon className="h-fit w-10 rounded-sm shadow-[var(--card-shadow)] md:w-16 md:rounded-xl" />
+            <TerminalIcon className="h-fit w-10 rounded-lg shadow-[var(--card-shadow)] md:w-16 md:rounded-xl" />
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl">Developer</h1>
         </div>
         <div className="flex flex-row items-center gap-2 md:gap-3">
-          <FigmaSvg className="h-fit w-10 rounded-sm shadow-[var(--card-shadow)] md:w-16 md:rounded-xl" />
+          <FigmaSvg className="h-fit w-10 rounded-lg shadow-[var(--card-shadow)] md:w-16 md:rounded-xl" />
           <h1 className="text-4xl sm:text-5xl md:text-6xl">& Designer,</h1>
         </div>
         <div className="flex flex-row gap-2 sm:flex-row sm:gap-3">
           <h1 className="text-4xl sm:text-5xl md:text-6xl">from in Mumbai </h1>
-          <MumbaiSvg className="h-fit w-10 rounded-sm shadow-[var(--card-shadow)] md:w-16 md:rounded-xl" />
+          <MumbaiSvg className="h-fit w-10 rounded-lg shadow-[var(--card-shadow)] md:w-16 md:rounded-xl" />
         </div>
       </div>
       <div>

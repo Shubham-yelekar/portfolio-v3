@@ -201,7 +201,7 @@ const About = () => {
       <div>
         <h6 className="font-libre! text-2xl">Experience</h6>
         <div className="mt-8">
-          <div className="">
+          <div className="mb-32 lg:mb-2">
             <div className="flex justify-between gap-2">
               <div className="flex">
                 <h3 className="text-xl">Frontend Developer</h3>
@@ -219,7 +219,7 @@ const About = () => {
               development.
             </p>
             <div className="group relative mt-4 h-auto w-full transition-all duration-500 ease-in-out sm:h-36">
-              <div className="absolute top-0 left-0 z-30 aspect-7/5 w-36 overflow-hidden rounded-xl border-2 border-white shadow-xl transition-all duration-500 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:rotate-0 dark:border-neutral-500">
+              <div className="absolute top-0 left-0 z-30 aspect-7/5 w-28 overflow-hidden rounded-lg border-2 border-white shadow-xl transition-all duration-500 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:rotate-0 md:w-36 md:rounded-xl dark:border-neutral-700">
                 <Image
                   src={"/pictures/cat-3.jpg"}
                   width={180}
@@ -228,7 +228,7 @@ const About = () => {
                   className="object-cover"
                 />
               </div>
-              <div className="absolute top-0 left-0 z-20 aspect-7/5 w-36 rotate-[6deg] overflow-hidden rounded-xl border-2 border-white shadow-2xl transition-all duration-500 group-hover:top-0 group-hover:left-[150px] group-hover:rotate-0 dark:border-neutral-500">
+              <div className="absolute top-0 left-0 z-20 aspect-7/5 w-28 rotate-[6deg] overflow-hidden rounded-lg border-2 border-white shadow-2xl transition-all duration-500 group-hover:top-0 group-hover:left-[150px] group-hover:rotate-0 md:w-36 md:rounded-xl dark:border-neutral-700">
                 <Image
                   src={"/pictures/cat-4.jpg"}
                   width={180}
@@ -237,7 +237,7 @@ const About = () => {
                   className="object-cover"
                 />
               </div>
-              <div className="absolute top-0 left-0 z-10 aspect-7/5 w-36 rotate-[8deg] overflow-hidden rounded-xl border-2 border-white shadow-2xl transition-all duration-500 group-hover:top-0 group-hover:left-[300px] group-hover:rotate-0 dark:border-neutral-500">
+              <div className="absolute top-0 left-0 z-10 hidden aspect-7/5 w-36 rotate-[8deg] overflow-hidden rounded-xl border-2 border-white shadow-2xl transition-all duration-500 group-hover:top-0 group-hover:left-[300px] group-hover:rotate-0 md:block dark:border-neutral-700">
                 <Image
                   src={"/pictures/cat-5.jpg"}
                   width={180}
@@ -246,7 +246,7 @@ const About = () => {
                   className="object-cover"
                 />
               </div>
-              <div className="absolute top-0 left-0 z-5 aspect-7/5 w-36 -rotate-[8deg] overflow-hidden rounded-xl border-2 border-white shadow-xl transition-all duration-500 group-hover:top-0 group-hover:left-[450px] group-hover:rotate-0 dark:border-neutral-500">
+              <div className="absolute top-0 left-0 z-5 hidden aspect-7/5 w-36 -rotate-[8deg] overflow-hidden rounded-xl border-2 border-white shadow-xl transition-all duration-500 group-hover:top-0 group-hover:left-[450px] group-hover:rotate-0 md:block dark:border-neutral-700">
                 <Image
                   src={"/pictures/cat-6.jpg"}
                   width={180}
@@ -257,7 +257,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="">
+          <div className="mb-32 lg:mb-2">
             <div className="flex justify-between gap-2">
               <div className="flex">
                 <h3 className="text-xl">Web Developer</h3>
@@ -272,7 +272,7 @@ const About = () => {
               development.
             </p>
             <div className="group relative mt-4 h-auto w-full transition-all duration-500 ease-in-out sm:h-36">
-              <div className="absolute top-0 left-0 z-30 aspect-7/5 w-36 overflow-hidden rounded-xl border-2 border-white shadow-xl transition-all duration-500 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:rotate-0 dark:border-neutral-500">
+              <div className="absolute top-0 left-0 z-30 aspect-7/5 w-28 overflow-hidden rounded-lg border-2 border-white shadow-xl transition-all duration-500 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:rotate-0 md:w-36 md:rounded-xl dark:border-neutral-700">
                 <Image
                   src={"/pictures/cat-3.jpg"}
                   width={180}
@@ -281,7 +281,7 @@ const About = () => {
                   className="object-cover"
                 />
               </div>
-              <div className="absolute top-0 left-0 z-20 aspect-7/5 w-36 rotate-[6deg] overflow-hidden rounded-xl border-2 border-white shadow-2xl transition-all duration-500 group-hover:top-0 group-hover:left-[150px] group-hover:rotate-0 dark:border-neutral-500">
+              <div className="absolute top-0 left-0 z-20 aspect-7/5 w-28 rotate-[6deg] overflow-hidden rounded-lg border-2 border-white shadow-2xl transition-all duration-500 group-hover:top-0 group-hover:left-[150px] group-hover:rotate-0 md:w-36 md:rounded-xl dark:border-neutral-700">
                 <Image
                   src={"/pictures/cat-4.jpg"}
                   width={180}
@@ -315,9 +315,7 @@ const About = () => {
             ))}
           </div>
         </div>
-        <h6 className="font-libre! text-paragraph! mt-8 text-2xl">
-          Designer Tool Set
-        </h6>
+        <h6 className="font-libre! mt-8 text-2xl">Designer Tool Set</h6>
         <div className="mt-4 grid grid-cols-2 gap-4 md:grid-cols-3">
           {design.map((box, index) => (
             <div
