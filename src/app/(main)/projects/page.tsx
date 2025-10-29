@@ -5,17 +5,16 @@ import { getAllContentMeta } from "@/lib/mdx";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import { ProjectsScribble } from "../../../components/ui/AppleEffect";
 
 const page = () => {
   const projects = getAllContentMeta("projects");
   const liveProjects = projects.filter((item) => item.status === "live");
-  console.log(liveProjects);
-
   return (
     <PageWrapper>
       <Container className="mt-[14dvh]">
-        <h2 className="font-libre! text-center text-3xl">Works & Projects</h2>
-
+        <h2 className="font-libre! text-center text-3xl">Projects</h2>
+        <ProjectsScribble className={"absolute left-1/2 -translate-x-1/2"} />
         <div className="mt-12 grid grid-cols-1 justify-center gap-4 p-2 md:grid-cols-2 md:p-4">
           {liveProjects.map((project) => (
             <Link

@@ -343,4 +343,129 @@ function DesignEffect({
   );
 }
 
-export { AppleHelloEnglishEffect, AppleHelloVietnameseEffect, DesignEffect };
+function NotesScribble({
+  className,
+  speed = 1,
+  onAnimationComplete,
+  ...props
+}: Props) {
+  return (
+    <motion.svg
+      className={cn("text-neutral-400 dark:text-neutral-600", className)}
+      xmlns="http://www.w3.org/2000/svg"
+      width="65"
+      height="11"
+      viewBox="0 0 65 11"
+      fill="none"
+      strokeWidth="8"
+      initial={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0 }}
+      {...props}
+    >
+      <motion.path
+        d="M1 7.00011C3.33333 5.33344 11.4 1.50011 13 1.50011C11.5 3.50011 5.5 8.50011 10 8.00011C13.6 7.60011 22.5 -0.49989 22 1.50011C18.5 5.00011 16.8 9.30011 22 6.50011C25.5 4.61549 28 2.50011 33.5 1.00012C28 5.00012 28.5 9.00011 34 6.50011C37.6667 4.83344 40.2 3.50012 41 3.50012C38.5 6.50011 37 10.0001 45.5 6.50011L53 3.00012C51.1667 5.33346 48.4 9.80013 52 9.00012C55.6 8.20011 61.1667 6.00012 63.5 5.00012"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        style={{ strokeLinecap: "round" }}
+        initial={initialProps}
+        animate={animateProps}
+        transition={{
+          duration: 1,
+          delay: 0.4,
+          ease: "easeInOut",
+          opacity: { duration: 0.4 },
+        }}
+      />
+    </motion.svg>
+  );
+}
+function ProjectsScribble({
+  className,
+  speed = 1,
+  onAnimationComplete,
+  ...props
+}: Props) {
+  return (
+    <motion.svg
+      className={cn("text-neutral-400 dark:text-neutral-600", className)}
+      xmlns="http://www.w3.org/2000/svg"
+      width="83"
+      height="16"
+      viewBox="0 0 83 16"
+      fill="none"
+      strokeWidth="8"
+      initial={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0 }}
+      {...props}
+    >
+      <motion.path
+        d="M1 5.50185C15.3333 2.99542 51.6 -1.1468 82 2.33583C63 3.49994 23 3.85515 10.5 8.99994C24 8.99994 63.5 5.89762 75 8.27214C62 8.99994 47 10.9999 32 14.4999"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        style={{ strokeLinecap: "round" }}
+        initial={initialProps}
+        animate={animateProps}
+        transition={{
+          duration: 1,
+          delay: 0.4,
+          ease: "easeInOut",
+          opacity: { duration: 0.4 },
+        }}
+      />
+    </motion.svg>
+  );
+}
+
+function LabScribble({
+  className,
+  speed = 1,
+  onAnimationComplete,
+  ...props
+}: Props) {
+  return (
+    <motion.svg
+      className={cn("text-neutral-400 dark:text-neutral-600", className)}
+      xmlns="http://www.w3.org/2000/svg"
+      width="56"
+      height="9"
+      viewBox="0 0 56 9"
+      fill="none"
+      strokeWidth="8"
+      initial={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0 }}
+      {...props}
+    >
+      <motion.path
+        d="M1 6.96787C3.61947 7.19564 8.5 6.96787 11.5 1.00014C14.5 6.96787 22.5 8.00014 25.5 1.00014C29 8.50014 38.5 6.96787 41 1.00014C44.5 6.96787 50 9.00012 55 1.00012"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        style={{ strokeLinecap: "round" }}
+        initial={initialProps}
+        animate={animateProps}
+        transition={{
+          duration: 1,
+          delay: 0.4,
+          ease: "easeInOut",
+          opacity: { duration: 0.4 },
+        }}
+      />
+    </motion.svg>
+  );
+}
+export {
+  AppleHelloEnglishEffect,
+  AppleHelloVietnameseEffect,
+  DesignEffect,
+  NotesScribble,
+  ProjectsScribble,
+  LabScribble,
+};
