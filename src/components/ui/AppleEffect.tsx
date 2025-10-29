@@ -445,9 +445,9 @@ function LabScribble({
       <motion.path
         d="M1 6.96787C3.61947 7.19564 8.5 6.96787 11.5 1.00014C14.5 6.96787 22.5 8.00014 25.5 1.00014C29 8.50014 38.5 6.96787 41 1.00014C44.5 6.96787 50 9.00012 55 1.00012"
         stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         style={{ strokeLinecap: "round" }}
         initial={initialProps}
         animate={animateProps}
