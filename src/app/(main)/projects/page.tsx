@@ -34,6 +34,16 @@ const page = () => {
               <div className="flex flex-col justify-between gap-2 rounded-xl px-2 py-3">
                 <h4 className="font-libre! text-xl">{project.title}</h4>
                 <p className="text-sm">{project.summary}</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag, i) => (
+                    <span
+                      key={`${tag}+${i}`}
+                      className="rounded-lg bg-neutral-300 px-2 py-0.5 font-mono text-[10px] capitalize dark:bg-neutral-800"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </Link>
           ))}
