@@ -51,8 +51,6 @@ export function ImageWrapper({ ...props }: React.ComponentProps<"img">) {
 
 export function ImageModal({ src, alt, ...props }: any) {
   const [isModalOpen, setModalOpen] = useState(false);
-
-  const zoomIcon = <HiMiniMagnifyingGlassCircle size={16} />;
   return (
     <>
       <TextCursor content={"zoom"}>

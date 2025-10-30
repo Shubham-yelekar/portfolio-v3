@@ -18,7 +18,7 @@ export default function Home() {
       <Breaker />
       <Projects />
       <Breaker />
-      <LabComponents />
+      {/* <LabComponents /> */}
       <Breaker />
       <Blogs />
       <Breaker />

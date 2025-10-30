@@ -7,13 +7,13 @@ import Button from "../ui/Button";
 
 const Blogs = () => {
   const posts = getAllContentMeta("notes");
-
+  const livePosts = posts.filter((post) => post.status === "live");
   return (
     <Container className="flex flex-col gap-6 md:gap-9">
       <h2 className="font-libre! px-2 text-center text-2xl md:px-4">Notes</h2>
 
       <div className="flex flex-col gap-2 md:gap-4">
-        {posts.map((post) => (
+        {livePosts.map((post) => (
           <Link
             key={post.slug}
             href={`/notes/${post.slug}`}
