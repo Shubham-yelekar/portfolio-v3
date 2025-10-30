@@ -27,7 +27,6 @@ export async function generateStaticParams() {
 export default async function ProjectPage({ params }: PageProps) {
   const { slug } = await params;
   const { meta, content } = getContentBySlug(slug, "projects");
-  console.log(meta.thumbImage);
 
   try {
     return (

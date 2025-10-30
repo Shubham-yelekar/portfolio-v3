@@ -55,3 +55,14 @@ export function getAllSlugs(type: ContentType) {
     return stat.isDirectory();
   });
 }
+
+export interface NotesMeta {
+  status: string;
+  title: string;
+  date: string;
+  summary: string;
+  thumbImage: string;
+  thumbVideo: string;
+  tags: string[];
+  slug: string;
+}

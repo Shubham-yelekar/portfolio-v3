@@ -201,7 +201,7 @@ const About = () => {
       <div>
         <h6 className="font-libre! text-2xl">Experience</h6>
         <div className="mt-8">
-          <div className="mb-32 lg:mb-2">
+          <div className="group mb-32 lg:mb-2">
             <div className="flex justify-between gap-2">
               <div className="flex">
                 <h3 className="text-xl">Frontend Developer</h3>
@@ -218,7 +218,7 @@ const About = () => {
               projects that challenged my skills in UI/UX design and frontend
               development.
             </p>
-            <div className="group relative mt-4 h-auto w-full transition-all duration-500 ease-in-out sm:h-36">
+            <div className="relative mt-4 h-auto w-full transition-all duration-500 ease-in-out sm:h-36">
               <div className="absolute top-0 left-0 z-30 aspect-7/5 w-28 overflow-hidden rounded-lg shadow-xl transition-all duration-500 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:rotate-0 md:w-36 md:rounded-xl">
                 <Image
                   src={
@@ -265,7 +265,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="mb-32 lg:mb-2">
+          <div className="group mb-32 lg:mb-2">
             <div className="flex justify-between gap-2">
               <div className="flex">
                 <h3 className="text-xl">Web Developer</h3>
@@ -279,7 +279,7 @@ const About = () => {
               projects that challenged my skills in UI/UX design and frontend
               development.
             </p>
-            <div className="group relative mt-4 h-auto w-full transition-all duration-500 ease-in-out sm:h-36">
+            <div className="relative mt-4 h-auto w-full transition-all duration-500 ease-in-out sm:h-36">
               <div className="absolute top-0 left-0 z-30 aspect-7/5 w-28 overflow-hidden rounded-lg shadow-xl transition-all duration-500 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:rotate-0 md:w-36 md:rounded-xl">
                 <Image
                   src={

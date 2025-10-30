@@ -13,11 +13,7 @@ const Hero = () => {
   return (
     <Container className="mt-[30dvh] flex flex-col gap-6 px-4 md:mt-[28dvh] md:gap-9">
       <WavingFlag />
-      {/* <div>
-        <div className="card-shadow w-14 overflow-clip rounded-2xl border-4 border-white md:w-20 md:rounded-3xl">
-          <img className="w-fit" src="/pictures/cat.jpg" alt="me" />
-        </div>
-      </div> */}
+
       <div>
         <div className="flex flex-col md:flex-row md:gap-4">
           <h1 className="text-4xl sm:text-5xl md:text-6xl">Shubham Yelekar,</h1>
@@ -75,13 +71,15 @@ const Hero = () => {
       </div>
       <div className="flex flex-col gap-4">
         <p className="text-paragraph text-sm md:text-base">
-          Specializing in creating user-friendly and visually compelling
-          interfaces that bridge the gap between design and code.
+          I love to build fluid, engaging interfaces , animations or 3D
+          elements, to create memorable and delightful experiences for the
+          end-user.
         </p>
         <p className="text-paragraph text-sm md:text-base">
-          I'm currently exploring the possibilities of Three.js and expanding my
-          front-end expertise to build immersive and engaging experiences for
-          the modern web.
+          I'm currently working at <strong>Artificial Reality</strong> as{" "}
+          <strong>Frontend Developer and UI Designer</strong> , building and
+          designing interfaces for 3D car configurators, landing pages and
+          various web apps.
         </p>
       </div>
     </Container>

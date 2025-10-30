@@ -2,7 +2,7 @@ import React from "react";
 import Container from "../ui/Container";
 import { getAllContentMeta } from "@/lib/mdx";
 import Link from "next/link";
-import Image from "next/image";
+
 import Button from "../ui/Button";
 
 const Blogs = () => {
@@ -28,8 +28,8 @@ const Blogs = () => {
               </div>
               <div className="flex items-center gap-3">
                 <p className="font-mono text-sm">May 2025</p>
-                <div className="h-full w-1 border-r border-neutral-800"></div>
-                <div>
+                <div className="h-full w-1 border-r border-neutral-300 dark:border-neutral-800"></div>
+                <div className="flex flex-wrap gap-2">
                   {post.tags.map((tag, i) => (
                     <span
                       key={`${tag}+${i}`}

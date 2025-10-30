@@ -33,8 +33,8 @@ const Projects = () => {
             </div>
             <div className="flex flex-1 flex-col gap-4">
               <p className="text-paragraph text-sm md:text-base">
-                I led the redesign and development for the Toyota Land Cruiser
-                300 product page at <strong>Artificial Reality.</strong>
+                I led the redesign and development for the Land Cruiser 300
+                product page.
               </p>
               <Link href="/projects/toyota-lc300">
                 <Button className="w-fit" variant={"secondary"}>
@@ -66,7 +66,7 @@ const Projects = () => {
             <div className="flex flex-1 flex-col gap-4">
               <p className="text-paragraph text-sm md:text-base">
                 Experimented with various designs and interactions using GSAP
-                and clip masks<strong>Artificial Reality.</strong>
+                and clip masks
               </p>
               <Link href="/projects/toyota-taisor">
                 <Button className="w-fit" variant={"secondary"}>

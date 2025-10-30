@@ -11,7 +11,6 @@ export function TextCursor({ children, content }: TextCursorProps) {
   const [mouseState] = useMouse();
 
   const [isHovered, setIsHovered] = useState(false);
-  console.log(isHovered);
 
   return (
     <>

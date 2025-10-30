@@ -40,7 +40,6 @@ const Navbar = () => {
     } else {
       setTheme("dark");
     }
-    console.log(theme);
   };
 
   return (
@@ -57,9 +56,9 @@ const Navbar = () => {
       <Link href={"/"}>
         <Image
           src="/pictures/cat.jpg"
-          width={36}
-          height={36}
-          className="min-w-8 rounded-full ring-2 ring-transparent transition-all ease-in-out hover:ring-neutral-200"
+          width={24}
+          height={24}
+          className="min-w-8 rounded-full transition-all ease-in-out hover:ring-neutral-200"
           alt="me"
         />
       </Link>

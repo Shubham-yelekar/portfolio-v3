@@ -285,7 +285,6 @@ export const ImageCompare = ({ topImage, bottomImage }: ImageCompareProps) => {
     const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
     const percent = (x / rect.width) * 100;
     setPosition(percent);
-    console.log(position);
   }, []);
 
   const handleMouseMove = useCallback(

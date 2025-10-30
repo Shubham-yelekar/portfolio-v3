@@ -28,7 +28,6 @@ export async function generateStaticParams() {
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = params;
   const { meta, content } = getContentBySlug(slug, "notes");
-  console.log(meta);
 
   try {
     return (
