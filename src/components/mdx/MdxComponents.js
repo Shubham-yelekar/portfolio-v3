@@ -8,10 +8,14 @@ import {
   ImageCompare,
   VideoWrapper,
   MobileVideoWrapper,
+  ComponentBox,
 } from "@/components/mdx/embeded";
 // components/MdxComponents.js
 // Lab Componenets
 import TextCursor from "../ui/TextCursor";
+import LinkHover from "../ui-components/button-collection/LinkHover";
+import ShinyButton from "../ui-components/button-collection/ShinyButton";
+import WavingFlag from "../ui/WavingFlag";
 
 // A styled h1 component
 export const H1 = ({ children }) => (
@@ -109,7 +113,11 @@ export const mdxComponents = {
   ImageCarousal,
   ImageCompare,
   VideoWrapper,
+  ComponentBox,
   // etc.
 
   TextCursor,
+  LinkHover,
+  ShinyButton,
+  WavingFlag,
 };

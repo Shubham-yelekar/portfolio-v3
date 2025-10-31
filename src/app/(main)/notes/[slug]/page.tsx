@@ -7,13 +7,6 @@ import { Callout } from "@/components/mdx/Callout";
 import Container from "@/components/ui/Container";
 import Image from "next/image";
 
-// This object maps your component names to the actual components.
-// const components = {
-//   Callout,
-//   mdxComponents,
-//   // You can add any other custom components here
-// };
-
 interface PageProps {
   params: {
     slug: string;
@@ -46,8 +39,8 @@ export default async function BlogPostPage({ params }: PageProps) {
             <h1 className="font-libre! m-0! px-2 text-3xl font-bold md:px-4 md:text-4xl">
               {meta.title}
             </h1>
+            <p className="mt-2 px-2 md:px-4">{meta.summary}</p>
             <p className="mt-2 px-2 font-mono text-sm text-gray-500 md:px-4">
-              Published on{" "}
               {new Date(meta.date).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",

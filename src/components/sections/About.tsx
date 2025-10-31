@@ -170,11 +170,12 @@ const About = () => {
 
           <p>
             I translate high-fidelity designs from Figma into performant,
-            component-based applications using React and Next.js. I'm currently
-            expanding my skill set into creative technologies like Three.js and
-            GLSL to build more immersive and engaging interfaces for the modern
-            web. I thrive on delivering clean code, intuitive UI, and a seamless
-            user experience from start to finish.
+            component-based applications using React and Next.js.
+          </p>
+          <p>
+            I'm currently expanding my skill set into creative technologies like
+            Three.js and GLSL to build more immersive and engaging interfaces
+            for the modern web.
           </p>
         </div>
         <div className="flex gap-2">
@@ -213,12 +214,24 @@ const About = () => {
             <h3 className="font-libre! text-paragraph! mb-4 text-lg">
               @ Artificial Reality - May 2023 to Present
             </h3>
-            <p>
-              I had the privilege of contributing to a diverse portfolio of
-              projects that challenged my skills in UI/UX design and frontend
-              development.
-            </p>
-            <div className="relative mt-4 h-auto w-full transition-all duration-500 ease-in-out sm:h-36">
+
+            <div className="my-2 flex justify-start gap-2">
+              <span className="mt-3 aspect-square h-1 w-1 rounded-xl bg-neutral-800 dark:bg-neutral-200"></span>{" "}
+              <p>
+                Developing practical applications like 3D product configurators,
+                data visualizations, and web-based Augmented Reality (WebXR)
+                experiences.
+              </p>
+            </div>
+            <div className="my-2 flex justify-start gap-2">
+              <span className="mt-3 aspect-square h-1 w-1 rounded-xl bg-neutral-800 dark:bg-neutral-200"></span>{" "}
+              <p>
+                Designing and developing high-fidelity, responsive landing pages
+                and user interfaces with a strong focus on interaction and user
+                experience.
+              </p>
+            </div>
+            <div className="relative mt-8 h-auto w-full transition-all duration-500 ease-in-out sm:h-36">
               <div className="absolute top-0 left-0 z-30 aspect-7/5 w-28 overflow-hidden rounded-lg shadow-xl transition-all duration-500 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:rotate-0 md:w-36 md:rounded-xl">
                 <Image
                   src={
@@ -274,16 +287,19 @@ const About = () => {
             <h3 className="font-libre! text-paragraph! mb-4 text-lg">
               @ Freelance - March 2023 to May 2023
             </h3>
-            <p>
-              I had the privilege of contributing to a diverse portfolio of
-              projects that challenged my skills in UI/UX design and frontend
-              development.
-            </p>
-            <div className="relative mt-4 h-auto w-full transition-all duration-500 ease-in-out sm:h-36">
+            <div className="my-2 flex justify-start gap-2">
+              <span className="mt-3 aspect-square h-1 w-1 rounded-xl bg-neutral-800 dark:bg-neutral-200"></span>{" "}
+              <p>
+                Independently designing and developing complete websites for
+                clients, handling everything from graphic design and branding to
+                full-stack implementation.
+              </p>
+            </div>
+            <div className="relative mt-8 h-auto w-full transition-all duration-500 ease-in-out sm:h-36">
               <div className="absolute top-0 left-0 z-30 aspect-7/5 w-28 overflow-hidden rounded-lg shadow-xl transition-all duration-500 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:rotate-0 md:w-36 md:rounded-xl">
                 <Image
                   src={
-                    "https://ucarecdn.com/f6ccab3b-ade7-41ee-acea-e018ac93dfb0/ss1.png"
+                    "https://ucarecdn.com/43857750-a089-46b6-a3be-096ddbedc39d/-/preview/700x500/"
                   }
                   width={180}
                   height={180}
@@ -294,7 +310,18 @@ const About = () => {
               <div className="absolute top-0 left-2 z-20 aspect-7/5 w-28 rotate-[6deg] overflow-hidden rounded-lg shadow-2xl transition-all duration-500 group-hover:top-0 group-hover:left-[150px] group-hover:rotate-0 md:w-36 md:rounded-xl">
                 <Image
                   src={
-                    "https://ucarecdn.com/1e9a7cd2-2a86-49eb-ba79-1163135ecd06/-/preview/920x600/"
+                    "https://ucarecdn.com/adfbc174-c6a1-4db9-b74c-1765dd7922e8/-/preview/700x500/"
+                  }
+                  width={180}
+                  height={180}
+                  alt="cat"
+                  className="object-cover"
+                />
+              </div>
+              <div className="absolute top-0 left-4 z-10 aspect-7/5 w-28 rotate-[10deg] overflow-hidden rounded-lg shadow-2xl transition-all duration-500 group-hover:top-0 group-hover:left-[300px] group-hover:rotate-0 md:w-36 md:rounded-xl">
+                <Image
+                  src={
+                    "https://ucarecdn.com/3f8f32e2-4076-436a-b41a-ecfb5aced1be/-/preview/700x500/"
                   }
                   width={180}
                   height={180}

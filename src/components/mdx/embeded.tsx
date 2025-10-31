@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, ReactElement } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Highlight, themes } from "prism-react-renderer";
 import { LuCopy, LuCheck } from "react-icons/lu"; // Using Lucide icons
@@ -14,6 +14,7 @@ import { GrPowerReset } from "react-icons/gr";
 import { FaPlay, FaArrowRotateRight, FaPause } from "react-icons/fa6";
 import { HiMiniMagnifyingGlassCircle } from "react-icons/hi2";
 
+import type { ReactNode } from "react";
 import { TextCursor } from "../ui/TextCursor";
 import cn from "@/app/lib/cn";
 import Iphone17 from "../icons/Iphone17";
@@ -441,6 +442,14 @@ export const MobileVideoWrapper = () => {
           </video>
         </div>
       </div>
+    </div>
+  );
+};
+
+export const ComponentBox = ({ children }: { children: ReactNode }) => {
+  return (
+    <div className="relative flex aspect-video items-center justify-center overflow-hidden rounded-xl border-1 border-neutral-200 bg-neutral-300 dark:border-neutral-800 dark:bg-neutral-900">
+      {children}
     </div>
   );
 };

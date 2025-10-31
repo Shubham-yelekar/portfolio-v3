@@ -19,7 +19,7 @@ const NotesFilter = ({ uniqueTags, notes }: propType) => {
       if (prevTags.includes(tag)) {
         return prevTags.filter((t) => t != tag);
       } else {
-        return [...prevTags, tag]; // Add it
+        return [...prevTags, tag];
       }
     });
   };
@@ -66,7 +66,7 @@ const NotesFilter = ({ uniqueTags, notes }: propType) => {
         ))}
       </div>
       <div className="mt-12 flex flex-col gap-4">
-        {notes.map((post) => (
+        {filteredProjects.map((post) => (
           <Link
             key={post.slug}
             href={`/notes/${post.slug}`}
@@ -80,9 +80,15 @@ const NotesFilter = ({ uniqueTags, notes }: propType) => {
                 <p className="text-xs md:text-base">{post.summary}</p>
               </div>
               <div className="flex items-center gap-3">
-                <p className="font-mono text-sm">May 2025</p>
+                <p className="font-mono text-sm">
+                  {new Date(post.date).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </p>
                 <div className="h-full w-1 border-r border-neutral-800"></div>
-                <div>
+                <div className="flex gap-2">
                   {post.tags.map((tag, i) => (
                     <span
                       key={`${tag}+${i}`}
