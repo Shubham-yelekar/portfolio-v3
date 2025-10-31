@@ -12,7 +12,7 @@ const Blogs = () => {
     <Container className="flex flex-col gap-6 md:gap-9">
       <h2 className="font-libre! px-2 text-center text-2xl md:px-4">Notes</h2>
 
-      <div className="flex flex-col gap-2 md:gap-4">
+      <div className="flex flex-col gap-2 px-2 md:gap-4 md:px-4">
         {livePosts.map((post) => (
           <Link
             key={post.slug}

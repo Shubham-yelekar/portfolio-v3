@@ -52,7 +52,6 @@ const ProjectsFilter = ({ uniqueTags, liveProjects }: propType) => {
           <span
             key={`${tag}`}
             onClick={() => handleTagClick(tag)}
-            aria-role="button"
             className={cn(
               "hover:bg-neutral-350 cursor-pointer rounded-lg px-2 py-1 font-mono text-xs capitalize transition-all select-none",
               selectedTags.includes(tag)

@@ -12,7 +12,7 @@ const LabComponents = () => {
       <h2 className="font-libre! px-2 text-center text-2xl md:px-4">
         Laboratory
       </h2>
-      <div className="mt-12 grid grid-cols-2 justify-center gap-4">
+      <div className="mt-4 grid grid-cols-2 justify-center gap-4 px-2 md:mt-12 md:px-4">
         {lab.map((item) => (
           <Link href={`/lab/${item.slug}`} key={item.slug} className="relative">
             <div className="aspect-7/6 overflow-clip rounded-2xl">
