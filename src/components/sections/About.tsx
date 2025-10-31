@@ -121,7 +121,7 @@ const About = () => {
         <div className="flex flex-col items-start gap-4 md:flex-row md:items-center">
           <div className="flex max-w-24 flex-1 items-center justify-center overflow-clip rounded-2xl border-4 border-neutral-50 bg-neutral-50 shadow-[var(--card-shadow)] md:max-w-32 dark:bg-neutral-900">
             <Image
-              src={"/pictures/cat.jpg"}
+              src={"/pictures/avatartion.png"}
               width={300}
               height={300}
               alt="cat"

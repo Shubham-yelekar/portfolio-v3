@@ -55,7 +55,7 @@ const Navbar = () => {
     >
       <Link href={"/"}>
         <Image
-          src="/pictures/cat.jpg"
+          src="/pictures/avatartion.png"
           width={24}
           height={24}
           className="min-w-8 rounded-full transition-all ease-in-out hover:ring-neutral-200"
