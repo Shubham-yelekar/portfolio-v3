@@ -179,7 +179,10 @@ const About = () => {
           </p>
         </div>
         <div className="flex gap-2">
-          <Link href={"/"} target="_blank">
+          <Link
+            href={"mailto:shubhamyelekar@gmail.com"}
+            rel="noopener noreferrer"
+          >
             <Button
               variant={"primary"}
               className="border border-zinc-200 bg-gradient-to-t from-zinc-700 to-zinc-950 dark:border-zinc-700 dark:from-zinc-700 dark:to-zinc-800"
@@ -188,7 +191,12 @@ const About = () => {
               <span className="w-full">Email</span>
             </Button>
           </Link>
-          <Link href={"/"} target="_blank">
+          <Link
+            href={
+              "https://drive.google.com/file/d/1-gA8x_mUl8e3FQERkmoohWzjtP_AbLm6/view?usp=sharing"
+            }
+            target="_blank"
+          >
             <Button
               variant={"primary"}
               className="border border-purple-200 bg-gradient-to-t from-purple-400 to-purple-600 dark:border-purple-700 dark:from-purple-700 dark:to-purple-800"
