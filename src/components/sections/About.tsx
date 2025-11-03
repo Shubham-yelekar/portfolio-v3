@@ -193,7 +193,7 @@ const About = () => {
           </Link>
           <Link
             href={
-              "https://drive.google.com/file/d/1-gA8x_mUl8e3FQERkmoohWzjtP_AbLm6/view?usp=sharing"
+              "https://drive.google.com/file/d/1nbV481gyES90t67mM-D4F-gPh5fmCsBu/view?usp=sharing"
             }
             target="_blank"
           >
