@@ -6,6 +6,7 @@ import Image from "next/image";
 import { FaSun } from "react-icons/fa6";
 import { FaMoon } from "react-icons/fa";
 import cn from "@/app/lib/cn";
+import { sendGTMEvent } from "@next/third-parties/google";
 import {
   easeInOut,
   hover,
@@ -70,6 +71,9 @@ const Navbar = () => {
             className="relative flex items-center justify-center px-2 py-1 text-sm"
             onMouseEnter={() => setHovered(idx)}
             onMouseLeave={() => setHovered(null)}
+            onClick={() =>
+              sendGTMEvent({ event: "navbar item", value: links.title })
+            }
           >
             {hovered === idx && (
               <motion.span
@@ -84,7 +88,10 @@ const Navbar = () => {
         ))}
       </div>
       <button
-        onClick={() => toggeltheme()}
+        onClick={() => {
+          toggeltheme();
+          sendGTMEvent({ event: "toggle", value: "dark mode button" });
+        }}
         className="relative h-8 w-8 cursor-pointer overflow-clip rounded-2xl bg-neutral-50 dark:bg-neutral-800"
       >
         <motion.div

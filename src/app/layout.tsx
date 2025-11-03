@@ -5,6 +5,7 @@ import Navbar from "@/components/ui/Navbar";
 import ThemeSwitchProvider from "@/app/providers/Providers";
 import Footer from "@/components/sections/Footer";
 import Providers from "@/app/providers/Providers";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   // 1. Basic Metadata (Equivalent to <title> and <meta name="description">)
@@ -57,6 +58,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="relative" suppressHydrationWarning>
+      <GoogleTagManager gtmId="G-XDTVH3FXKT" />
       <body
         className={`${generalSans.variable} ${libreSerif.variable} bg-background relative flex min-h-screen w-screen flex-col justify-between antialiased`}
       >
