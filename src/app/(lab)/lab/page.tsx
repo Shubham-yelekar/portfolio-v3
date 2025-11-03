@@ -4,18 +4,17 @@ import Container from "@/components/ui/Container";
 import { getAllContentMeta } from "@/lib/mdx";
 import Link from "next/link";
 import Image from "next/image";
-
+import Button from "@/components/ui/Button";
 import { LabScribble } from "../../../components/ui/AppleEffect";
 const page = () => {
   const lab = getAllContentMeta("lab");
-  const liveLab = lab.filter((item) => item.status === "live");
   return (
     <PageWrapper>
       <Container className="mt-[14dvh] px-4">
         <h2 className="font-libre! text-center text-3xl font-bold">Lab</h2>
         <LabScribble className={"absolute left-1/2 -translate-x-1/2"} />
         <div className="mt-12 grid grid-cols-2 justify-center gap-4">
-          {liveLab.map((item) => (
+          {lab.map((item) => (
             <Link
               href={`/lab/${item.slug}`}
               key={item.slug}

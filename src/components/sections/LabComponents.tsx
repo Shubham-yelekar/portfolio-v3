@@ -7,14 +7,13 @@ import { getAllContentMeta } from "@/lib/mdx";
 
 const LabComponents = () => {
   const lab = getAllContentMeta("lab");
-  const liveLab = lab.filter((items) => items.status === "live");
   return (
     <Container className="flex flex-col gap-6 md:gap-9">
       <h2 className="font-libre! px-2 text-center text-2xl md:px-4">
         Laboratory
       </h2>
       <div className="mt-4 grid grid-cols-2 justify-center gap-4 px-2 md:mt-12 md:px-4">
-        {liveLab.map((item) => (
+        {lab.map((item) => (
           <Link href={`/lab/${item.slug}`} key={item.slug} className="relative">
             <div className="aspect-7/6 overflow-clip rounded-2xl">
               {item.thumbVideo === "" ? (
