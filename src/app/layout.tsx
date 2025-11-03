@@ -7,8 +7,47 @@ import Footer from "@/components/sections/Footer";
 import Providers from "@/app/providers/Providers";
 
 export const metadata: Metadata = {
-  title: "Portfolio v3",
-  description: "In Progress",
+  // 1. Basic Metadata (Equivalent to <title> and <meta name="description">)
+  title: "Shubham Yelekar | Front End Developer",
+  description:
+    "Hey, I’m Shubham Yelekar, a Front-end engineer who enjoys designing and coding.",
+
+  // 2. Open Graph (og:) Metadata (For Facebook, LinkedIn, etc.)
+  openGraph: {
+    title: "Shubham Yelekar | Front End Developer", // Equivalent to <meta property="og:title">
+    description:
+      "Hey, I’m Shubham Yelekar, a Front-end engineer who enjoys designing and coding.", // Equivalent to <meta property="og:description">
+    url: "https://shubhamyelekar.vercel.app/", // Equivalent to <meta property="og:url">
+    type: "website", // Equivalent to <meta property="og:type">
+    images: [
+      {
+        url: "https://ucarecdn.com/961683ce-ba5f-4a9d-809b-76a5fb34964f/-/preview/450x300/", // Equivalent to <meta property="og:image">
+        // You can optionally add width and height here if known
+      },
+    ],
+  },
+
+  // 3. Twitter Metadata (For Twitter/X sharing cards)
+  twitter: {
+    card: "summary_large_image", // Equivalent to <meta name="twitter:card">
+    title: "Shubham Yelekar | Front End Developer", // Equivalent to <meta name="twitter:title">
+    description:
+      "Hey, I’m Shubham Yelekar, a Front-end engineer who enjoys designing and coding.", // Equivalent to <meta name="twitter:description">
+    images: [
+      "https://ucarecdn.com/961683ce-ba5f-4a9d-809b-76a5fb34964f/-/preview/450x300/", // Equivalent to <meta name="twitter:image">
+    ],
+  },
+
+  // 4. Icons (Equivalent to <link rel="icon">)
+  icons: {
+    icon: "/public/favicon.ico", // Update path if 'public' is implied or you need a relative path
+  },
+
+  // 5. Additional Metadata (For general use, including some itemprop equivalents)
+  // The 'itemprop' tags for Google/Search Engine Tags (like itemprop="image")
+  // are often automatically handled by Next.js when using 'openGraph' and 'twitter' settings,
+  // but if you needed a specific custom tag, you would use the 'other' property.
+  // For your specific case, the openGraph and twitter settings cover the critical ones.
 };
 
 export default function RootLayout({
