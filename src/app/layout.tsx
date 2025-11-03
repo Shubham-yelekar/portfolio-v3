@@ -5,11 +5,42 @@ import Navbar from "@/components/ui/Navbar";
 import ThemeSwitchProvider from "@/app/providers/Providers";
 import Footer from "@/components/sections/Footer";
 import Providers from "@/app/providers/Providers";
-import { GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
-  title: "Portfolio v3",
-  description: "In Progress",
+  title: "Shubham Yelekar | Front End Developer",
+  description:
+    "Hey, I’m Shubham Yelekar, a Front-end engineer who enjoys designing and coding.",
+
+  // 2. Open Graph (og:) Metadata (For Facebook, LinkedIn, etc.)
+  openGraph: {
+    title: "Shubham Yelekar | Front End Developer", // Equivalent to <meta property="og:title">
+    description:
+      "Hey, I’m Shubham Yelekar, a Front-end engineer who enjoys designing and coding.", // Equivalent to <meta property="og:description">
+    url: "https://shubhamyelekar.vercel.app/", // Equivalent to <meta property="og:url">
+    type: "website", // Equivalent to <meta property="og:type">
+    images: [
+      {
+        url: "https://ucarecdn.com/961683ce-ba5f-4a9d-809b-76a5fb34964f/-/preview/450x300/", // Equivalent to <meta property="og:image">
+        // You can optionally add width and height here if known
+      },
+    ],
+  },
+
+  // 3. Twitter Metadata (For Twitter/X sharing cards)
+  twitter: {
+    card: "summary_large_image", // Equivalent to <meta name="twitter:card">
+    title: "Shubham Yelekar | Front End Developer", // Equivalent to <meta name="twitter:title">
+    description:
+      "Hey, I’m Shubham Yelekar, a Front-end engineer who enjoys designing and coding.", // Equivalent to <meta name="twitter:description">
+    images: [
+      "https://ucarecdn.com/961683ce-ba5f-4a9d-809b-76a5fb34964f/-/preview/450x300/", // Equivalent to <meta name="twitter:image">
+    ],
+  },
+
+  // 4. Icons (Equivalent to <link rel="icon">)
+  icons: {
+    icon: "/public/favicon.ico", // Update path if 'public' is implied or you need a relative path
+  },
 };
 
 export default function RootLayout({
@@ -19,7 +50,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="relative" suppressHydrationWarning>
-      <GoogleTagManager gtmId="G-XDTVH3FXKT" />
       <body
         className={`${generalSans.variable} ${libreSerif.variable} bg-background relative flex min-h-screen w-screen flex-col justify-between antialiased`}
       >
