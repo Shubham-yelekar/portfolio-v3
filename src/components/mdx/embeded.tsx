@@ -448,8 +448,18 @@ export const MobileVideoWrapper = () => {
 
 export const ComponentBox = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="relative flex aspect-video items-center justify-center overflow-hidden rounded-xl border-1 border-neutral-200 bg-neutral-300 dark:border-neutral-800 dark:bg-neutral-900">
+    <div className="relative flex aspect-video items-center justify-center overflow-hidden rounded-xl border border-neutral-200 bg-neutral-300 dark:border-neutral-800 dark:bg-neutral-900">
       {children}
+    </div>
+  );
+};
+
+export const BigComponentBox = ({ children }: { children: ReactNode }) => {
+  return (
+    <div className="relative flex aspect-video items-center justify-center">
+      <div className="absolute h-[400px] max-w-[1200px] bg-neutral-800">
+        {children}
+      </div>
     </div>
   );
 };

@@ -9,13 +9,14 @@ import {
   VideoWrapper,
   MobileVideoWrapper,
   ComponentBox,
+  BigComponentBox,
 } from "@/components/mdx/embeded";
-// components/MdxComponents.js
-// Lab Componenets
+
 import TextCursor from "../ui/TextCursor";
 import LinkHover from "../ui-components/button-collection/LinkHover";
 import ShinyButton from "../ui-components/button-collection/ShinyButton";
 import WavingFlag from "../ui/WavingFlag";
+import AppleKeyboard from "../ui-components/AppleKeyboard";
 
 // A styled h1 component
 export const H1 = ({ children }) => (
@@ -86,7 +87,7 @@ export const LI = ({ children }) => (
 );
 
 export const Break = () => (
-  <div className="my-8 h-px w-full border-b-1 border-dashed border-neutral-300 md:border-b-2 dark:border-neutral-700"></div>
+  <div className="my-8 h-px w-full border-b border-dashed border-neutral-300 md:border-b-2 dark:border-neutral-700"></div>
 );
 
 // ...add more components for ul, ol, li, blockquote, etc.
@@ -114,10 +115,12 @@ export const mdxComponents = {
   ImageCompare,
   VideoWrapper,
   ComponentBox,
+  BigComponentBox,
   // etc.
 
   TextCursor,
   LinkHover,
   ShinyButton,
   WavingFlag,
+  AppleKeyboard,
 };
