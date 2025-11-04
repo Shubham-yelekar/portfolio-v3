@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 
   // 4. Icons (Equivalent to <link rel="icon">)
   // icons: {
-  //   icon: "/favicon.ico", // Update path if 'public' is implied or you need a relative path
+  // Update path if 'public' is implied or you need a relative path
   // },
 };
 
@@ -53,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="relative" suppressHydrationWarning>
       <Head>
-        <link rel="icon" href="/public/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <GoogleTagManager gtmId="G-XDTVH3FXKT" />
       <body
