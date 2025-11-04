@@ -2,7 +2,87 @@ import React, { ReactNode } from "react";
 
 const AppleKeyboard = () => {
   return (
-    <div className="rounded-xl border border-neutral-300 bg-neutral-100 p-2 dark:border-neutral-600 dark:bg-neutral-900">
+    <div className="flex flex-col flex-nowrap gap-1 rounded-xl border border-neutral-300 bg-neutral-100 p-2 dark:border-neutral-600 dark:bg-neutral-900">
+      <div className="flex flex-nowrap gap-1">
+        <Key
+          type={"large"}
+          align="center"
+          topEl={""}
+          bottomEl={<span className="w-18 flex-1">esc</span>}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>~</span>}
+          bottomEl={<span>F1</span>}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>~</span>}
+          bottomEl={<span>F2</span>}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>~</span>}
+          bottomEl={<span>F3</span>}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>~</span>}
+          bottomEl={<span>F4</span>}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>~</span>}
+          bottomEl={<span>F5</span>}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>~</span>}
+          bottomEl={<span>F6</span>}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>~</span>}
+          bottomEl={<span>F7</span>}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>~</span>}
+          bottomEl={<span>F8</span>}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>~</span>}
+          bottomEl={<span>F9</span>}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>~</span>}
+          bottomEl={<span>f10</span>}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>~</span>}
+          bottomEl={<span>f11</span>}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>~</span>}
+          bottomEl={<span>f12</span>}
+        />
+      </div>
       <div className="flex flex-nowrap gap-1">
         <Key
           type={"small"}
@@ -73,31 +153,39 @@ const AppleKeyboard = () => {
         <Key
           type={"small"}
           align="center"
-          topEl={<span>)</span>}
-          bottomEl={<span>0</span>}
+          topEl={<span>+</span>}
+          bottomEl={<span>=</span>}
         />
       </div>
     </div>
   );
 };
 
-interface Key {
-  type: "base" | "small" | "long" | "arrow";
+const keyMapComponent = {
+  small: "SmallKey",
+  large: "LargeKey",
+  arrow: "Arrow",
+};
+interface KeyProps {
+  type: "small" | "large" | "arrow";
   align: "center" | "left" | "right";
   topEl: ReactNode;
   bottomEl: ReactNode;
 }
 
 const Key = ({
-  type = "base",
+  type = "small",
   align = "center",
   topEl = "",
   bottomEl = "",
-}: Key) => {
+}: KeyProps) => {
+  const keyProps = { align, topEl, bottomEl };
+
   return (
     <div className="relative w-fit transform cursor-pointer rounded-[8px] bg-linear-to-b from-neutral-100 to-neutral-300 p-0.5 duration-300 ease-in-out dark:from-neutral-700 dark:to-neutral-800">
       <div className="overflow-hidden rounded-[6px] bg-linear-to-b from-neutral-300 to-neutral-200 transition-all duration-300 ease-in-out before:absolute before:top-0 before:left-0 before:z-1 before:h-full before:w-full before:rounded-[6px] before:bg-neutral-100/10 before:content-[''] dark:from-neutral-800 dark:to-neutral-900 hover:dark:from-neutral-800">
-        <SmallKey topEl={topEl} bottomEl={bottomEl} />
+        {type === "small" && <SmallKey {...keyProps} />}
+        {type === "large" && <LargeKey {...keyProps} />}
       </div>
     </div>
   );
@@ -112,6 +200,21 @@ const SmallKey = ({
 }) => {
   return (
     <div className="z-20 flex aspect-square w-12 flex-col items-center justify-center gap-1 text-xs text-neutral-800 select-none hover:text-neutral-900 dark:text-neutral-300 hover:dark:text-neutral-100">
+      {topEl}
+      {bottomEl}
+    </div>
+  );
+};
+
+const LargeKey = ({
+  topEl,
+  bottomEl,
+}: {
+  topEl: ReactNode;
+  bottomEl: ReactNode;
+}) => {
+  return (
+    <div className="z-20 flex h-12 flex-col items-center justify-center gap-1 p-2 text-xs text-neutral-800 select-none hover:text-neutral-900 dark:text-neutral-300 hover:dark:text-neutral-100">
       {topEl}
       {bottomEl}
     </div>
