@@ -6,7 +6,7 @@ import Link from "next/link";
 import { getAllContentMeta } from "@/lib/mdx";
 
 const LabComponents = () => {
-  const lab = getAllContentMeta("lab");
+  const lab = getAllContentMeta("lab").filter((item) => item.status === "live");
   return (
     <Container className="flex flex-col gap-6 md:gap-9">
       <h2 className="font-libre! px-2 text-center text-2xl md:px-4">
