@@ -5,6 +5,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+* {
+  /* border: 1px solid red; */
+}
+
 @theme inline {
   --font-libre: var(--font-libre-caslon-con);
   --font-mono: "JetBrains Mono", monospace;

@@ -1,10 +1,31 @@
 import React, { ReactNode } from "react";
-import { IoBackspaceOutline } from "react-icons/io5";
-import { MdOutlineKeyboardTab } from "react-icons/md";
+import { IoBackspaceOutline, IoMoonOutline } from "react-icons/io5";
+import { MdOutlineKeyboardTab, MdKeyboardControlKey } from "react-icons/md";
+import cn from "@/app/lib/cn";
+import {
+  LuSunDim,
+  LuSunMedium,
+  LuSearch,
+  LuMic,
+  LuCommand,
+  LuOption,
+} from "react-icons/lu";
+import { BsGrid1X2 } from "react-icons/bs";
+import {
+  TbPlayerTrackPrev,
+  TbPlayerTrackNext,
+  TbCaretDownFilled,
+  TbCaretLeftFilled,
+  TbCaretRightFilled,
+  TbCaretUpFilled,
+} from "react-icons/tb";
+import { PiPlayPauseBold } from "react-icons/pi";
+import { BiVolumeMute, BiVolumeFull, BiVolumeLow } from "react-icons/bi";
+import { AiOutlineGlobal } from "react-icons/ai";
 
 const AppleKeyboard = () => {
   return (
-    <div className="flex flex-col flex-nowrap gap-1 rounded-xl border border-neutral-300 bg-neutral-100 p-2 dark:border-neutral-600 dark:bg-neutral-900">
+    <div className="flex flex-col flex-nowrap gap-1 rounded-xl border border-neutral-600 bg-neutral-900 p-2">
       <div className="flex flex-nowrap gap-1">
         <Key
           type={"large"}
@@ -15,74 +36,122 @@ const AppleKeyboard = () => {
         <Key
           type={"small"}
           align="center"
-          topEl={<span>~</span>}
+          topEl={
+            <span>
+              <LuSunDim size={16} />
+            </span>
+          }
           bottomEl={<span>F1</span>}
         />
         <Key
           type={"small"}
           align="center"
-          topEl={<span>~</span>}
+          topEl={
+            <span>
+              <LuSunMedium size={16} />
+            </span>
+          }
           bottomEl={<span>F2</span>}
         />
         <Key
           type={"small"}
           align="center"
-          topEl={<span>~</span>}
+          topEl={
+            <span className="p-0.5">
+              <BsGrid1X2 />
+            </span>
+          }
           bottomEl={<span>F3</span>}
         />
         <Key
           type={"small"}
           align="center"
-          topEl={<span>~</span>}
+          topEl={
+            <span>
+              <LuSearch size={15} />
+            </span>
+          }
           bottomEl={<span>F4</span>}
         />
         <Key
           type={"small"}
           align="center"
-          topEl={<span>~</span>}
+          topEl={
+            <span>
+              <LuMic size={16} />
+            </span>
+          }
           bottomEl={<span>F5</span>}
         />
         <Key
           type={"small"}
           align="center"
-          topEl={<span>~</span>}
+          topEl={
+            <span>
+              <IoMoonOutline size={16} />
+            </span>
+          }
           bottomEl={<span>F6</span>}
         />
         <Key
           type={"small"}
           align="center"
-          topEl={<span>~</span>}
+          topEl={
+            <span>
+              <TbPlayerTrackPrev size={16} />
+            </span>
+          }
           bottomEl={<span>F7</span>}
         />
         <Key
           type={"small"}
           align="center"
-          topEl={<span>~</span>}
+          topEl={
+            <span>
+              <PiPlayPauseBold size={16} />
+            </span>
+          }
           bottomEl={<span>F8</span>}
         />
         <Key
           type={"small"}
           align="center"
-          topEl={<span>~</span>}
+          topEl={
+            <span>
+              <TbPlayerTrackNext size={16} />
+            </span>
+          }
           bottomEl={<span>F9</span>}
         />
         <Key
           type={"small"}
           align="center"
-          topEl={<span>~</span>}
-          bottomEl={<span>f10</span>}
+          topEl={
+            <span>
+              <BiVolumeMute size={16} />
+            </span>
+          }
+          bottomEl={<span>F10</span>}
         />
         <Key
           type={"small"}
           align="center"
-          topEl={<span>~</span>}
-          bottomEl={<span>f11</span>}
+          topEl={
+            <span>
+              <BiVolumeLow size={16} />
+            </span>
+          }
+          bottomEl={<span>F11</span>}
         />
         <Key
           type={"small"}
           align="center"
-          topEl={<span>~</span>}
-          bottomEl={<span>f12</span>}
+          topEl={
+            <span>
+              <BiVolumeFull size={16} />
+            </span>
+          }
+          bottomEl={<span>F12</span>}
         />
         <Key
           type={"small"}
@@ -189,7 +258,7 @@ const AppleKeyboard = () => {
           align="center"
           topEl={""}
           bottomEl={
-            <span className="w-15 flex-1">
+            <span className="w-16 flex-1">
               <MdOutlineKeyboardTab />
             </span>
           }
@@ -273,6 +342,243 @@ const AppleKeyboard = () => {
           bottomEl={<span>&#92;</span>}
         />
       </div>
+      <div className="flex flex-nowrap gap-1">
+        <Key
+          type={"large"}
+          align="center"
+          topEl={""}
+          bottomEl={<span className="w-19 flex-1">caps lock</span>}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>A</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>S</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>D</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>F</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>G</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>H</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>J</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>K</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>L</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>:</span>}
+          bottomEl={<span>;</span>}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>"</span>}
+          bottomEl={<span> '</span>}
+        />
+        <Key
+          type={"large"}
+          align="center"
+          topEl={""}
+          bottomEl={<span className="w-19 flex-1">return</span>}
+        />
+      </div>
+      <div className="flex flex-nowrap gap-1">
+        <Key
+          type={"large"}
+          align="center"
+          topEl={""}
+          bottomEl={<span className="w-26 flex-1">shift</span>}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>Z</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>X</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>C</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>V</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>B</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>N</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>M</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>&#60;</span>}
+          bottomEl={<span>&#44;</span>}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>&#62;</span>}
+          bottomEl={<span>&#46;</span>}
+        />
+
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>?</span>}
+          bottomEl={<span>&#47;</span>}
+        />
+        <Key
+          type={"large"}
+          align="center"
+          topEl={""}
+          bottomEl={<span className="w-26 flex-1">return</span>}
+        />
+      </div>
+      <div className="flex flex-nowrap gap-1">
+        <Key
+          type={"small"}
+          align="left"
+          topEl={
+            <span>
+              <AiOutlineGlobal size={16} />
+            </span>
+          }
+          bottomEl={<span>fn</span>}
+        />
+
+        <Key
+          type={"small"}
+          align="left"
+          topEl={
+            <span>
+              <MdKeyboardControlKey size={16} />
+            </span>
+          }
+          bottomEl={<span>control</span>}
+        />
+        <Key
+          type={"small"}
+          align="left"
+          topEl={
+            <span>
+              <LuOption size={16} />
+            </span>
+          }
+          bottomEl={<span>option</span>}
+        />
+        <Key
+          type={"large"}
+          align="left"
+          topEl={
+            <span className="">
+              <LuCommand size={16} />
+            </span>
+          }
+          bottomEl={<span className="w-15 text-left">command</span>}
+        />
+
+        <Key
+          type={"large"}
+          align="center"
+          topEl={""}
+          bottomEl={<div className="w-58"></div>}
+        />
+        <Key
+          type={"large"}
+          align="right"
+          topEl={
+            <span>
+              <LuCommand size={16} />
+            </span>
+          }
+          bottomEl={<span className="w-15">command</span>}
+        />
+
+        <Key
+          type={"small"}
+          align="right"
+          topEl={
+            <span>
+              <LuOption size={16} />
+            </span>
+          }
+          bottomEl={<span>option</span>}
+        />
+
+        <div className="flex w-full flex-col gap-1">
+          <div className="flex justify-center">
+            <ArrowKey direction="up" />
+          </div>
+          <div className="flex gap-1">
+            <ArrowKey direction="left" />
+            <ArrowKey direction="down" />
+            <ArrowKey direction="right" />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -298,8 +604,13 @@ const Key = ({
   const keyProps = { align, topEl, bottomEl };
 
   return (
-    <div className="relative w-fit transform cursor-pointer rounded-[8px] bg-linear-to-b from-neutral-100 to-neutral-300 p-0.5 duration-300 ease-in-out dark:from-neutral-700 dark:to-neutral-800">
-      <div className="overflow-hidden rounded-[6px] bg-linear-to-b from-neutral-300 to-neutral-200 transition-all duration-300 ease-in-out before:absolute before:top-0 before:left-0 before:z-1 before:h-full before:w-full before:rounded-[6px] before:bg-neutral-100/10 before:content-[''] dark:from-neutral-800 dark:to-neutral-900 hover:dark:from-neutral-800">
+    <div className="relative w-fit transform cursor-pointer rounded-[8px] bg-linear-to-b from-neutral-700 to-neutral-800 p-0.5 duration-300 ease-in-out">
+      <div
+        className={cn(
+          "overflow-hidden rounded-[6px] bg-linear-to-b from-neutral-800 to-neutral-900 transition-all duration-300 ease-in-out before:absolute before:top-0 before:left-0 before:z-1 before:h-full before:w-full before:rounded-[6px] before:bg-neutral-100/10 before:content-[''] hover:from-neutral-800",
+          { [`text-${align}`]: true },
+        )}
+      >
         {type === "small" && <SmallKey {...keyProps} />}
         {type === "large" && <LargeKey {...keyProps} />}
       </div>
@@ -315,7 +626,7 @@ const SmallKey = ({
   bottomEl: ReactNode;
 }) => {
   return (
-    <div className="z-20 flex aspect-square w-12 flex-col items-center justify-center gap-1 text-xs text-neutral-800 select-none hover:text-neutral-900 dark:text-neutral-300 hover:dark:text-neutral-100">
+    <div className="z-20 flex aspect-square w-12 flex-col items-center justify-center gap-1 text-xs text-neutral-300 select-none hover:text-neutral-100">
       {topEl}
       {bottomEl}
     </div>
@@ -330,9 +641,28 @@ const LargeKey = ({
   bottomEl: ReactNode;
 }) => {
   return (
-    <div className="z-20 flex h-12 flex-col items-center justify-center gap-1 p-2 text-xs text-neutral-800 select-none hover:text-neutral-900 dark:text-neutral-300 hover:dark:text-neutral-100">
+    <div className="z-20 flex h-12 flex-col items-center justify-center gap-1 p-2 text-xs text-neutral-300 select-none hover:text-neutral-100">
       {topEl}
       {bottomEl}
+    </div>
+  );
+};
+
+const ArrowKey = ({
+  direction,
+}: {
+  direction: "up" | "down" | "left" | "right";
+}) => {
+  return (
+    <div className="relative w-fit transform cursor-pointer rounded-[8px] bg-linear-to-b from-neutral-700 to-neutral-800 p-0.5 duration-300 ease-in-out">
+      <div className="overflow-hidden rounded-[6px] bg-linear-to-b from-neutral-800 to-neutral-900 transition-all duration-300 ease-in-out before:absolute before:top-0 before:left-0 before:z-1 before:h-full before:w-full before:rounded-[6px] before:bg-neutral-100/10 before:content-[''] hover:from-neutral-800">
+        <div className="z-20 flex h-5 w-12 flex-col items-center justify-center gap-1 text-xs text-neutral-300 select-none hover:text-neutral-100">
+          {direction === "down" && <TbCaretDownFilled size={16} />}
+          {direction === "up" && <TbCaretUpFilled size={16} />}
+          {direction === "left" && <TbCaretLeftFilled size={16} />}
+          {direction === "right" && <TbCaretRightFilled size={16} />}
+        </div>
+      </div>
     </div>
   );
 };
