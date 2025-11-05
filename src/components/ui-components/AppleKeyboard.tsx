@@ -1,4 +1,6 @@
 import React, { ReactNode } from "react";
+import { IoBackspaceOutline } from "react-icons/io5";
+import { MdOutlineKeyboardTab } from "react-icons/md";
 
 const AppleKeyboard = () => {
   return (
@@ -8,7 +10,7 @@ const AppleKeyboard = () => {
           type={"large"}
           align="center"
           topEl={""}
-          bottomEl={<span className="w-18 flex-1">esc</span>}
+          bottomEl={<span className="w-16 flex-1">esc</span>}
         />
         <Key
           type={"small"}
@@ -82,6 +84,14 @@ const AppleKeyboard = () => {
           topEl={<span>~</span>}
           bottomEl={<span>f12</span>}
         />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={
+            <div className="aspect-square w-9 rounded-full bg-neutral-950"></div>
+          }
+          bottomEl={""}
+        />
       </div>
       <div className="flex flex-nowrap gap-1">
         <Key
@@ -107,6 +117,12 @@ const AppleKeyboard = () => {
           align="center"
           topEl={<span>#</span>}
           bottomEl={<span>3</span>}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>$</span>}
+          bottomEl={<span>4</span>}
         />
         <Key
           type={"small"}
@@ -155,6 +171,106 @@ const AppleKeyboard = () => {
           align="center"
           topEl={<span>+</span>}
           bottomEl={<span>=</span>}
+        />
+        <Key
+          type={"large"}
+          align="center"
+          topEl={""}
+          bottomEl={
+            <span className="w-16 flex-1">
+              <IoBackspaceOutline size={16} />
+            </span>
+          }
+        />
+      </div>
+      <div className="flex flex-nowrap gap-1">
+        <Key
+          type={"large"}
+          align="center"
+          topEl={""}
+          bottomEl={
+            <span className="w-15 flex-1">
+              <MdOutlineKeyboardTab />
+            </span>
+          }
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>Q</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>W</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>E</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>R</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>T</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>Y</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>U</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>I</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>O</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>P</span>}
+          bottomEl={""}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>&#123;</span>}
+          bottomEl={<span> &#91;</span>}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span>&#125;</span>}
+          bottomEl={<span>&#93;</span>}
+        />
+        <Key
+          type={"small"}
+          align="center"
+          topEl={<span> &#124;</span>}
+          bottomEl={<span>&#92;</span>}
         />
       </div>
     </div>
