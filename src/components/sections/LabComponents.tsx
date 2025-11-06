@@ -47,7 +47,7 @@ const LabComponents = () => {
           </Link>
         ))}
       </div>
-      <Link href="/projects">
+      <Link href="/lab">
         <Button className="mx-auto mt-4 w-40" variant={"tertiary"}>
           More Components
         </Button>
