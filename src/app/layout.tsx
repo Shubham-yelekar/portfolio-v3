@@ -7,6 +7,7 @@ import Footer from "@/components/sections/Footer";
 import Providers from "@/app/providers/Providers";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Head from "next/head";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Shubham Yelekar | Front End Developer",
@@ -72,6 +73,7 @@ export default function RootLayout({
                 "radial-gradient(100% 100%  at 50% 10%, var(--background) 50%, var(--color-blue-500)  75% , var(--color-orange-500)  100%",
             }}
           />
+          <Analytics />
         </ThemeSwitchProvider>
       </body>
     </html>

@@ -16,6 +16,7 @@ import {
 } from "motion/react";
 
 import { ThemeProvider, useTheme } from "next-themes";
+import { track } from "@vercel/analytics";
 
 const Navbar = () => {
   const { theme, setTheme } = useTheme();
@@ -71,7 +72,8 @@ const Navbar = () => {
             className="relative flex items-center justify-center px-2 py-1 text-sm"
             onMouseEnter={() => setHovered(idx)}
             onMouseLeave={() => setHovered(null)}
-            onClick={() => sendGTMEvent({ "nav-item": links.title })}
+            // onClick={() => (sendGTMEvent({ "nav-item": links.title });track(links.url))}
+            onClick={() => track(links.url)}
           >
             {hovered === idx && (
               <motion.span
