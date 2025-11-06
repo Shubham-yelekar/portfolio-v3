@@ -25,12 +25,12 @@ import { AiOutlineGlobal } from "react-icons/ai";
 
 const AppleKeyboard = () => {
   return (
-    <div className="flex flex-col flex-nowrap gap-1 rounded-xl border border-neutral-600 bg-neutral-900 p-2">
+    <div className="card-shadow flex flex-col flex-nowrap gap-1 rounded-xl border border-neutral-600 bg-neutral-900 p-2">
       <div className="flex flex-nowrap gap-1">
         <Key
           type={"large"}
-          align="center"
-          topEl={""}
+          align="left"
+          topEl={<span className="flex-1"></span>}
           bottomEl={<span className="w-16 flex-1">esc</span>}
         />
         <Key
@@ -162,7 +162,7 @@ const AppleKeyboard = () => {
           bottomEl={""}
         />
       </div>
-      <div className="flex flex-nowrap gap-1">
+      <div className="flex flex-nowrap items-center gap-1">
         <Key
           type={"small"}
           align="center"
@@ -243,22 +243,22 @@ const AppleKeyboard = () => {
         />
         <Key
           type={"large"}
-          align="center"
-          topEl={""}
+          align="right"
+          topEl={<span className="w-16 flex-1"></span>}
           bottomEl={
-            <span className="w-16 flex-1">
+            <span className="">
               <IoBackspaceOutline size={16} />
             </span>
           }
         />
       </div>
-      <div className="flex flex-nowrap gap-1">
+      <div className="flex flex-nowrap items-center gap-1">
         <Key
           type={"large"}
-          align="center"
-          topEl={""}
+          align="left"
+          topEl={<span className="w-16 flex-1"></span>}
           bottomEl={
-            <span className="w-16 flex-1">
+            <span>
               <MdOutlineKeyboardTab />
             </span>
           }
@@ -342,12 +342,12 @@ const AppleKeyboard = () => {
           bottomEl={<span>&#92;</span>}
         />
       </div>
-      <div className="flex flex-nowrap gap-1">
+      <div className="flex flex-nowrap items-center gap-1">
         <Key
           type={"large"}
-          align="center"
-          topEl={""}
-          bottomEl={<span className="w-19 flex-1">caps lock</span>}
+          align="left"
+          topEl={<span className="w-19 flex-1"></span>}
+          bottomEl={<span className="">caps lock</span>}
         />
         <Key
           type={"small"}
@@ -417,17 +417,17 @@ const AppleKeyboard = () => {
         />
         <Key
           type={"large"}
-          align="center"
-          topEl={""}
-          bottomEl={<span className="w-19 flex-1">return</span>}
+          align="right"
+          topEl={<span className="w-19 flex-1"></span>}
+          bottomEl={<span>return</span>}
         />
       </div>
-      <div className="flex flex-nowrap gap-1">
+      <div className="flex flex-nowrap items-center gap-1">
         <Key
           type={"large"}
-          align="center"
-          topEl={""}
-          bottomEl={<span className="w-26 flex-1">shift</span>}
+          align="left"
+          topEl={<span className="w-26 flex-1"></span>}
+          bottomEl={<span className="">shift</span>}
         />
         <Key
           type={"small"}
@@ -492,25 +492,25 @@ const AppleKeyboard = () => {
         />
         <Key
           type={"large"}
-          align="center"
-          topEl={""}
-          bottomEl={<span className="w-26 flex-1">return</span>}
+          align="right"
+          topEl={<span className="w-26 flex-1"></span>}
+          bottomEl={<span className="">return</span>}
         />
       </div>
-      <div className="flex flex-nowrap gap-1">
+      <div className="flex flex-nowrap items-center gap-1">
         <Key
-          type={"small"}
+          type={"large"}
           align="left"
           topEl={
             <span>
               <AiOutlineGlobal size={16} />
             </span>
           }
-          bottomEl={<span>fn</span>}
+          bottomEl={<span className="w-8">fn</span>}
         />
 
         <Key
-          type={"small"}
+          type={"large"}
           align="left"
           topEl={
             <span>
@@ -520,7 +520,7 @@ const AppleKeyboard = () => {
           bottomEl={<span>control</span>}
         />
         <Key
-          type={"small"}
+          type={"large"}
           align="left"
           topEl={
             <span>
@@ -537,7 +537,7 @@ const AppleKeyboard = () => {
               <LuCommand size={16} />
             </span>
           }
-          bottomEl={<span className="w-15 text-left">command</span>}
+          bottomEl={<span className="w-15">command</span>}
         />
 
         <Key
@@ -558,7 +558,7 @@ const AppleKeyboard = () => {
         />
 
         <Key
-          type={"small"}
+          type={"large"}
           align="right"
           topEl={
             <span>
@@ -568,7 +568,7 @@ const AppleKeyboard = () => {
           bottomEl={<span>option</span>}
         />
 
-        <div className="flex w-full flex-col gap-1">
+        <div className="flex w-full flex-col items-center gap-1">
           <div className="flex justify-center">
             <ArrowKey direction="up" />
           </div>
@@ -583,11 +583,6 @@ const AppleKeyboard = () => {
   );
 };
 
-const keyMapComponent = {
-  small: "SmallKey",
-  large: "LargeKey",
-  arrow: "Arrow",
-};
 interface KeyProps {
   type: "small" | "large" | "arrow";
   align: "center" | "left" | "right";
@@ -604,10 +599,10 @@ const Key = ({
   const keyProps = { align, topEl, bottomEl };
 
   return (
-    <div className="relative w-fit transform cursor-pointer rounded-[8px] bg-linear-to-b from-neutral-700 to-neutral-800 p-0.5 duration-300 ease-in-out">
+    <div className="group relative w-fit transform cursor-pointer rounded-[8px] bg-linear-to-b from-neutral-800 to-neutral-900 p-px shadow-[0_0px_1px_0px_rgb(255,255,255,.1)] duration-300 ease-in-out hover:shadow-[0_0px_2px_2px_rgb(255,255,255,.0)]">
       <div
         className={cn(
-          "overflow-hidden rounded-[6px] bg-linear-to-b from-neutral-800 to-neutral-900 transition-all duration-300 ease-in-out before:absolute before:top-0 before:left-0 before:z-1 before:h-full before:w-full before:rounded-[6px] before:bg-neutral-100/10 before:content-[''] hover:from-neutral-800",
+          "hover:top-neutral-900 overflow-hidden rounded-[6px] bg-radial bg-radial-[at_50%_0%] from-neutral-950 to-neutral-900 shadow-[0_1px_1px_0.1px_rgb(255,255,255,.2)] transition-all duration-800 ease-out group-hover:shadow-[0_0px_1px_0.1px_rgb(255,255,255,.0)] before:absolute before:top-0 before:left-0 before:z-1 before:h-full before:w-full before:rounded-[6px] before:bg-neutral-100/10 before:content-['']",
           { [`text-${align}`]: true },
         )}
       >
@@ -619,14 +614,26 @@ const Key = ({
 };
 
 const SmallKey = ({
+  align,
   topEl,
   bottomEl,
 }: {
+  align: string;
   topEl: ReactNode;
   bottomEl: ReactNode;
 }) => {
   return (
-    <div className="z-20 flex aspect-square w-12 flex-col items-center justify-center gap-1 text-xs text-neutral-300 select-none hover:text-neutral-100">
+    <div
+      className={cn(
+        "z-20 flex aspect-square w-12 flex-col justify-center gap-1 p-1 text-[11px] text-neutral-300 select-none hover:text-neutral-100",
+        { [`text-${align}`]: true },
+        align === "left"
+          ? "items-start"
+          : align === "right"
+            ? "items-end"
+            : "items-center",
+      )}
+    >
       {topEl}
       {bottomEl}
     </div>
@@ -634,14 +641,25 @@ const SmallKey = ({
 };
 
 const LargeKey = ({
+  align,
   topEl,
   bottomEl,
 }: {
+  align: string;
   topEl: ReactNode;
   bottomEl: ReactNode;
 }) => {
   return (
-    <div className="z-20 flex h-12 flex-col items-center justify-center gap-1 p-2 text-xs text-neutral-300 select-none hover:text-neutral-100">
+    <div
+      className={cn(
+        "z-20 flex h-12 flex-col justify-between gap-1 p-2 text-[11px] text-neutral-300 select-none hover:text-neutral-100",
+        align === "left"
+          ? "items-start"
+          : align === "right"
+            ? "items-end"
+            : "items-center",
+      )}
+    >
       {topEl}
       {bottomEl}
     </div>
@@ -654,9 +672,9 @@ const ArrowKey = ({
   direction: "up" | "down" | "left" | "right";
 }) => {
   return (
-    <div className="relative w-fit transform cursor-pointer rounded-[8px] bg-linear-to-b from-neutral-700 to-neutral-800 p-0.5 duration-300 ease-in-out">
-      <div className="overflow-hidden rounded-[6px] bg-linear-to-b from-neutral-800 to-neutral-900 transition-all duration-300 ease-in-out before:absolute before:top-0 before:left-0 before:z-1 before:h-full before:w-full before:rounded-[6px] before:bg-neutral-100/10 before:content-[''] hover:from-neutral-800">
-        <div className="z-20 flex h-5 w-12 flex-col items-center justify-center gap-1 text-xs text-neutral-300 select-none hover:text-neutral-100">
+    <div className="relative w-fit transform cursor-pointer rounded-[8px] bg-linear-to-b from-neutral-700 to-neutral-800 p-px shadow-[0_0px_1px_0px_rgb(255,255,255,.2)] duration-300 ease-in-out">
+      <div className="overflow-hidden rounded-[6px] bg-radial bg-radial-[at_50%_0%] from-neutral-950 to-neutral-900 shadow-[0_1px_1px_0.1px_rgb(255,255,255,.3)] transition-all duration-300 ease-in-out before:absolute before:top-0 before:left-0 before:z-1 before:h-full before:w-full before:rounded-[6px] before:bg-neutral-100/10 before:content-[''] hover:from-neutral-800">
+        <div className="z-20 flex h-5 w-11 flex-col items-center justify-center gap-1 text-xs text-neutral-300 select-none hover:text-neutral-100">
           {direction === "down" && <TbCaretDownFilled size={16} />}
           {direction === "up" && <TbCaretUpFilled size={16} />}
           {direction === "left" && <TbCaretLeftFilled size={16} />}
