@@ -456,7 +456,7 @@ export const ComponentBox = ({ children }: { children: ReactNode }) => {
 
 export const BigComponentBox = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="relative flex aspect-video items-center justify-center">
+    <div className="relative mt-16 flex aspect-video items-center justify-center">
       <div className="absolute h-[400px] scale-40 sm:scale-50 md:scale-75 lg:max-w-[1200px] lg:scale-90 xl:scale-100">
         {children}
       </div>

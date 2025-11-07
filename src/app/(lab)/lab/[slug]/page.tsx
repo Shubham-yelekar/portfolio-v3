@@ -33,7 +33,7 @@ export default async function ProjectPage({ params }: PageProps) {
           {/* Article Header */}
           <div className="mb-12 rounded-xl bg-neutral-100 px-4 py-4 dark:bg-neutral-900">
             <div>
-              <h4 className="font-libre! text-md mb-1 text-neutral-800! md:text-lg dark:text-neutral-200!">
+              <h4 className="font-libre! mb-4 text-3xl md:text-4xl">
                 {meta.title}
               </h4>
               <p className="text-xs md:text-base">{meta.summary}</p>

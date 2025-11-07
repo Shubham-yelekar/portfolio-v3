@@ -25,8 +25,8 @@ import { AiOutlineGlobal } from "react-icons/ai";
 
 const AppleKeyboard = () => {
   return (
-    <div className="card-shadow flex flex-col flex-nowrap gap-1 rounded-xl border border-neutral-600 bg-neutral-900 p-2">
-      <div className="flex flex-nowrap gap-1">
+    <div className="card-shadow flex flex-col flex-nowrap gap-2 rounded-xl border border-neutral-600 bg-neutral-900 p-2">
+      <div className="flex flex-nowrap gap-2">
         <Key
           type={"large"}
           align="left"
@@ -162,7 +162,7 @@ const AppleKeyboard = () => {
           bottomEl={""}
         />
       </div>
-      <div className="flex flex-nowrap items-center gap-1">
+      <div className="flex flex-nowrap items-center gap-2">
         <Key
           type={"small"}
           align="center"
@@ -252,7 +252,7 @@ const AppleKeyboard = () => {
           }
         />
       </div>
-      <div className="flex flex-nowrap items-center gap-1">
+      <div className="flex flex-nowrap items-center gap-2">
         <Key
           type={"large"}
           align="left"
@@ -342,7 +342,7 @@ const AppleKeyboard = () => {
           bottomEl={<span>&#92;</span>}
         />
       </div>
-      <div className="flex flex-nowrap items-center gap-1">
+      <div className="flex flex-nowrap items-center gap-2">
         <Key
           type={"large"}
           align="left"
@@ -422,7 +422,7 @@ const AppleKeyboard = () => {
           bottomEl={<span>return</span>}
         />
       </div>
-      <div className="flex flex-nowrap items-center gap-1">
+      <div className="flex flex-nowrap items-center gap-2">
         <Key
           type={"large"}
           align="left"
@@ -497,7 +497,7 @@ const AppleKeyboard = () => {
           bottomEl={<span className="">return</span>}
         />
       </div>
-      <div className="flex flex-nowrap items-center gap-1">
+      <div className="flex flex-nowrap items-center gap-2">
         <Key
           type={"large"}
           align="left"
@@ -599,7 +599,7 @@ const Key = ({
   const keyProps = { align, topEl, bottomEl };
 
   return (
-    <div className="group relative w-fit transform cursor-pointer rounded-[8px] bg-linear-to-b from-neutral-800 to-neutral-900 p-px shadow-[0_0px_1px_0px_rgb(255,255,255,.1)] duration-300 ease-in-out hover:shadow-[0_0px_2px_2px_rgb(255,255,255,.0)]">
+    <div className="group relative w-fit transform cursor-pointer rounded-[8px] bg-linear-to-b from-neutral-800 to-neutral-900 p-px duration-300 ease-in-out hover:shadow-[0_0px_0px_0px_rgb(255,255,255,.2)]">
       <div
         className={cn(
           "hover:top-neutral-900 overflow-hidden rounded-[6px] bg-radial bg-radial-[at_50%_0%] from-neutral-950 to-neutral-900 shadow-[0_1px_1px_0.1px_rgb(255,255,255,.2)] transition-all duration-800 ease-out group-hover:shadow-[0_0px_1px_0.1px_rgb(255,255,255,.0)] before:absolute before:top-0 before:left-0 before:z-1 before:h-full before:w-full before:rounded-[6px] before:bg-neutral-100/10 before:content-['']",
@@ -674,7 +674,7 @@ const ArrowKey = ({
   return (
     <div className="relative w-fit transform cursor-pointer rounded-[8px] bg-linear-to-b from-neutral-700 to-neutral-800 p-px shadow-[0_0px_1px_0px_rgb(255,255,255,.2)] duration-300 ease-in-out">
       <div className="overflow-hidden rounded-[6px] bg-radial bg-radial-[at_50%_0%] from-neutral-950 to-neutral-900 shadow-[0_1px_1px_0.1px_rgb(255,255,255,.3)] transition-all duration-300 ease-in-out before:absolute before:top-0 before:left-0 before:z-1 before:h-full before:w-full before:rounded-[6px] before:bg-neutral-100/10 before:content-[''] hover:from-neutral-800">
-        <div className="z-20 flex h-5 w-11 flex-col items-center justify-center gap-1 text-xs text-neutral-300 select-none hover:text-neutral-100">
+        <div className="z-20 flex h-5 w-11 flex-col items-center justify-center gap-2 text-xs text-neutral-300 select-none hover:text-neutral-100">
           {direction === "down" && <TbCaretDownFilled size={16} />}
           {direction === "up" && <TbCaretUpFilled size={16} />}
           {direction === "left" && <TbCaretLeftFilled size={16} />}
