@@ -8,6 +8,7 @@ import Providers from "@/app/providers/Providers";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Head from "next/head";
 import { Analytics } from "@vercel/analytics/next";
+import { ToastProvider } from "./providers/ToastProvider";
 
 export const metadata: Metadata = {
   title: "Shubham Yelekar | Front End Developer",
@@ -61,19 +62,21 @@ export default function RootLayout({
         className={`${generalSans.variable} ${libreSerif.variable} bg-background relative flex min-h-screen w-screen flex-col justify-between antialiased`}
       >
         <ThemeSwitchProvider>
-          <Navbar />
-          {children}
-          <Footer />
+          <ToastProvider>
+            <Navbar />
+            {children}
+            <Footer />
 
-          {/* Radial Gradient Background from Top */}
-          <div
-            className="absolute inset-x-0 bottom-0 -z-2 h-[80dvh] opacity-40 blur-3xl"
-            style={{
-              background:
-                "radial-gradient(100% 100%  at 50% 10%, var(--background) 50%, var(--color-blue-500)  75% , var(--color-orange-500)  100%",
-            }}
-          />
-          <Analytics />
+            {/* Radial Gradient Background from Top */}
+            <div
+              className="absolute inset-x-0 bottom-0 -z-2 h-[80dvh] opacity-40 blur-3xl"
+              style={{
+                background:
+                  "radial-gradient(100% 100%  at 50% 10%, var(--background) 50%, var(--color-blue-500)  75% , var(--color-orange-500)  100%",
+              }}
+            />
+            <Analytics />
+          </ToastProvider>
         </ThemeSwitchProvider>
       </body>
     </html>

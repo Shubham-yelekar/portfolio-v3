@@ -17,6 +17,7 @@ import LinkHover from "../ui-components/button-collection/LinkHover";
 import ShinyButton from "../ui-components/button-collection/ShinyButton";
 import WavingFlag from "../ui/WavingFlag";
 import AppleKeyboard from "../ui-components/AppleKeyboard";
+import ToastDemo from "../ui-components/ToastDemo";
 
 // A styled h1 component
 export const H1 = ({ children }) => (
@@ -123,4 +124,5 @@ export const mdxComponents = {
   ShinyButton,
   WavingFlag,
   AppleKeyboard,
+  ToastDemo,
 };

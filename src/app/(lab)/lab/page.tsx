@@ -7,7 +7,9 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 import { LabScribble } from "../../../components/ui/AppleEffect";
 const page = () => {
-  const lab = getAllContentMeta("lab").filter((item) => item.status === "live");
+  const lab = getAllContentMeta("lab").filter(
+    (item) => item.status === "draft",
+  );
   return (
     <PageWrapper>
       <Container className="mt-[14dvh] px-4">
