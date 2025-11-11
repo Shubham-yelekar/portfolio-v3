@@ -1,7 +1,8 @@
 "use client";
 import { useState, createContext, useContext, ReactNode } from "react";
 import ToastNotification from "@/components/ui-components/ToastNotification";
-import { projectHmrEvents } from "next/dist/build/swc/generated-native";
+import cn from "../lib/cn";
+import { AnimatePresence } from "motion/react";
 
 export interface toastTypes {
   id: number;
@@ -9,6 +10,14 @@ export interface toastTypes {
   title: string;
   message?: string;
 }
+
+export type ToastPosition =
+  | "top-right"
+  | "top-left"
+  | "top-center"
+  | "bottom-right"
+  | "bottom-left"
+  | "bottom-center";
 
 type ToastContextType = {
   showToast: (
@@ -20,7 +29,26 @@ type ToastContextType = {
 
 const ToastContext = createContext<ToastContextType>(null);
 
-const ToastProvider = ({ children }: { children: ReactNode }) => {
+type ToastProviderProps = {
+  children: ReactNode;
+  position?: ToastPosition;
+  duration?: number;
+};
+
+const positionStyles: { [key in ToastPosition]: string } = {
+  "top-right": "top-4 right-4",
+  "top-left": "top-4 left-4",
+  "top-center": "top-4 left-1/2 -translate-x-1/2",
+  "bottom-right": "bottom-4 right-4",
+  "bottom-left": "bottom-4 left-4",
+  "bottom-center": "bottom-4 left-1/2 -translate-x-1/2",
+};
+
+const ToastProvider = ({
+  children,
+  position = "top-right",
+  duration = 5000,
+}: ToastProviderProps) => {
   const [toasts, setToast] = useState<toastTypes[]>([]);
 
   const showToast = (
@@ -34,7 +62,7 @@ const ToastProvider = ({ children }: { children: ReactNode }) => {
       title,
       message,
     };
-    setToast((prev) => [...prev, newToast]);
+    setToast((prev) => [newToast, ...prev]);
   };
 
   const removeToast = (id: number) => {
@@ -44,18 +72,26 @@ const ToastProvider = ({ children }: { children: ReactNode }) => {
   return (
     <ToastContext.Provider value={{ showToast }}>
       {children}
-      {/* This part renders the list of toasts in the top-right corner */}
-      <div className="fixed top-4 right-4 z-999 flex flex-col gap-2">
-        {toasts.map((toast) => (
-          <ToastNotification
-            key={toast.id}
-            id={toast.id}
-            title={toast.title}
-            type={toast.type}
-            onDismiss={removeToast} // Pass the remove function here
-            message={toast.message}
-          />
-        ))}
+      <div
+        className={cn(
+          "fixed z-999 flex flex-col gap-2",
+          positionStyles[position],
+        )}
+      >
+        <AnimatePresence>
+          {toasts.map((toast) => (
+            <ToastNotification
+              key={toast.id}
+              id={toast.id}
+              title={toast.title}
+              type={toast.type}
+              onDismiss={removeToast}
+              message={toast.message}
+              duration={duration}
+              position={position}
+            />
+          ))}
+        </AnimatePresence>
       </div>
     </ToastContext.Provider>
   );

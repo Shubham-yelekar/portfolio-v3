@@ -40,11 +40,6 @@ export const metadata: Metadata = {
       "https://ucarecdn.com/961683ce-ba5f-4a9d-809b-76a5fb34964f/-/preview/450x300/", // Equivalent to <meta name="twitter:image">
     ],
   },
-
-  // 4. Icons (Equivalent to <link rel="icon">)
-  // icons: {
-  // Update path if 'public' is implied or you need a relative path
-  // },
 };
 
 export default function RootLayout({
@@ -62,12 +57,10 @@ export default function RootLayout({
         className={`${generalSans.variable} ${libreSerif.variable} bg-background relative flex min-h-screen w-screen flex-col justify-between antialiased`}
       >
         <ThemeSwitchProvider>
-          <ToastProvider>
+          <ToastProvider position="top-right" duration={5000}>
             <Navbar />
             {children}
             <Footer />
-
-            {/* Radial Gradient Background from Top */}
             <div
               className="absolute inset-x-0 bottom-0 -z-2 h-[80dvh] opacity-40 blur-3xl"
               style={{
