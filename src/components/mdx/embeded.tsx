@@ -1,18 +1,15 @@
 "use client";
-import { useState, useEffect, useRef, useCallback, ReactElement } from "react";
+import { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Highlight, themes } from "prism-react-renderer";
-import { LuCopy, LuCheck } from "react-icons/lu"; // Using Lucide icons
-import { useTheme } from "next-themes";
+
 import Image from "next/image";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { PiDotsSixVerticalBold } from "react-icons/pi";
 import { TbAntennaBars5 } from "react-icons/tb";
 import { IoBatteryFullOutline } from "react-icons/io5";
 import { FaWifi } from "react-icons/fa";
-import { GrPowerReset } from "react-icons/gr";
+
 import { FaPlay, FaArrowRotateRight, FaPause } from "react-icons/fa6";
-import { HiMiniMagnifyingGlassCircle } from "react-icons/hi2";
 
 import type { ReactNode } from "react";
 import { TextCursor } from "../ui/TextCursor";
@@ -96,92 +93,6 @@ export function ImageModal({ src, alt, ...props }: any) {
     </>
   );
 }
-
-interface CodeBlockProps {
-  code: string;
-  language: string;
-  title?: string;
-}
-
-export const CodeBlock = ({ code, language, title }: CodeBlockProps) => {
-  const [isCopied, setIsCopied] = useState(false);
-  const { theme } = useTheme();
-  const handleCopy = () => {
-    navigator.clipboard.writeText(code.trim()).then(() => {
-      setIsCopied(true);
-      setTimeout(() => setIsCopied(false), 2000); // Reset after 2 seconds
-    });
-  };
-  return (
-    // A styled container for the code block
-    <div className="my-12 overflow-clip rounded-xl bg-neutral-50 p-1 dark:bg-neutral-900">
-      <div className="flex justify-between">
-        <span className="p-2 font-mono text-xs md:text-sm">
-          {title || language}
-        </span>
-        <button
-          onClick={handleCopy}
-          className="mb-2 cursor-pointer rounded-lg p-2 dark:bg-neutral-800 dark:hover:bg-neutral-700"
-        >
-          {isCopied ? (
-            <>
-              <LuCheck size={16} />
-            </>
-          ) : (
-            <>
-              <LuCopy size={16} />
-            </>
-          )}
-        </button>
-      </div>
-      <Highlight
-        theme={themes.palenight} // You can change the theme here
-        code={code?.trim()}
-        language={language}
-      >
-        {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <pre
-            className={`m-0! overflow-x-scroll p-4 text-sm [&::-webkit-scrollbar]:w-[2px]! [&::-webkit-scrollbar-thumb]:bg-neutral-600 [&::-webkit-scrollbar-track]:bg-none ${className}`}
-            style={style}
-          >
-            {tokens.map((line, i) => {
-              const lineProps = getLineProps({ line, key: i });
-              const lineKey = String(i); // force to string — safe for React key
-              delete (lineProps as any).key;
-              delete lineProps.style;
-              return (
-                <div key={lineKey} {...lineProps}>
-                  {line.map((token, key) => {
-                    const tokenProps = getTokenProps({ token, key });
-                    const tokenKey = `${i}-${key}`; // unique per token
-                    delete (tokenProps as any).key;
-                    delete tokenProps.style;
-
-                    return <span key={tokenKey} {...tokenProps} />;
-                  })}
-                </div>
-              );
-            })}
-          </pre>
-        )}
-      </Highlight>
-    </div>
-  );
-};
-
-export const MdxPre = ({ children }: any) => {
-  // MDX passes the code string and language via props on the nested <code> element
-  const codeString = children.props?.children;
-  const language = children.props?.className?.replace("language-", "") || "";
-
-  return <CodeBlock code={codeString} language={language} />;
-};
-
-export const Blockquote = ({ children }: any) => (
-  <blockquote className="font-libre! my-4 border-l-4 border-orange-400! bg-neutral-50 py-2 pl-2 text-4xl text-neutral-800! italic dark:border-neutral-500 dark:bg-neutral-900 dark:text-neutral-300">
-    {children}
-  </blockquote>
-);
 
 interface Image {
   src: string;

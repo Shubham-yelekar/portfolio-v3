@@ -2,7 +2,6 @@ import {
   YouTubeEmbed,
   ImageWrapper,
   ImageModal,
-  MdxPre,
   Blockquote,
   ImageCarousal,
   ImageCompare,
@@ -11,6 +10,10 @@ import {
   ComponentBox,
   BigComponentBox,
 } from "@/components/mdx/embeded";
+
+import { MdxPre } from "./MdxPre";
+import CopyButtonClient from "./CopyButton.client";
+import CodeBlockServer from "./CodeBlock.server";
 
 import TextCursor from "../ui/TextCursor";
 import LinkHover from "../ui-components/button-collection/LinkHover";
@@ -107,6 +110,7 @@ export const mdxComponents = {
   ol: OL,
   li: LI,
   pre: MdxPre,
+  code: CodeBlockServer,
   YouTubeEmbed,
   ImageWrapper,
   ImageModal,
@@ -117,6 +121,7 @@ export const mdxComponents = {
   VideoWrapper,
   ComponentBox,
   BigComponentBox,
+
   // etc.
 
   TextCursor,

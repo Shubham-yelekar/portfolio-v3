@@ -6,7 +6,11 @@ import Link from "next/link";
 import { getAllContentMeta } from "@/lib/mdx";
 
 const LabComponents = () => {
-  const lab = getAllContentMeta("lab").filter((item) => item.status === "live");
+  const lab = getAllContentMeta("lab")
+    .filter((item) => item.status === "live")
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 2);
+
   return (
     <Container className="flex flex-col gap-6 md:gap-9">
       <h2 className="font-libre! px-2 text-center text-2xl md:px-4">

@@ -190,6 +190,16 @@ code {
   width: 0px;
 }
 
+/* sensible defaults for code block containers using these vars */
+
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+pre::-webkit-scrollbar-thumb {
+  background: rgba(100, 100, 100, 0.35);
+  border-radius: 8px;
+}
+
 .timer-bar {
   animation: timer-bar-animation linear forwards;
 }
