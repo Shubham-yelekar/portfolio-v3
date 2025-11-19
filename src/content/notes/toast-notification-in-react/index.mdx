@@ -1,0 +1,334 @@
+---
+status: "live"
+title: "Building a toast notification in react"
+date: "2025-11-20"
+summary: "Building a toast notification in react"
+category: "Deep-dive"
+thumbImage: "https://ucarecdn.com/fce67659-181d-4dff-a1f2-6d78a0695dc0/-/preview/700x525/"
+tags: ["deep-dive", "component"]
+---
+
+Toast notifications are small, temporary messages that give quick feedback — things like “Saved”, “Error”, or “Info”. They are non-intrusive, self-dismissing, and help users stay in flow.
+
+Here’s a simple breakdown of the anatomy and the implementation of a toast system.
+
+# Anatomy of a Toast
+
+Here’s a toast broken into its core parts:
+
+- **Status Icon** — instantly communicates the type (info, error, warning, success).
+- **Title** — short, bold message.
+- **Description** (optional) — extra details when needed.
+- **Close Button** — lets the user manually dismiss.
+- **Auto-Dismiss Timer** — toast fades out after a few seconds.
+
+Perfect for delivering quick, contextual feedback without blocking the UI.
+
+<ImageWrapper
+  src={
+    "https://ucarecdn.com/fce67659-181d-4dff-a1f2-6d78a0695dc0/-/preview/700x525/"
+  }
+  alt={"anatomy-of-toast"}
+/>
+
+# Toast System Architecture
+
+A simple toast system usually has:
+
+- **Toast Provider** — manages all toasts globally.
+
+- **Toast Stack** — positions your toasts (top-right, top-center, etc.).
+
+- **Animation Layer** — slide & fade using motion.
+
+- **Auto-Dismiss Logic** — timer that pauses on hover.
+
+- **Accessible Alerts** — uses role="alert" and clear icons.
+
+Now let’s look at the code.
+
+---
+
+## Toast Provider
+
+Creates a global context and exposes the showToast() function.
+
+```tsx
+// ToastProvider.tsx
+"use client";
+import { useState, createContext, useContext, ReactNode } from "react";
+import ToastNotification from "@/components/ui-components/ToastNotification";
+import { AnimatePresence } from "motion/react";
+import cn from "../lib/cn";
+
+export type ToastPosition =
+  | "top-right"
+  | "top-left"
+  | "top-center"
+  | "bottom-right"
+  | "bottom-left"
+  | "bottom-center";
+
+export interface toastTypes {
+  id: number;
+  type: "warning" | "success" | "error" | "neutral";
+  title: string;
+  message?: string;
+}
+
+type ToastContextType = {
+  showToast: (
+    title: string,
+    type: toastTypes["type"],
+    message?: string,
+  ) => void;
+} | null;
+
+const ToastContext = createContext<ToastContextType>(null);
+
+const positionStyles = {
+  "top-right": "top-4 right-4",
+  "top-left": "top-4 left-4",
+  "top-center": "top-4 left-1/2 -translate-x-1/2",
+  "bottom-right": "bottom-4 right-4",
+  "bottom-left": "bottom-4 left-4",
+  "bottom-center": "bottom-4 left-1/2 -translate-x-1/2",
+};
+
+export const ToastProvider = ({
+  children,
+  position = "top-right",
+  duration = 5000,
+}: {
+  children: ReactNode;
+  position?: ToastPosition;
+  duration?: number;
+}) => {
+  const [toasts, setToasts] = useState<toastTypes[]>([]);
+
+  const showToast = (
+    title: string,
+    type: toastTypes["type"],
+    message?: string,
+  ) => {
+    const newToast = { id: Date.now(), type, title, message };
+    setToasts((prev) => [newToast, ...prev]);
+  };
+
+  const removeToast = (id: number) => {
+    setToasts((prev) => prev.filter((t) => t.id !== id));
+  };
+
+  return (
+    <ToastContext.Provider value={{ showToast }}>
+      {children}
+
+      <div
+        className={cn(
+          "fixed z-999 flex flex-col gap-2",
+          positionStyles[position],
+        )}
+      >
+        <AnimatePresence>
+          {toasts.map((toast) => (
+            <ToastNotification
+              key={toast.id}
+              {...toast}
+              onDismiss={removeToast}
+              duration={duration}
+              position={position}
+            />
+          ))}
+        </AnimatePresence>
+      </div>
+    </ToastContext.Provider>
+  );
+};
+
+export const useToast = () => {
+  const ctx = useContext(ToastContext);
+  if (!ctx) throw new Error("useToast must be used inside ToastProvider");
+  return ctx;
+};
+```
+
+---
+
+## Toast Component
+
+Handles the UI, animations, and auto-dismiss timer.
+
+```tsx
+// ToastNotification.tsx
+"use client";
+import {
+  FaSkull,
+  FaCircleInfo,
+  FaCircleRadiation,
+  FaChampagneGlasses,
+  FaXmark,
+} from "react-icons/fa6";
+import { motion } from "motion/react";
+import cn from "@/app/lib/cn";
+import { ToastPosition } from "@/app/providers/ToastProvider";
+import { useEffect, useRef } from "react";
+
+const toastConfig = {
+  success: {
+    icon: FaChampagneGlasses,
+    className: "text-green-300 bg-green-700",
+  },
+  error: { icon: FaSkull, className: "text-red-100 bg-red-600" },
+  warning: {
+    icon: FaCircleRadiation,
+    className: "text-neutral-900 bg-yellow-400",
+  },
+  neutral: { icon: FaCircleInfo, className: "text-blue-50 bg-blue-500" },
+};
+
+const toastAnimation = {
+  "top-left": { opacity: 0, x: -50, filter: "blur(10px)" },
+  "top-center": { opacity: 0, y: -50 },
+  "top-right": { opacity: 0, x: 50 },
+  "bottom-left": { opacity: 0, x: -50 },
+  "bottom-center": { opacity: 0, y: 50 },
+  "bottom-right": { opacity: 0, x: 50 },
+};
+
+export default function ToastNotification({
+  id,
+  type,
+  title,
+  message,
+  onDismiss,
+  duration,
+  position,
+}: {
+  id: number;
+  type: "warning" | "success" | "error" | "neutral";
+  title: string;
+  message?: string;
+  duration: number;
+  position: ToastPosition;
+  onDismiss: (id: number) => void;
+}) {
+  const { icon: Icon, className } = toastConfig[type];
+
+  const timerId = useRef<NodeJS.Timeout | null>(null);
+  const remaining = useRef(duration);
+  const started = useRef(Date.now());
+
+  const pause = () => {
+    if (timerId.current) clearTimeout(timerId.current);
+    remaining.current -= Date.now() - started.current;
+  };
+
+  const resume = () => {
+    started.current = Date.now();
+    timerId.current = setTimeout(() => onDismiss(id), remaining.current);
+  };
+
+  useEffect(() => {
+    resume();
+    return () => timerId.current && clearTimeout(timerId.current);
+  }, []);
+
+  return (
+    <motion.div
+      layout
+      role="alert"
+      initial={toastAnimation[position]}
+      animate={{ opacity: 1, x: 0, y: 0, filter: "blur(0px)" }}
+      exit={{
+        opacity: 0,
+        scale: 0.5,
+        filter: "blur(20px)",
+        transition: { duration: 0.2 },
+      }}
+      transition={{ duration: 0.5, type: "tween" }}
+      onMouseEnter={pause}
+      onMouseLeave={resume}
+      className="toast-notification max-w-80 min-w-80 rounded-xl border bg-neutral-100 p-1 dark:border-neutral-700 dark:bg-neutral-800"
+    >
+      <div className="group flex items-start justify-between gap-4 p-1">
+        <div className="flex items-start gap-4">
+          <div className={cn("rounded-lg p-1", className)}>
+            <Icon width={16} />
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <h6>{title}</h6>
+            {message && <p className="text-sm">{message}</p>}
+          </div>
+        </div>
+
+        <button
+          className="p-1 opacity-0 group-hover:opacity-90"
+          onClick={() => onDismiss(id)}
+        >
+          <FaXmark />
+        </button>
+      </div>
+
+      <div
+        className="absolute bottom-0 left-0 h-0.5 bg-neutral-400/50"
+        style={{ animationDuration: `${duration}ms` }}
+      />
+    </motion.div>
+  );
+}
+```
+
+---
+
+## Using the Toast
+
+A simple demo component:
+
+```tsx
+// ToastDemo.tsx
+"use client";
+import { useToast } from "@/app/providers/ToastProvider";
+import Button from "../ui/Button";
+
+export default function ToastDemo() {
+  const { showToast } = useToast();
+
+  return (
+    <div className="flex flex-col items-center gap-2">
+      <Button onClick={() => showToast("Information", "neutral")}>Info</Button>
+      <Button onClick={() => showToast("Warning!", "warning")}>Warning</Button>
+      <Button onClick={() => showToast("Success!", "success")}>Success</Button>
+      <Button onClick={() => showToast("Error!", "error")}>Error</Button>
+    </div>
+  );
+}
+```
+
+## Provider in layout
+
+```tsx
+
+import { ToastProvider } from "./providers/ToastProvider";
+...
+  <ToastProvider position="bottom-left" duration={5000}>
+            <Navbar />
+            {children}
+          ...
+  </ToastProvider>
+...
+
+```
+
+<ComponentBox>
+  <ToastDemo />
+</ComponentBox>
+---
+
+# Conclusion
+
+Toast notifications may look small, but building a good system
+requires thoughtful design — from icons and animation to auto-dismiss logic and
+global state handling. With a simple provider, a clean API, and smooth
+transitions, you can create a notification experience that feels polished, fast,
+and unobtrusive

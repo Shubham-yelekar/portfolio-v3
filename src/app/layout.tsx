@@ -57,7 +57,7 @@ export default function RootLayout({
         className={`${generalSans.variable} ${libreSerif.variable} bg-background relative flex min-h-screen w-screen flex-col justify-between antialiased`}
       >
         <ThemeSwitchProvider>
-          <ToastProvider position="top-right" duration={5000}>
+          <ToastProvider position="bottom-left" duration={5000}>
             <Navbar />
             {children}
             <Footer />

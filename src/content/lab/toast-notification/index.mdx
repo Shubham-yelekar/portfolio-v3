@@ -13,31 +13,4 @@ tags: ["React", "Component"]
   <ToastDemo />
 </ComponentBox>
 
-```tsx
-// code fences will automatically render via your MDX provider mapping
-export default function x() {
-  return <div />;
-}
-```
-
-```tsx
-import cn from "@/app/lib/cn";
-import { motion } from "motion/react";
-import { ToastPosition } from "@/app/providers/ToastProvider";
-import { useEffect, useRef } from "react";
-
-interface toastTypes {
-  id: number;
-  type: "warning" | "success" | "error" | "neutral";
-  title: string;
-  message?: string;
-}
-
-interface ToastNotificationProps extends toastTypes {
-  onDismiss: (id: number) => void;
-  duration: number;
-  position: ToastPosition;
-}
-```
-
 ---
