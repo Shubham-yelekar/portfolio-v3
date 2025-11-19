@@ -40,7 +40,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               {meta.title}
             </h1>
             <p className="mt-2 px-2 md:px-4">{meta.summary}</p>
-            <p className="mt-2 px-2 font-mono text-sm text-gray-500 md:px-4">
+            <p className="mt-2 px-2 pb-2 font-mono text-sm text-gray-500 md:px-4">
               {new Date(meta.date).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",

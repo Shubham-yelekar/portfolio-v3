@@ -47,7 +47,7 @@ export default async function ProjectPage({ params }: PageProps) {
               width={450}
               height={320}
             />
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 pb-4">
               <h1 className="font-libre! px-2 text-3xl md:px-4 md:text-4xl">
                 {meta.title}
               </h1>
