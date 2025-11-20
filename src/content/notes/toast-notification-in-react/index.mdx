@@ -8,7 +8,9 @@ thumbImage: "https://ucarecdn.com/fce67659-181d-4dff-a1f2-6d78a0695dc0/-/preview
 tags: ["deep-dive", "component"]
 ---
 
-Toast notifications are small, temporary messages that give quick feedback — things like “Saved”, “Error”, or “Info”. They are non-intrusive, self-dismissing, and help users stay in flow.
+Toast notifications are small, temporary messages that give quick feedback , things like “Saved”, “Error”, or “Info”.
+
+They are non-intrusive, self-dismissing, and help users stay in flow.
 
 Here’s a simple breakdown of the anatomy and the implementation of a toast system.
 
@@ -36,13 +38,9 @@ Perfect for delivering quick, contextual feedback without blocking the UI.
 A simple toast system usually has:
 
 - **Toast Provider** — manages all toasts globally.
-
 - **Toast Stack** — positions your toasts (top-right, top-center, etc.).
-
 - **Animation Layer** — slide & fade using motion.
-
 - **Auto-Dismiss Logic** — timer that pauses on hover.
-
 - **Accessible Alerts** — uses role="alert" and clear icons.
 
 Now let’s look at the code.
@@ -328,7 +326,5 @@ import { ToastProvider } from "./providers/ToastProvider";
 # Conclusion
 
 Toast notifications may look small, but building a good system
-requires thoughtful design — from icons and animation to auto-dismiss logic and
-global state handling. With a simple provider, a clean API, and smooth
-transitions, you can create a notification experience that feels polished, fast,
-and unobtrusive
+requires thoughtful design, from icons and animation to auto-dismiss logic and
+global state handling.
