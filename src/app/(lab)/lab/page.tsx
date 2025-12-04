@@ -9,7 +9,7 @@ import { LabScribble } from "../../../components/ui/AppleEffect";
 import { b } from "motion/react-client";
 const page = () => {
   const lab = getAllContentMeta("lab")
-    .filter((item) => item.status === "live")
+    .filter((item) => item.status === "draft")
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
