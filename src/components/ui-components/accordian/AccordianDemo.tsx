@@ -3,7 +3,7 @@ import Accordian from "./Accordian";
 
 const AccordianDemo = () => {
   return (
-    <div>
+    <div className="w-full">
       <Accordian />
     </div>
   );
