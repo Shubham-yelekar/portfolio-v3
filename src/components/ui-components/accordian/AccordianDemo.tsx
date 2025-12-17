@@ -1,9 +1,8 @@
-import React from "react";
 import Accordian from "./Accordian";
 
 const AccordianDemo = () => {
   return (
-    <div className="w-full">
+    <div className="flex w-full items-center justify-center gap-1">
       <Accordian />
     </div>
   );

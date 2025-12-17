@@ -16,6 +16,9 @@
   --foreground: var(--color-neutral-950);
   --accent: var(--color-orange-500);
 
+  --color-brand: var(--color-purple-500);
+  --color-brand-hover: var(--color-purple-600);
+
   --background-text: var(--color-neutral-100);
   --background-text-bg: var(--color-neutral-500);
 
