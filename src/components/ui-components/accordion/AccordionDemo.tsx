@@ -4,9 +4,9 @@ import {
   AccordionTrigger,
   AccordionItem,
   AccordionPanel,
-} from "../accordian";
+} from ".";
 
-const AccordianDemo = () => {
+const accordionDemo = () => {
   return (
     <div className="flex w-[60%] flex-col items-center justify-center gap-1 rounded-2xl border border-white/50 bg-neutral-200 p-1.5 dark:border-white/5 dark:bg-neutral-800/20">
       <AccordionRoot>
@@ -45,4 +45,4 @@ const AccordianDemo = () => {
   );
 };
 
-export default AccordianDemo;
+export default accordionDemo;

@@ -31,9 +31,9 @@ export default async function ProjectPage({ params }: PageProps) {
       <Container className="mt-[14dvh] px-4">
         <article className="mx-auto">
           {/* Article Header */}
-          <div className="mb-12 rounded-xl bg-neutral-100 px-4 py-4 dark:bg-neutral-900">
+          <div className="mb-4 rounded-xl bg-neutral-100 px-4 py-4 dark:bg-neutral-900">
             <div>
-              <h4 className="font-libre! mb-4 text-3xl md:text-4xl">
+              <h4 className="font-libre! mb-2 text-3xl md:text-4xl">
                 {meta.title}
               </h4>
               <p className="text-xs md:text-base">{meta.summary}</p>

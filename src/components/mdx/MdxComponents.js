@@ -15,7 +15,7 @@ import CodeBlockServer from "./CodeBlock.server";
 import { MdxPre } from "./MdxPre";
 
 import AppleKeyboard from "../ui-components/AppleKeyboard";
-import AccordianDemo from "../ui-components/accordian/AccordianDemo";
+import AccordionDemo from "../ui-components/accordion/AccordionDemo";
 import LinkHover from "../ui-components/button-collection/LinkHover";
 import ShinyButton from "../ui-components/button-collection/ShinyButton";
 import TextCursor from "../ui/TextCursor";
@@ -128,5 +128,5 @@ export const mdxComponents = {
   ShinyButton,
   WavingFlag,
   AppleKeyboard,
-  AccordianDemo,
+  AccordionDemo,
 };

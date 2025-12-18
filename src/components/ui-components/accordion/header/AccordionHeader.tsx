@@ -12,7 +12,12 @@ const AccordionHeader = ({ children }: any) => {
       }
     >
       <div className={"text-neutral-800 dark:text-neutral-100"}>{children}</div>
-      <div className="group-hover:bg-brand group-hover:dark:bg-brand inline-flex aspect-square w-fit items-center rounded-lg bg-neutral-400 px-1 py-1 text-sm whitespace-nowrap text-neutral-100 shadow-[0_1px_0_rgba(255,255,255,0.25)_inset,0_2px_4px_rgba(0,0,0,0.15)] transition-colors duration-300 ease-out dark:bg-neutral-700">
+      <div
+        className={clsx(
+          "group-hover:bg-brand group-hover:dark:bg-brand inline-flex aspect-square w-fit items-center rounded-lg px-1 py-1 text-sm whitespace-nowrap text-neutral-100 shadow-[0_1px_0_rgba(255,255,255,0.25)_inset,0_2px_4px_rgba(0,0,0,0.15)] transition-colors duration-300 ease-out",
+          isOpen ? "bg-brand" : "bg-neutral-400 dark:bg-neutral-700",
+        )}
+      >
         <span
           className={clsx(
             "transition-transform duration-300 ease-in-out",

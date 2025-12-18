@@ -16,7 +16,7 @@ const items = [
   },
 ];
 
-const Accordian = () => {
+const accordion = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const toggleOpen = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -49,4 +49,4 @@ const Accordian = () => {
   );
 };
 
-export default Accordian;
+export default accordion;

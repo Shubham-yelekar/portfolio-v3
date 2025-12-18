@@ -359,7 +359,7 @@ export const MobileVideoWrapper = () => {
 
 export const ComponentBox = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="relative flex aspect-video items-center justify-center overflow-hidden rounded-xl border border-neutral-200 bg-neutral-300 dark:border-neutral-800 dark:bg-neutral-900">
+    <div className="relative flex aspect-4/3 items-center justify-center overflow-hidden rounded-xl border border-neutral-200 bg-neutral-300 dark:border-neutral-800 dark:bg-neutral-900">
       {children}
     </div>
   );
