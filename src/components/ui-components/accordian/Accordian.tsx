@@ -1,7 +1,7 @@
 "use client";
 import clsx from "clsx";
 import { useState } from "react";
-import ModernButton from "../button-collection/ModernButton";
+
 import { FaPlus } from "react-icons/fa6";
 
 const items = [

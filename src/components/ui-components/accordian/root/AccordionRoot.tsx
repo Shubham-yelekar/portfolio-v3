@@ -1,7 +1,8 @@
+"use client";
 import React, { useState } from "react";
 import { AccordionContext } from "../context";
 
-const AccordionRoot = ({ children }: any) => {
+const AccordionRoot = ({ children, className }: any) => {
   const [openItem, setOpenItem] = useState<string | null>(null);
 
   function toggleItem(value: string) {

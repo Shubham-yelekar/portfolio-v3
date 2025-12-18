@@ -6,3 +6,8 @@ export type AccordionContextTypes = {
   openItem: string | null;
   toggleItem: (value: string) => void;
 };
+
+export type AccordionItemContextTypes = {
+  value: string;
+  isOpen: boolean;
+};

@@ -1,4 +1,5 @@
-import React, { createContext, useContext } from "react";
+"use client";
+import { createContext, useContext } from "react";
 import { AccordionContextTypes } from "./types";
 
 // Create context
