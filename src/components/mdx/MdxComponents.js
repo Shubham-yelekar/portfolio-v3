@@ -17,7 +17,7 @@ import CodeBlockServer from "./CodeBlock.server";
 
 import TextCursor from "../ui/TextCursor";
 import LinkHover from "../ui-components/button-collection/LinkHover";
-import ShinyButton from "../ui-components/button-collection/ShinyButton";
+import ShinyText from "../ui-components/button-collection/Shinytext";
 import WavingFlag from "../ui/WavingFlag";
 import AppleKeyboard from "../ui-components/AppleKeyboard";
 import ToastDemo from "../ui-components/ToastDemo";
@@ -126,7 +126,7 @@ export const mdxComponents = {
 
   TextCursor,
   LinkHover,
-  ShinyButton,
+  ShinyText,
   WavingFlag,
   AppleKeyboard,
   ToastDemo,
