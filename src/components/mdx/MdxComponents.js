@@ -16,6 +16,7 @@ import { MdxPre } from "./MdxPre";
 
 import AppleKeyboard from "../ui-components/AppleKeyboard";
 import AccordionDemo from "../ui-components/accordion/AccordionDemo";
+import BasicAccordion from "../ui-components/accordion/BasicAccordion";
 import LinkHover from "../ui-components/button-collection/LinkHover";
 import ShinyButton from "../ui-components/button-collection/ShinyButton";
 import TextCursor from "../ui/TextCursor";
@@ -129,4 +130,5 @@ export const mdxComponents = {
   WavingFlag,
   AppleKeyboard,
   AccordionDemo,
+  BasicAccordion,
 };

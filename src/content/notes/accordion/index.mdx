@@ -1,3 +1,20 @@
+---
+status: "draft"
+title: "Building an Accordion"
+date: "2025-11-1"
+summary: "Building an Accordion in React and Motion."
+category: "Deep Dive"
+thumbImage: "https://ucarecdn.com/7014cd26-04e5-4a11-aae0-45d8442466b6/-/preview/700x500/"
+tags: ["components"]
+---
+
+# Basic accordion
+
+<ComponentBox>
+  <BasicAccordion />
+</ComponentBox>
+
+```tsx
 "use client";
 import clsx from "clsx";
 import { useState } from "react";
@@ -50,3 +67,8 @@ const accordion = () => {
 };
 
 export default accordion;
+```
+
+<ComponentBox>
+  <AccordionDemo />
+</ComponentBox>
