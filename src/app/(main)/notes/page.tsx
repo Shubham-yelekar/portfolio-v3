@@ -7,7 +7,7 @@ import NotesFilter from "@/components/sections/NotesFilter";
 export default async function NotesPage() {
   const posts = getAllContentMeta("notes");
   const livePosts = posts
-    .filter((post) => post.status === "draft")
+    .filter((post) => post.status === "live")
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   const uniqueTags = [...new Set(livePosts.flatMap((posts) => posts.tags))];
 
