@@ -21,6 +21,7 @@ import ShinyText from "../ui-components/button-collection/Shinytext";
 import WavingFlag from "../ui/WavingFlag";
 import AppleKeyboard from "../ui-components/AppleKeyboard";
 import ToastDemo from "../ui-components/ToastDemo";
+import AccordionDemo from "../ui-components/accordion/AccordionDemo";
 
 // A styled h1 component
 export const H1 = ({ children }) => (
@@ -130,4 +131,5 @@ export const mdxComponents = {
   WavingFlag,
   AppleKeyboard,
   ToastDemo,
+  AccordionDemo,
 };

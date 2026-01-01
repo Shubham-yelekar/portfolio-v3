@@ -210,7 +210,7 @@ const About = () => {
       <div>
         <h6 className="font-libre! text-2xl">Experience</h6>
         <div className="mt-8">
-          <div className="group mb-36 lg:mb-2">
+          <div className="group sm:md-4 mb-36 lg:mb-2">
             <div className="flex justify-between gap-2">
               <div className="flex">
                 <h3 className="text-xl">Frontend Developer</h3>
@@ -286,7 +286,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="group mb-36 lg:mb-2">
+          <div className="group sm:md-4 mb-36 lg:mb-2">
             <div className="flex justify-between gap-2">
               <div className="flex">
                 <h3 className="text-xl">Web Developer</h3>
