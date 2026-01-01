@@ -31,7 +31,7 @@ const Hero = () => {
           <h1 className="text-4xl sm:text-5xl md:text-6xl">& Designer,</h1>
         </div>
         <div className="flex flex-row gap-2 sm:flex-row sm:gap-3">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl">from in Mumbai </h1>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl">Based in Mumbai </h1>
           <MumbaiSvg className="h-fit w-10 rounded-lg shadow-[var(--card-shadow)] md:w-16 md:rounded-xl" />
         </div>
       </div>
