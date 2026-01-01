@@ -27,7 +27,13 @@ const Blogs = () => {
                 <p className="text-xs md:text-base">{post.summary}</p>
               </div>
               <div className="flex items-center gap-3">
-                <p className="font-mono text-sm">May 2025</p>
+                <p className="font-mono text-sm">
+                  {new Date(post.date).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </p>
                 <div className="h-full w-1 border-r border-neutral-300 dark:border-neutral-800"></div>
                 <div className="flex flex-wrap gap-2">
                   {post.tags.map((tag, i) => (
