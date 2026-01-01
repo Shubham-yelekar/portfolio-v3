@@ -1,26 +1,26 @@
 import {
-  BigComponentBox,
+  YouTubeEmbed,
+  ImageWrapper,
+  ImageModal,
   Blockquote,
-  ComponentBox,
   ImageCarousal,
   ImageCompare,
-  ImageModal,
-  ImageWrapper,
-  MobileVideoWrapper,
   VideoWrapper,
-  YouTubeEmbed,
+  MobileVideoWrapper,
+  ComponentBox,
+  BigComponentBox,
 } from "@/components/mdx/embeded";
 
-import CodeBlockServer from "./CodeBlock.server";
 import { MdxPre } from "./MdxPre";
+import CopyButtonClient from "./CopyButton.client";
+import CodeBlockServer from "./CodeBlock.server";
 
-import AppleKeyboard from "../ui-components/AppleKeyboard";
-import AccordionDemo from "../ui-components/accordion/AccordionDemo";
-import BasicAccordion from "../ui-components/accordion/BasicAccordion";
-import LinkHover from "../ui-components/button-collection/LinkHover";
-import ShinyButton from "../ui-components/button-collection/ShinyButton";
 import TextCursor from "../ui/TextCursor";
+import LinkHover from "../ui-components/button-collection/LinkHover";
+import ShinyText from "../ui-components/button-collection/Shinytext";
 import WavingFlag from "../ui/WavingFlag";
+import AppleKeyboard from "../ui-components/AppleKeyboard";
+import ToastDemo from "../ui-components/ToastDemo";
 
 // A styled h1 component
 export const H1 = ({ children }) => (
@@ -126,9 +126,8 @@ export const mdxComponents = {
 
   TextCursor,
   LinkHover,
-  ShinyButton,
+  ShinyText,
   WavingFlag,
   AppleKeyboard,
-  AccordionDemo,
-  BasicAccordion,
+  ToastDemo,
 };
