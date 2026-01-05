@@ -44,7 +44,7 @@ const Projects = () => {
               <p className="text-paragraph text-sm md:text-base">
                 Parcticipated in Christmass challenge in{" "}
                 <strong>Threejs Journey</strong> hosted by{" "}
-                <strong>Bruno Simon</strong>. we write about this soon
+                <strong>Bruno Simon</strong>.I will write a note about this soon
               </p>
               <Link
                 target="_blank"
