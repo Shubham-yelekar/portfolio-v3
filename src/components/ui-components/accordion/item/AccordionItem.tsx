@@ -4,10 +4,10 @@ import AccordionItemContext from "../itemContext";
 import clsx from "clsx";
 
 const AccordionItem = ({ value, children, className }: any) => {
-  const { openItem } = useAccordionContext();
-  const isOpen = openItem === value;
+  const { isOpen } = useAccordionContext();
+  const open = isOpen(value);
   return (
-    <AccordionItemContext.Provider value={{ value, isOpen }}>
+    <AccordionItemContext.Provider value={{ value, isOpen: open }}>
       <div className={clsx("w-full", className)}>{children}</div>
     </AccordionItemContext.Provider>
   );

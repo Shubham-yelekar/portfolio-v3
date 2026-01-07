@@ -3,7 +3,7 @@
 // class
 
 export type AccordionContextTypes = {
-  openItem: string | null;
+  isOpen: (value: string) => boolean;
   toggleItem: (value: string) => void;
 };
 

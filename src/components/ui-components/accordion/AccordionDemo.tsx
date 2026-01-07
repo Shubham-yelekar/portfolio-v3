@@ -9,7 +9,7 @@ import {
 const accordionDemo = () => {
   return (
     <div className="flex w-[60%] flex-col items-center justify-center gap-1 rounded-2xl border border-white/50 bg-neutral-200 p-1.5 dark:border-white/5 dark:bg-neutral-800/20">
-      <AccordionRoot>
+      <AccordionRoot multiple>
         <AccordionItem value="item-1">
           <AccordionTrigger>
             <AccordionHeader>What is a accordion</AccordionHeader>
@@ -18,9 +18,8 @@ const accordionDemo = () => {
             An accordion is a UI pattern used to show and hide content.
           </AccordionPanel>
         </AccordionItem>
-      </AccordionRoot>
-      <AccordionRoot>
-        <AccordionItem value="item-1">
+
+        <AccordionItem value="item-2">
           <AccordionTrigger>
             <AccordionHeader>How does it work?</AccordionHeader>
           </AccordionTrigger>
@@ -29,9 +28,8 @@ const accordionDemo = () => {
             collapses it, keeping the interface tidy.
           </AccordionPanel>
         </AccordionItem>
-      </AccordionRoot>
-      <AccordionRoot>
-        <AccordionItem value="item-1">
+
+        <AccordionItem value="item-3">
           <AccordionTrigger>
             <AccordionHeader>Where is it used?</AccordionHeader>
           </AccordionTrigger>
