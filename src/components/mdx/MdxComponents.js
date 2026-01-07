@@ -14,7 +14,7 @@ import {
 import { MdxPre } from "./MdxPre";
 import CopyButtonClient from "./CopyButton.client";
 import CodeBlockServer from "./CodeBlock.server";
-
+import InlineCode from "./InlineCode";
 import TextCursor from "../ui/TextCursor";
 import LinkHover from "../ui-components/button-collection/LinkHover";
 import ShinyText from "../ui-components/button-collection/Shinytext";
@@ -134,4 +134,5 @@ export const mdxComponents = {
   ToastDemo,
   AccordionDemo,
   BasicAccordion,
+  InlineCode,
 };

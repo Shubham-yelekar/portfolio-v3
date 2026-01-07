@@ -25,9 +25,12 @@ const accordion = () => {
   return (
     <div className="h-fit w-[60%]">
       {items.map((item, id) => (
-        <div key={id} className="border border-neutral-200">
+        <div
+          key={id}
+          className="border border-neutral-200 dark:border-neutral-600"
+        >
           <button
-            className="flex w-full justify-between bg-neutral-200 p-2 dark:bg-neutral-700"
+            className="flex w-full justify-between bg-neutral-200 p-2 dark:bg-neutral-800"
             onClick={() => toggleOpen(id)}
           >
             <div className="">{item.header}</div>

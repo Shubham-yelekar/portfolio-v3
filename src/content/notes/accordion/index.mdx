@@ -4,20 +4,65 @@ title: "Building an Accordion"
 date: "2025-11-1"
 summary: "Building an Accordion in React and Motion."
 category: "Deep Dive"
-thumbImage: "https://ucarecdn.com/7014cd26-04e5-4a11-aae0-45d8442466b6/-/preview/700x500/"
+thumbImage: "https://ucarecdn.com/058fca4d-9e96-47ad-9412-f730b87c2c13/-/preview/632x469/"
 tags: ["components"]
 ---
 
-# Basic accordion
+# What is an Accordion?
+
+An Accordion component is a very commonly interactive UI components seen on the web , You may have come across this component in an FAQ section , menu and sub-menus or feature list.
+
+Accordion helps keep the ui clean by hiding information by default and revealing it when the user interacts with a section
+
+# Anatomy of a Accordion Component
+
+**Header :** The visible section of the accordion, it also act as an trigger.
+
+**Panel :** The collapsed part , only visible when the accordion in opened.
+
+**Body :** A wrapper around the both header and panel that holds them together.
+
+**Indicator :** "+ / -"" or an caret 🔽 that indicates the accordion is open or close , This is optional.
+
+# A Basic Accordion
+
+To start, I built a simple accordion using React state.
 
 <ComponentBox>
   <BasicAccordion />
 </ComponentBox>
 
 ```tsx
+// BasicAccordion.tsx
+const [openIndex, setOpenIndex] = useState<number | null>(null);
+```
+
+Only one panel can be open at a time. Clicking the same header again closes it.
+
+```tsx
+// BasicAccordion.tsx
+const [openIndex, setOpenIndex] = useState<number | null>(null);
+```
+
+Each accordion item is rendered from a data array.
+
+The panel is conditionally shown based on the active index.
+
+```tsx
+// BasicAccordion.tsx
+{
+  openIndex === id && <div className="p-4">{item.panel}</div>;
+}
+```
+
+To indicate state visually, the arrow icon rotates when the panel is open.
+
+```tsx
+// BasicAccordion.tsx
 "use client";
 import clsx from "clsx";
-import { useState } from "react";
+import React, { useState } from "react";
+
 const items = [
   {
     header: "header-1",
@@ -33,21 +78,20 @@ const items = [
   },
 ];
 
-const accordion = () => {
+const Accordion = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const toggleOpen = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
-    console.log(index);
   };
   return (
     <div className="h-fit w-[60%]">
       {items.map((item, id) => (
         <div key={id} className="border border-neutral-200">
           <button
-            className="flex w-full justify-between bg-neutral-200 p-2 dark:bg-neutral-700"
+            className="flex w-full justify-between bg-neutral-200 p-2"
             onClick={() => toggleOpen(id)}
           >
-            <div className="">{item.header}</div>
+            <div>{item.header}</div>
             <div
               className={clsx(
                 "flex",
@@ -65,11 +109,125 @@ const accordion = () => {
     </div>
   );
 };
-
-export default accordion;
+export default Accordion;
 ```
 
+# Thinking in React Components
 
+This still works but it has few issue that hold it back from being a re-usable component.
+
+- **Separation of Concerns** - Data, state, and presentation live in the same component.
+- **Behavior option** - Single and multiple open panels
+- **Accessibilities**
+
+## Separation of concerns
+
+**AccordionRoot** → owns state and behavior
+
+**AccordionItem** → represents a single logical unit
+
+**AccordionTrigger** → handles user interaction
+
+**AccordionHeader** → visual header content
+
+**AccordionPanel** → collapsible content
+
+```js
+accordion/
+├─ root/
+│  └─ AccordionRoot.tsx      // State + behavior
+├─ item/
+│  └─ AccordionItem.tsx      // Item identity
+├─ trigger/
+│  └─ AccordionTrigger.tsx   // Interaction logic
+├─ header/
+│  └─ AccordionHeader.tsx    // Visual header
+├─ panel/
+│  └─ AccordionPanel.tsx     // Collapsible content
+├─ context.ts                // Shared state
+├─ itemContext.ts            // Per-item context
+├─ types.ts                  // Shared types
+├─ Accordion.tsx             // Public exports
+```
+
+## Single vs Multiple Open Panels
+
+- Default → single open panel
+- <InlineCode>multiple</InlineCode> prop → allows multiple panels
+
+Internally, the root switches between:
+
+- a single value (<InlineCode>string | null</InlineCode>)
+- a list of values (<InlineCode>string[]</InlineCode>)
+
+This keeps the public API simple while allowing flexible behavior.
+
+## Accessibility
+
+- Interactive logic lives in <InlineCode>AccordionTrigger</InlineCode>
+- Visual content stays in <InlineCode>AccordionHeader</InlineCode>
+- State is centralized in the root
+
+## React Patterns Used
+
+- **Compound Components**
+  Enables declarative composition and flexible APIs.
+- **Context for Shared State**
+  Avoids prop drilling and keeps state centralized.
+- **Behavior-Based APIs**
+  Exposes functions (<InlineCode>isOpen</InlineCode>, <InlineCode>toggleItem</InlineCode>) instead of raw state.
+- **Boolean Configuration (<InlineCode>multiple</InlineCode>)**
+  Keeps the API readable and intentional
+
+# Implementation
+
+## AccordionRoot
+
+- Acts as the brain of the accordion.
+- Owns all shared state
+- Decides whether the accordion operates in single or multiple mode
+- Exposes behavior (open, close, toggle) through context
+- Coordinates all accordion items as a group
+
+```tsx
+"use client";
+import React, { useState } from "react";
+import { AccordionContext } from "../context";
+
+type AccordionRootProps = {
+  children: React.ReactNode;
+  multiple?: boolean;
+};
+
+const AccordionRoot = ({ children, multiple = false }: AccordionRootProps) => {
+  const [openItem, setOpenItem] = useState<string | null>(null);
+  const [openItems, setOpenItems] = useState<string[]>([]);
+  function toggleItem(value: string) {
+    if (multiple) {
+      setOpenItems((prev) =>
+        prev.includes(value)
+          ? prev.filter((item) => item !== value)
+          : [...prev, value],
+      );
+    } else {
+      setOpenItem((prev) => (prev === value ? null : value));
+    }
+  }
+
+  const isOpen = (value: string) =>
+    multiple ? openItems.includes(value) : openItem === value;
+
+  return (
+    <AccordionContext.Provider value={{ isOpen, toggleItem }}>
+      {children}
+    </AccordionContext.Provider>
+  );
+};
+
+export default AccordionRoot;
+```
+
+All high-level decisions about how the accordion behaves live here.
 
 <ComponentBox>
   <AccordionDemo />
