@@ -2,10 +2,13 @@
 import { getContentBySlug, getAllSlugs } from "@/lib/mdx";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { mdxComponents } from "@/components/mdx/MdxComponents";
+
+import rehypeSlug from "rehype-slug";
 // Import your custom components
 import { Callout } from "@/components/mdx/Callout";
 import Container from "@/components/ui/Container";
 import Image from "next/image";
+import TableOfContents from "@/components/mdx/TableOfContents";
 
 interface PageProps {
   params: {
@@ -19,8 +22,8 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
-  const { slug } = params;
-  const { meta, content } = getContentBySlug(slug, "notes");
+  const { slug } = await params;
+  const { meta, content, headings } = getContentBySlug(slug, "notes");
 
   try {
     return (
@@ -48,9 +51,19 @@ export default async function BlogPostPage({ params }: PageProps) {
               })}
             </p>
           </div>
-
+          <aside className="hidden lg:block">
+            <TableOfContents headings={headings} />
+          </aside>
           {/* Article Content */}
-          <MDXRemote source={content} components={mdxComponents} />
+          <MDXRemote
+            source={content}
+            components={mdxComponents}
+            options={{
+              mdxOptions: {
+                rehypePlugins: [rehypeSlug],
+              },
+            }}
+          />
         </article>
       </Container>
     );

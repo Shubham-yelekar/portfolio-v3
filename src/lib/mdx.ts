@@ -41,10 +41,12 @@ export function getContentBySlug(slug: string, contentType: string) {
   const fileContents = fs.readFileSync(postPath, "utf8");
 
   const { data, content } = matter(fileContents);
+  const headings = extractHeadings(content);
 
   return {
     meta: data,
     content,
+    headings,
   };
 }
 
@@ -54,6 +56,24 @@ export function getAllSlugs(type: ContentType) {
     const stat = fs.statSync(path.join(dir, name));
     return stat.isDirectory();
   });
+}
+
+export function extractHeadings(content: string) {
+  const headings: { text: string; id: string }[] = [];
+  const regex = /^##\s+(.*)$/gm;
+
+  let match;
+  while ((match = regex.exec(content)) !== null) {
+    const text = match[1].trim();
+    const id = text
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, "")
+      .replace(/\s+/g, "-");
+
+    headings.push({ text, id });
+  }
+
+  return headings;
 }
 
 export interface NotesMeta {

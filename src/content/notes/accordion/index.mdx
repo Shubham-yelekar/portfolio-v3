@@ -1,20 +1,25 @@
 ---
-status: "draft"
+status: "live"
 title: "Building an Accordion"
-date: "2025-11-1"
+date: "2026-1-14"
 summary: "Building an Accordion in React and Motion."
 category: "Deep Dive"
 thumbImage: "https://ucarecdn.com/058fca4d-9e96-47ad-9412-f730b87c2c13/-/preview/632x469/"
 tags: ["components"]
 ---
 
-# What is an Accordion?
+## What is an Accordion?
 
 An Accordion component is a very commonly interactive UI components seen on the web , You may have come across this component in an FAQ section , menu and sub-menus or feature list.
 
 Accordion helps keep the ui clean by hiding information by default and revealing it when the user interacts with a section
 
-# Anatomy of a Accordion Component
+## Anatomy of a Accordion Component
+
+<ImageWrapper
+  src="https://ucarecdn.com/403e3074-8000-4561-b544-1e246d383cae/-/preview/600x400/"
+  alt="accordion-anotomy"
+/>
 
 **Header :** The visible section of the accordion, it also act as an trigger.
 
@@ -24,7 +29,7 @@ Accordion helps keep the ui clean by hiding information by default and revealing
 
 **Indicator :** "+ / -"" or an caret 🔽 that indicates the accordion is open or close , This is optional.
 
-# A Basic Accordion
+## A Basic Accordion
 
 To start, I built a simple accordion using React state.
 
@@ -112,53 +117,41 @@ const Accordion = () => {
 export default Accordion;
 ```
 
-# Thinking in React Components
+## Thinking in React Components
 
 This still works but it has few issue that hold it back from being a re-usable component.
 
 - **Separation of Concerns** - Data, state, and presentation live in the same component.
 - **Behavior option** - Single and multiple open panels
-- **Accessibilities**
+- **Accessibilities** - Tab , Aria lables etc
 
 ## Separation of concerns
 
-**AccordionRoot** → owns state and behavior
+**AccordionRoot** owns the state in context for all the accordion, we also pass the functions to trigger the accordions.
+This is the outter wrapper for our component so we will pass behavior props through this, like multiple or single accordion.
 
-**AccordionItem** → represents a single logical unit
+**AccordionItem** is a wrapper for each item. it also holds its own logic as a scope for its children.
 
-**AccordionTrigger** → handles user interaction
+**AccordionTrigger** handles user interaction. Here we will call the function to trigger the opening of the accordion.
 
-**AccordionHeader** → visual header content
+**AccordionHeader** is the title/ header for the accordion. Also has the indicator icon
 
-**AccordionPanel** → collapsible content
+**AccordionPanel** is the hidden information.
 
-```js
-accordion/
-├─ root/
-│  └─ AccordionRoot.tsx      // State + behavior
-├─ item/
-│  └─ AccordionItem.tsx      // Item identity
-├─ trigger/
-│  └─ AccordionTrigger.tsx   // Interaction logic
-├─ header/
-│  └─ AccordionHeader.tsx    // Visual header
-├─ panel/
-│  └─ AccordionPanel.tsx     // Collapsible content
-├─ context.ts                // Shared state
-├─ itemContext.ts            // Per-item context
-├─ types.ts                  // Shared types
-├─ Accordion.tsx             // Public exports
-```
+<ImageModal
+  src="https://ucarecdn.com/e8a0d1e6-d9da-4717-b220-65298901f550/-/preview/1000x667/"
+  alt="accordion-file-structure"
+/>
 
 ## Single vs Multiple Open Panels
 
-- Default → single open panel
-- <InlineCode>multiple</InlineCode> prop → allows multiple panels
+By default i am keeping the accordions single open only, but when pass <InlineCode>multiple</InlineCode> prop to the <InlineCode>root</InlineCode> then it allows multiple panels
 
-Internally, the root switches between:
+Inside the <InlineCode>root</InlineCode> , will switch the states.
 
-- a single value (<InlineCode>string | null</InlineCode>)
-- a list of values (<InlineCode>string[]</InlineCode>)
+- A single value state will have type (<InlineCode>string | null</InlineCode>)
+- A list of values state will have type (<InlineCode>string[]</InlineCode>)
+- Also the function <InlineCode>toggleItem</InlineCode> to change the state will live here.
 
 This keeps the public API simple while allowing flexible behavior.
 
@@ -166,28 +159,25 @@ This keeps the public API simple while allowing flexible behavior.
 
 - Interactive logic lives in <InlineCode>AccordionTrigger</InlineCode>
 - Visual content stays in <InlineCode>AccordionHeader</InlineCode>
-- State is centralized in the root
 
 ## React Patterns Used
 
 - **Compound Components**
-  Enables declarative composition and flexible APIs.
+  Breaks the accordion into small parts that work together and are easy to combine.
 - **Context for Shared State**
-  Avoids prop drilling and keeps state centralized.
+  Keeps the accordion state in one place so it can be shared without passing props around.
 - **Behavior-Based APIs**
-  Exposes functions (<InlineCode>isOpen</InlineCode>, <InlineCode>toggleItem</InlineCode>) instead of raw state.
+  Shares actions like <InlineCode>isOpen</InlineCode> and <InlineCode>toggleItem</InlineCode> instead of exposing internal state directly.
 - **Boolean Configuration (<InlineCode>multiple</InlineCode>)**
-  Keeps the API readable and intentional
+  Makes the API easy to read. The default behavior stays simple, and extra features are added only when needed.
 
-# Implementation
+## Building Compound Components
 
-## AccordionRoot
+### AccordionRoot
 
-- Acts as the brain of the accordion.
-- Owns all shared state
-- Decides whether the accordion operates in single or multiple mode
-- Exposes behavior (open, close, toggle) through context
-- Coordinates all accordion items as a group
+AccordionRoot acts as the brain of the accordion.
+
+It owns all the shared state, decides whether the accordion works in single or multiple mode, exposes open and close behavior through context, and coordinates all accordion items so they work together as one group.
 
 ```tsx
 "use client";
@@ -229,6 +219,276 @@ export default AccordionRoot;
 
 All high-level decisions about how the accordion behaves live here.
 
+### AccordionItem
+
+AccordionItem represents one section of the accordion. It defines a unique identity for the item, determines whether it is open or closed, provides scoped context to its child components, and keeps all item-level concerns isolated from the rest of the accordion.
+
+This allows each item to remain independent while still participating in shared behavior.
+
+```tsx
+//AccordionItem.tsx
+"use client";
+import { useAccordionContext } from "../context";
+import AccordionItemContext from "../itemContext";
+import clsx from "clsx";
+
+const AccordionItem = ({ value, children, className }: any) => {
+  const { isOpen } = useAccordionContext();
+  const open = isOpen(value);
+  return (
+    <AccordionItemContext.Provider value={{ value, isOpen: open }}>
+      <div className={clsx("w-full", className)}>{children}</div>
+    </AccordionItemContext.Provider>
+  );
+};
+
+export default AccordionItem;
+```
+
+### AccordionTrigger
+
+AccordionTrigger handles all user interaction. It listens for click or keyboard events, signals the intent to open or close an accordion item, and does not own any state itself.
+
+It acts as the communication layer between the UI and the accordion logic, and by separating interaction from state, the component remains predictable and easy to extend.
+
+```tsx
+//AccordionTrigger.tsx
+"use client";
+import { useAccordionContext } from "../context";
+import { useAccordionItemContext } from "../itemContext";
+import clsx from "clsx";
+
+const AccordionTrigger = ({ children, className }: any) => {
+  const { toggleItem } = useAccordionContext();
+  const { value, isOpen } = useAccordionItemContext();
+  return (
+    <button
+      aria-expanded={isOpen}
+      data-state={isOpen ? "open" : "closed"}
+      onClick={() => toggleItem(value)}
+      className={clsx(
+        "w-full",
+        "cursor-pointer select-none",
+        "focus:outline-none focus-visible:ring-2",
+        className,
+      )}
+    >
+      {children}
+    </button>
+  );
+};
+
+export default AccordionTrigger;
+```
+
+### AccordionHeader
+
+AccordionHeader is responsible only for presentation. It renders the visible header content, reflects the open or closed state visually, handles icons, transitions, and styling, and contains no business logic. This keeps visual decisions clearly isolated from behavior.
+
+```tsx
+//AccordionHeader.tsx
+"use client";
+
+import clsx from "clsx";
+import { useAccordionItemContext } from "../itemContext";
+import { FaPlus } from "react-icons/fa6";
+const AccordionHeader = ({ children }: any) => {
+  const { isOpen } = useAccordionItemContext();
+  return (
+    <div
+      className={
+        "group flex w-full items-center justify-between rounded-xl bg-neutral-50 p-3 dark:border dark:border-neutral-50/5 dark:bg-neutral-800"
+      }
+    >
+      <div className={"text-neutral-800 dark:text-neutral-100"}>{children}</div>
+      <div
+        className={clsx(
+          "group-hover:bg-brand group-hover:dark:bg-brand inline-flex aspect-square w-fit items-center rounded-lg px-1 py-1 text-sm whitespace-nowrap text-neutral-100 shadow-[0_1px_0_rgba(255,255,255,0.25)_inset,0_2px_4px_rgba(0,0,0,0.15)] transition-colors duration-300 ease-out",
+          isOpen ? "bg-brand" : "bg-neutral-400 dark:bg-neutral-700",
+        )}
+      >
+        <span
+          className={clsx(
+            "transition-transform duration-300 ease-in-out",
+            isOpen ? "rotate-45" : "rotate-0",
+          )}
+        >
+          {" "}
+          <FaPlus />{" "}
+        </span>
+      </div>
+    </div>
+  );
+};
+
+export default AccordionHeader;
+```
+
+### AccordionPanel
+
+AccordionPanel controls the collapsible content area. It renders content based on the open or closed state, manages layout and spacing, and serves as the expandable section of the accordion.
+
+```tsx
+"use client";
+import { useAccordionItemContext } from "../itemContext";
+import { motion, AnimatePresence } from "motion/react";
+
+const AccordionPanel = ({ children }: any) => {
+  const { isOpen } = useAccordionItemContext();
+
+  return (
+    <AnimatePresence initial={false}>
+      {isOpen && (
+        <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: "auto", opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="overflow-hidden"
+          data-state="open"
+        >
+          <div className={"p-3 text-sm text-neutral-800 dark:text-neutral-400"}>
+            {children}
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
+export default AccordionPanel;
+```
+
+### Context Layer
+
+The context layer provides shared communication between all accordion components. It exposes behavior instead of raw state, prevents prop drilling, and keeps every part of the accordion in sync. This shared context is what makes the compound component pattern possible.
+
+```tsx
+//context.ts
+"use client";
+import { createContext, useContext } from "react";
+import { AccordionContextTypes } from "./types";
+
+// Create context
+export const AccordionContext = createContext<AccordionContextTypes | null>(
+  null,
+);
+
+export function useAccordionContext() {
+  const context = useContext(AccordionContext);
+  if (!context) {
+    throw new Error("useAccordionContext must be used inside AccordionRoot");
+  }
+  return context;
+}
+```
+
+```ts
+// itemContext.ts
+
+"use client";
+import { createContext, useContext } from "react";
+import { AccordionItemContextTypes } from "./types";
+
+const AccordionItemContext = createContext<AccordionItemContextTypes | null>(
+  null,
+);
+
+export function useAccordionItemContext() {
+  const context = useContext(AccordionItemContext);
+
+  if (!context) {
+    throw new Error("Accordion components must be used inside AccordionItem");
+  }
+
+  return context;
+}
+
+export default AccordionItemContext;
+```
+
+### Import
+
+Don't forget to import
+
+```ts
+//index.ts
+import AccordionRoot from "./root/AccordionRoot";
+import AccordionHeader from "./header/AccordionHeader";
+import AccordionTrigger from "./trigger/AccordionTrigger";
+import AccordionItem from "./item/AccordionItem";
+import AccordionPanel from "./panel/AccordionPanel";
+
+export {
+  AccordionRoot,
+  AccordionHeader,
+  AccordionTrigger,
+  AccordionItem,
+  AccordionPanel,
+};
+```
+
+## Implementation
+
+The final accordion API is declarative and easy to read. A single **AccordionRoot** wraps all items and controls the overall behavior. Adding the multiple prop allows more than one panel to stay open, while the default behavior keeps it limited to a single open panel.
+
+Each **AccordionItem** represents one section, with **AccordionTrigger** handling interaction, **AccordionHeader** rendering the visible title, and **AccordionPanel** displaying the collapsible content. This structure keeps behavior, interaction, and presentation clearly separated and makes the component easy to understand and extend.
+
 <ComponentBox>
   <AccordionDemo />
 </ComponentBox>
+
+```tsx
+import {
+  AccordionRoot,
+  AccordionHeader,
+  AccordionTrigger,
+  AccordionItem,
+  AccordionPanel,
+} from ".";
+
+const accordionDemo = () => {
+  return (
+    <div className="flex w-[60%] flex-col items-center justify-center gap-1 rounded-2xl border border-white/50 bg-neutral-200 p-1.5 dark:border-white/5 dark:bg-neutral-800/20">
+      <AccordionRoot multiple>
+        <AccordionItem value="item-1">
+          <AccordionTrigger>
+            <AccordionHeader>What is a accordion</AccordionHeader>
+          </AccordionTrigger>
+          <AccordionPanel>
+            An accordion is a UI pattern used to show and hide content.
+          </AccordionPanel>
+        </AccordionItem>
+
+        <AccordionItem value="item-2">
+          <AccordionTrigger>
+            <AccordionHeader>How does it work?</AccordionHeader>
+          </AccordionTrigger>
+          <AccordionPanel>
+            Users click or tap on a section header to expand it. Clicking again
+            collapses it, keeping the interface tidy.
+          </AccordionPanel>
+        </AccordionItem>
+
+        <AccordionItem value="item-3">
+          <AccordionTrigger>
+            <AccordionHeader>Where is it used?</AccordionHeader>
+          </AccordionTrigger>
+          <AccordionPanel>
+            Common in FAQs, settings panels, product descriptions, and anywhere
+            you want to group related content.
+          </AccordionPanel>
+        </AccordionItem>
+      </AccordionRoot>
+    </div>
+  );
+};
+
+export default accordionDemo;
+```
+
+## Conclusions
+
+This accordion evolved from a simple state-based component into a reusable UI primitive by applying clear separation of concerns and React patterns. Structuring the component thoughtfully made the API easier to read and extend.
+
+Along the way, I learned how state modeling shapes behavior, how compound components improve composition, and how context helps keep complex UI predictable and scalable.

@@ -25,50 +25,6 @@ const Projects = () => {
               preload="none"
               className="h-full object-cover"
             >
-              <source
-                src="/archives/christmass-2025/christmass-challenge.mp4"
-                type="video/mp4"
-              />
-            </video>
-          </div>
-          <div className="flex-start flex flex-col gap-2 px-2 md:flex-row md:px-4">
-            <div className="flex-1">
-              <h3 className="bold font-libre! mb-2 text-xl md:text-2xl">
-                Cozy Christmass Diorama
-              </h3>
-              <h5 className="text-sm text-neutral-800! md:text-lg dark:text-neutral-500!">
-                Personal / Challenge
-              </h5>
-            </div>
-            <div className="flex flex-1 flex-col gap-4">
-              <p className="text-paragraph text-sm md:text-base">
-                Parcticipated in Christmass challenge in{" "}
-                <strong>Threejs Journey</strong> hosted by{" "}
-                <strong>Bruno Simon</strong>.I will write a note about this soon
-              </p>
-              <Link
-                target="_blank"
-                href="https://christmass-challenge-2025.netlify.app/"
-              >
-                <Button className="w-fit" variant={"secondary"}>
-                  Visit Site
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="relative flex flex-col gap-4 md:gap-6">
-          <div className="aspect-5/3 overflow-clip rounded-2xl">
-            <video
-              width="900"
-              height="600"
-              autoPlay
-              muted
-              playsInline
-              loop
-              preload="none"
-              className="h-full object-cover"
-            >
               <source src="/archives/lc-300/lc300.mp4" type="video/mp4" />
             </video>
           </div>
@@ -94,6 +50,7 @@ const Projects = () => {
             </div>
           </div>
         </div>
+
         <div className="relative flex flex-col gap-4 md:gap-6">
           <div className="aspect-5/3 overflow-clip rounded-2xl">
             {/* <Image
@@ -133,6 +90,51 @@ const Projects = () => {
               <Link href="/projects/toyota-taisor">
                 <Button className="w-fit" variant={"secondary"}>
                   Read more
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative flex flex-col gap-4 md:gap-6">
+          <div className="aspect-5/3 overflow-clip rounded-2xl">
+            <video
+              width="900"
+              height="600"
+              autoPlay
+              muted
+              playsInline
+              loop
+              preload="none"
+              className="h-full object-cover"
+            >
+              <source
+                src="/archives/christmass-2025/christmass-challenge.mp4"
+                type="video/mp4"
+              />
+            </video>
+          </div>
+          <div className="flex-start flex flex-col gap-2 px-2 md:flex-row md:px-4">
+            <div className="flex-1">
+              <h3 className="bold font-libre! mb-2 text-xl md:text-2xl">
+                Cozy Christmass Diorama
+              </h3>
+              <h5 className="text-sm text-neutral-800! md:text-lg dark:text-neutral-500!">
+                Personal / Challenge
+              </h5>
+            </div>
+            <div className="flex flex-1 flex-col gap-4">
+              <p className="text-paragraph text-sm md:text-base">
+                Parcticipated in Christmass challenge in{" "}
+                <strong>Threejs Journey</strong> hosted by{" "}
+                <strong>Bruno Simon</strong>.
+              </p>
+              <Link
+                target="_blank"
+                href="https://christmass-challenge-2025.netlify.app/"
+              >
+                <Button className="w-fit" variant={"secondary"}>
+                  Visit Site
                 </Button>
               </Link>
             </div>

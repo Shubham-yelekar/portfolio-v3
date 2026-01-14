@@ -69,6 +69,7 @@
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -102,6 +103,7 @@ h2 {
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text; */
+  scroll-margin-top: 6rem;
 }
 
 h3 {

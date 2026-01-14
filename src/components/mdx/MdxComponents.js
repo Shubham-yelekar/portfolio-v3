@@ -31,8 +31,11 @@ export const H1 = ({ children }) => (
   </h1>
 );
 
-export const H2 = ({ children }) => (
-  <h2 className="font-libre! mt-6! mb-4! text-2xl text-neutral-800! md:px-4! dark:text-neutral-200!">
+export const H2 = ({ children, ...props }) => (
+  <h2
+    {...props}
+    className="font-libre! mt-6! mb-4! text-2xl text-neutral-800! md:px-4! dark:text-neutral-200!"
+  >
     {children}
   </h2>
 );
