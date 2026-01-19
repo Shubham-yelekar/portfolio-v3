@@ -23,6 +23,7 @@ import AppleKeyboard from "../ui-components/AppleKeyboard";
 import ToastDemo from "../ui-components/ToastDemo";
 import AccordionDemo from "../ui-components/accordion/AccordionDemo";
 import BasicAccordion from "../ui-components/accordion/BasicAccordion";
+import TabsDemo from "../ui-components/tabs/TabsDemo";
 
 // A styled h1 component
 export const H1 = ({ children }) => (
@@ -138,4 +139,5 @@ export const mdxComponents = {
   AccordionDemo,
   BasicAccordion,
   InlineCode,
+  TabsDemo,
 };
