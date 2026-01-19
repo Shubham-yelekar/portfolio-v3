@@ -1,6 +1,7 @@
-import Button from "@/components/ui/Button";
+"use client"
 import React from "react";
-import ModernButton from "../button-collection/ModernButton";
+import { useState } from "react"; 
+import cn from "@/app/lib/cn";
 
 const Items = [
   {
@@ -42,16 +43,20 @@ type itemsProps = {
 };
 
 const Tabs = ({ items }: any) => {
+  const [openTab , setOpenTab] = useState(0)
   return (
-    <div>
-      <div>
+    <div className="max-w-96" >
+      <div className="bg-neutral-200 p-1 grid grid-cols-3 relative border border-neutral-300 rounded-xl dark:bg-neutral-800 dark:border-neutral-700 ">
+     
         {items.map((item: any, id: number) => (
-          <ModernButton variant="secondary" key={id}>
-            {item.value}
-          </ModernButton>
+          <button className={`px-3 py-1 rounded-lg ${openTab === id ? "font-semibold bg-neutral-50 dark:bg-neutral-700" : ""}`} key={id} onClick={()=>setOpenTab(id)}>
+            {item.label}
+          </button>
         ))}
       </div>
-      <div>panels</div>
+      <div className="bg-neutral-200 p-3 border border-neutral-300 rounded-xl mt-1 text-paragraph dark:bg-neutral-800 dark:border-neutral-700 ">
+        { items[openTab].panel}
+        </div>
     </div>
   );
 };
