@@ -1,6 +1,6 @@
-"use client"
+"use client";
 import React from "react";
-import { useState } from "react"; 
+import { useState } from "react";
 
 const Items = [
   {
@@ -23,7 +23,7 @@ const Items = [
   },
 ];
 
-const TabsDemo = () => {
+const TabsBasic = () => {
   return (
     <div>
       <Tabs items={Items} />
@@ -42,22 +42,25 @@ type itemsProps = {
 };
 
 const Tabs = ({ items }: any) => {
-  const [openTab , setOpenTab] = useState(0)
+  const [openTab, setOpenTab] = useState(0);
   return (
-    <div className="max-w-96" >
-      <div className="bg-neutral-200 p-1 grid grid-cols-3 relative border border-neutral-300 rounded-xl dark:bg-neutral-800 dark:border-neutral-700 ">
-     
+    <div className="max-w-96">
+      <div className="relative grid cursor-pointer grid-cols-3 rounded-xl border border-neutral-300 bg-neutral-200 p-1 dark:border-neutral-700/20 dark:bg-neutral-800">
         {items.map((item: any, id: number) => (
-          <button className={`px-3 py-1 rounded-lg ${openTab === id ? "font-semibold bg-neutral-50 dark:bg-neutral-700" : ""}`} key={id} onClick={()=>setOpenTab(id)}>
+          <button
+            className={`rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white ${openTab === id ? "bg-neutral-50 font-semibold text-neutral-900 shadow dark:bg-neutral-700 dark:text-white" : ""}`}
+            key={id}
+            onClick={() => setOpenTab(id)}
+          >
             {item.label}
           </button>
         ))}
       </div>
-      <div className="bg-neutral-200 p-3 border border-neutral-300 rounded-xl mt-1 text-paragraph dark:bg-neutral-800 dark:border-neutral-700 ">
-        { items[openTab].panel}
-        </div>
+      <div className="text-paragraph mt-1 rounded-xl border border-neutral-300 bg-neutral-200 p-3 dark:border-neutral-700/20 dark:bg-neutral-800">
+        {items[openTab].panel}
+      </div>
     </div>
   );
 };
 
-export default TabsDemo;
+export default TabsBasic;

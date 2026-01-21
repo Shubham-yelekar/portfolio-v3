@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { useTabsContext } from "../TabContext";
 
@@ -16,7 +16,7 @@ export function TabsContent({ value, children, className }: TabsContentProps) {
   return (
     <div
       role="tabpanel"
-      className={`mt-3 rounded-lg bg-white p-4 text-zinc-900 shadow dark:bg-zinc-900 dark:text-zinc-100 ${className ?? ""}`}
+      className={`text-paragraph mt-1 rounded-xl border border-neutral-300 bg-neutral-200 p-3 dark:border-neutral-700/20 dark:bg-neutral-800${className ?? ""}`}
     >
       {children}
     </div>

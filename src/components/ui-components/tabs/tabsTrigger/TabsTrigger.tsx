@@ -16,10 +16,10 @@ export function TabsTrigger({ value, children }: TabsTriggerProps) {
       role="tab"
       aria-selected={isActive}
       onClick={() => setValue(value)}
-      className={`relative flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition ${
+      className={`relative flex-1 cursor-pointer rounded-lg px-3 py-1.5 text-sm font-medium transition duration-200 ease-in-out ${
         isActive
-          ? "bg-white text-zinc-900 shadow dark:bg-zinc-700 dark:text-white"
-          : "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+          ? "bg-white font-semibold text-neutral-900 shadow dark:bg-neutral-700 dark:text-white"
+          : "text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
       } `}
     >
       {children}

@@ -24,6 +24,7 @@ import ToastDemo from "../ui-components/ToastDemo";
 import AccordionDemo from "../ui-components/accordion/AccordionDemo";
 import BasicAccordion from "../ui-components/accordion/BasicAccordion";
 import TabsDemo from "../ui-components/tabs/TabsDemo";
+import TabsBasic from "../ui-components/tabs/TabsBasic";
 
 // A styled h1 component
 export const H1 = ({ children }) => (
@@ -140,4 +141,5 @@ export const mdxComponents = {
   BasicAccordion,
   InlineCode,
   TabsDemo,
+  TabsBasic,
 };

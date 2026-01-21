@@ -10,7 +10,7 @@ export function TabsList({ className, children }: TabsListProps) {
   return (
     <div
       role="tablist"
-      className={`flex rounded-lg bg-zinc-100 p-1 dark:bg-zinc-800 ${className ?? ""}`}
+      className={`flex rounded-xl border border-neutral-300 bg-neutral-200 p-1 dark:border-neutral-700/20 dark:bg-neutral-800 ${className ?? ""}`}
     >
       {children}
     </div>
