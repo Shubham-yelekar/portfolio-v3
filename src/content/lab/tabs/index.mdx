@@ -4,21 +4,59 @@ title: "Tabs Component"
 date: "2025-12-10"
 summary: "Tab component"
 category: "component"
-thumbImage: "https://ucarecdn.com/058fca4d-9e96-47ad-9412-f730b87c2c13/-/preview/632x469/"
-thumbVideo: "/archives/accordion/accordion.mp4"
+thumbImage: "https://ucarecdn.com/8f030f2e-750a-4d76-b585-e12f178996c6/-/preview/1000x733/"
+thumbVideo: "/archives/tabs/tabs-demo.mp4"
 tags: ["React", "Component"]
 ---
+
+# Tabs Component
+
+Tabs are a common UI pattern used to switch between related sections of content without navigating away from the page. They help organize information in a structured and compact layout while keeping the interface clean.
+
+In this component, I first built a simple state-driven version and then evolved it into a reusable compound component using React context.
+
+---
+
+## Basic Version
+
+The initial implementation used local state to track the active tab.
+
+- Index-based switching
+- Direct conditional rendering
+- All logic inside one component
+
+This works well for small cases but becomes difficult to scale or customize.
 
 <ComponentBox>
   <TabsBasic />
 </ComponentBox>
 
+---
+
+## Compound Component Version
+
+To make the component reusable and extensible, I broke it into smaller parts:
+
+- **Tabs** → Root wrapper that owns state
+- **TabsList** → Container for tab triggers
+- **TabsTrigger** → Handles interaction
+- **TabsContent** → Displays active panel
+- **Context Layer** → Shares value and update logic
+
+This enables a clean and declarative API:
+
+```tsx
+<Tabs defaultValue="html">
+  <TabsList>
+    <TabsTrigger value="html">HTML</TabsTrigger>
+    <TabsTrigger value="css">CSS</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="html">...</TabsContent>
+  <TabsContent value="css">...</TabsContent>
+</Tabs>
+```
+
 <ComponentBox>
   <TabsDemo />
 </ComponentBox>
-
-While making this, I learned about **container-presenter pattern** and **compound components pattern**.
-
-I will write a note about this soon ,
-
----
