@@ -38,6 +38,11 @@ export function getAllContentMeta(contentType: ContentType) {
 export function getContentBySlug(slug: string, contentType: string) {
   const contentTypeDirectory = path.join(contentDirectory, contentType);
   const postPath = path.join(contentTypeDirectory, slug, "index.mdx");
+    console.log("DEBUG PATH:", postPath);
+  console.log("EXISTS:", fs.existsSync(postPath));
+   if (!fs.existsSync(postPath)) {
+    throw new Error(`MDX file missing at ${postPath}`);
+  }
   const fileContents = fs.readFileSync(postPath, "utf8");
 
   const { data, content } = matter(fileContents);
