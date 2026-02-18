@@ -105,12 +105,10 @@ interface ImageProps {
 export const ImageCarousal = ({ images }: ImageProps) => {
   const [current, setCurrent] = useState<number>(0);
 
-  // normalize images to an array to avoid runtime errors when undefined is passed
-  const imagesArr = Array.isArray(images) ? images : [];
-  const length = imagesArr.length;
+  const length = images.length;
 
   // No images? Don't render anything.
-  if (imagesArr.length <= 0) {
+  if (!Array.isArray(images) || images.length <= 0) {
     return null;
   }
 
@@ -163,7 +161,7 @@ export const ImageCarousal = ({ images }: ImageProps) => {
           <IoIosArrowForward size={16} className="text-white" />
         </button>
       </div>
-  {imagesArr.map((image, i) => (
+      {images.map((image, i) => (
         <div
           className={`absolute h-full w-full transition-opacity duration-500 ease-in-out ${i === current ? "opacity-100" : "opacity-0"}`}
           key={`${image.alt}`}
@@ -253,28 +251,24 @@ export const ImageCompare = ({ topImage, bottomImage }: ImageCompareProps) => {
           clipPath: `inset(0 ${100 - position}% 0 0)`,
         }}
       >
-        {topImage && topImage.src ? (
-          <Image
-            draggable="false"
-            className="pointer-events-none m-0! object-cover select-none"
-            src={topImage.src}
-            alt={topImage.alt ?? ""}
-            width={700}
-            height={500}
-          />
-        ) : null}
+        <Image
+          draggable="false"
+          className="pointer-events-none m-0! object-cover select-none"
+          src={topImage.src}
+          alt={topImage.alt}
+          width={700}
+          height={500}
+        />
       </div>
       <div className="absolute h-full w-full">
-        {bottomImage && bottomImage.src ? (
-          <Image
-            draggable="false"
-            className="pointer-events-none m-0! object-cover select-none"
-            src={bottomImage.src}
-            alt={bottomImage.alt ?? ""}
-            width={700}
-            height={500}
-          />
-        ) : null}
+        <Image
+          draggable="false"
+          className="pointer-events-none m-0! object-cover select-none"
+          src={bottomImage.src}
+          alt={bottomImage.alt}
+          width={700}
+          height={500}
+        />
       </div>
     </div>
   );
