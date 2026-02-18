@@ -48,10 +48,23 @@ export function getContentBySlug(slug: string, contentType: string) {
   const { data, content } = matter(fileContents);
   const headings = extractHeadings(content);
 
+  const meta: NotesMeta = {
+    status: typeof data.status === "string" ? data.status : "draft",
+    title: typeof data.title === "string" ? data.title : "",
+    date: typeof data.date === "string" ? data.date : "",
+    summary: typeof data.summary === "string" ? data.summary : "",
+    thumbImage:
+      typeof data.thumbImage === "string" ? data.thumbImage : "",
+    thumbVideo:
+      typeof data.thumbVideo === "string" ? data.thumbVideo : "",
+    tags: Array.isArray(data.tags) ? data.tags : [],
+    slug,
+  };
+
   return {
-    meta: data,
-    content,
-    headings,
+    meta,
+    content : content || "",
+    headings : headings || [],
   };
 }
 
