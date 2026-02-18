@@ -1,6 +1,6 @@
 // app/blog/[slug]/page.tsx
 import { getContentBySlug, getAllSlugs } from "@/lib/mdx";
-import { MDXRemote } from "next-mdx-remote/rsc";
+import { compileMDX, MDXRemote } from "next-mdx-remote/rsc";
 import { mdxComponents } from "@/components/mdx/MdxComponents";
 
 import rehypeSlug from "rehype-slug";
@@ -9,6 +9,7 @@ import { Callout } from "@/components/mdx/Callout";
 import Container from "@/components/ui/Container";
 import Image from "next/image";
 import TableOfContents from "@/components/mdx/TableOfContents";
+import { notFound } from "next/navigation";
 
 interface PageProps {
   params: {
@@ -22,9 +23,36 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
-  const { slug } = await params;
-  const { meta, content, headings } = getContentBySlug(slug, "notes");
+  const slug = params?.slug;
+  if (!slug) return notFound();
+  const result = getContentBySlug(slug, "notes");
+  if (!result || !result.content || result.content.length === 0)
+    return notFound();
 
+  const { meta, content } = result;
+
+  if (!content) notFound();
+  let compiled;
+  try {
+    // v6 RSC compile entry
+    compiled = await compileMDX({
+      source: content,
+      options: {
+        mdxOptions: {
+          // add rehype/remark plugins if you need
+        },
+      },
+      components: mdxComponents,
+    });
+  } catch (err) {
+    console.error("MDX compile error:", err);
+    return notFound();
+  }
+
+  if (!compiled || !("content" in compiled) || !compiled.content) {
+    console.error("Compiled MDX missing content for", slug, compiled);
+    return notFound();
+  }
   try {
     return (
       <Container className="mt-[10dvh] px-2 md:px-4">
@@ -52,10 +80,10 @@ export default async function BlogPostPage({ params }: PageProps) {
             </p>
           </div>
           <aside className="hidden lg:block">
-            <TableOfContents headings={headings} />
+            {/* <TableOfContents headings={headings} /> */}
           </aside>
           {/* Article Content */}
-          <MDXRemote
+          {/* <MDXRemote
             source={content}
             components={mdxComponents}
             options={{
@@ -63,7 +91,8 @@ export default async function BlogPostPage({ params }: PageProps) {
                 rehypePlugins: [rehypeSlug],
               },
             }}
-          />
+          /> */}
+          {compiled.content}
         </article>
       </Container>
     );

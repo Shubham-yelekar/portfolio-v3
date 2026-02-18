@@ -4,10 +4,32 @@ import matter from "gray-matter";
 
 type ContentType = "notes" | "projects" | "lab";
 
-const contentDirectory = path.join(process.cwd(), "src", "content");
+const CONTENT_ROOT = path.join(process.cwd(), "src", "content");
 
-export function getAllContentMeta(contentType: ContentType) {
-  const contentTypeDirectory = path.join(contentDirectory, contentType);
+export interface NotesMeta {
+  status: string;
+  title: string;
+  date: string;
+  summary: string;
+  thumbImage: string;
+  thumbVideo: string;
+  tags: string[];
+  slug: string;
+}
+
+export function getAllSlugs(type: ContentType) {
+  const dir = path.join(CONTENT_ROOT, type);
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir).filter((name) => {
+    const stat = fs.statSync(path.join(dir, name));
+    return stat.isDirectory();
+  });
+}
+
+export function getAllContentMeta(type: ContentType) {
+  const contentTypeDirectory = path.join(CONTENT_ROOT, type);
+  if (!fs.existsSync(contentTypeDirectory)) return [];
+
   const allContent = fs.readdirSync(contentTypeDirectory);
 
   const allContentMeta = allContent.map((contentSlug) => {
@@ -16,46 +38,33 @@ export function getAllContentMeta(contentType: ContentType) {
       contentSlug,
       "index.mdx",
     );
+    if (!fs.existsSync(contentPath)) return null;
     const fileContents = fs.readFileSync(contentPath, "utf8");
     const { data } = matter(fileContents);
+
+    // normalize fields and provide safe defaults so callers can rely on shape
+    const title = data.title ?? "";
+    const date = data.date ?? "";
+    const summary = data.summary ?? "";
+    const thumbImage = data.thumbImage ?? "";
+    const thumbVideo = data.thumbVideo ?? "";
+    const status = data.status ?? "draft";
+    const tags = Array.isArray(data.tags) ? data.tags : [];
+
     return {
-      ...(data as {
-        status: string;
-        title: string;
-        date: string;
-        summary: string;
-        thumbImage: string;
-        thumbVideo: string;
-        tags: string[];
-      }),
+      status,
+      title,
+      date,
+      summary,
+      thumbImage,
+      thumbVideo,
+      tags,
       slug: contentSlug,
-    };
+    } as NotesMeta;
   });
 
-  return allContentMeta;
-}
-
-export function getContentBySlug(slug: string, contentType: string) {
-  const contentTypeDirectory = path.join(contentDirectory, contentType);
-  const postPath = path.join(contentTypeDirectory, slug, "index.mdx");
-  const fileContents = fs.readFileSync(postPath, "utf8");
-
-  const { data, content } = matter(fileContents);
-  const headings = extractHeadings(content);
-
-  return {
-    meta: data,
-    content,
-    headings,
-  };
-}
-
-export function getAllSlugs(type: ContentType) {
-  const dir = path.join(process.cwd(), "src/content", type);
-  return fs.readdirSync(dir).filter((name) => {
-    const stat = fs.statSync(path.join(dir, name));
-    return stat.isDirectory();
-  });
+  // filter out any nulls (in case of missing index.mdx)
+  return allContentMeta.filter(Boolean) as NotesMeta[];
 }
 
 export function extractHeadings(content: string) {
@@ -76,13 +85,25 @@ export function extractHeadings(content: string) {
   return headings;
 }
 
-export interface NotesMeta {
-  status: string;
-  title: string;
-  date: string;
-  summary: string;
-  thumbImage: string;
-  thumbVideo: string;
-  tags: string[];
-  slug: string;
+export function getContentBySlug(slug: string, type: ContentType) {
+  const filePath = path.join(CONTENT_ROOT, type, slug, "index.mdx");
+  if (!fs.existsSync(filePath)) return null;
+  const raw = fs.readFileSync(filePath, "utf8");
+  const { data, content } = matter(raw);
+  const headings = extractHeadings(typeof content === "string" ? content : "");
+
+  return {
+    meta: {
+      title: data.title ?? "",
+      date: data.date ?? "",
+      summary: data.summary ?? "",
+      thumbImage: data.thumbImage ?? "",
+      thumbVideo: data.thumbVideo ?? "",
+      status: data.status ?? "draft",
+      tags: Array.isArray(data.tags) ? data.tags : [],
+      slug,
+    },
+    content: typeof content === "string" ? content : "",
+    headings,
+  };
 }

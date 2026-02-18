@@ -1,10 +1,11 @@
 import React from "react";
 import { getContentBySlug, getAllSlugs } from "@/lib/mdx";
-import { MDXRemote } from "next-mdx-remote/rsc";
+import { compileMDX } from "next-mdx-remote/rsc";
 import { mdxComponents } from "@/components/mdx/MdxComponents";
 import { ChevronLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 import Button from "@/components/ui/Button";
 // Import your custom components
@@ -25,9 +26,37 @@ export async function generateStaticParams() {
 }
 
 export default async function ProjectPage({ params }: PageProps) {
-  const { slug } = await params;
-  const { meta, content } = getContentBySlug(slug, "projects");
+  const slug = params?.slug;
+  if (!slug) notFound();
+  const result = getContentBySlug(slug, "projects");
 
+  if (!result || !result.content || result.content.length === 0)
+    return notFound();
+
+  const { meta, content } = result;
+
+  if (!content) notFound();
+  let compiled;
+  try {
+    // v6 RSC compile entry
+    compiled = await compileMDX({
+      source: content,
+      options: {
+        mdxOptions: {
+          // add rehype/remark plugins if you need
+        },
+      },
+      components: mdxComponents,
+    });
+  } catch (err) {
+    console.error("MDX compile error:", err);
+    return notFound();
+  }
+
+  if (!compiled || !("content" in compiled) || !compiled.content) {
+    console.error("Compiled MDX missing content for", slug, compiled);
+    return notFound();
+  }
   try {
     return (
       <Container className="mt-[10dvh] px-4">
@@ -74,7 +103,8 @@ export default async function ProjectPage({ params }: PageProps) {
           </div>
 
           {/* Article Content */}
-          <MDXRemote source={content} components={mdxComponents} />
+          {/* <MDXRemote source={content} components={mdxComponents} /> */}
+          {compiled.content}
         </article>
       </Container>
     );

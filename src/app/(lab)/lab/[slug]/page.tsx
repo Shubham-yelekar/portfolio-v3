@@ -1,10 +1,11 @@
 import React from "react";
 import { getContentBySlug, getAllSlugs } from "@/lib/mdx";
-import { MDXRemote, compileMDX } from "next-mdx-remote/rsc";
+import { compileMDX, MDXRemote } from "next-mdx-remote/rsc";
 
 // Import your custom components
 import { mdxComponents } from "@/components/mdx/MdxComponents";
 import Container from "@/components/ui/Container";
+import { notFound } from "next/navigation";
 
 // This object maps your component names to the actual components.
 // const components = {
@@ -24,8 +25,17 @@ export async function generateStaticParams() {
 }
 
 export default async function ProjectPage({ params }: PageProps) {
-  const { slug } = await params;
-  const { meta, content } = getContentBySlug(slug, "lab");
+  const slug = params?.slug;
+  if (!slug) notFound();
+  const result = getContentBySlug(slug, "lab");
+  if (!result) notFound();
+
+  const { meta, content } = result;
+  if (!content) notFound();
+  const { content: compiledContent } = await compileMDX({
+    source: content,
+    components: mdxComponents,
+  });
   try {
     return (
       <Container className="mt-[14dvh] px-4">
@@ -41,7 +51,9 @@ export default async function ProjectPage({ params }: PageProps) {
           </div>
 
           {/* Article Content */}
-          <MDXRemote source={content} components={mdxComponents} />
+          {/* <MDXRemote source={content} components={mdxComponents} /> */}
+
+          {compiledContent}
         </article>
       </Container>
     );
