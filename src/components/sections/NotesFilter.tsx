@@ -31,7 +31,7 @@ const NotesFilter = ({ uniqueTags, notes }: propType) => {
     }
     // Otherwise, filter based on selected tags
     return notes.filter((note) =>
-      selectedTags.every((tag) => note.tags.includes(tag)),
+      selectedTags.every((tag) => note.tags?.includes(tag)),
     );
   }, [notes, selectedTags]);
 

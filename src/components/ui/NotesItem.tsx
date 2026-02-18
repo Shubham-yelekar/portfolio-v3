@@ -34,7 +34,7 @@ const NotesItem = ({ post }: postProps) => {
               </p>
               <div className="h-full w-1 border-r border-neutral-800"></div>
               <div className="flex gap-2">
-                {post.tags.map((tag, i) => (
+                {post.tags?.map((tag, i) => (
                   <span
                     key={`${tag}+${i}`}
                     className="rounded-lg bg-neutral-300 px-2 py-1 font-mono text-xs capitalize dark:bg-neutral-800"

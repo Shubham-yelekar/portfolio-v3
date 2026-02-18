@@ -32,7 +32,7 @@ export function getAllContentMeta(type: ContentType) {
 
   const allContent = fs.readdirSync(contentTypeDirectory);
 
-  const allContentMeta = allContent.map((contentSlug) => {
+  return allContent.map((contentSlug) => {
     const contentPath = path.join(
       contentTypeDirectory,
       contentSlug,
@@ -40,6 +40,7 @@ export function getAllContentMeta(type: ContentType) {
     );
     if (!fs.existsSync(contentPath)) return null;
     const fileContents = fs.readFileSync(contentPath, "utf8");
+
     const { data } = matter(fileContents);
 
     // normalize fields and provide safe defaults so callers can rely on shape
