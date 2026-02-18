@@ -30,7 +30,7 @@ const ProjectsFilter = ({ uniqueTags, liveProjects }: propType) => {
     }
     // Otherwise, filter based on selected tags
     return liveProjects.filter((project) =>
-      selectedTags.every((tag) => project.tags.includes(tag)),
+      selectedTags.every((tag) => project.tags?.includes(tag)),
     );
   }, [liveProjects, selectedTags]);
   return (
@@ -83,7 +83,7 @@ const ProjectsFilter = ({ uniqueTags, liveProjects }: propType) => {
               <h4 className="font-libre! text-xl">{project.title}</h4>
               <p className="text-sm">{project.summary}</p>
               <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag, i) => (
+                {project.tags?.map((tag, i) => (
                   <span
                     key={`${tag}+${i}`}
                     className="rounded-lg bg-neutral-300 px-2 py-0.5 font-mono text-[10px] capitalize dark:bg-neutral-800"

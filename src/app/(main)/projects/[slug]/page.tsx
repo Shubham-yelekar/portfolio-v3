@@ -53,7 +53,7 @@ export default async function ProjectPage({ params }: PageProps) {
               </h1>
 
               <div className="m-2 flex flex-wrap items-center gap-2 md:gap-4">
-                {meta.tags.map((tag: string) => (
+                {meta.tags?.map((tag: string) => (
                   <div
                     className="cursor-pointer rounded-lg bg-neutral-300 px-2 py-1 font-mono text-xs text-neutral-600 capitalize transition-all select-none dark:bg-neutral-800 dark:text-neutral-400"
                     key={tag}
