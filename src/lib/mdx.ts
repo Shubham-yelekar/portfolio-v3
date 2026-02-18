@@ -32,7 +32,7 @@ export function getAllContentMeta(type: ContentType) {
 
   const allContent = fs.readdirSync(contentTypeDirectory);
 
-  return allContent.map((contentSlug) => {
+  const allContentMeta = allContent.map((contentSlug) => {
     const contentPath = path.join(
       contentTypeDirectory,
       contentSlug,
