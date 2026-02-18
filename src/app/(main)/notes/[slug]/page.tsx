@@ -17,12 +17,12 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const slug = getAllSlugs("notes");
+  const slug = getAllSlugs("notes") || [];
   return slug.map((slug) => ({ slug }));
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
-  const { slug } = await params;
+  const { slug } =  params;
   const { meta, content, headings } = getContentBySlug(slug, "notes");
 
   try {

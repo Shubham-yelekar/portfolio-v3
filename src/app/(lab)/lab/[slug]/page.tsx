@@ -19,12 +19,12 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const slugs = getAllSlugs("lab");
+  const slugs = getAllSlugs("lab") || [];
   return slugs.map((slug) => ({ slug }));
 }
 
 export default async function ProjectPage({ params }: PageProps) {
-  const { slug } = await params;
+  const { slug } =  params;
   const { meta, content } = getContentBySlug(slug, "lab");
   try {
     return (
