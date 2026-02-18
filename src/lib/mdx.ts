@@ -6,33 +6,35 @@ type ContentType = "notes" | "projects" | "lab";
 
 const contentDirectory = path.join(process.cwd(), "src", "content");
 
-export function getAllContentMeta(contentType: ContentType) {
+export function getAllContentMeta(contentType: ContentType): NotesMeta[] {
   const contentTypeDirectory = path.join(contentDirectory, contentType);
+
   const allContent = fs.readdirSync(contentTypeDirectory);
 
-  const allContentMeta = allContent.map((contentSlug) => {
+  return allContent.map((contentSlug) => {
     const contentPath = path.join(
       contentTypeDirectory,
       contentSlug,
       "index.mdx",
     );
+
     const fileContents = fs.readFileSync(contentPath, "utf8");
+
     const { data } = matter(fileContents);
+
     return {
-      ...(data as {
-        status: string;
-        title: string;
-        date: string;
-        summary: string;
-        thumbImage: string;
-        thumbVideo: string;
-        tags: string[];
-      }),
+      status: typeof data.status === "string" ? data.status : "draft",
+      title: typeof data.title === "string" ? data.title : "",
+      date: typeof data.date === "string" ? data.date : "",
+      summary: typeof data.summary === "string" ? data.summary : "",
+      thumbImage:
+        typeof data.thumbImage === "string" ? data.thumbImage : "",
+      thumbVideo:
+        typeof data.thumbVideo === "string" ? data.thumbVideo : "",
+      tags: Array.isArray(data.tags) ? data.tags : [],
       slug: contentSlug,
     };
   });
-
-  return allContentMeta;
 }
 
 export function getContentBySlug(slug: string, contentType: string) {
