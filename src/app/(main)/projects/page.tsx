@@ -10,7 +10,7 @@ const page = () => {
 
   const liveProjects = projects.filter((item) => item.status === "live");
   const uniqueTags = [
-    ...new Set(liveProjects.flatMap((projects) => projects.tags)),
+    ...new Set(liveProjects.flatMap((project) => Array.isArray(project.tags) ? project.tags : [])),
   ];
 
   return (
