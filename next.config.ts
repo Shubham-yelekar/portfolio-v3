@@ -5,7 +5,20 @@ const nextConfig: NextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   transpilePackages: ["three", "next-mdx-remote"],
   images: {
-    remotePatterns: [new URL("https://ucarecdn.com/**")],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "mir-s3-cdn-cf.behance.net",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "ucarecdn.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
   },
   webpack(config) {
     config.module.rules.push({
