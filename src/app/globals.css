@@ -10,8 +10,8 @@
 }
 
 @theme inline {
-  --font-libre: var(--font-libre-caslon-con);
-  --font-mono: "JetBrains Mono", monospace;
+  --font-mono: var(--font-mono), monospace;
+  --font-sans: var(--font-sans), sans;
   --background: var(--color-neutral-200);
   --foreground: var(--color-neutral-950);
   --accent: var(--color-orange-500);
@@ -74,14 +74,13 @@
 
 body {
   background-color: var(--background);
-  font-family: var(--font-generalSans);
+  font-family: var(--font-sans);
   font-weight: 500;
 
   /* text-wrap: wrap; */
 }
 
 h1 {
-  font-family: var(--font-libre-caslon-con);
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: -2;

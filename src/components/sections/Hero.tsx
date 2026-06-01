@@ -1,18 +1,16 @@
-import React from "react";
-import Container from "@/components/ui/Container";
-import WavingFlag from "@/components/ui/WavingFlag";
 import Button from "@/components/ui/Button";
+import Container from "@/components/ui/Container";
 
-import { BsTwitterX, BsGithub, BsLinkedin } from "react-icons/bs";
+import { BsGithub, BsLinkedin, BsTwitterX } from "react-icons/bs";
 
 import Link from "next/link";
-import TerminalIcon from "../icons/TerminalIcon";
 import FigmaSvg from "../icons/FigmaSvg";
 import MumbaiSvg from "../icons/MumbaiSvg";
+import TerminalIcon from "../icons/TerminalIcon";
 const Hero = () => {
   return (
     <Container className="mt-[30dvh] flex flex-col gap-6 px-4 md:mt-[28dvh] md:gap-9">
-      <WavingFlag />
+      {/* <WavingFlag /> */}
 
       <div>
         <div className="flex flex-col md:flex-row md:gap-4">

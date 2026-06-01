@@ -1,14 +1,23 @@
-import type { Metadata } from "next";
-import { generalSans, libreSerif } from "../../public/fonts/index";
-import "./globals.css";
-import Navbar from "@/components/ui/Navbar";
 import ThemeSwitchProvider from "@/app/providers/Providers";
 import Footer from "@/components/sections/Footer";
-import Providers from "@/app/providers/Providers";
+import Navbar from "@/components/ui/Navbar";
 import { GoogleTagManager } from "@next/third-parties/google";
-import Head from "next/head";
 import { Analytics } from "@vercel/analytics/next";
+import type { Metadata } from "next";
+import { Inter_Tight, JetBrains_Mono } from "next/font/google";
+import Head from "next/head";
+import "./globals.css";
 import { ToastProvider } from "./providers/ToastProvider";
+
+const InterTight = Inter_Tight({
+  variable: "--font-sans",
+  subsets: ["latin"],
+});
+
+const JetBrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Shubham Yelekar | Front End Developer",
@@ -54,7 +63,7 @@ export default function RootLayout({
       </Head>
       <GoogleTagManager gtmId="G-XDTVH3FXKT" />
       <body
-        className={`${generalSans.variable} ${libreSerif.variable} bg-background relative flex min-h-screen w-screen flex-col justify-between antialiased`}
+        className={`${InterTight.variable} ${JetBrainsMono.variable} bg-background relative flex min-h-screen w-screen flex-col justify-between antialiased`}
       >
         <ThemeSwitchProvider>
           <ToastProvider position="top-right" duration={5000}>
