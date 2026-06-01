@@ -1,4 +1,3 @@
-import React from "react";
 import { NotesMeta } from "@/lib/mdx";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,7 +20,7 @@ const NotesItem = ({ post }: postProps) => {
             height={140}
           />
           <div className="">
-            <h4 className="font-libre! mb-2 text-lg text-neutral-800! md:text-xl dark:text-neutral-200!">
+            <h4 className=" mb-2 text-lg text-neutral-800! md:text-xl dark:text-neutral-200!">
               {post.title}
             </h4>
             <div className="flex flex-col items-start gap-1 md:flex-row">

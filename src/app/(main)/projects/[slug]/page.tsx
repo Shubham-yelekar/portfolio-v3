@@ -1,8 +1,7 @@
-import React from "react";
-import { getContentBySlug, getAllSlugs } from "@/lib/mdx";
-import { compileMDX } from "next-mdx-remote/rsc";
 import { mdxComponents } from "@/components/mdx/MdxComponents";
+import { getAllSlugs, getContentBySlug } from "@/lib/mdx";
 import { ChevronLeft } from "lucide-react";
+import { compileMDX } from "next-mdx-remote/rsc";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -77,7 +76,7 @@ export default async function ProjectPage({ params }: PageProps) {
               height={320}
             />
             <div className="flex flex-col gap-2 pb-4">
-              <h1 className="font-libre! px-2 text-3xl md:px-4 md:text-4xl">
+              <h1 className=" px-2 text-3xl md:px-4 md:text-4xl">
                 {meta.title}
               </h1>
 

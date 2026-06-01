@@ -1,9 +1,8 @@
 "use client";
+import { NotesMeta } from "@/lib/mdx";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import { NotesMeta } from "@/lib/mdx";
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
 
 import cn from "@/app/lib/cn";
 interface propType {
@@ -80,7 +79,7 @@ const ProjectsFilter = ({ uniqueTags, liveProjects }: propType) => {
               />
             </div>
             <div className="flex flex-col justify-between gap-2 rounded-xl px-2 py-3">
-              <h4 className="font-libre! text-xl">{project.title}</h4>
+              <h4 className=" text-xl">{project.title}</h4>
               <p className="text-sm">{project.summary}</p>
               <div className="flex flex-wrap gap-2">
                 {project.tags?.map((tag, i) => (

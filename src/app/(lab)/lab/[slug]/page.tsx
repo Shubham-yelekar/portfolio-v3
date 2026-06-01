@@ -1,6 +1,5 @@
-import React from "react";
-import { getContentBySlug, getAllSlugs } from "@/lib/mdx";
-import { compileMDX, MDXRemote } from "next-mdx-remote/rsc";
+import { getAllSlugs, getContentBySlug } from "@/lib/mdx";
+import { compileMDX } from "next-mdx-remote/rsc";
 
 // Import your custom components
 import { mdxComponents } from "@/components/mdx/MdxComponents";
@@ -43,7 +42,7 @@ export default async function ProjectPage({ params }: PageProps) {
           {/* Article Header */}
           <div className="mb-4 rounded-xl bg-neutral-100 px-4 py-4 dark:bg-neutral-900">
             <div>
-              <h4 className="font-libre! mb-2 text-3xl md:text-4xl">
+              <h4 className=" mb-2 text-3xl md:text-4xl">
                 {meta.title}
               </h4>
               <p className="text-xs md:text-base">{meta.summary}</p>

@@ -1,14 +1,11 @@
 // app/blog/[slug]/page.tsx
-import { getContentBySlug, getAllSlugs } from "@/lib/mdx";
-import { compileMDX, MDXRemote } from "next-mdx-remote/rsc";
 import { mdxComponents } from "@/components/mdx/MdxComponents";
+import { getAllSlugs, getContentBySlug } from "@/lib/mdx";
+import { compileMDX } from "next-mdx-remote/rsc";
 
-import rehypeSlug from "rehype-slug";
 // Import your custom components
-import { Callout } from "@/components/mdx/Callout";
 import Container from "@/components/ui/Container";
 import Image from "next/image";
-import TableOfContents from "@/components/mdx/TableOfContents";
 import { notFound } from "next/navigation";
 
 interface PageProps {
@@ -67,7 +64,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               width={450}
               height={320}
             />
-            <h1 className="font-libre! m-0! px-2 text-3xl font-bold md:px-4 md:text-4xl">
+            <h1 className=" m-0! px-2 text-3xl font-bold md:px-4 md:text-4xl">
               {meta.title}
             </h1>
             <p className="mt-2 px-2 md:px-4">{meta.summary}</p>

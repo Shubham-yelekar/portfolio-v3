@@ -1,30 +1,29 @@
 import {
-  YouTubeEmbed,
-  ImageWrapper,
-  ImageModal,
-  Blockquote,
-  ImageCarousal,
-  ImageCompare,
-  VideoWrapper,
-  MobileVideoWrapper,
-  ComponentBox,
-  BigComponentBox,
+    BigComponentBox,
+    Blockquote,
+    ComponentBox,
+    ImageCarousal,
+    ImageCompare,
+    ImageModal,
+    ImageWrapper,
+    MobileVideoWrapper,
+    VideoWrapper,
+    YouTubeEmbed,
 } from "@/components/mdx/embeded";
 
-import { MdxPre } from "./MdxPre";
-import CopyButtonClient from "./CopyButton.client";
-import CodeBlockServer from "./CodeBlock.server";
-import InlineCode from "./InlineCode";
-import TextCursor from "../ui/TextCursor";
-import LinkHover from "../ui-components/button-collection/LinkHover";
-import ShinyText from "../ui-components/button-collection/Shinytext";
-import WavingFlag from "../ui/WavingFlag";
 import AppleKeyboard from "../ui-components/AppleKeyboard";
 import ToastDemo from "../ui-components/ToastDemo";
 import AccordionDemo from "../ui-components/accordion/AccordionDemo";
 import BasicAccordion from "../ui-components/accordion/BasicAccordion";
-import TabsDemo from "../ui-components/tabs/TabsDemo";
+import LinkHover from "../ui-components/button-collection/LinkHover";
+import ShinyText from "../ui-components/button-collection/Shinytext";
 import TabsBasic from "../ui-components/tabs/TabsBasic";
+import TabsDemo from "../ui-components/tabs/TabsDemo";
+import TextCursor from "../ui/TextCursor";
+import WavingFlag from "../ui/WavingFlag";
+import CodeBlockServer from "./CodeBlock.server";
+import InlineCode from "./InlineCode";
+import { MdxPre } from "./MdxPre";
 
 // A styled h1 component
 export const H1 = ({ children }) => (
@@ -36,30 +35,30 @@ export const H1 = ({ children }) => (
 export const H2 = ({ children, ...props }) => (
   <h2
     {...props}
-    className="font-libre! mt-6! mb-4! text-2xl text-neutral-800! md:px-4! dark:text-neutral-200!"
+    className=" mt-6! mb-4! text-2xl text-neutral-800! md:px-4! dark:text-neutral-200!"
   >
     {children}
   </h2>
 );
 
 export const H3 = ({ children }) => (
-  <h3 className="font-libre! mt-4! mb-2! text-xl font-normal! text-neutral-800! md:px-4! dark:text-neutral-200!">
+  <h3 className=" mt-4! mb-2! text-xl font-normal! text-neutral-800! md:px-4! dark:text-neutral-200!">
     {children}
   </h3>
 );
 
 export const H4 = ({ children }) => (
-  <h4 className="font-libre! my-4! text-lg font-normal! text-neutral-800! md:px-4! dark:text-neutral-200!">
+  <h4 className=" my-4! text-lg font-normal! text-neutral-800! md:px-4! dark:text-neutral-200!">
     {children}
   </h4>
 );
 export const H5 = ({ children }) => (
-  <h5 className="font-libre! my-3! text-base font-normal! text-neutral-800! md:px-4! dark:text-neutral-200!">
+  <h5 className=" my-3! text-base font-normal! text-neutral-800! md:px-4! dark:text-neutral-200!">
     {children}
   </h5>
 );
 export const H6 = ({ children }) => (
-  <h6 className="font-libre! my-2! text-sm font-normal! text-neutral-800! md:px-4! dark:text-neutral-200!">
+  <h6 className=" my-2! text-sm font-normal! text-neutral-800! md:px-4! dark:text-neutral-200!">
     {children}
   </h6>
 );

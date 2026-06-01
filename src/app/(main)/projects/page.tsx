@@ -1,9 +1,9 @@
-import PageWrapper from "@/components/ui/PageWrapper";
 import Container from "@/components/ui/Container";
+import PageWrapper from "@/components/ui/PageWrapper";
 import { getAllContentMeta } from "@/lib/mdx";
 
-import { ProjectsScribble } from "../../../components/ui/AppleEffect";
 import ProjectsFilter from "@/components/sections/ProjectsFilter";
+import { ProjectsScribble } from "../../../components/ui/AppleEffect";
 
 const page = () => {
   const projects = getAllContentMeta("projects");
@@ -16,7 +16,7 @@ const page = () => {
   return (
     <PageWrapper>
       <Container className="mt-[14dvh]">
-        <h2 className="font-libre! text-center text-3xl">Projects</h2>
+        <h2 className=" text-center text-3xl">Projects</h2>
         <ProjectsScribble className={"absolute left-1/2 -translate-x-1/2"} />
         <ProjectsFilter uniqueTags={uniqueTags} liveProjects={liveProjects} />
       </Container>

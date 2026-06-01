@@ -1,12 +1,9 @@
-import React from "react";
-import PageWrapper from "@/components/ui/PageWrapper";
 import Container from "@/components/ui/Container";
+import PageWrapper from "@/components/ui/PageWrapper";
 import { getAllContentMeta } from "@/lib/mdx";
-import Link from "next/link";
 import Image from "next/image";
-import Button from "@/components/ui/Button";
+import Link from "next/link";
 import { LabScribble } from "../../../components/ui/AppleEffect";
-import { b } from "motion/react-client";
 const page = () => {
   const lab = getAllContentMeta("lab")
     .filter((item) => item.status === "live")
@@ -15,7 +12,7 @@ const page = () => {
   return (
     <PageWrapper>
       <Container className="mt-[14dvh] px-4">
-        <h2 className="font-libre! text-center text-3xl font-bold">Lab</h2>
+        <h2 className=" text-center text-3xl font-bold">Lab</h2>
         <LabScribble className={"absolute left-1/2 -translate-x-1/2"} />
         <div className="mt-12 grid grid-cols-2 justify-center gap-4">
           {lab.map((item) => (

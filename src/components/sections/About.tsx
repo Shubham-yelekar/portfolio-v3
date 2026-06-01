@@ -1,12 +1,9 @@
-import React from "react";
-import Container from "../ui/Container";
 import Image from "next/image";
 import Link from "next/link";
-import { BsTwitterX, BsGithub, BsLinkedin } from "react-icons/bs";
-import { IoMail, IoLocation, IoBriefcase } from "react-icons/io5";
+import { IoBriefcase, IoLocation, IoMail } from "react-icons/io5";
 import { PiReadCvLogoFill } from "react-icons/pi";
-import { FaReact } from "react-icons/fa6";
 import Button from "../ui/Button";
+import Container from "../ui/Container";
 
 const design = [
   {
@@ -113,7 +110,7 @@ const About = () => {
         />
         {/* Your Content/Components */}
       </div>
-      {/* <h2 className="text-paragraph! font-libre! px-2 text-center text-2xl italic md:px-4">
+      {/* <h2 className="text-paragraph!  px-2 text-center text-2xl italic md:px-4">
         Notes
       </h2> */}
 
@@ -128,7 +125,7 @@ const About = () => {
             />
           </div>
           <div className="flex flex-col gap-2">
-            <h3 className="font-libre! text-2xl font-light tracking-tight md:text-3xl">
+            <h3 className=" text-2xl font-light tracking-tight md:text-3xl">
               Shubham Yelekar
             </h3>
             <div className="flex items-center gap-2">
@@ -208,7 +205,7 @@ const About = () => {
         </div>
       </div>
       <div>
-        <h6 className="font-libre! text-2xl">Experience</h6>
+        <h6 className=" text-2xl">Experience</h6>
         <div className="mt-8">
           <div className="group sm:md-4 mb-36 lg:mb-2">
             <div className="flex justify-between gap-2">
@@ -219,7 +216,7 @@ const About = () => {
                 <Button>Read More</Button>
               </Link>
             </div>
-            <h3 className="font-libre! text-paragraph! mb-4 text-lg">
+            <h3 className=" text-paragraph! mb-4 text-lg">
               @ Artificial Reality - May 2023 to Present
             </h3>
 
@@ -292,7 +289,7 @@ const About = () => {
                 <h3 className="text-xl">Web Developer</h3>
               </div>
             </div>
-            <h3 className="font-libre! text-paragraph! mb-4 text-lg">
+            <h3 className=" text-paragraph! mb-4 text-lg">
               @ Freelance - March 2023 to May 2023
             </h3>
             <div className="my-2 flex justify-start gap-2">
@@ -343,7 +340,7 @@ const About = () => {
       </div>
 
       <div>
-        <h6 className="font-libre! text-2xl">Developer Tool Set</h6>
+        <h6 className=" text-2xl">Developer Tool Set</h6>
         <div>
           <div className="mt-4 grid grid-cols-2 gap-4 md:grid-cols-3">
             {webDev.map((box, index) => (
@@ -362,7 +359,7 @@ const About = () => {
             ))}
           </div>
         </div>
-        <h6 className="font-libre! mt-8 text-2xl">Designer Tool Set</h6>
+        <h6 className=" mt-8 text-2xl">Designer Tool Set</h6>
         <div className="mt-4 grid grid-cols-2 gap-4 md:grid-cols-3">
           {design.map((box, index) => (
             <div
