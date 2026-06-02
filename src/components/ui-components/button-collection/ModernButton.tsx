@@ -1,9 +1,5 @@
-import React, {
-  AnchorHTMLAttributes,
-  ButtonHTMLAttributes,
-  ReactNode,
-} from "react";
 import cn from "@/app/lib/cn";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 
 // VARIANTS
 // color , dark mode , hover , focus states
@@ -41,7 +37,7 @@ const ModernButton = ({
     <button
       type={type}
       className={cn(
-        "inline-flex items-center rounded-lg whitespace-nowrap shadow-[0_1px_0_rgba(255,255,255,0.25)_inset,0_2px_4px_rgba(0,0,0,0.15)] transition-colors duration-300 ease-out",
+        "inline-flex cursor-pointer items-center rounded-lg whitespace-nowrap shadow-[0_1px_0_rgba(255,255,255,0.25)_inset,0_2px_4px_rgba(0,0,0,0.15)] transition-colors duration-300 ease-out active:scale-[0.97]",
         buttonSizes[size],
         buttonVariants[variant],
         className,

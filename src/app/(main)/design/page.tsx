@@ -1,5 +1,6 @@
 import Container from "@/components/ui/Container";
 import PageWrapper from "@/components/ui/PageWrapper";
+import Button from "../../../components/ui/Button";
 
 const TypographyDesignSystem = () => {
   return (
@@ -7,13 +8,18 @@ const TypographyDesignSystem = () => {
       <Container className="mx-auto mt-[14dvh] mb-24 max-w-6xl space-y-16">
         {/* Dynamic Spec Catalog Grid */}
         <div className="space-y-12">
-          <h1>Heading</h1>
-          <h2>Heading</h2>
-          <h3>Heading</h3>
-          <h4>Heading</h4>
-          <h5>Heading</h5>
-          <h6>Heading</h6>
-          <p>Heading</p>
+          <h1 className="heading-1">Heading 1</h1>
+          <h2 className="heading-2">Heading 2</h2>
+          <p className="body-1">Body 1</p>
+          <p className="body-2">Body 2</p>
+          <p className="caption-1">Body 1</p>
+          <p className="caption-2">Body 2</p>
+          <div className="align-start flex gap-3">
+            <Button variant={"primary"}>Button</Button>
+            <Button variant={"primary"} size={"sm"}>
+              Button
+            </Button>
+          </div>
         </div>
       </Container>
     </PageWrapper>

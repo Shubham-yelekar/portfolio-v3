@@ -12,12 +12,12 @@
 @theme inline {
   --font-mono: var(--font-mono), monospace;
   --font-sans: var(--font-sans), sans;
-  --background: var(--color-neutral-200);
+  --background: var(--color-neutral-50);
   --foreground: var(--color-neutral-950);
   --accent: var(--color-orange-500);
 
-  --color-brand: var(--color-purple-500);
-  --color-brand-hover: var(--color-purple-600);
+  --color-brand: var(--color-orange-500);
+  --color-brand-hover: var(--color-orange-600);
 
   --background-text: var(--color-neutral-100);
   --background-text-bg: var(--color-neutral-500);
@@ -57,7 +57,7 @@
 
   --color-subheading: var(--color-neutral-400);
   --color-paragraph: var(--color-neutral-400);
-  --color-heading: var(--color-neutral-200);
+  --color-heading: var(--color-neutral-100);
 
   --text-heading-1: linear-gradient(
     to top,
@@ -75,11 +75,45 @@
 body {
   background-color: var(--background);
   font-family: var(--font-sans);
-  /* Changed from 500 to 400 to match the "Regular" body spec in image_fd2169.jpg */
-  font-weight: 400;
-  color: var(--color-body, #111111);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+
+.display {
+  font-family: inherit;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.heading-1 {
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: 500;
+}
+.heading-2 {
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.body-1 {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+}
+.body-2 {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.caption-1 {
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 500;
+}
+.caption-2 {
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 500;
 }
 
 ul > li {

@@ -1,39 +1,21 @@
-import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 
-import { BsGithub, BsLinkedin, BsTwitterX } from "react-icons/bs";
-
-import Link from "next/link";
-import FigmaSvg from "../icons/FigmaSvg";
 import MumbaiSvg from "../icons/MumbaiSvg";
-import TerminalIcon from "../icons/TerminalIcon";
 const Hero = () => {
   return (
     <Container className="mt-[30dvh] flex flex-col gap-6 px-4 md:mt-[28dvh] md:gap-9">
       {/* <WavingFlag /> */}
 
       <div>
-        <div className="flex flex-col md:flex-row md:gap-4">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl">Shubham Yelekar,</h1>
-        </div>
-
-        <div className="flex flex-col gap-0 sm:flex-row sm:gap-3">
-          <div className="flex flex-row items-center gap-2 md:gap-3">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl">A Front-end</h1>
-            <TerminalIcon className="h-fit w-10 rounded-lg shadow-[var(--card-shadow)] md:w-16 md:rounded-xl" />
+        <div className="flex flex-col md:flex-row md:gap-8">
+          <MumbaiSvg className="h-fit w-10 rounded-lg shadow-[var(--card-shadow)] md:w-18 md:rounded-xl" />
+          <div className="item-center flex flex-col justify-center">
+            <h1 className="heading-2 text-heading">Shubham Yelekar</h1>
+            <h1 className="heading-2 text-paragraph">Design Engineer</h1>
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl">Developer</h1>
-        </div>
-        <div className="flex flex-row items-center gap-2 md:gap-3">
-          <FigmaSvg className="h-fit w-10 rounded-lg shadow-[var(--card-shadow)] md:w-16 md:rounded-xl" />
-          <h1 className="text-4xl sm:text-5xl md:text-6xl">& Designer,</h1>
-        </div>
-        <div className="flex flex-row gap-2 sm:flex-row sm:gap-3">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl">Based in Mumbai </h1>
-          <MumbaiSvg className="h-fit w-10 rounded-lg shadow-[var(--card-shadow)] md:w-16 md:rounded-xl" />
         </div>
       </div>
-      <div>
+      {/* <div>
         <div className="flex gap-2">
           <Link href={"https://x.com/shubu_y"} target="_blank">
             <Button
@@ -66,14 +48,14 @@ const Hero = () => {
             </Button>
           </Link>
         </div>
-      </div>
+      </div> */}
       <div className="flex flex-col gap-4">
-        <p className="text-paragraph text-sm md:text-base">
+        <p className="text-paragraph body-1">
           I love to build fluid, engaging interfaces , animations or 3D
           elements, to create memorable and delightful experiences for the
           end-user.
         </p>
-        <p className="text-paragraph text-sm md:text-base">
+        <p className="text-paragraph body-1">
           I'm currently working at <strong>Artificial Reality</strong> as{" "}
           <strong>Frontend Developer and UI Designer</strong> , building and
           designing interfaces for 3D car configurators, landing pages and
