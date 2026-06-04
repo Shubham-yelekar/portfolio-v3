@@ -1,26 +1,58 @@
 import Container from "@/components/ui/Container";
+import Link from "next/link";
 import WavingFlag from "../ui/WavingFlag";
 
 const Hero = () => {
   return (
-    <Container className="relative mt-[30dvh] flex flex-col justify-end gap-4 md:mt-[24dvh] md:gap-6">
-      <div className="relative h-16 w-16 overflow-hidden rounded-lg md:rounded-2xl">
-        <WavingFlag />
-      </div>
-      <div className="flex flex-col items-center md:flex-row md:gap-8">
+    <Container className="relative mt-[18dvh] flex flex-col justify-end gap-4 md:mt-[18dvh] md:gap-12">
+      <div className="flex flex-col items-center md:gap-8">
         {/* <MumbaiSvg className="h-fit w-10 rounded-lg shadow-[var(--card-shadow)] md:w-16 md:rounded-xl" /> */}
-        <div className="item-center flex flex-col justify-center">
-          <h1 className="heading-1 text-heading">Shubham Yelekar, </h1>
-          <h2 className="heading-2 text-subheading">
-            Crafting Beautiful Interfaces
-          </h2>
-          <h1 className="heading-2 text-subheading">
-            from <span className="text-orange-500">Design</span> ⇛{" "}
-            <span className="text-purple-500">Code</span>
+        <div className="relative h-16 w-16 overflow-hidden rounded-lg md:rounded-2xl">
+          <WavingFlag />
+        </div>
+        <div className="item-center flex flex-col justify-center gap-2">
+          <h1 className="heading-1 text-center leading-6 text-neutral-900 dark:text-neutral-50">
+            Shubham Yelekar
           </h1>
+          <h2 className="body-1 text-subheading text-center leading-5">
+            Developer / Designer
+          </h2>
         </div>
       </div>
+      <div className="text-subheading body-1 flex w-full justify-center gap-8 select-none">
+        <Link
+          href="https://x.com/shubu_y"
+          target="_blank"
+          className="group relative inline-block overflow-hidden"
+        >
+          <span className="absolute inset-x-0 bottom-0 -z-5 h-0.5 bg-neutral-200 dark:bg-neutral-800" />
+          <span className="absolute inset-x-0 bottom-0 -z-1 h-0.5 origin-left scale-x-0 bg-neutral-500 transition-transform duration-300 ease-out group-hover:scale-x-100" />
 
+          <span className="text-paragraph">X/Twitter</span>
+        </Link>
+        •
+        <Link
+          href={"https://github.com/Shubham-yelekar"}
+          target="_blank"
+          className="group relative inline-block overflow-hidden"
+        >
+          <span className="absolute inset-x-0 bottom-0 -z-5 h-0.5 bg-neutral-200 dark:bg-neutral-800" />
+          <span className="absolute inset-x-0 bottom-0 -z-1 h-0.5 origin-left scale-x-0 bg-neutral-500 transition-transform duration-300 ease-out group-hover:scale-x-100" />
+
+          <span className="text-paragraph">GitHub</span>
+        </Link>
+        •
+        <Link
+          href={"https://www.linkedin.com/in/shubhamyelekar/"}
+          target="_blank"
+          className="group relative inline-block overflow-hidden"
+        >
+          <span className="absolute inset-x-0 bottom-0 -z-5 h-0.5 bg-neutral-200 dark:bg-neutral-800" />
+          <span className="absolute inset-x-0 bottom-0 -z-1 h-0.5 origin-left scale-x-0 bg-neutral-500 transition-transform duration-300 ease-out group-hover:scale-x-100" />
+
+          <span className="text-paragraph">LinkedIn</span>
+        </Link>
+      </div>
       {/* <div>
         <div className="flex gap-2">
           <Link href={"https://x.com/shubu_y"} target="_blank">
@@ -56,7 +88,6 @@ const Hero = () => {
         </div>
       </div> */}
       <div className="flex flex-col gap-4">
-        <h1 className="heading-1 text-heading">Shubham Yelekar, </h1>
         <h2 className="text-subheading body-1">
           Based in Mumbai India I love to build fluid, engaging interfaces ,
           animations or 3D elements, to create memorable and delightful

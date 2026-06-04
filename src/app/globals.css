@@ -23,7 +23,7 @@
   --background-text-bg: var(--color-neutral-500);
 
   --color-paragraph: var(--color-neutral-600);
-  --color-subheading: var(--color-neutral-400);
+  --color-subheading: var(--color-neutral-600);
   --color-heading: var(--color-neutral-900);
 
   --color-card: var(--color-neutral-50);
@@ -55,8 +55,8 @@
   --background-text: var(--color-neutral-200);
   --background-text-bg: var(--color-neutral-800);
 
-  --color-subheading: var(--color-neutral-500);
-  --color-paragraph: var(--color-neutral-500);
+  --color-subheading: var(--color-neutral-400);
+  --color-paragraph: var(--color-neutral-400);
   --color-heading: var(--color-neutral-100);
 
   --text-heading-1: linear-gradient(
