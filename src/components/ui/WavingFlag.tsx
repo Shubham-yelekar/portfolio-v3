@@ -1,17 +1,16 @@
 // @ts-nocheck
 "use client";
 
-import React from "react";
-import { useRef, useMemo, type FC } from "react";
+import { useRef, type FC } from "react";
 
 ///  THREE D
-import * as THREE from "three";
-import { Canvas, useFrame, extend } from "@react-three/fiber";
 import { shaderMaterial, useTexture } from "@react-three/drei";
+import { Canvas, extend, useFrame } from "@react-three/fiber";
+import * as THREE from "three";
 
 /// Shaders
-import vertexShader from "../../../public/Shaders/WavingFlag/flagVertex.glsl";
 import fragmentShader from "../../../public/Shaders/WavingFlag/flagFragment.glsl";
+import vertexShader from "../../../public/Shaders/WavingFlag/flagVertex.glsl";
 
 type Uniforms = {
   uTime: number;
@@ -74,11 +73,7 @@ function Scene() {
         intensity={1.5}
       />
 
-      <mesh
-        castShadow
-        rotation={[-0.1, -0.18, 0.15]}
-        position={[0.05, 0.05, 0.2]}
-      >
+      <mesh castShadow rotation={[0.0, 0.0, 0.0]} position={[0.0, 0.0, 0.0]}>
         <planeGeometry args={[1.8, 1, 64, 64]} />
         // @ts-ignore
         {
@@ -99,17 +94,18 @@ function Scene() {
 const WavingFlag: FC = () => {
   const shaderRef = useRef<THREE.ShaderMaterial & Uniforms>(null!);
   return (
-    <div className="fade-mask absolute -top-14 left-1/2 z-1 h-[50dvh] w-full -translate-x-1/2 bg-blue-400 md:h-96 md:w-[900px]">
+    <div className="absolute top-0 left-0 -z-1 aspect-square w-full">
+      {/* position [x, y , z]  */}
       <Canvas
         shadows
-        camera={{ position: [-0.2, -0.1, 0.8], fov: 60 }}
+        camera={{ position: [0.0, 0.0, 0.8], fov: 50 }}
         gl={{
           antialias: true,
           outputColorSpace: THREE.SRGBColorSpace,
           toneMapping: THREE.ACESFilmicToneMapping,
           toneMappingExposure: 1.1,
         }}
-        style={{ background: "#e5e5e5", height: "50vh" }}
+        style={{ background: "transparent" }}
       >
         {/* <OrbitControls enableDamping /> */}
         <Scene />

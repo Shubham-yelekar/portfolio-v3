@@ -5,7 +5,7 @@ import Container from "../ui/Container";
 
 const Projects = () => {
   return (
-    <Container className="flex flex-col gap-6 md:gap-12">
+    <Container text={false} className="flex flex-col gap-6 md:gap-12">
       <h2 className=" px-2 text-center text-2xl md:px-4">
         Selected Projects
       </h2>

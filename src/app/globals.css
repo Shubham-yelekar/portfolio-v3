@@ -12,8 +12,8 @@
 @theme inline {
   --font-mono: var(--font-mono), monospace;
   --font-sans: var(--font-sans), sans;
-  --background: var(--color-neutral-50);
-  --foreground: var(--color-neutral-950);
+  --background: var(--color-white);
+  --foreground: var(--color-neutral-900);
   --accent: var(--color-orange-500);
 
   --color-brand: var(--color-orange-500);
@@ -22,8 +22,8 @@
   --background-text: var(--color-neutral-100);
   --background-text-bg: var(--color-neutral-500);
 
-  --color-paragraph: var(--color-neutral-500);
-  --color-subheading: var(--color-neutral-700);
+  --color-paragraph: var(--color-neutral-600);
+  --color-subheading: var(--color-neutral-400);
   --color-heading: var(--color-neutral-900);
 
   --color-card: var(--color-neutral-50);
@@ -55,8 +55,8 @@
   --background-text: var(--color-neutral-200);
   --background-text-bg: var(--color-neutral-800);
 
-  --color-subheading: var(--color-neutral-400);
-  --color-paragraph: var(--color-neutral-400);
+  --color-subheading: var(--color-neutral-500);
+  --color-paragraph: var(--color-neutral-500);
   --color-heading: var(--color-neutral-100);
 
   --text-heading-1: linear-gradient(
@@ -138,6 +138,7 @@ code {
 }
 
 .fade-mask {
+  width: 100%;
   /* Apply a linear gradient as a mask. The transparent parts will be hidden. */
   mask-image: radial-gradient(
     52.07% 83.99% at 50.04% 16.01%,

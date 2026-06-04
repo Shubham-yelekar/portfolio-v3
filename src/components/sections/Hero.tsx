@@ -1,20 +1,26 @@
 import Container from "@/components/ui/Container";
+import WavingFlag from "../ui/WavingFlag";
 
-import MumbaiSvg from "../icons/MumbaiSvg";
 const Hero = () => {
   return (
-    <Container className="mt-[30dvh] flex flex-col gap-6 px-4 md:mt-[28dvh] md:gap-9">
-      {/* <WavingFlag /> */}
-
-      <div>
-        <div className="flex flex-col md:flex-row md:gap-8">
-          <MumbaiSvg className="h-fit w-10 rounded-lg shadow-[var(--card-shadow)] md:w-18 md:rounded-xl" />
-          <div className="item-center flex flex-col justify-center">
-            <h1 className="heading-2 text-heading">Shubham Yelekar</h1>
-            <h1 className="heading-2 text-paragraph">Design Engineer</h1>
-          </div>
+    <Container className="relative mt-[30dvh] flex flex-col justify-end gap-4 md:mt-[24dvh] md:gap-6">
+      <div className="relative h-16 w-16 overflow-hidden rounded-lg md:rounded-2xl">
+        <WavingFlag />
+      </div>
+      <div className="flex flex-col items-center md:flex-row md:gap-8">
+        {/* <MumbaiSvg className="h-fit w-10 rounded-lg shadow-[var(--card-shadow)] md:w-16 md:rounded-xl" /> */}
+        <div className="item-center flex flex-col justify-center">
+          <h1 className="heading-1 text-heading">Shubham Yelekar, </h1>
+          <h2 className="heading-2 text-subheading">
+            Crafting Beautiful Interfaces
+          </h2>
+          <h1 className="heading-2 text-subheading">
+            from <span className="text-orange-500">Design</span> ⇛{" "}
+            <span className="text-purple-500">Code</span>
+          </h1>
         </div>
       </div>
+
       {/* <div>
         <div className="flex gap-2">
           <Link href={"https://x.com/shubu_y"} target="_blank">
@@ -50,17 +56,18 @@ const Hero = () => {
         </div>
       </div> */}
       <div className="flex flex-col gap-4">
-        <p className="text-paragraph body-1">
-          I love to build fluid, engaging interfaces , animations or 3D
-          elements, to create memorable and delightful experiences for the
-          end-user.
-        </p>
-        <p className="text-paragraph body-1">
+        <h1 className="heading-1 text-heading">Shubham Yelekar, </h1>
+        <h2 className="text-subheading body-1">
+          Based in Mumbai India I love to build fluid, engaging interfaces ,
+          animations or 3D elements, to create memorable and delightful
+          experiences for the end-user.
+        </h2>
+        <h2 className="text-subheading body-1">
           I'm currently working at <strong>Artificial Reality</strong> as{" "}
           <strong>Frontend Developer and UI Designer</strong> , building and
           designing interfaces for 3D car configurators, landing pages and
           various web apps.
-        </p>
+        </h2>
       </div>
     </Container>
   );
