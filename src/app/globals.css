@@ -12,6 +12,7 @@
 @theme inline {
   --font-mono: var(--font-mono), monospace;
   --font-sans: var(--font-sans), sans;
+  --font-serif: var(--font-serif), serif;
   --background: var(--color-white);
   --foreground: var(--color-neutral-900);
   --accent: var(--color-orange-500);
@@ -78,8 +79,9 @@ body {
 }
 
 .display {
-  font-family: inherit;
-  font-size: 30px;
+  font-family: var(--font-serif);
+  font-size: 42px;
+
   font-weight: 500;
 }
 

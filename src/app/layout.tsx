@@ -4,7 +4,11 @@ import Navbar from "@/components/ui/Navbar";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
-import { Inter_Tight, JetBrains_Mono } from "next/font/google";
+import {
+  Instrument_Serif,
+  Inter_Tight,
+  JetBrains_Mono,
+} from "next/font/google";
 import Head from "next/head";
 import "./globals.css";
 import { ToastProvider } from "./providers/ToastProvider";
@@ -16,6 +20,11 @@ const InterTight = Inter_Tight({
 
 const JetBrainsMono = JetBrains_Mono({
   variable: "--font-mono",
+  subsets: ["latin"],
+});
+const InstrumentSerif = Instrument_Serif({
+  variable: "--font-serif",
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -63,7 +72,7 @@ export default function RootLayout({
       </Head>
       <GoogleTagManager gtmId="G-XDTVH3FXKT" />
       <body
-        className={`${InterTight.variable} ${JetBrainsMono.variable} bg-background relative flex min-h-screen w-screen flex-col justify-between antialiased`}
+        className={`${InterTight.variable} ${InstrumentSerif.variable} ${JetBrainsMono.variable} bg-background relative flex min-h-screen w-screen flex-col justify-between antialiased`}
       >
         <ThemeSwitchProvider>
           <ToastProvider position="top-right" duration={5000}>

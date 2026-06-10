@@ -1,23 +1,28 @@
 import Container from "@/components/ui/Container";
 import Link from "next/link";
-import WavingFlag from "../ui/WavingFlag";
+import Computer from "../ui/Computer";
 
 const Hero = () => {
   return (
     <Container className="relative mt-[18dvh] flex flex-col justify-end gap-4 md:mt-[18dvh] md:gap-12">
-      <div className="flex flex-col items-center md:gap-8">
-        {/* <MumbaiSvg className="h-fit w-10 rounded-lg shadow-[var(--card-shadow)] md:w-16 md:rounded-xl" /> */}
+      {/* <div className="flex flex-col items-center md:gap-8">
         <div className="relative h-16 w-16 overflow-hidden rounded-lg md:rounded-2xl">
           <WavingFlag />
         </div>
         <div className="item-center flex flex-col justify-center gap-2">
-          <h1 className="heading-1 text-center leading-6 text-neutral-900 dark:text-neutral-50">
+          <h1 className="display text-center font-serif leading-6 text-neutral-900 dark:text-neutral-50">
             Shubham Yelekar
           </h1>
           <h2 className="body-1 text-subheading text-center leading-5">
             Developer / Designer
           </h2>
         </div>
+      </div> */}
+      <div className="flex flex-col items-center justify-center gap-8">
+        <h1 className="display max-w-2xs text-center leading-14">
+          Crafting Interfaces for the Web
+        </h1>
+        <Computer />
       </div>
       <div className="text-subheading body-1 flex w-full justify-center gap-8 select-none">
         <Link
