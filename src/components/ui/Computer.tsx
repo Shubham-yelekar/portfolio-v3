@@ -10,7 +10,7 @@ import * as THREE from "three";
 
 const Computer = () => {
   return (
-    <div className="h-52 w-52">
+    <div className="h-72 w-72">
       <Canvas camera={{ position: [22, 22, 22], fov: 8 }}>
         {/* <Environment preset="city" /> */}
         <CameraControls

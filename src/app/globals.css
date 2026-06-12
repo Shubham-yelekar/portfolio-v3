@@ -1,7 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
 @import "tailwindcss";
-@import "tw-animate-css";
-@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -9,23 +6,20 @@
   /* border: 1px solid red; */
 }
 
-@theme inline {
+:root {
   --font-mono: var(--font-mono), monospace;
   --font-sans: var(--font-sans), sans;
   --font-serif: var(--font-serif), serif;
   --background: var(--color-white);
   --foreground: var(--color-neutral-900);
-  --accent: var(--color-orange-500);
-
+  --color-accent: var(--color-orange-500);
+  --color-body: var(--color-neutral-500);
+  --color-heading: var(--color-neutral-900);
   --color-brand: var(--color-orange-500);
   --color-brand-hover: var(--color-orange-600);
 
   --background-text: var(--color-neutral-100);
   --background-text-bg: var(--color-neutral-500);
-
-  --color-paragraph: var(--color-neutral-600);
-  --color-subheading: var(--color-neutral-600);
-  --color-heading: var(--color-neutral-900);
 
   --color-card: var(--color-neutral-50);
 
@@ -52,13 +46,10 @@
   --background: var(--color-neutral-950); /* Almost Black */
   --foreground: var(--color-neutral-200); /* Light Gray */
   --accent: var(--color-orange-500);
-
+  --color-body: var(--color-neutral-400);
+  --color-heading: var(--color-neutral-100);
   --background-text: var(--color-neutral-200);
   --background-text-bg: var(--color-neutral-800);
-
-  --color-subheading: var(--color-neutral-400);
-  --color-paragraph: var(--color-neutral-400);
-  --color-heading: var(--color-neutral-100);
 
   --text-heading-1: linear-gradient(
     to top,
@@ -76,46 +67,22 @@
 body {
   background-color: var(--background);
   font-family: var(--font-sans);
-}
-
-.display {
-  font-family: var(--font-serif);
-  font-size: 36px;
-
   font-weight: 500;
 }
-
-.heading-1 {
-  font-family: inherit;
-  font-size: 24px;
-  font-weight: 500;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-heading);
 }
-.heading-2 {
-  font-family: inherit;
-  font-size: 20px;
-  font-weight: 500;
+h1 {
+  line-height: 140%;
 }
-
-.body-1 {
-  font-family: inherit;
-  font-size: 16px;
-  font-weight: 500;
-}
-.body-2 {
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.caption-1 {
-  font-family: inherit;
-  font-size: 11px;
-  font-weight: 500;
-}
-.caption-2 {
-  font-family: inherit;
-  font-size: 10px;
-  font-weight: 500;
+p {
+  color: var(--color-body);
+  margin-bottom: 16px;
 }
 
 ul > li {

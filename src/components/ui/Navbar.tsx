@@ -53,7 +53,7 @@ const Navbar = () => {
         duration: 0.3,
         ease: easeInOut,
       }}
-      className="fixed top-2 left-1/2 z-100 flex w-fit -translate-x-1/2 items-center justify-between gap-3 rounded-full bg-white/80 p-2 backdrop-blur-sm dark:bg-neutral-900/50"
+      className="fixed top-2 left-1/2 z-100 flex w-fit -translate-x-1/2 items-center justify-between gap-3 rounded-full bg-neutral-900 p-2 backdrop-blur-sm"
     >
       <Link href={"/"}>
         <Image
@@ -64,7 +64,7 @@ const Navbar = () => {
           alt="me"
         />
       </Link>
-      <div className="flex items-center">
+      {/* <div className="flex items-center">
         {navLinks.map((links, idx) => (
           <Link
             key={idx}
@@ -86,7 +86,7 @@ const Navbar = () => {
             </span>
           </Link>
         ))}
-      </div>
+      </div> */}
       <button
         onClick={() => {
           sendGTMEvent({ button: "toggle" });
