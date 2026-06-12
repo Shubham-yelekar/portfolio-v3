@@ -1,10 +1,10 @@
 import { mdxComponents } from "@/components/mdx/MdxComponents";
 import { getAllSlugs, getContentBySlug } from "@/lib/mdx";
-import { ChevronLeft } from "lucide-react";
 import { compileMDX } from "next-mdx-remote/rsc";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BiChevronLeft } from "react-icons/bi";
 
 import Button from "@/components/ui/Button";
 // Import your custom components
@@ -61,7 +61,7 @@ export default async function ProjectPage({ params }: PageProps) {
       <Container className="mt-[10dvh] px-4">
         <Link href="/projects">
           <Button className="my-2" variant={"secondary"}>
-            <ChevronLeft />
+            <BiChevronLeft />
             Back
           </Button>
         </Link>
@@ -76,7 +76,7 @@ export default async function ProjectPage({ params }: PageProps) {
               height={320}
             />
             <div className="flex flex-col gap-2 pb-4">
-              <h1 className=" px-2 text-3xl md:px-4 md:text-4xl">
+              <h1 className="px-2 text-3xl md:px-4 md:text-4xl">
                 {meta.title}
               </h1>
 

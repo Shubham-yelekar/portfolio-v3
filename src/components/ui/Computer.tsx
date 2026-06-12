@@ -2,7 +2,6 @@
 import {
   CameraControls,
   ContactShadows,
-  Environment,
   useGLTF,
   useTexture,
 } from "@react-three/drei";
@@ -11,15 +10,15 @@ import * as THREE from "three";
 
 const Computer = () => {
   return (
-    <div className="h-86 w-full">
+    <div className="h-52 w-52">
       <Canvas camera={{ position: [22, 22, 22], fov: 8 }}>
-        <Environment preset="city" />
+        {/* <Environment preset="city" /> */}
         <CameraControls
           makeDefault
           minPolarAngle={Math.PI / 3}
           maxPolarAngle={Math.PI / 2.5}
           minAzimuthAngle={0}
-          maxAzimuthAngle={Math.PI / 1.5}
+          maxAzimuthAngle={Math.PI / 1.2}
           mouseButtons={{
             left: 1, // 1 = ROTATE
             middle: 0, // 0 = NONE (Disables middle click)
@@ -58,7 +57,7 @@ const Model = () => {
   screenTexture.colorSpace = THREE.SRGBColorSpace;
   return (
     <>
-      <group dispose={null} position={[-0.2, 1.5, 0.2]}>
+      <group dispose={null} position={[-1, 1.5, 0.2]}>
         <mesh geometry={nodes.merged.geometry}>
           <meshBasicMaterial map={bakedTexture} />
         </mesh>
