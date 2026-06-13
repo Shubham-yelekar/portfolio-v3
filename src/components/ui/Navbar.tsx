@@ -17,6 +17,7 @@ import {
 
 import { ThemeProvider, useTheme } from "next-themes";
 import { track } from "@vercel/analytics";
+import { IoMenu } from "react-icons/io5";
 
 const Navbar = () => {
   const { theme, setTheme } = useTheme();
@@ -53,19 +54,19 @@ const Navbar = () => {
         duration: 0.3,
         ease: easeInOut,
       }}
-      className="fixed top-2 left-1/2 z-100 flex w-fit -translate-x-1/2 items-center justify-between gap-3 rounded-full bg-neutral-900 p-2 backdrop-blur-sm"
+      className="border-px fixed top-4 left-1/2 z-100 flex w-40 -translate-x-1/2 items-center justify-between gap-3 rounded-full border border-neutral-800 bg-black p-2"
     >
       <Link href={"/"}>
         <Image
           src="/pictures/avatartion.png"
           width={24}
           height={24}
-          className="min-w-8 rounded-full transition-all ease-in-out hover:ring-neutral-200"
+          className="min-w-5 rounded-full transition-all ease-in-out hover:ring-neutral-200"
           alt="me"
         />
       </Link>
-      {/* <div className="flex items-center">
-        {navLinks.map((links, idx) => (
+      <div className="flex items-center">
+        {/* {navLinks.map((links, idx) => (
           <Link
             key={idx}
             href={links.url}
@@ -85,14 +86,17 @@ const Navbar = () => {
               {links.title}
             </span>
           </Link>
-        ))}
-      </div> */}
+        ))} */}
+        <span className="text-body text-sm text-neutral-400 dark:text-neutral-100">
+          Menu
+        </span>
+      </div>
       <button
         onClick={() => {
           sendGTMEvent({ button: "toggle" });
           toggeltheme();
         }}
-        className="relative h-8 w-8 cursor-pointer overflow-clip rounded-2xl bg-neutral-50 dark:bg-neutral-800"
+        className="relative h-5 w-5 cursor-pointer overflow-clip rounded-2xl bg-neutral-50 dark:bg-neutral-800"
       >
         <motion.div
           className="pointer-events-none absolute left-1/2 flex -translate-x-1/2 flex-col gap-3"

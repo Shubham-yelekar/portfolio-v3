@@ -2,39 +2,40 @@
 
 @custom-variant dark (&:is(.dark *));
 
-* {
-  /* border: 1px solid red; */
-}
+/* ---------------------------------- */
+/* Design Tokens */
+/* ---------------------------------- */
 
 :root {
-  --font-mono: var(--font-mono), monospace;
-  --font-sans: var(--font-sans), sans;
-  --font-serif: var(--font-serif), serif;
+  /* Typography */
+  --font-sans: var(--font-geist-sans), sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+  --font-serif: serif;
+
+  /* Colors */
   --background: var(--color-white);
   --foreground: var(--color-neutral-900);
-  --color-accent: var(--color-orange-500);
-  --color-body: var(--color-neutral-500);
-  --color-heading: var(--color-neutral-900);
-  --color-brand: var(--color-orange-500);
-  --color-brand-hover: var(--color-orange-600);
 
-  --background-text: var(--color-neutral-100);
-  --background-text-bg: var(--color-neutral-500);
+  --heading: var(--color-neutral-900);
+  --body: var(--color-neutral-500);
 
-  --color-card: var(--color-neutral-50);
+  --code-bg: var(--color-neutral-500);
+  --code-fg: var(--color-neutral-100);
 
-  --card-shadow:
-    0 1px 1px 0 rgba(0, 0, 0, 0.07), 0 2px 2px 0 rgba(0, 0, 0, 0.07),
-    0 4px 4px 0 rgba(0, 0, 0, 0.07), 0 8px 8px 0 rgba(0, 0, 0, 0.07),
-    0 16px 16px 0 rgba(0, 0, 0, 0.07);
+  --card: var(--color-neutral-50);
 
-  --card-shadow-2:
-    0 1px 1px 0 rgba(0, 0, 0, 0.07), 0 2px 2px 0 rgba(0, 0, 0, 0.07),
-    0 16px 16px 0 rgba(0, 0, 0, 0.07);
+  /* Effects */
+  --shadow-card:
+    0 1px 1px rgba(0, 0, 0, 0.07), 0 2px 2px rgba(0, 0, 0, 0.07),
+    0 4px 4px rgba(0, 0, 0, 0.07), 0 8px 8px rgba(0, 0, 0, 0.07),
+    0 16px 16px rgba(0, 0, 0, 0.07);
 
-  /* //buttons */
+  --shadow-card-sm:
+    0 1px 1px rgba(0, 0, 0, 0.07), 0 2px 2px rgba(0, 0, 0, 0.07),
+    0 16px 16px rgba(0, 0, 0, 0.07);
 
-  --text-heading-1: linear-gradient(
+  /* Gradients */
+  --gradient-heading: linear-gradient(
     to top,
     var(--color-neutral-400),
     var(--color-neutral-900),
@@ -43,15 +44,16 @@
 }
 
 .dark {
-  --background: var(--color-neutral-950); /* Almost Black */
-  --foreground: var(--color-neutral-200); /* Light Gray */
-  --accent: var(--color-orange-500);
-  --color-body: var(--color-neutral-400);
-  --color-heading: var(--color-neutral-100);
-  --background-text: var(--color-neutral-200);
-  --background-text-bg: var(--color-neutral-800);
+  --background: var(--color-neutral-950);
+  --foreground: var(--color-neutral-200);
 
-  --text-heading-1: linear-gradient(
+  --heading: var(--color-neutral-100);
+  --body: var(--color-neutral-400);
+
+  --code-bg: var(--color-neutral-800);
+  --code-fg: var(--color-neutral-200);
+
+  --gradient-heading: linear-gradient(
     to top,
     var(--color-neutral-50),
     var(--color-neutral-400),
@@ -59,56 +61,67 @@
   );
 }
 
+/* ---------------------------------- */
+/* Base */
+/* ---------------------------------- */
+
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--background);
+  background: var(--background);
+  color: var(--foreground);
   font-family: var(--font-sans);
   font-weight: 500;
 }
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  color: var(--color-heading);
+  color: var(--heading);
 }
+
 h1 {
-  line-height: 140%;
+  line-height: 1.4;
+  margin-bottom: 1.2rem;
 }
+
 p {
-  color: var(--color-body);
-  margin-bottom: 16px;
+  color: var(--body);
+  margin-bottom: 1rem;
 }
 
 ul > li {
-  margin: 16px;
+  margin: 1rem;
 }
 
 blockquote p {
-  color: var(--color-heading) !important;
+  color: var(--heading) !important;
   font-size: large;
 }
 
 code {
   padding: 2px 6px;
   border-radius: 8px;
-  background: var(--background-text-bg);
-  color: var(--background-text);
+  background: var(--code-bg);
+  color: var(--code-fg);
   font-size: 13px;
 }
 
+/* ---------------------------------- */
+/* Utilities */
+/* ---------------------------------- */
+
 .card-shadow {
-  @apply shadow-[0_1px_1px_0_rgba(0,0,0,0.07),0_2px_2px_0_rgba(0,0,0,0.07),0_4px_4px_0_rgba(0,0,0,0.07),0_8px_8px_0_rgba(0,0,0,0.07),0_16px_16px_0_rgba(0,0,0,0.07)];
+  box-shadow: var(--shadow-card);
 }
 
 .fade-mask {
-  width: 100%;
-  /* Apply a linear gradient as a mask. The transparent parts will be hidden. */
   mask-image: radial-gradient(
     52.07% 83.99% at 50.04% 16.01%,
     #e8e8e8 0%,
@@ -117,13 +130,17 @@ code {
   );
 }
 
+/* ---------------------------------- */
+/* View Transitions */
+/* ---------------------------------- */
+
 ::view-transition-group(root) {
   z-index: auto !important;
 }
 
 ::view-transition-image-pair(root) {
   isolation: isolate;
-  will-change: scale, transform, opcity;
+  will-change: transform, scale, opacity;
   z-index: 1;
 }
 
@@ -137,20 +154,26 @@ code {
   animation: none !important;
 }
 
-/* width */
-::-webkit-scrollbar {
-  width: 0px;
-}
+/* ---------------------------------- */
+/* Scrollbars */
+/* ---------------------------------- */
 
-/* sensible defaults for code block containers using these vars */
+::-webkit-scrollbar {
+  width: 0;
+}
 
 pre::-webkit-scrollbar {
   height: 8px;
 }
+
 pre::-webkit-scrollbar-thumb {
   background: rgba(100, 100, 100, 0.35);
   border-radius: 8px;
 }
+
+/* ---------------------------------- */
+/* Toast Timer */
+/* ---------------------------------- */
 
 .timer-bar {
   animation: timer-bar-animation linear forwards;
@@ -164,6 +187,7 @@ pre::-webkit-scrollbar-thumb {
   from {
     width: 0%;
   }
+
   to {
     width: 100%;
   }

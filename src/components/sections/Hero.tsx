@@ -22,26 +22,48 @@ const SocialLinks = [
 
 const Hero = () => {
   return (
-    <Container className="relative mt-[18dvh] flex flex-col justify-end gap-4 md:mt-[16dvh] md:gap-8">
-      <div className="flex flex-col items-center justify-center gap-8">
-        <Computer />
-      </div>
-      <div className="flex items-center justify-between">
+    <Container
+      text
+      className="relative mt-[10dvh] flex flex-col justify-end gap-8 px-4 md:mt-[12dvh] md:gap-4"
+    >
+      <Computer />
+
+      <div className="flex flex-col items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl text-neutral-900 dark:text-neutral-100">
+          <h1 className="text-heading text-lg md:text-xl">
             Hi, I'm{" "}
-            <span className="hover:bg-accent cursor-pointer rounded-md bg-neutral-100 px-1 py-px dark:bg-neutral-800 dark:hover:bg-orange-500">
+            <span className="cursor-pointer rounded-md bg-orange-400/20 px-1 py-px transition-colors duration-100 hover:bg-orange-300 dark:bg-orange-400/20 hover:dark:bg-orange-400">
               Shubham Yelekar
             </span>
           </h1>
-          <h1 className="text-heading text-2xl">
-            I design and develope interfaces for the web.
+          <h1 className="text-heading text-lg md:text-xl">
+            Front-end{" "}
+            <span className="cursor-pointer rounded-md bg-blue-400/20 px-1 py-px transition-colors duration-100 hover:bg-blue-300 dark:bg-blue-400/20 hover:dark:bg-orange-400">
+              Developer
+            </span>{" "}
+            driven by motion and UX, blending modern technologies with a strong{" "}
+            <span className="cursor-pointer rounded-md bg-green-400/20 px-1 py-px transition-colors duration-100 hover:bg-green-300 dark:bg-green-400/20 hover:dark:bg-green-400">
+              Design
+            </span>{" "}
+            foundation.
           </h1>
         </div>
-        {/* <div className="flex gap-2">
+        <div>
+          <p className="text-body">
+            I currently work at Artificial Realit, designing and developing
+            interfaces for 3D configurators, landing pages, and web
+            applications.
+          </p>
+          <p className="text-body">
+            Exploring motion, 3D, and emerging web technologies to create more
+            engaging digital experiences.
+          </p>
+        </div>
+
+        <div className="flex w-full gap-2">
           {SocialLinks.map((item, i) => (
             <a
-              className="grid items-center justify-center rounded-xl bg-neutral-100 p-3 transition-colors duration-150 ease-out hover:bg-neutral-200 dark:hover:bg-neutral-800"
+              className="grid items-center justify-center rounded-xl bg-neutral-100 p-3 transition-colors duration-150 ease-out hover:bg-neutral-200 dark:bg-neutral-900 hover:dark:bg-neutral-800"
               key={`${item.name}-${i}`}
               href={item.url}
               target="_blank"
@@ -49,17 +71,7 @@ const Hero = () => {
               <item.icon size={16} />
             </a>
           ))}
-        </div> */}
-      </div>
-      <div>
-        <p className="text-body text-body">
-          Drawn to the edges where disciplines collide and new things get made.
-        </p>
-
-        <p className="text-body text-body">
-          I deploy Cursor ↗ at some of the world's fastest-moving companies.
-          Writing on craft, clarity, and what separates good from great.
-        </p>
+        </div>
       </div>
     </Container>
   );
