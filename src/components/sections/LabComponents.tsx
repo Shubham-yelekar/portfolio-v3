@@ -12,9 +12,7 @@ const LabComponents = () => {
 
   return (
     <Container className="flex flex-col gap-6 md:gap-9">
-      <h2 className=" px-2 text-center text-2xl md:px-4">
-        Laboratory
-      </h2>
+      <h2 className="px-2 text-center text-2xl md:px-4">Laboratory</h2>
       <div className="mt-4 grid grid-cols-2 justify-center gap-4 px-2 md:mt-12 md:px-4">
         {lab.map((item) => (
           <Link href={`/lab/${item.slug}`} key={item.slug} className="relative">
@@ -51,7 +49,7 @@ const LabComponents = () => {
         ))}
       </div>
       <Link href="/lab">
-        <Button className="mx-auto mt-4 w-40" variant={"tertiary"}>
+        <Button className="mx-auto mt-4 w-40" variant={"secondary"}>
           More Components
         </Button>
       </Link>

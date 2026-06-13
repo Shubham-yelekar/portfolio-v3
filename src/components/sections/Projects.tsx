@@ -6,9 +6,7 @@ import Container from "../ui/Container";
 const Projects = () => {
   return (
     <Container text={false} className="flex flex-col gap-6 md:gap-12">
-      <h2 className=" px-2 text-center text-2xl md:px-4">
-        Selected Projects
-      </h2>
+      <h2 className="px-2 text-center text-2xl md:px-4">Selected Projects</h2>
 
       <div className="flex flex-col gap-24 px-2">
         <div className="relative flex flex-col gap-4 md:gap-6">
@@ -28,7 +26,7 @@ const Projects = () => {
           </div>
           <div className="flex-start flex flex-col gap-2 px-2 md:flex-row md:px-4">
             <div className="flex-1">
-              <h3 className="bold  mb-2 text-xl md:text-2xl">
+              <h3 className="bold mb-2 text-xl md:text-2xl">
                 Toyota Land Cruiser 300
               </h3>
               <h5 className="text-sm text-neutral-800! md:text-lg dark:text-neutral-500!">
@@ -73,7 +71,7 @@ const Projects = () => {
           </div>
           <div className="flex-start flex flex-col gap-2 px-2 md:flex-row md:px-4">
             <div className="flex-1">
-              <h4 className="bold  text-xl md:text-2xl">
+              <h4 className="bold text-xl md:text-2xl">
                 Toyota Taisor Landing page
               </h4>
               <h5 className="text-md text-neutral-800! md:text-lg dark:text-neutral-500!">
@@ -114,7 +112,7 @@ const Projects = () => {
           </div>
           <div className="flex-start flex flex-col gap-2 px-2 md:flex-row md:px-4">
             <div className="flex-1">
-              <h3 className="bold  mb-2 text-xl md:text-2xl">
+              <h3 className="bold mb-2 text-xl md:text-2xl">
                 Cozy Christmass Diorama
               </h3>
               <h5 className="text-sm text-neutral-800! md:text-lg dark:text-neutral-500!">
@@ -141,7 +139,7 @@ const Projects = () => {
       </div>
 
       <Link href="/projects">
-        <Button className="mx-auto mt-4 w-40" variant={"tertiary"}>
+        <Button className="mx-auto mt-4 w-40" variant={"secondary"}>
           All Projects
         </Button>
       </Link>
