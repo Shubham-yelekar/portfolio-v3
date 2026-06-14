@@ -63,12 +63,12 @@ const Hero = () => {
         <div className="flex w-full gap-2">
           {SocialLinks.map((item, i) => (
             <a
-              className="grid items-center justify-center rounded-xl bg-neutral-100 p-3 transition-colors duration-150 ease-out hover:bg-neutral-200 dark:bg-neutral-900 hover:dark:bg-neutral-800"
+              className="grid items-center justify-center rounded-xl bg-neutral-100 p-3 text-[var(--body)] transition-colors duration-150 ease-out hover:bg-neutral-200 hover:text-[var(--heading)] dark:bg-neutral-900 hover:dark:bg-neutral-800"
               key={`${item.name}-${i}`}
               href={item.url}
               target="_blank"
             >
-              <item.icon size={16} />
+              <item.icon className=" " size={16} />
             </a>
           ))}
         </div>

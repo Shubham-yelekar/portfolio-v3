@@ -16,11 +16,11 @@ export default function Home() {
       {/* <WavingFlag /> */}
       <Hero />
       <Breaker />
-      {/* <Projects />
+      <Projects />
       <Breaker />
       <LabComponents />
       <Breaker />
-      <Blogs />
+      {/* <Blogs />
       <Breaker /> */}
       {/* <About /> */}
     </PageWrapper>

@@ -3,47 +3,64 @@ import Image from "next/image";
 import Link from "next/link";
 import Button from "../ui/Button";
 import Container from "../ui/Container";
+import { GoArrowUpRight } from "react-icons/go";
 
 const LabComponents = () => {
   const lab = getAllContentMeta("lab")
     .filter((item) => item.status === "live")
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 2);
+    .slice(0, 4);
 
   return (
-    <Container className="flex flex-col gap-6 md:gap-9">
-      <h2 className="px-2 text-center text-2xl md:px-4">Laboratory</h2>
-      <div className="mt-4 grid grid-cols-2 justify-center gap-4 px-2 md:mt-12 md:px-4">
+    <section className="flex flex-col items-center gap-8 px-4 md:gap-12">
+      <div className="flex w-full max-w-xl items-center justify-between px-4">
+        <h2 className="text-lg md:text-xl">Laboratory</h2>
+
+        <Link
+          href="/lab"
+          className="flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-neutral-100 p-3 text-sm text-[var(--body)] transition-colors duration-150 ease-out select-none hover:bg-neutral-200 hover:text-[var(--heading)] active:scale-[0.97] dark:bg-neutral-900 hover:dark:bg-neutral-800"
+        >
+          All Components <GoArrowUpRight size={16} />
+        </Link>
+      </div>
+
+      <div className="grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
         {lab.map((item) => (
-          <Link href={`/lab/${item.slug}`} key={item.slug} className="relative">
-            <div className="aspect-7/6 overflow-clip rounded-2xl">
+          <Link
+            href={`/lab/${item.slug}`}
+            key={item.slug}
+            className="group relative mb-8 flex max-w-2xl flex-col items-center gap-4 md:gap-6"
+          >
+            <div className="aspect-5/4 w-full scale-100 transform overflow-clip rounded-2xl transition-all duration-300 ease-in-out group-hover:scale-[1.02] group-hover:shadow-xl">
               {item.thumbVideo === "" ? (
                 <Image
                   src={item.thumbImage}
                   width={900}
-                  height={600}
-                  className="h-full object-cover"
+                  height={900}
+                  className="absolute inset-0 h-full object-cover"
                   alt={`${item.slug}-image`}
                 />
               ) : (
                 <video
                   width="900"
-                  height="600"
+                  height="900"
                   autoPlay
                   muted
                   playsInline
                   loop
                   preload="none"
-                  className="h-full object-cover"
+                  className="h-full w-full object-cover"
                 >
                   <source src={item.thumbVideo} type="video/mp4" />
                 </video>
               )}
             </div>
-            <div className="absolute bottom-2 left-2 rounded-lg border border-neutral-200/10 bg-neutral-900/40 backdrop-blur-sm">
-              <h4 className="px-2 py-1 text-sm text-neutral-100! md:px-3 md:py-1 md:text-lg">
-                {item.title}
-              </h4>
+            <div className="flex-start flex w-full max-w-xl flex-col gap-4 px-4 md:flex-row md:px-4">
+              <div className="flex-1">
+                <h3 className="text-heading md:text-md text-base">
+                  {item.title}
+                </h3>
+              </div>
             </div>
           </Link>
         ))}
@@ -53,7 +70,7 @@ const LabComponents = () => {
           More Components
         </Button>
       </Link>
-    </Container>
+    </section>
   );
 };
 

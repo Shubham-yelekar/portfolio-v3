@@ -1,149 +1,92 @@
-"use client";
 import Link from "next/link";
 import Button from "../ui/Button";
 import Container from "../ui/Container";
+import { GoArrowUpRight } from "react-icons/go";
+
+const ProjectsList = [
+  {
+    id: 1,
+    slug: "toyota-lc300",
+    video: "/archives/lc-300/lc300.mp4",
+    title: "Toyota LC 300",
+    subheading: "Redesign of landing page & development",
+  },
+  {
+    id: 2,
+    slug: "toyota-taisor",
+    video: "/archives/taisor/taisor.mp4",
+    title: "Toyota Taisor",
+    subheading: "Design & development",
+  },
+];
+
+const cardVariants = {
+  initial: {},
+  hover: {},
+};
+
+const mediaVariants = {
+  initial: {
+    scale: 1,
+  },
+  hover: {
+    scale: 1.05,
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+    },
+  },
+};
 
 const Projects = () => {
   return (
-    <Container text={false} className="flex flex-col gap-6 md:gap-12">
-      <h2 className="px-2 text-center text-2xl md:px-4">Selected Projects</h2>
+    <section className="flex flex-col items-center gap-8 px-4 md:gap-12">
+      <div className="flex w-full max-w-xl items-center justify-between px-4">
+        <h2 className="text-lg md:text-xl">Projects</h2>
 
-      <div className="flex flex-col gap-24 px-2">
-        <div className="relative flex flex-col gap-4 md:gap-6">
-          <div className="aspect-5/3 overflow-clip rounded-2xl">
-            <video
-              width="900"
-              height="600"
-              autoPlay
-              muted
-              playsInline
-              loop
-              preload="none"
-              className="h-full object-cover"
-            >
-              <source src="/archives/lc-300/lc300.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <div className="flex-start flex flex-col gap-2 px-2 md:flex-row md:px-4">
-            <div className="flex-1">
-              <h3 className="bold mb-2 text-xl md:text-2xl">
-                Toyota Land Cruiser 300
-              </h3>
-              <h5 className="text-sm text-neutral-800! md:text-lg dark:text-neutral-500!">
-                Product Page Redesign
-              </h5>
-            </div>
-            <div className="flex flex-1 flex-col gap-4">
-              <p className="text-paragraph text-sm md:text-base">
-                I led the redesign and development for the Land Cruiser 300
-                product page.
-              </p>
-              <Link href="/projects/toyota-lc300">
-                <Button className="w-fit" variant={"secondary"}>
-                  Read more
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        <div className="relative flex flex-col gap-4 md:gap-6">
-          <div className="aspect-5/3 overflow-clip rounded-2xl">
-            {/* <Image
-              src="https://ucarecdn.com/afbaf1fd-c28a-4488-b7f4-cfcc3c5e4a77/-/preview/1000x666/"
-              width={900}
-              height={600}
-              alt="thumb"
-              className="h-full object-cover"
-            /> */}
-            <video
-              width="900"
-              height="600"
-              autoPlay
-              muted
-              playsInline
-              loop
-              preload="none"
-              className="h-full object-cover"
-            >
-              <source src="/archives/taisor/taisor.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <div className="flex-start flex flex-col gap-2 px-2 md:flex-row md:px-4">
-            <div className="flex-1">
-              <h4 className="bold text-xl md:text-2xl">
-                Toyota Taisor Landing page
-              </h4>
-              <h5 className="text-md text-neutral-800! md:text-lg dark:text-neutral-500!">
-                Product Page Redesign
-              </h5>
-            </div>
-            <div className="flex flex-1 flex-col gap-4">
-              <p className="text-paragraph text-sm md:text-base">
-                Experimented with various designs and interactions using GSAP
-                and clip masks
-              </p>
-              <Link href="/projects/toyota-taisor">
-                <Button className="w-fit" variant={"secondary"}>
-                  Read more
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        <div className="relative flex flex-col gap-4 md:gap-6">
-          <div className="aspect-5/3 overflow-clip rounded-2xl">
-            <video
-              width="900"
-              height="600"
-              autoPlay
-              muted
-              playsInline
-              loop
-              preload="none"
-              className="h-full object-cover"
-            >
-              <source
-                src="/archives/christmass-2025/christmass-challenge.mp4"
-                type="video/mp4"
-              />
-            </video>
-          </div>
-          <div className="flex-start flex flex-col gap-2 px-2 md:flex-row md:px-4">
-            <div className="flex-1">
-              <h3 className="bold mb-2 text-xl md:text-2xl">
-                Cozy Christmass Diorama
-              </h3>
-              <h5 className="text-sm text-neutral-800! md:text-lg dark:text-neutral-500!">
-                Personal / Challenge
-              </h5>
-            </div>
-            <div className="flex flex-1 flex-col gap-4">
-              <p className="text-paragraph text-sm md:text-base">
-                Parcticipated in Christmass challenge in{" "}
-                <strong>Threejs Journey</strong> hosted by{" "}
-                <strong>Bruno Simon</strong>.
-              </p>
-              <Link
-                target="_blank"
-                href="https://christmass-challenge-2025.netlify.app/"
-              >
-                <Button className="w-fit" variant={"secondary"}>
-                  Visit Site
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
+        <Link
+          href="/projects"
+          className="flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-neutral-100 p-3 text-sm text-[var(--body)] transition-colors duration-150 ease-out select-none hover:bg-neutral-200 hover:text-[var(--heading)] active:scale-[0.97] dark:bg-neutral-900 hover:dark:bg-neutral-800"
+        >
+          All Projects <GoArrowUpRight size={16} />
+        </Link>
       </div>
 
-      <Link href="/projects">
-        <Button className="mx-auto mt-4 w-40" variant={"secondary"}>
-          All Projects
-        </Button>
-      </Link>
-    </Container>
+      <div className="grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
+        {ProjectsList.map((item, i) => (
+          <Link
+            href={`/projects/${item.slug}`}
+            key={`${item.slug}-${i}`}
+            className="group relative mb-8 flex max-w-2xl flex-col items-center gap-4 md:gap-6"
+          >
+            <div className="aspect-5/4 scale-100 transform overflow-clip rounded-2xl transition-all duration-300 ease-in-out group-hover:scale-[1.02] group-hover:shadow-xl">
+              <video
+                width="600"
+                height="600"
+                autoPlay
+                muted
+                playsInline
+                loop
+                preload="none"
+                className="h-full object-cover"
+              >
+                <source src={item.video} type="video/mp4" />
+              </video>
+            </div>
+            <div className="flex-start flex w-full max-w-xl flex-col gap-4 px-4 md:flex-row md:px-4">
+              <div className="flex-1">
+                <h3 className="text-heading text-md md:text-lg">
+                  {item.title}
+                </h3>
+                <p className="text-body text-body text-sm md:text-base">
+                  {item.subheading}
+                </p>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </section>
   );
 };
 

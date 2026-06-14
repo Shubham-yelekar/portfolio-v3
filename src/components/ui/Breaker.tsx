@@ -8,7 +8,7 @@ import Container from "./Container";
 const Breaker = () => {
   return (
     <Container className="relative">
-      <motion.div className="font-libre my-14 flex justify-center italic md:my-18"></motion.div>
+      <motion.div className="font-libre my-18 flex justify-center italic md:my-18"></motion.div>
     </Container>
   );
 };

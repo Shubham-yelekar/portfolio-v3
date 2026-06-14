@@ -87,7 +87,7 @@ const Navbar = () => {
             </span>
           </Link>
         ))} */}
-        <span className="text-body text-sm text-neutral-400 dark:text-neutral-100">
+        <span className="text-body text-xs text-neutral-400 dark:text-neutral-100">
           Menu
         </span>
       </div>
