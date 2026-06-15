@@ -1,5 +1,6 @@
 import Container from "@/components/ui/Container";
 import { FaGithubAlt, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
+import { PiReadCvLogoFill } from "react-icons/pi";
 import Computer from "../ui/Computer";
 
 const SocialLinks = [
@@ -71,6 +72,16 @@ const Hero = () => {
               <item.icon className=" " size={16} />
             </a>
           ))}
+          <a
+            className="flex items-center justify-center gap-2 rounded-xl bg-neutral-100 p-3 text-xs text-[var(--body)] transition-colors duration-150 ease-out hover:bg-neutral-200 hover:text-[var(--heading)] dark:bg-neutral-900 hover:dark:bg-neutral-800"
+            href={
+              "https://drive.google.com/file/d/1nbV481gyES90t67mM-D4F-gPh5fmCsBu/view?usp=sharing"
+            }
+            target="_blank"
+          >
+            <PiReadCvLogoFill size={16} />
+            Resume
+          </a>
         </div>
       </div>
     </Container>

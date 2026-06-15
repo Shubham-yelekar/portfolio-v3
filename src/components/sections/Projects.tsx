@@ -1,7 +1,6 @@
 import Link from "next/link";
-import Button from "../ui/Button";
-import Container from "../ui/Container";
 import { GoArrowUpRight } from "react-icons/go";
+import { PiFoldersFill } from "react-icons/pi";
 
 const ProjectsList = [
   {
@@ -42,7 +41,11 @@ const Projects = () => {
   return (
     <section className="flex flex-col items-center gap-8 px-4 md:gap-12">
       <div className="flex w-full max-w-xl items-center justify-between px-4">
-        <h2 className="text-lg md:text-xl">Projects</h2>
+        <div className="flex items-center justify-center gap-4">
+          <PiFoldersFill size={28} />
+
+          <h2 className="text-lg md:text-xl">Notes</h2>
+        </div>
 
         <Link
           href="/projects"

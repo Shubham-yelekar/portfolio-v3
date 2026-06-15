@@ -1,9 +1,8 @@
 import { getAllContentMeta } from "@/lib/mdx";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "../ui/Button";
-import Container from "../ui/Container";
 import { GoArrowUpRight } from "react-icons/go";
+import { PiFlaskFill } from "react-icons/pi";
 
 const LabComponents = () => {
   const lab = getAllContentMeta("lab")
@@ -14,7 +13,11 @@ const LabComponents = () => {
   return (
     <section className="flex flex-col items-center gap-8 px-4 md:gap-12">
       <div className="flex w-full max-w-xl items-center justify-between px-4">
-        <h2 className="text-lg md:text-xl">Laboratory</h2>
+        <div className="flex items-center justify-center gap-4">
+          <PiFlaskFill size={28} />
+
+          <h2 className="text-lg md:text-xl">Lab</h2>
+        </div>
 
         <Link
           href="/lab"
@@ -65,11 +68,6 @@ const LabComponents = () => {
           </Link>
         ))}
       </div>
-      <Link href="/lab">
-        <Button className="mx-auto mt-4 w-40" variant={"secondary"}>
-          More Components
-        </Button>
-      </Link>
     </section>
   );
 };
