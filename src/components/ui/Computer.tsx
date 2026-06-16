@@ -1,11 +1,11 @@
 "use client";
 import {
   CameraControls,
-  ContactShadows,
-  Environment,
   useGLTF,
   useTexture,
+  useVideoTexture,
 } from "@react-three/drei";
+
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import * as THREE from "three";
@@ -44,29 +44,45 @@ const Computer = () => {
 
 const Model = () => {
   const { nodes } = useGLTF("/models/cute-monitor-merged.glb");
-
   const bakedTexture = useTexture("/models/baked-3.jpg");
   const screenTexture = useTexture("/models/cat.jpg");
   console.log(nodes);
+
+  const screenVideoTexture = useVideoTexture(
+    "/archives/link-hover/Text-Link-Hover.mp4",
+    {
+      muted: true, // Browsers require videos to be muted to autoplay
+      loop: true,
+      start: true, // Autoplays the video on load
+    },
+  );
   bakedTexture.flipY = false;
   bakedTexture.colorSpace = THREE.SRGBColorSpace;
   screenTexture.flipY = false;
   screenTexture.colorSpace = THREE.SRGBColorSpace;
+  screenVideoTexture.flipY = false;
+  screenVideoTexture.colorSpace = THREE.SRGBColorSpace;
   return (
     <>
       <group dispose={null} position={[0.0, 0.0, 0.0]}>
-        <mesh geometry={nodes.merged.geometry}>
+        <mesh geometry={(nodes.merged as THREE.Mesh).geometry as any}>
           <meshBasicMaterial map={bakedTexture} />
         </mesh>
-        <mesh geometry={nodes.screen.geometry} position={[0.3, 1.25, 0]}>
+        <mesh
+          geometry={(nodes.screen as THREE.Mesh).geometry as any}
+          position={[0.3, 1.25, 0]}
+        >
           {/* Using meshBasicMaterial so the screen stays bright like an actual monitor */}
-          <meshBasicMaterial map={screenTexture} />
+          <meshBasicMaterial map={screenVideoTexture} />
         </mesh>
-        <mesh geometry={nodes.screenglass.geometry} position={[0.32, 1.25, 0]}>
+        <mesh
+          geometry={(nodes.screenglass as THREE.Mesh).geometry as any}
+          position={[0.32, 1.25, 0]}
+        >
           <meshPhysicalMaterial
             transparent
-            opacity={0.4}
-            roughness={0}
+            opacity={0.2}
+            roughness={0.0}
             clearcoat={1}
             clearcoatRoughness={0}
           />
