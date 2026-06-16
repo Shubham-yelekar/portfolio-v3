@@ -39,7 +39,7 @@ const Hero = () => {
           </h1>
           <h1 className="text-heading text-lg md:text-xl">
             Front-end{" "}
-            <span className="cursor-pointer rounded-md bg-blue-400/20 px-1 py-px transition-colors duration-100 hover:bg-blue-300 dark:bg-blue-400/20 hover:dark:bg-orange-400">
+            <span className="cursor-pointer rounded-md bg-blue-400/20 px-1 py-px transition-colors duration-100 hover:bg-blue-300 dark:bg-blue-400/20 hover:dark:bg-blue-400">
               Developer
             </span>{" "}
             driven by motion and UX, blending modern technologies with a strong{" "}
