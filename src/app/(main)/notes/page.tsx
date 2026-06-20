@@ -1,6 +1,5 @@
 import NotesFilter from "@/components/sections/NotesFilter";
 import Container from "@/components/ui/Container";
-import PageWrapper from "@/components/ui/PageWrapper";
 import { getAllContentMeta } from "@/lib/mdx";
 import { NotesScribble } from "../../../components/ui/AppleEffect";
 export default async function NotesPage() {
@@ -11,12 +10,10 @@ export default async function NotesPage() {
   const uniqueTags = [...new Set(livePosts.flatMap((posts) => posts.tags))];
 
   return (
-    <PageWrapper>
-      <Container className="mt-[14dvh] px-2 md:px-4">
-        <h2 className=" text-center text-3xl">Notes</h2>
-        <NotesScribble className={"absolute left-1/2 -translate-x-1/2"} />
-        <NotesFilter notes={livePosts} uniqueTags={uniqueTags} />
-      </Container>
-    </PageWrapper>
+    <Container className="mt-[14dvh] px-2 md:px-4">
+      <h2 className="text-center text-3xl">Notes</h2>
+      <NotesScribble className={"absolute left-1/2 -translate-x-1/2"} />
+      <NotesFilter notes={livePosts} uniqueTags={uniqueTags} />
+    </Container>
   );
 }

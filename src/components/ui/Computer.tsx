@@ -5,14 +5,14 @@ import {
   useTexture,
   useVideoTexture,
 } from "@react-three/drei";
-
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import * as THREE from "three";
+
 useGLTF.preload("/models/cute-monitor-merged.glb");
 useTexture.preload("/models/baked-3.jpg");
 useTexture.preload("/models/cat.jpg");
-const Computer = () => {
+const Computer = ({ videoSrc }) => {
   return (
     <div className="h-72 w-full">
       <Canvas camera={{ position: [22, 22, 22], fov: 8 }}>
@@ -35,31 +35,24 @@ const Computer = () => {
               three: 0, // 0 = NONE (Disables multi-finger pan)
             }}
           />
-          <Model />
+          <Model videoSrc={videoSrc} />
         </Suspense>
       </Canvas>
     </div>
   );
 };
 
-const Model = () => {
+const Model = ({ videoSrc }) => {
   const { nodes } = useGLTF("/models/cute-monitor-merged.glb");
   const bakedTexture = useTexture("/models/baked-3.jpg");
-  const screenTexture = useTexture("/models/cat.jpg");
-  console.log(nodes);
 
-  const screenVideoTexture = useVideoTexture(
-    "/archives/link-hover/Text-Link-Hover.mp4",
-    {
-      muted: true, // Browsers require videos to be muted to autoplay
-      loop: true,
-      start: true, // Autoplays the video on load
-    },
-  );
+  const screenVideoTexture = useVideoTexture(videoSrc, {
+    muted: true,
+    loop: true,
+    start: true,
+  });
   bakedTexture.flipY = false;
   bakedTexture.colorSpace = THREE.SRGBColorSpace;
-  screenTexture.flipY = false;
-  screenTexture.colorSpace = THREE.SRGBColorSpace;
   screenVideoTexture.flipY = false;
   screenVideoTexture.colorSpace = THREE.SRGBColorSpace;
   return (

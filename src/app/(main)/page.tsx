@@ -1,5 +1,3 @@
-import PageWrapper from "@/components/ui/PageWrapper";
-
 import Blogs from "@/components/sections/Blogs";
 import Hero from "@/components/sections/Hero";
 import LabComponents from "@/components/sections/LabComponents";
@@ -9,7 +7,7 @@ import About from "../../components/sections/About";
 
 export default function Home() {
   return (
-    <PageWrapper>
+    <>
       {/* <WavingFlag /> */}
       <Hero />
       <Breaker />
@@ -20,6 +18,6 @@ export default function Home() {
       <Blogs />
       <Breaker />
       <About />
-    </PageWrapper>
+    </>
   );
 }
