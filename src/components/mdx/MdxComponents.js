@@ -1,14 +1,14 @@
 import {
-    BigComponentBox,
-    Blockquote,
-    ComponentBox,
-    ImageCarousal,
-    ImageCompare,
-    ImageModal,
-    ImageWrapper,
-    MobileVideoWrapper,
-    VideoWrapper,
-    YouTubeEmbed,
+  BigComponentBox,
+  Blockquote,
+  ComponentBox,
+  ImageCarousal,
+  ImageCompare,
+  ImageModal,
+  ImageWrapper,
+  MobileVideoWrapper,
+  VideoWrapper,
+  YouTubeEmbed,
 } from "@/components/mdx/embeded";
 
 import AppleKeyboard from "../ui-components/AppleKeyboard";
@@ -35,30 +35,30 @@ export const H1 = ({ children }) => (
 export const H2 = ({ children, ...props }) => (
   <h2
     {...props}
-    className=" mt-6! mb-4! text-2xl text-neutral-800! md:px-4! dark:text-neutral-200!"
+    className="mt-6! mb-4! text-xl text-neutral-800! md:px-4! dark:text-neutral-200!"
   >
     {children}
   </h2>
 );
 
 export const H3 = ({ children }) => (
-  <h3 className=" mt-4! mb-2! text-xl font-normal! text-neutral-800! md:px-4! dark:text-neutral-200!">
+  <h3 className="mt-4! mb-2! text-lg font-normal! text-neutral-800! md:px-4! dark:text-neutral-200!">
     {children}
   </h3>
 );
 
 export const H4 = ({ children }) => (
-  <h4 className=" my-4! text-lg font-normal! text-neutral-800! md:px-4! dark:text-neutral-200!">
+  <h4 className="text-md my-4! font-normal! text-neutral-800! md:px-4! dark:text-neutral-200!">
     {children}
   </h4>
 );
 export const H5 = ({ children }) => (
-  <h5 className=" my-3! text-base font-normal! text-neutral-800! md:px-4! dark:text-neutral-200!">
+  <h5 className="my-3! text-base font-normal! text-neutral-800! md:px-4! dark:text-neutral-200!">
     {children}
   </h5>
 );
 export const H6 = ({ children }) => (
-  <h6 className=" my-2! text-sm font-normal! text-neutral-800! md:px-4! dark:text-neutral-200!">
+  <h6 className="my-2! text-sm font-normal! text-neutral-800! md:px-4! dark:text-neutral-200!">
     {children}
   </h6>
 );

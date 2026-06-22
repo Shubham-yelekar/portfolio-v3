@@ -25,10 +25,12 @@ const item: Variants = {
     y: 0,
     filter: "blur(0px)",
     transition: {
-      //   type: "spring",
+      type: "spring",
       stiffness: 150,
       damping: 19,
       mass: 1.2,
+      staggerChildren: 0.12,
+      delayChildren: 0.08,
     },
   },
 };

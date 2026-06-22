@@ -65,7 +65,7 @@ const NotesFilter = ({ uniqueTags, notes }: propType) => {
           </span>
         ))}
       </div>
-      <div className="mt-12 flex flex-col gap-4">
+      <div className="group mt-12 flex flex-col px-2">
         {filteredProjects.map((post) => (
           <NotesItem key={post.slug} post={post} />
         ))}

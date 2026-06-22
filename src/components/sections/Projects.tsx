@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { GoArrowUpRight } from "react-icons/go";
-import { PiFoldersFill } from "react-icons/pi";
-
+import * as FadeIn from "@/app/lib/fade";
+import { FaD } from "react-icons/fa6";
 const ProjectsList = [
   {
     id: 1,
@@ -40,12 +40,8 @@ const mediaVariants = {
 const Projects = () => {
   return (
     <section className="flex flex-col items-center gap-8 px-4 md:gap-12">
-      <div className="flex w-full max-w-xl items-center justify-between px-4">
-        <div className="flex items-center justify-center gap-4">
-          <PiFoldersFill size={28} />
-
-          <h2 className="text-lg md:text-xl">Notes</h2>
-        </div>
+      <div className="flex w-full max-w-xl justify-between gap-4 px-0 md:px-4">
+        <h2 className="text-lg md:text-xl">Projects</h2>
 
         <Link
           href="/projects"
@@ -55,14 +51,14 @@ const Projects = () => {
         </Link>
       </div>
 
-      <div className="grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
+      <div className="grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-2">
         {ProjectsList.map((item, i) => (
           <Link
             href={`/projects/${item.slug}`}
             key={`${item.slug}-${i}`}
             className="group relative mb-8 flex max-w-2xl flex-col items-center gap-4 md:gap-6"
           >
-            <div className="aspect-5/4 scale-100 transform overflow-clip rounded-2xl transition-all duration-300 ease-in-out group-hover:scale-[1.02] group-hover:shadow-xl">
+            <div className="aspect-6/4 scale-100 transform overflow-clip rounded-2xl transition-all duration-300 ease-in-out group-hover:scale-[1.02] group-hover:shadow-xl">
               <video
                 width="600"
                 height="600"

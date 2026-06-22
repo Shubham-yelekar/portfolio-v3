@@ -8,14 +8,12 @@ const LabComponents = () => {
   const lab = getAllContentMeta("lab")
     .filter((item) => item.status === "live")
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 4);
+    .slice(0, 3);
 
   return (
     <section className="flex flex-col items-center gap-8 px-4 md:gap-12">
       <div className="flex w-full max-w-xl items-center justify-between px-4">
         <div className="flex items-center justify-center gap-4">
-          <PiFlaskFill size={28} />
-
           <h2 className="text-lg md:text-xl">Lab</h2>
         </div>
 
@@ -27,7 +25,7 @@ const LabComponents = () => {
         </Link>
       </div>
 
-      <div className="grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
+      <div className="grid max-w-5xl grid-cols-1 gap-2 md:grid-cols-3">
         {lab.map((item) => (
           <Link
             href={`/lab/${item.slug}`}

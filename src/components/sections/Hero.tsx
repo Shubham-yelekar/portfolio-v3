@@ -244,7 +244,7 @@ const Hero = () => {
         >
           <motion.div variants={textItem}>
             <div>
-              <h1 className="text-heading text-lg md:text-xl">
+              <h1 className="text-heading text-md md:text-lg">
                 Hi, I'm{" "}
                 <span
                   onMouseEnter={() => setActiveVideo(VIDEOS.shubham)}
@@ -254,7 +254,7 @@ const Hero = () => {
                   Shubham Yelekar
                 </span>
               </h1>
-              <h1 className="text-heading text-lg md:text-xl">
+              <h1 className="text-heading text-md md:text-lg">
                 Front-end{" "}
                 <span
                   onMouseEnter={() => setActiveVideo(VIDEOS.developer)}
@@ -270,7 +270,7 @@ const Hero = () => {
                   onMouseLeave={() => setActiveVideo(VIDEOS.default)}
                   className="cursor-pointer rounded-md bg-green-400/20 px-1 py-px transition-colors duration-100 hover:bg-green-300 dark:bg-green-400/20 hover:dark:bg-green-400"
                 >
-                  Design Engineering
+                  Design
                 </span>{" "}
                 foundation.
               </h1>

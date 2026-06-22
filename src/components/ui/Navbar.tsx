@@ -8,6 +8,7 @@ import { FaMoon } from "react-icons/fa";
 import cn from "@/app/lib/cn";
 import { sendGTMEvent } from "@next/third-parties/google";
 import {
+  AnimatePresence,
   easeInOut,
   hover,
   motion,
@@ -18,6 +19,7 @@ import {
 import { ThemeProvider, useTheme } from "next-themes";
 import { track } from "@vercel/analytics";
 import { IoMenu } from "react-icons/io5";
+import { IoIosMoon, IoIosSunny } from "react-icons/io";
 
 const Navbar = () => {
   const { theme, setTheme } = useTheme();
@@ -54,7 +56,7 @@ const Navbar = () => {
         duration: 0.3,
         ease: easeInOut,
       }}
-      className="border-px fixed top-4 left-1/2 z-100 flex w-40 -translate-x-1/2 items-center justify-between gap-3 rounded-full border border-neutral-800 bg-black p-2"
+      className="border-px fixed top-4 left-1/2 z-100 flex h-fit w-fit -translate-x-1/2 items-center justify-between gap-3 rounded-full border border-neutral-800 bg-black p-2"
     >
       <Link href={"/"}>
         <Image
@@ -66,7 +68,7 @@ const Navbar = () => {
         />
       </Link>
       <div className="flex items-center">
-        {/* {navLinks.map((links, idx) => (
+        {navLinks.map((links, idx) => (
           <Link
             key={idx}
             href={links.url}
@@ -79,47 +81,45 @@ const Navbar = () => {
             {hovered === idx && (
               <motion.span
                 layoutId="hovered-span"
-                className="absolute inset-0 -z-1 flex h-full w-full items-center justify-center rounded-full bg-neutral-50 dark:bg-neutral-700"
+                className="absolute inset-0 -z-1 flex h-full w-full items-center justify-center rounded-full bg-neutral-700"
               ></motion.span>
             )}
-            <span className="font-medium text-neutral-900 dark:text-neutral-100 dark:text-shadow-2xs">
-              {links.title}
-            </span>
+            <span className="font-medium text-neutral-100">{links.title}</span>
           </Link>
-        ))} */}
-        <span className="text-body text-xs text-neutral-400 dark:text-neutral-100">
+        ))}
+        {/* <span className="text-body text-xs text-neutral-400 dark:text-neutral-100">
           Menu
-        </span>
+        </span> */}
       </div>
       <button
         onClick={() => {
           sendGTMEvent({ button: "toggle" });
           toggeltheme();
         }}
-        className="relative h-5 w-5 cursor-pointer overflow-clip rounded-2xl bg-neutral-50 dark:bg-neutral-800"
+        className="relative grid h-5 w-5 cursor-pointer overflow-clip rounded-2xl"
       >
-        <motion.div
-          className="pointer-events-none absolute left-1/2 flex -translate-x-1/2 flex-col gap-3"
-          animate={{
-            y: theme === "light" ? -10 : -40,
-          }}
-          transition={{ stiffness: 200, damping: 20 }}
-        >
-          <motion.div
-            animate={{ rotate: theme === "light" ? 0 : -90 }}
-            transition={{ duration: 0.5 }}
-          >
-            <FaSun size={18} className="text-neutral-800" />
-          </motion.div>
-
-          <motion.div
-            animate={{ rotate: theme === "light" ? 90 : 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            {" "}
-            <FaMoon size={18} className="text-neutral-200" />
-          </motion.div>
-        </motion.div>
+        <AnimatePresence mode="wait" initial={false}>
+          {theme === "dark" ? (
+            <motion.div
+              className="grid-area-[1/1]"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.5 }}
+            >
+              <IoIosSunny size={18} className="text-neutral-100" />
+            </motion.div>
+          ) : (
+            <motion.div
+              className="grid-area-[1/1]"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.5 }}
+            >
+              {" "}
+              <IoIosMoon size={18} className="text-neutral-200" />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </button>
     </motion.nav>
   );

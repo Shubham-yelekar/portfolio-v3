@@ -64,7 +64,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               width={450}
               height={320}
             />
-            <h1 className=" m-0! px-2 text-3xl font-bold md:px-4 md:text-4xl">
+            <h1 className="m-0! px-2 text-lg font-medium md:px-4 md:text-xl">
               {meta.title}
             </h1>
             <p className="mt-2 px-2 md:px-4">{meta.summary}</p>

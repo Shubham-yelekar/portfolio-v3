@@ -13,8 +13,6 @@ const Blogs = () => {
     <Container text className="flex flex-col gap-6 md:gap-9">
       <div className="flex w-full max-w-xl items-center justify-between px-4">
         <div className="flex items-center justify-center gap-4">
-          <PiPenNibFill size={28} />
-
           <h2 className="text-lg md:text-xl">Notes</h2>
         </div>
 
