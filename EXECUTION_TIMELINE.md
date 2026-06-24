@@ -47,7 +47,7 @@ Decisions locked from the Blueprint: **Next App Router · SSG · TypeScript stri
 **What:** A clean, opinionated base.
 **How:**
 1. `create-next-app` (above). Set `tsconfig` to `strict`.
-2. Tailwind v4 + Radix Colors; define design tokens (color scales, type scale, spacing) in `globals.css`.
+2. Tailwind v4 with **native OKLCH design tokens** (color scales, type scale, spacing) in `globals.css` — no color-library dependency. (Optionally seed scales from Radix Colors *values*, copied as tokens, but don't add the package.)
 3. Tooling: Prettier (+ tailwind plugin), ESLint or Biome. Add `paths` alias `@/*`.
 4. Folder skeleton from Blueprint §12 (`content/`, `components/{mdx,motion,lab,three,ui}`, `lib/`, `app/`).
 **When:** Day 1 (~2–3 hrs).
@@ -87,7 +87,7 @@ npm i -D velite
 
 ### Day 5 — Layout shell & buffer
 **What:** App chrome.
-**How:** Navbar, footer, theme toggle (`next-themes`, no-flash), container/primitive `ui/` components. Buffer for slippage.
+**How:** `npm i @base-ui-components/react` for chrome primitives (menu/dialog/tooltip). Build navbar, footer, theme toggle (`next-themes`, no-flash) and a Base-UI-powered theme/command menu; container/primitive `ui/` components. **Lab components are NOT built here — they're hand-rolled in Phase 1.5.** Buffer for slippage.
 **When:** Day 5 (~2 hrs).
 **✅ Phase 0 exit demo:** add `content/blog/hello-world/index.mdx` → a styled, animated, validated page exists with zero other edits.
 
@@ -138,7 +138,7 @@ npm i -D velite
 
 ### Day 11–12 — Re-create lab components
 **What:** Rebuild the interactive components against the new architecture.
-**How:** Port accordion, tabs, toasts, keyboard, buttons, etc. from `portfolio-v3` — clean them up, type them, register each in `lab/registry.ts`, document each in an `.mdx`.
+**How:** Port accordion, tabs, toasts, keyboard, buttons, etc. from `portfolio-v3` — **hand-built, no headless component library** (this is the design-engineering showcase). Clean them up, type them, add full keyboard support + motion, register each in `lab/registry.ts`, document each in an `.mdx`.
 **When:** Days 11–12 (~5 hrs).
 **Done when:** Each lab component has a live demo + MDX doc, one registry line each.
 

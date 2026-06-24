@@ -90,7 +90,9 @@ If any content task requires editing a route file or a loader, the architecture 
 | Language | **TypeScript (strict)** | Type safety end-to-end |
 | Content | **Velite** | Build-time, typed, **validated** frontmatter; pre-compiles MDX (no per-request compile); the single biggest upgrade over a hand-rolled loader |
 | Validation | **Zod-style schema (via Velite)** | Typos fail the build, not production |
-| Styling | **Tailwind CSS v4 + Radix Colors** | Fast iteration, accessible color scales, theming |
+| Styling | **Tailwind CSS v4** (native OKLCH tokens) | Fast iteration, accessible scales, theming — **no color-library dependency**; designing the palette is itself a design-engineering signal |
+| Headless primitives (chrome only) | **Base UI** (`@base-ui-components/react`) | Modern successor to Radix Primitives (same lineage, actively maintained) for app chrome — dialog, menu, tooltip, command palette. **Not used in the Lab.** |
+| Lab components | **Hand-built from scratch** | The Lab's purpose is to *prove* I can build accessible, animated primitives myself — using a component library here would undercut the showcase |
 | Page transitions | **View Transitions API** (`next-view-transitions`) | Smooth shared-element morphs between routes |
 | Animation | **Motion** (Framer) | Stagger/entrance, springs, `prefers-reduced-motion` |
 | Code highlighting | **rehype-pretty-code + Shiki** | Dual light/dark themes, accurate tokenization |
@@ -185,7 +187,7 @@ The portfolio must *demonstrate*, not just *claim*, design-engineering ability:
 
 - **Page transitions** — View Transitions morphing shared elements (cover image → hero, title → heading) between list and detail. This is the signature "feel."
 - **Purposeful motion** — entrance stagger (opacity + blur + slight `y`, spring easing), micro-interactions on hover/press, never gratuitous. All gated by `prefers-reduced-motion`.
-- **The Lab** — a living gallery of interactive components (accordion, tabs, toasts, keyboard, etc.), each with a real demo + documented build. This is the strongest proof of craft.
+- **The Lab** — a living gallery of interactive components (accordion, tabs, toasts, keyboard, etc.), each **hand-built from scratch** (no headless component library) with a real demo + documented build, full keyboard support, and motion. This is the strongest proof of craft — the value is in *building* the primitive, not styling someone else's. (App chrome like the theme menu/command palette uses **Base UI** — that's plumbing, not showcase.)
 - **3D / shader hero (phase 2)** — an interactive WebGL centerpiece, lazy-loaded as an island so it dazzles without hurting content performance.
 - **Typography & restraint** — strong type scale, generous spacing, light/dark parity — the discipline that separates design engineers from "devs who add animations."
 
